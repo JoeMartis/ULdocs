@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module Author Guides — Fixatron2000</title>
+<!--
+  Landing page for course/module authors. Drop-in for GitHub Pages.
+  The guide pages (content-authoring-guide.html, etc.) are generated from the
+  Markdown in docs/ by scripts/build_guide_html.py — rerun that after editing a
+  guide. Explain2Me is an external tool.
+-->
+<style>
+  :root {
+    --bg: #f6f8fa; --card: #ffffff; --ink: #1b1f24; --muted: #57606a;
+    --accent: #1f497d; --accent-2: #2f6db3; --border: #d8dee4; --shadow: rgba(27,31,36,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --card: #161b22; --ink: #e6edf3; --muted: #9198a1;
+      --accent: #6ea8fe; --accent-2: #8ab4f8; --border: #30363d; --shadow: rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f8fa; --card: #ffffff; --ink: #1b1f24; --muted: #57606a;
+    --accent: #1f497d; --accent-2: #2f6db3; --border: #d8dee4; --shadow: rgba(27,31,36,.08);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1117; --card: #161b22; --ink: #e6edf3; --muted: #9198a1;
+    --accent: #6ea8fe; --accent-2: #8ab4f8; --border: #30363d; --shadow: rgba(0,0,0,.4);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  header { margin-bottom: 2.25rem; }
+  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; }
+  h1 { margin: .35rem 0 .5rem; font-size: 2rem; line-height: 1.15; }
+  .lede { color: var(--muted); font-size: 1.05rem; max-width: 60ch; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  a.card {
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem 1.25rem 1.35rem; box-shadow: 0 1px 2px var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  a.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow); border-color: var(--accent); }
+  a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .card .num { font-size: .78rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+  .card h2 { margin: .35rem 0 .4rem; font-size: 1.12rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+  .card .go { margin-top: .9rem; color: var(--accent-2); font-weight: 600; font-size: .9rem; }
+  .card .go::after { content: " →"; }
+  .tool { border-style: dashed; }
+  .tool .num { color: var(--accent-2); }
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+  footer a { color: var(--accent-2); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Fixatron2000</div>
+      <h1>Module Author Guides</h1>
+      <p class="lede">Everything you need to author course content that passes QA — how to write it,
+      how to enter each problem type, and how the automated checks judge your work.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="content-authoring-guide.html">
+        <span class="num">GUIDE 01</span>
+        <h2>Content Authoring Guide</h2>
+        <p>General writing, formatting, terminology, and page-structure rules for course content.</p>
+        <span class="go">Open</span>
+      </a>
+
+      <a class="card" href="problem-authoring-guide.html">
+        <span class="num">GUIDE 02</span>
+        <h2>Problem Authoring Guide</h2>
+        <p>How to author each problem type in the Word template, with worked examples and what makes a strong explanation.</p>
+        <span class="go">Open</span>
+      </a>
+
+      <a class="card" href="math-markup.html">
+        <span class="num">GUIDE 03</span>
+        <h2>Accessible Math &amp; Science Markup</h2>
+        <p>How to write math and science notation so screen readers read it correctly.</p>
+        <span class="go">Open</span>
+      </a>
+
+      <a class="card" href="attempts-policy.html">
+        <span class="num">REFERENCE</span>
+        <h2>Attempts Policy</h2>
+        <p>How many attempts each problem type gets in knowledge checks and assignments.</p>
+        <span class="go">Open</span>
+      </a>
+
+      <a class="card" href="rule-reference.html">
+        <span class="num">REFERENCE</span>
+        <h2>Rule Reference</h2>
+        <p>The full list of checks Fixatron2000 runs, with what each one looks for.</p>
+        <span class="go">Open</span>
+      </a>
+
+      <a class="card tool" href="https://joemartis.github.io/Explain2Me/">
+        <span class="num">TOOL ↗</span>
+        <h2>Explain2Me</h2>
+        <p>Paste an explanation and get instant feedback against the quality criteria before you submit.</p>
+        <span class="go">Open the tool</span>
+      </a>
+    </div>
+
+    <footer>
+      Bookmark this page. Guides are updated regularly — check back for the latest.
+    </footer>
+  </div>
+</body>
+</html>

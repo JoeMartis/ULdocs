@@ -1,0 +1,1777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixatron2000 Rule Reference — Fixatron2000</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
+  width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body">
+<h1 id="fixatron2000-rule-reference">Fixatron2000 Rule Reference</h1>
+<blockquote>
+<p>Auto-generated from <code>config/rules.default.json</code> by <code>scripts/gen-rules-doc.mjs</code> (<code>npm run docs:rules</code>). Do not edit by hand. This is the complete default ruleset; program profiles (e.g. UBio) enable/disable and tune a subset — see <code>docs/PROFILES.md</code>.</p>
+</blockquote>
+<p><strong>133 rules</strong> across <strong>26 categories</strong> — 120 static, 13 AI-powered.</p>
+<p>By severity: <strong>60 error</strong>, <strong>67 warning</strong>, <strong>6 info</strong>. <strong>103 on</strong> by default, <strong>30 off</strong> (opt-in per program — most of the biology/writing/prompt/objective rules ship off).</p>
+<p>Assisted correction: <strong>19 rules auto-fix</strong>, <strong>8 offer a suggestion</strong> (see the end of this file).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td><code>error</code> blocks publish-readiness · <code>warning</code> should be reviewed · <code>info</code> advisory only</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td><code>static</code> runs locally in &lt;1s · <code>ai</code> calls Claude (requires API key)</td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>✓ on out-of-the-box · ✗ opt-in (enabled per program)</td>
+</tr>
+<tr>
+<td><strong>Fix / Suggest</strong></td>
+<td><code>auto-fix</code> edits the file (revertable) · <code>suggest</code> proposes text to apply · <code>—</code> detect-only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="categories">Categories</h2>
+<ul>
+<li><a href="#assignments">Assignments</a> (20)</li>
+<li><a href="#knowledge-checks">Knowledge Checks</a> (12)</li>
+<li><a href="#content-quality">Content Quality</a> (10)</li>
+<li><a href="#lectures">Lectures</a> (9)</li>
+<li><a href="#learning-objectives">Learning Objectives</a> (7)</li>
+<li><a href="#library-content">Library Content</a> (7)</li>
+<li><a href="#recitations">Recitations</a> (7)</li>
+<li><a href="#admin">Admin</a> (7)</li>
+<li><a href="#writing-style">Writing Style</a> (6)</li>
+<li><a href="#question-prompts">Question Prompts</a> (6)</li>
+<li><a href="#biology-terminology">Biology Terminology</a> (6)</li>
+<li><a href="#fonts">Fonts</a> (4)</li>
+<li><a href="#transcripts">Transcripts</a> (4)</li>
+<li><a href="#custom-pages">Custom Pages</a> (4)</li>
+<li><a href="#video">Video</a> (3)</li>
+<li><a href="#terms">Terms</a> (3)</li>
+<li><a href="#module-summary">Module Summary</a> (3)</li>
+<li><a href="#accessibility">Accessibility</a> (3)</li>
+<li><a href="#structure">Structure</a> (3)</li>
+<li><a href="#pdf-slides">PDF Slides</a> (2)</li>
+<li><a href="#broken-references">Broken References</a> (2)</li>
+<li><a href="#lists">Lists</a> (1)</li>
+<li><a href="#bolding">Bolding</a> (1)</li>
+<li><a href="#headings">Headings</a> (1)</li>
+<li><a href="#asktim">AskTIM</a> (1)</li>
+<li><a href="#summaries">Summaries</a> (1)</li>
+</ul>
+<hr />
+<h2 id="assignments">Assignments</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assignment Explanation Quality</strong></td>
+<td><code>assignments-explanation-quality</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Uses AI to evaluate whether assignment solution explanations provide enough detail for learners to understand the underlying concepts.</td>
+</tr>
+<tr>
+<td><strong>No Truncated Answer Options</strong></td>
+<td><code>assignments-truncated-options</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to detect assignment answer choices that appear incomplete or cut off during authoring, which can confuse learners.</td>
+</tr>
+<tr>
+<td><strong>Assignment Naming</strong></td>
+<td><code>assignments-naming</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures assignments follow the standard naming pattern: "Assignment N: Part N" for consistency across the course.</td>
+</tr>
+<tr>
+<td><strong>Question Numbering</strong></td>
+<td><code>assignments-question-numbering</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that assignment questions are numbered sequentially from "Question 1" through "Question N" with no gaps or duplicates.</td>
+</tr>
+<tr>
+<td><strong>Multiple Choice Attempts</strong></td>
+<td><code>assignments-attempts-multiple-choice</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures multiple-choice assignment problems allow exactly 2 attempts, balancing learner practice with assessment rigor. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Checkbox Attempts</strong></td>
+<td><code>assignments-attempts-checkbox</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures standard checkbox assignment problems allow exactly 3 attempts, since selecting multiple correct answers is harder. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Complex Checkbox Attempts</strong></td>
+<td><code>assignments-attempts-complex-checkbox</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures checkbox problems with more than 5 answer options allow exactly 4 attempts, since these are significantly harder. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Problem Bank 2-Option MC Attempts</strong></td>
+<td><code>assignments-attempts-problem-bank-2option</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures multiple-choice problems from problem banks with only 2 options allow exactly 1 attempt, since a second try would be a guaranteed correct answer. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Numerical Input Attempts</strong></td>
+<td><code>assignments-attempts-numerical</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures numerical input assignment problems allow exactly 3 attempts, giving learners room to correct calculation errors. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Dropdown Attempts</strong></td>
+<td><code>assignments-attempts-dropdown</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures dropdown (option response) problems allow attempts scaled to the option count: 1 attempt for 2 options, 2 attempts for 3–4 options. Dropdowns with 5+ options are left to the "Too Many Options" rule. Scans assignments by default; set params.scope to "all" to also cover knowledge checks. The effective value accounts for edX inheritance.</td>
+</tr>
+<tr>
+<td><strong>Simple Checkbox Attempts</strong></td>
+<td><code>assignments-attempts-checkbox-simple</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures checkbox problems with 4 or fewer answer options allow exactly 2 attempts, since fewer options makes the task closer to single-answer difficulty. Scans assignments by default; set params.scope to "all" to also cover knowledge checks.</td>
+</tr>
+<tr>
+<td><strong>Text Response Attempts</strong></td>
+<td><code>assignments-attempts-text</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures text/short-answer (string response) assignment problems allow a set number of attempts (expectedAttempts param). Scans assignments by default; set params.scope to "all" to also cover knowledge checks. Disabled by default; enable and set the count per program.</td>
+</tr>
+<tr>
+<td><strong>Show Answer Setting</strong></td>
+<td><code>assignments-showanswer</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures the "show answer" setting is configured to "after_all_attempts_or_correct" so learners must try the problem before seeing the answer.</td>
+</tr>
+<tr>
+<td><strong>Explanation Present</strong></td>
+<td><code>assignments-explanation-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Verifies that every assignment problem has a complete solution explanation to support learning from mistakes.</td>
+</tr>
+<tr>
+<td><strong>Explanation Not Question Copy</strong></td>
+<td><code>assignments-explanation-not-question</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects when the question text was accidentally copied into the explanation field instead of writing an actual explanation.</td>
+</tr>
+<tr>
+<td><strong>Overview and Summary Pages</strong></td>
+<td><code>assignments-overview-summary</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each assignment includes both an overview page (introducing the assignment) and a summary page (wrapping it up).</td>
+</tr>
+<tr>
+<td><strong>Assignment Not Blank</strong></td>
+<td><code>assignments-not-blank</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects assignment sections that have no content, which usually indicates incomplete course development.</td>
+</tr>
+<tr>
+<td><strong>Label Present</strong></td>
+<td><code>assignments-label-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures each assignment problem has a <label> element containing the question text, which is required for screen reader accessibility.</td>
+</tr>
+<tr>
+<td><strong>Correct Answer Marked</strong></td>
+<td><code>assignments-correct-answer</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every choice-based assignment problem has at least one answer marked as correct. Problems without a correct answer can never be completed.</td>
+</tr>
+<tr>
+<td><strong>Notebook Links</strong></td>
+<td><code>assignments-notebook-links</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>When a Jupyter notebook is referenced in an assignment, verifies that the link points to the correct notebook file.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="knowledge-checks">Knowledge Checks</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Knowledge Check Naming</strong></td>
+<td><code>knowledge-checks-naming</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures knowledge checks follow the standard naming pattern: "Knowledge Check: Question N" (where N is the question number), optionally preceded by a topic prefix like "Editing: ".</td>
+</tr>
+<tr>
+<td><strong>Knowledge Check Named After Video</strong></td>
+<td><code>knowledge-checks-video-name</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Biology naming convention: a knowledge check is named after the video that precedes it in the module, e.g. "Knowledge Check: Molecular Biology Experiment". When a video has two or more knowledge checks, they take an A/B/C… suffix ("Knowledge Check A: …", "Knowledge Check B: …"). An alternative to the "Question N" naming rule; disabled by default, enable per program.</td>
+</tr>
+<tr>
+<td><strong>Sequential Numbering</strong></td>
+<td><code>knowledge-checks-sequential-numbering</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that knowledge checks are numbered sequentially across each module with no gaps or duplicates.</td>
+</tr>
+<tr>
+<td><strong>Max Attempts</strong></td>
+<td><code>knowledge-checks-max-attempts</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures knowledge check problems allow the expected number of attempts (default 3; knowledge checks are low-stakes formative assessments). Individual problem types can require a different count via params.perTypeAttempts — in biology, numerical and text (string) problems allow 5. Problem types listed in params.excludeProblemTypes are governed instead by their own option-scaled attempt rules — in biology, multiple-choice, checkbox, and dropdown. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+</tr>
+<tr>
+<td><strong>Complex Checkbox Attempts</strong></td>
+<td><code>knowledge-checks-complex-checkbox-attempts</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Deprecated — all knowledge check problems now use 3 attempts via the Max Attempts rule. Previously gave complex checkboxes (5+ options) an extra attempt.</td>
+</tr>
+<tr>
+<td><strong>Show Answer Setting</strong></td>
+<td><code>knowledge-checks-showanswer</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures the "show answer" setting is configured to "after_all_attempts_or_correct" so learners must attempt the problem before seeing the answer.</td>
+</tr>
+<tr>
+<td><strong>Explanation Present</strong></td>
+<td><code>knowledge-checks-explanation-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Verifies that every knowledge check has a non-empty solution/explanation block, so learners understand why the answer is correct. Whether that explanation is labeled with the word "Explanation" is checked separately by knowledge-checks-explanation-keyword.</td>
+</tr>
+<tr>
+<td><strong>Explanation Keyword</strong></td>
+<td><code>knowledge-checks-explanation-keyword</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Warns when a knowledge check has an explanation that does not include the word "Explanation" (a labeling convention). A trivial wording fix, so this is a warning with no AI suggestion.</td>
+</tr>
+<tr>
+<td><strong>Label Present</strong></td>
+<td><code>knowledge-checks-label-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures each knowledge check problem has a <label> element containing the question text, which is required for screen reader accessibility.</td>
+</tr>
+<tr>
+<td><strong>Correct Answer Marked</strong></td>
+<td><code>knowledge-checks-correct-answer</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every choice-based knowledge check has at least one answer marked as correct. Problems without a correct answer can never be completed.</td>
+</tr>
+<tr>
+<td><strong>Knowledge Check Explanation Quality</strong></td>
+<td><code>knowledge-checks-explanation-quality</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Uses AI to evaluate whether solution explanations are detailed enough to help learners understand the concept, not just the correct answer.</td>
+</tr>
+<tr>
+<td><strong>No Truncated Answer Options</strong></td>
+<td><code>knowledge-checks-truncated-options</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to detect answer choices that appear incomplete or cut off during authoring, which can confuse learners.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="content-quality">Content Quality</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Empty HTML Components</strong></td>
+<td><code>html-empty-content</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects HTML components that are blank or contain only whitespace, which appear as empty space to learners.</td>
+</tr>
+<tr>
+<td><strong>No Duplicate Choices</strong></td>
+<td><code>problem-duplicate-choices</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects multiple-choice and checkbox problems that have identical answer choices, which confuse learners and indicate a copy-paste error.</td>
+</tr>
+<tr>
+<td><strong>No Single-Choice Questions</strong></td>
+<td><code>problem-single-choice</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures multiple-choice problems have at least 2 answer choices. A single choice makes the question trivial.</td>
+</tr>
+<tr>
+<td><strong>Links Open New Window</strong></td>
+<td><code>links-open-new-window</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures links to Jupyter notebooks (.ipynb) and PDF slides open in a new window (target="_blank") so learners don't lose their place in the course.</td>
+</tr>
+<tr>
+<td><strong>No Paste Artifacts in Problems</strong></td>
+<td><code>problem-paste-artifacts</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Detects Word/Office or AI (ChatGPT) copy-paste artifacts in problem XML, such as mso-* styles, data-start attributes, or ChatGPT wrapper markup.</td>
+</tr>
+<tr>
+<td><strong>No Empty Paragraphs</strong></td>
+<td><code>html-empty-paragraphs</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Detects empty paragraph tags (<p></p>, <p/>, or <p>&nbsp;</p>) that create unwanted blank space in the content.</td>
+</tr>
+<tr>
+<td><strong>No Empty Choices</strong></td>
+<td><code>problem-empty-choice</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects answer choices that are blank or contain only whitespace, which usually indicates the problem was not fully authored.</td>
+</tr>
+<tr>
+<td><strong>No Option Letters or Numbers</strong></td>
+<td><code>problem-option-labels</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Flags answer choices that are hand-labeled with a letter or number ("A. ", "1) ", "(a) ") and explanations that refer to a choice by its position ("option B", "the first choice"). edX shuffles option order, so hand-typed labels and positional references end up wrong.</td>
+</tr>
+<tr>
+<td><strong>Dropdown Correct Answer Matches an Option</strong></td>
+<td><code>problem-dropdown-correct-match</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>For dropdown (option response) problems that mark the correct answer with a correct="…" attribute, verifies that value exactly matches one of the listed options. A stray space or typo makes no option correct, so the problem can never be completed.</td>
+</tr>
+<tr>
+<td><strong>Too Many Answer Options</strong></td>
+<td><code>problem-too-many-options</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags multiple-choice, checkbox, and dropdown problems with more than 4 answer options in a single response group (5 or more), which the faculty guide flags for rewrite or double-checking. Threshold configurable via params.maxOptions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lectures">Lectures</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lecture Naming</strong></td>
+<td><code>lectures-naming</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures lectures follow the standard naming pattern: "L X.Y" followed by the topic name (e.g., "L 1.2 Introduction to Python").</td>
+</tr>
+<tr>
+<td><strong>Overview Present</strong></td>
+<td><code>lectures-overview-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each lecture includes an overview page with learning objectives so learners know what to expect.</td>
+</tr>
+<tr>
+<td><strong>Summary Present</strong></td>
+<td><code>lectures-summary-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each lecture includes a summary page to reinforce key concepts covered in the lecture.</td>
+</tr>
+<tr>
+<td><strong>Summary Key Takeaways</strong></td>
+<td><code>lectures-summary-takeaways</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that each lecture summary includes a list of key takeaways to help learners remember the most important points.</td>
+</tr>
+<tr>
+<td><strong>Overview Bold Title</strong></td>
+<td><code>lectures-overview-bold-title</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the lecture title is bolded in the overview page for visual prominence and consistent formatting.</td>
+</tr>
+<tr>
+<td><strong>Overview Bold Professor</strong></td>
+<td><code>lectures-overview-bold-professor</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the professor's name is bolded in the lecture overview page for consistent formatting.</td>
+</tr>
+<tr>
+<td><strong>Video Duration</strong></td>
+<td><code>lectures-video-duration</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that lecture videos are between 5 and 10 minutes long. Shorter videos may lack depth; longer ones reduce learner engagement.</td>
+</tr>
+<tr>
+<td><strong>Title Matches Video</strong></td>
+<td><code>lectures-title-matches-video</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the unit title matches the embedded video title, catching cases where videos were placed in the wrong unit.</td>
+</tr>
+<tr>
+<td><strong>Lecture Not Blank</strong></td>
+<td><code>lectures-not-blank</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects lecture units that have no content, which usually indicates incomplete course development.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bold Topics in Objectives</strong></td>
+<td><code>learning-objectives-bold-topics</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that key topic names in learning objectives are bolded with <strong> tags for visual emphasis and scannability.</td>
+</tr>
+<tr>
+<td><strong>AskTIM on Objectives</strong></td>
+<td><code>learning-objectives-asktim</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the AskTIM chat assistant is enabled on learning objectives pages so learners can ask questions about what they'll learn.</td>
+</tr>
+<tr>
+<td><strong>Avoid Vague Objective Verbs</strong></td>
+<td><code>learning-objectives-vague-verbs</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags learning objectives that begin with vague, non-measurable verbs (e.g. "understand", "know", "be familiar with"); objectives should use measurable action verbs from Bloom's taxonomy. The deterministic counterpart to the AI "Measurable Objective Verbs" check.</td>
+</tr>
+<tr>
+<td><strong>Objectives Use Bullet Points</strong></td>
+<td><code>learning-objectives-use-bullets</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags learning objectives presented as a numbered list (<ol>) rather than bullet points (<ul>).</td>
+</tr>
+<tr>
+<td><strong>Objectives Introductory Stem</strong></td>
+<td><code>learning-objectives-stem-format</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Checks that a learning-objectives list is introduced with an expected stem, e.g. "At the end of this ___, you will/should be able to:" or "Our goals for this ___ are:".</td>
+</tr>
+<tr>
+<td><strong>Measurable Objective Verbs</strong></td>
+<td><code>learning-objectives-action-verbs</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to check that learning objectives begin with specific, measurable action verbs (Bloom's taxonomy) rather than vague verbs like "understand" or "be familiar with".</td>
+</tr>
+<tr>
+<td><strong>Student-Centered Objectives</strong></td>
+<td><code>learning-objectives-student-centered</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to check that learning objectives are student-centered — framed as what the learner will be able to do ("students will be able to ...") — rather than instructor- or content-centered ("this lecture covers ...").</td>
+</tr>
+</tbody>
+</table>
+<h2 id="library-content">Library Content</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Truncated Answer Options</strong></td>
+<td><code>library-content-truncated-options</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to detect problem bank answer choices that appear incomplete or cut off during authoring, which can confuse learners.</td>
+</tr>
+<tr>
+<td><strong>Explanation Present</strong></td>
+<td><code>library-content-explanation-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Verifies that every problem in the shared problem bank has a non-empty solution/explanation block. Whether that explanation is labeled with the word "Explanation" is checked separately by library-content-explanation-keyword.</td>
+</tr>
+<tr>
+<td><strong>Explanation Keyword</strong></td>
+<td><code>library-content-explanation-keyword</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Warns when a problem-bank problem has an explanation that does not include the word "Explanation" (a labeling convention). A trivial wording fix, so this is a warning with no AI suggestion.</td>
+</tr>
+<tr>
+<td><strong>Label Present</strong></td>
+<td><code>library-content-label-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures problem bank problems have a <label> or <div> element containing the question text for accessibility.</td>
+</tr>
+<tr>
+<td><strong>Correct Answer Marked</strong></td>
+<td><code>library-content-correct-answer</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every choice-based problem in the problem bank has at least one answer marked as correct.</td>
+</tr>
+<tr>
+<td><strong>Explanation Not Question Copy</strong></td>
+<td><code>library-content-explanation-not-question</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Detects when the solution text is just a copy of the question text, which usually indicates the explanation was not actually written.</td>
+</tr>
+<tr>
+<td><strong>Library Content Explanation Quality</strong></td>
+<td><code>library-content-explanation-quality</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Uses AI to evaluate whether problem bank solution explanations are detailed enough to support deeper learning beyond just knowing the answer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recitations">Recitations</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recitation Naming</strong></td>
+<td><code>recitations-naming</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures recitations follow the standard naming pattern: "R X.Y" followed by the topic name (e.g., "R 1.2 Data Wrangling Practice").</td>
+</tr>
+<tr>
+<td><strong>Overview Present</strong></td>
+<td><code>recitations-overview-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each recitation includes an overview page introducing what will be covered.</td>
+</tr>
+<tr>
+<td><strong>Summary Present</strong></td>
+<td><code>recitations-summary-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each recitation includes a summary page to reinforce key concepts.</td>
+</tr>
+<tr>
+<td><strong>Overview Bold Title</strong></td>
+<td><code>recitations-overview-bold-title</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the recitation title is bolded in the overview page for consistent formatting.</td>
+</tr>
+<tr>
+<td><strong>Overview Bold Professor</strong></td>
+<td><code>recitations-overview-bold-professor</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the professor's name is bolded in the recitation overview page for consistent formatting.</td>
+</tr>
+<tr>
+<td><strong>Video Duration</strong></td>
+<td><code>recitations-video-duration</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that recitation videos are between 5 and 10 minutes long to maintain learner engagement.</td>
+</tr>
+<tr>
+<td><strong>Title Matches Video</strong></td>
+<td><code>recitations-title-matches-video</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the unit title matches the embedded video title, catching misplaced videos.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="admin">Admin</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Homework Grading Weight</strong></td>
+<td><code>admin-grading-homework-weight</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures the Homework grading category is weighted at 20% of the total grade.</td>
+</tr>
+<tr>
+<td><strong>Assignment Grading Weight</strong></td>
+<td><code>admin-grading-assignment-weight</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures the Assignment grading category is weighted at 80% of the total grade.</td>
+</tr>
+<tr>
+<td><strong>Self-Paced Mode</strong></td>
+<td><code>admin-self-paced</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures the course is set to self-paced mode, allowing learners to progress at their own speed.</td>
+</tr>
+<tr>
+<td><strong>Start Date Future</strong></td>
+<td><code>admin-start-date-future</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures the course start date is set and is in the future. A start date in the past means the course may already be visible to learners.</td>
+</tr>
+<tr>
+<td><strong>Beta Days Early</strong></td>
+<td><code>admin-beta-days</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures days_early_for_beta is set to 365 so beta testers can access the course a full year before the start date.</td>
+</tr>
+<tr>
+<td><strong>Discussions Disabled</strong></td>
+<td><code>admin-discussions-disabled</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures the global Discussions tab is hidden, since this course uses alternative discussion mechanisms.</td>
+</tr>
+<tr>
+<td><strong>No Discussions in Sections</strong></td>
+<td><code>admin-discussions-enabled-in-sections</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures no individual sections have discussion_enabled set to true, preventing stray discussion threads in the course content.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="writing-style">Writing Style</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Avoid "Please"</strong></td>
+<td><code>writing-avoid-please</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags use of "please" in instructional text. Course directions should be stated directly (e.g. "Select the best answer" rather than "Please select the best answer").</td>
+</tr>
+<tr>
+<td><strong>Space Between Number and Unit</strong></td>
+<td><code>writing-number-unit-space</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags a number written with no space before its unit — "37°C" instead of "37 °C", "5kg" instead of "5 kg". Standard scientific notation always puts a space between the numeric value and the unit symbol (including the degree symbol). Covers the degree symbol (literal or &deg; entity) and a list of multi-character units; single-letter units are excluded to avoid false positives (1990s, 100s). Percent is opt-in via params.flagPercent; extend the unit list via params.extraUnits.</td>
+</tr>
+<tr>
+<td><strong>Avoid US Idioms</strong></td>
+<td><code>text-avoid-idioms</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags US idioms and figurative phrases ("break a leg", "reach out", "a piece of cake") in HTML, problems, and video transcripts, which can confuse learners reading English as a second language. Prefer a literal phrasing. Override or extend the phrase list via params.idioms.</td>
+</tr>
+<tr>
+<td><strong>No Contractions</strong></td>
+<td><code>writing-no-contractions</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags contractions (don't, it's, you're, etc.) in instructional and problem text, in favor of a more formal tone. Possessives ("the cell's membrane") are not flagged.</td>
+</tr>
+<tr>
+<td><strong>Active Voice</strong></td>
+<td><code>writing-active-voice</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to flag instructional text that relies heavily on passive voice where active voice would read more clearly.</td>
+</tr>
+<tr>
+<td><strong>Oxford Comma</strong></td>
+<td><code>writing-oxford-comma</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to flag lists of three or more items that omit the serial (Oxford) comma before the final "and"/"or".</td>
+</tr>
+</tbody>
+</table>
+<h2 id="question-prompts">Question Prompts</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Multiple Choice: "Select the best answer"</strong></td>
+<td><code>prompts-mc-select-best-answer</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures single-answer multiple-choice problems include the instruction "Select the best answer." so learners know exactly one option is expected.</td>
+</tr>
+<tr>
+<td><strong>Checkbox: "Select all that apply"</strong></td>
+<td><code>prompts-checkbox-select-all</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures checkbox (multi-answer) problems include the instruction "Select all that apply." so learners know more than one option may be correct.</td>
+</tr>
+<tr>
+<td><strong>Numerical: Answer-Format Instruction</strong></td>
+<td><code>prompts-numerical-answer-format</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures numerical-input problems tell the learner how to format their answer. The expected phrase depends on the answer type: whole number ("Enter your answer as a whole number in the space provided."), percentage ("Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response."), or decimal ("Enter your answer as a decimal to two significant figures.").</td>
+</tr>
+<tr>
+<td><strong>Dropdown: "Use the drop-down options to …"</strong></td>
+<td><code>prompts-dropdown-instruction</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures dropdown (option response) problems include a prompt beginning "Use the drop-down options to …" (the remainder is question-specific).</td>
+</tr>
+<tr>
+<td><strong>Open-Ended: Auto-Credit Phrase</strong></td>
+<td><code>prompts-open-ended-credit-phrase</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Ensures open-ended one-sentence problems that auto-grade any non-empty answer as correct (a customresponse with a textline and an any-answer check) end with "Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts."</td>
+</tr>
+<tr>
+<td><strong>Answer Option Formatting</strong></td>
+<td><code>prompts-answer-option-format</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to check answer-choice capitalization and terminal punctuation. Phrase options that complete a fill-in-the-blank stem should start lowercase; for standalone questions, leading capitals are accepted. A terminal period is expected only on full-sentence options.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="biology-terminology">Biology Terminology</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Avoid "PCR reaction"</strong></td>
+<td><code>bio-pcr-reaction</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags the redundant phrase "PCR reaction", including prefixed variants (qPCR, RT-PCR, ddPCR, real-time PCR) — the R in PCR already stands for "reaction".</td>
+</tr>
+<tr>
+<td><strong>Avoid Possessives on Scientific Terms</strong></td>
+<td><code>bio-active-site-possessive</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags the possessive form of scientific terms (e.g. "protein's", "DNA's", "cell's", "gene's") regardless of the following word — prefer "the active site of the protein" over "the protein's active site".</td>
+</tr>
+<tr>
+<td><strong>Dideoxy (Sanger) sequencing</strong></td>
+<td><code>bio-sanger-dideoxy</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags bare "Sanger sequencing"; the method should be introduced as "dideoxy (Sanger) sequencing".</td>
+</tr>
+<tr>
+<td><strong>Address learners as "you"</strong></td>
+<td><code>bio-address-as-you</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags "student"/"user" in prose in favor of addressing the reader directly as "you". Per faculty, "learner" is the accepted third-person term (used in Universal) and is not flagged.</td>
+</tr>
+<tr>
+<td><strong>Italicize biological nomenclature</strong></td>
+<td><code>bio-italics-nomenclature</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to check that genus/species names, gene symbols, and restriction-enzyme prefixes are italicized, and that protein names are not.</td>
+</tr>
+<tr>
+<td><strong>Dominant/Recessive Describes the Trait</strong></td>
+<td><code>bio-phenotype-dominance</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Per faculty convention, a phenotype/trait is dominant or recessive — an allele, gene, or mutation is not. Flags "dominant"/"recessive" attached to "allele", "gene", or "mutation" (e.g. "the dominant allele") and suggests rephrasing (e.g. "the allele encoding the dominant trait"). "Dominant trait", "recessive phenotype", "dominant eye color" are correct and not flagged.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fonts">Fonts</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Custom Font Family</strong></td>
+<td><code>fonts-family-default</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures no inline font-family styles are applied. Custom fonts break the platform's consistent look and may not render correctly on all devices.</td>
+</tr>
+<tr>
+<td><strong>No Custom Font Size</strong></td>
+<td><code>fonts-size-default</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures no inline font-size styles are applied. Custom font sizes override the platform's responsive typography and can harm readability.</td>
+</tr>
+<tr>
+<td><strong>No Custom Font Color</strong></td>
+<td><code>fonts-color-default</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures no inline color styles are applied. Custom colors can break accessibility contrast requirements and visual consistency.</td>
+</tr>
+<tr>
+<td><strong>No Copy-Paste Artifacts</strong></td>
+<td><code>word-paste-artifacts</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso-<em> styles, Mso</em> classes, <o:p> tags, <font> tags, and AI-generated data attributes like data-start and data-end.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transcripts">Transcripts</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transcript Present</strong></td>
+<td><code>transcripts-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every video has an associated transcript file. Transcripts are required for accessibility and aid comprehension.</td>
+</tr>
+<tr>
+<td><strong>Transcript Downloadable</strong></td>
+<td><code>transcripts-downloadable</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that transcripts have download_track set to true so learners can download them for offline use.</td>
+</tr>
+<tr>
+<td><strong>Instructor Speaker Name</strong></td>
+<td><code>transcripts-instructor-speaker</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that all transcripts use "INSTRUCTOR" as the speaker name for consistency across the course.</td>
+</tr>
+<tr>
+<td><strong>Transcripts Not Empty</strong></td>
+<td><code>transcripts-not-empty</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures transcript SRT files contain real content (at least 10 lines) and are not empty or placeholder-only files.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="custom-pages">Custom Pages</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resources Tab Exists</strong></td>
+<td><code>custom-pages-resources-exists</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the course includes a Resources tab where learners can find supplemental materials.</td>
+</tr>
+<tr>
+<td><strong>Glossary Tab Exists</strong></td>
+<td><code>custom-pages-glossary-exists</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the course includes a Glossary tab defining key terms used throughout the course.</td>
+</tr>
+<tr>
+<td><strong>Attributions Tab Exists</strong></td>
+<td><code>custom-pages-attributions-exists</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks for an Attributions tab that credits third-party content used in the course.</td>
+</tr>
+<tr>
+<td><strong>Glossary Course Name</strong></td>
+<td><code>custom-pages-glossary-course-name</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the glossary page references the correct course name, catching cases where a glossary was copied from another course.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="video">Video</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Video Present</strong></td>
+<td><code>video-present</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every lecture and recitation vertical contains a video component. Missing videos indicate incomplete content.</td>
+</tr>
+<tr>
+<td><strong>Video Downloadable</strong></td>
+<td><code>video-downloadable</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that videos have download_video set to true so learners can download them for offline viewing.</td>
+</tr>
+<tr>
+<td><strong>Unique Video Name in Module</strong></td>
+<td><code>video-unique-name-in-module</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Flags two or more videos sharing the same display name within one module (chapter). Duplicate video names cause knowledge checks named after their video to collide.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="terms">Terms</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Learner Not Student</strong></td>
+<td><code>terms-learner-not-student</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">suggest</td>
+<td>Ensures inclusive language by checking that content uses "learner(s)" instead of "student", "user", or second-person "you".</td>
+</tr>
+<tr>
+<td><strong>Acronym Plural Consistency</strong></td>
+<td><code>terms-acronym-consistency</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">ai</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Uses AI to check that acronyms are pluralized consistently throughout the course (e.g., always "APIs" or always "API's", not a mix).</td>
+</tr>
+<tr>
+<td><strong>Define Acronyms on First Use</strong></td>
+<td><code>text-acronym-first-use</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Flags an acronym used in HTML or problem text before it is defined. The first course-wide use should spell it out, e.g. "endoplasmic reticulum (ER)"; bare uses after that are fine. Widely understood acronyms (DNA, RNA, PCR, …) are exempt; extend the exemptions via params.allowAcronyms.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-summary">Module Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module Summary Exists</strong></td>
+<td><code>module-summary-exists</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that each module has a summary page providing a wrap-up of the module's content.</td>
+</tr>
+<tr>
+<td><strong>Module Feedback Form Link</strong></td>
+<td><code>module-summary-has-survey-link</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the module summary includes a link whose text is "Module Feedback Form" so learners can share their experience.</td>
+</tr>
+<tr>
+<td><strong>Dashboard Link Present</strong></td>
+<td><code>module-summary-has-dashboard-link</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the module summary includes a link back to the course dashboard for easy navigation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="accessibility">Accessibility</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Image Alt Text</strong></td>
+<td><code>html-img-alt-text</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures every <img> tag has a non-empty alt attribute so screen readers can describe images to visually impaired learners.</td>
+</tr>
+<tr>
+<td><strong>No Empty Links</strong></td>
+<td><code>html-empty-links</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures every <a> tag has visible link text or an aria-label so screen readers can describe the link's purpose.</td>
+</tr>
+<tr>
+<td><strong>Math Notation Should Use MathJax</strong></td>
+<td><code>accessibility-math-mathjax</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Flags math/science notation authored as plain text or HTML that the accessibility team's screen-reader testing found needs MathJax to read correctly: caret exponents (x^2), scientific notation (2 × 10^-5), unicode and HTML super/subscripts including lone letters and charges (mⁿ, Cl<sup>-</sup> — screen readers don't announce the super/subscript; ordinals like "1st" are exempt), the multiplication sign × (read as the letter "x"), and symbols that only read aloud in MathJax. Only fires outside existing MathJax. Does not flag standalone Greek letters, temperature degrees, or relational operators (≤ ≥ ≠ ±), which read correctly in HTML. Plain-text chemical formulas/ions (H2O, Mg2+) are flagged only when params.flagChemistry is true (element-symbol validated to limit noise). Extend the MathJax-only symbol list via params.specialSymbols.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="structure">Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chapters Have Content</strong></td>
+<td><code>chapter-has-content</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that every chapter contains at least one sequential (subsection). Empty chapters indicate incomplete course structure.</td>
+</tr>
+<tr>
+<td><strong>Sequential Ordering Consistent</strong></td>
+<td><code>sequential-ordering-consistency</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that subsections within each chapter follow consistent numbering without unexpected gaps.</td>
+</tr>
+<tr>
+<td><strong>Draft Content Warning</strong></td>
+<td><code>structure-has-drafts</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Reports drafts in the drafts/ directory that are genuinely unpublished — new content with no published counterpart, or drafts whose content differs from the published version. Stale drafts identical to published content (common after re-runs and imports) are ignored.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pdf-slides">PDF Slides</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Slide Link Format</strong></td>
+<td><code>pdf-slides-link-format</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that slide download link text is a label naming the deck and ends with "(PDF)", e.g. "Lecture 1.1 (PDF)". Texts like "PDF version" or a bare "(PDF)" don't qualify.</td>
+</tr>
+<tr>
+<td><strong>Slide Link Separate Component</strong></td>
+<td><code>pdf-slides-separate-component</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that the slide download link is placed in its own HTML component directly below the video, not embedded in other content.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="broken-references">Broken References</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Static File Links Valid</strong></td>
+<td><code>html-broken-static-links</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Verifies that all links pointing to /static/ files actually reference files that exist in the course export.</td>
+</tr>
+<tr>
+<td><strong>Video Has edX ID</strong></td>
+<td><code>video-missing-edx-id</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Ensures every video component has a non-empty edxVideoId. Missing IDs mean the video won't play on the platform.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lists">Lists</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Paragraphs in List Items</strong></td>
+<td><code>lists-no-p-in-li</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix, suggest</td>
+<td>Ensures list items do not contain nested <p> tags, which cause extra spacing and inconsistent rendering across browsers.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bolding">Bolding</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use Strong for Bold</strong></td>
+<td><code>bolding-use-strong</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures bold text uses semantic <strong> tags instead of deprecated <b> tags or inline font-weight styles, improving accessibility and consistency.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headings">Headings</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H4 in Overview/Summary</strong></td>
+<td><code>headings-h4-overview-summary</code></td>
+<td style="text-align: center;">error</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">auto-fix</td>
+<td>Ensures section headers in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="asktim">AskTIM</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AskTIM Chat Enabled</strong></td>
+<td><code>asktim-present</code></td>
+<td style="text-align: center;">warning</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that the AskTIM AI chat assistant is enabled on relevant content blocks via OL_OPENEDX_CHAT settings, giving learners on-demand help.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summaries">Summaries</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>ID</th>
+<th style="text-align: center;">Severity</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Fix / Suggest</th>
+<th>What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Summary Bolding Standards</strong></td>
+<td><code>summaries-bolding-standards</code></td>
+<td style="text-align: center;">info</td>
+<td style="text-align: center;">static</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td>Checks that bold formatting in summary takeaways follows course standards, using <strong> tags consistently for key terms.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="auto-fix-rules">Auto-fix rules</h2>
+<p>These rules can edit the export file directly (the change is revertable in the UI).</p>
+<ul>
+<li><strong>No Discussions in Sections</strong> (<code>admin-discussions-enabled-in-sections</code>)</li>
+<li><strong>Checkbox Attempts</strong> (<code>assignments-attempts-checkbox</code>)</li>
+<li><strong>Complex Checkbox Attempts</strong> (<code>assignments-attempts-complex-checkbox</code>)</li>
+<li><strong>Dropdown Attempts</strong> (<code>assignments-attempts-dropdown</code>)</li>
+<li><strong>Multiple Choice Attempts</strong> (<code>assignments-attempts-multiple-choice</code>)</li>
+<li><strong>Numerical Input Attempts</strong> (<code>assignments-attempts-numerical</code>)</li>
+<li><strong>Text Response Attempts</strong> (<code>assignments-attempts-text</code>)</li>
+<li><strong>Show Answer Setting</strong> (<code>assignments-showanswer</code>)</li>
+<li><strong>Use Strong for Bold</strong> (<code>bolding-use-strong</code>)</li>
+<li><strong>No Custom Font Color</strong> (<code>fonts-color-default</code>)</li>
+<li><strong>No Custom Font Family</strong> (<code>fonts-family-default</code>)</li>
+<li><strong>No Custom Font Size</strong> (<code>fonts-size-default</code>)</li>
+<li><strong>H4 in Overview/Summary</strong> (<code>headings-h4-overview-summary</code>)</li>
+<li><strong>No Empty Paragraphs</strong> (<code>html-empty-paragraphs</code>)</li>
+<li><strong>Max Attempts</strong> (<code>knowledge-checks-max-attempts</code>)</li>
+<li><strong>Show Answer Setting</strong> (<code>knowledge-checks-showanswer</code>)</li>
+<li><strong>No Paragraphs in List Items</strong> (<code>lists-no-p-in-li</code>)</li>
+<li><strong>No Paste Artifacts in Problems</strong> (<code>problem-paste-artifacts</code>)</li>
+<li><strong>No Copy-Paste Artifacts</strong> (<code>word-paste-artifacts</code>)</li>
+</ul>
+<h2 id="suggestion-rules">Suggestion rules</h2>
+<p>These rules propose replacement text for the author to apply. The "Explanation Quality" suggestions are AI-generated; the rest are template/text replacements.</p>
+<ul>
+<li><strong>Explanation Present</strong> (<code>assignments-explanation-present</code>)</li>
+<li><strong>Assignment Explanation Quality</strong> (<code>assignments-explanation-quality</code>)</li>
+<li><strong>Explanation Present</strong> (<code>knowledge-checks-explanation-present</code>)</li>
+<li><strong>Knowledge Check Explanation Quality</strong> (<code>knowledge-checks-explanation-quality</code>)</li>
+<li><strong>Explanation Present</strong> (<code>library-content-explanation-present</code>)</li>
+<li><strong>Library Content Explanation Quality</strong> (<code>library-content-explanation-quality</code>)</li>
+<li><strong>No Paragraphs in List Items</strong> (<code>lists-no-p-in-li</code>)</li>
+<li><strong>Learner Not Student</strong> (<code>terms-learner-not-student</code>)</li>
+</ul>
+  </main>
+  <footer class="pagefoot">Fixatron2000 author guides · <a href="index.html">back to index</a></footer>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problem Authoring Guide — Fixatron2000</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
+  width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body">
+<h1 id="problem-authoring-guide">Problem Authoring Guide</h1>
+<p>For each type below you will find: the exact instruction to include, the rules for
+the answer options, and a <strong>filled-in template example</strong> showing exactly how to
+write it.</p>
+<blockquote>
+<p><strong>Reading the template examples:</strong> mark the one correct choice with <code>(X)</code>; mark
+every correct checkbox with <code>[X]</code>. In a dropdown, the options sit inline in
+brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G1/&amp;S/M]</code>.</p>
+</blockquote>
+<hr />
+<h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2>
+<p>These apply to <strong>all</strong> problem types:</p>
+<ul>
+<li><strong>Include the type-specific instruction</strong> (see each type below), as the last
+  sentence of the question.</li>
+<li><strong>Write an explanation</strong> for every problem, labeled with the word
+  "Explanation". See <a href="#writing-a-strong-explanation">Writing a strong explanation</a>
+  below for what the tool checks.</li>
+<li><strong>Answer options:</strong> no hand-typed <code>A.</code> / <code>1.</code> labels on options (the options
+  may shuffle); keep to <strong>4 options or fewer</strong>; no duplicate or blank options.</li>
+<li><strong>Notation:</strong> math/science in MathJax; a space between a number and its unit
+  ("37 °C"); no ambiguous "it"; follow the biology terminology rules.</li>
+</ul>
+<p><strong>Knowledge-check naming:</strong> a knowledge check is named after the video before it
+— <code>Knowledge Check: &lt;video name&gt;</code>, or <code>Knowledge Check A/B: &lt;video name&gt;</code> when a
+video has two or more.</p>
+<hr />
+<h2 id="writing-a-strong-explanation">Writing a strong explanation</h2>
+<p>A strong explanation does not just tell the learner the answer — it teaches the
+concept behind it. This tool gives instant feedback against the criteria below —
+check your explanation with <a href="https://joemartis.github.io/Explain2Me/">Explain2Me</a> —
+so an explanation can be revised and re-checked until it is strong. Learners have a
+chat companion for follow-ups, so an explanation need not cover every edge case,
+but it must give a solid foundation.</p>
+<ul>
+<li><strong>Explains why, not just what</strong> — give the reason the answer is correct; do not
+  just assert it.</li>
+<li><strong>Provides reasoning or conceptual context</strong> — connect the answer to the
+  underlying principle.</li>
+<li><strong>Is substantive</strong> — an explanation should be more than one sentence; a single
+  sentence rarely teaches the concept.</li>
+<li><strong>Adds something new</strong> — it does not merely restate the question or repeat the
+  correct option.</li>
+<li><strong>Addresses the wrong options</strong> — for multiple-choice items, generally explain
+  why the incorrect answers are incorrect, not just why the right one is right. In
+  particular, address any misconceptions learners may have — the misunderstanding
+  that makes each wrong option tempting.</li>
+<li><strong>Names options by content, not position</strong> — never say "Option 1", "the first
+  option", or "choice B". Answer options may be shuffled when displayed, so a
+  positional reference can point at the wrong answer.</li>
+</ul>
+<hr />
+<h2 id="1-multiple-choice-single-answer">1. Multiple choice (single answer)</h2>
+<ul>
+<li><strong>Instruction:</strong> end the question with <strong>"Select the best answer."</strong></li>
+<li><strong>Options:</strong> 2–4 choices; exactly <strong>one</strong> marked correct; no duplicates or
+  blanks; no <code>A)</code>/<code>1.</code> labels.</li>
+<li><strong>Capitalization:</strong> options completing a fill-in-the-blank question start
+  lowercase; standalone questions may start with a capital; add a terminal
+  period only on full-sentence options.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre><code>Question:  Which organelle produces most of the ATP in a cell? Select the best answer.
+Answer choices (mark the one correct answer):
+   (  ) the nucleus
+   (X) the mitochondrion
+   (  ) the ribosome
+Explanation:  The mitochondrion is the site of oxidative phosphorylation, where
+              the electron transport chain uses the energy from glucose breakdown
+              to build most of the ATP in a cell — which is why the mitochondrion
+              is often called the powerhouse of the cell. The nucleus is tempting
+              because it holds the DNA of the cell, but storing genetic
+              instructions is not the same as producing energy. The ribosome reads
+              those instructions to build proteins and consumes ATP rather than
+              producing it. Only the mitochondrion carries out the
+              energy-generating reactions the question asks about.
+</code></pre>
+<h2 id="2-checkbox-select-all-that-apply">2. Checkbox (select all that apply)</h2>
+<ul>
+<li><strong>Instruction:</strong> end the question with <strong>"Select all that apply."</strong></li>
+<li><strong>Options:</strong> at least 2, at least one correct; <strong>4 or fewer</strong> (5+ gets flagged
+  to rewrite); no duplicates, blanks, or labels.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre><code>Question:  Which of the following are purines? Select all that apply.
+Answer choices (mark every correct answer):
+   [X] adenine
+   [X] guanine
+   [  ] cytosine
+   [  ] thymine
+Explanation:  Purines have a two-ring (fused six- and five-membered) structure,
+              and adenine and guanine are the two purines found in DNA — a handy
+              way to remember the pairing is that the longer word &quot;purines&quot; goes
+              with the larger, double-ring bases. Cytosine and thymine are
+              pyrimidines: they have only a single six-membered ring, so they do
+              not belong in this group. This size difference matters biologically,
+              because a purine on one strand always pairs with a pyrimidine on the
+              other, keeping the DNA double helix a uniform width.
+</code></pre>
+<h2 id="3-dropdown">3. Dropdown</h2>
+<p>Use a dropdown <strong>only for a formatting reason</strong> — to complete a statement inline,
+fill cells in a table, or present a one-to-one match. If the question works as a
+standalone pick-one question, author it as <strong>Multiple Choice</strong> instead: a multiple
+choice lowers the cognitive load for the learner.</p>
+<ul>
+<li><strong>Instruction:</strong> begin with <strong>"Use the dropdown options to …"</strong> (e.g. "…complete
+  the following statements."); for a one-to-one match set, use <strong>"Match the
+  following."</strong></li>
+<li><strong>Writing the dropdown inline:</strong> put the choices in brackets at the point in the
+  statement where the dropdown appears, separate them with slashes, and mark the
+  correct one with an <strong><code>&amp;</code></strong> — for example <code>[G1/&amp;S/M]</code>. You can place several
+  dropdowns in one set of statements.</li>
+<li><strong>Options:</strong> 4 or fewer per dropdown; no labels.</li>
+</ul>
+<p><strong>How to write it in the template — in a statement:</strong></p>
+<pre><code>Question:  Use the dropdown options to match the phase of the cell cycle to the
+           activity during that phase.
+The cell grows and acquires nutrients during the [&amp;G1/S/M] phase.
+The cell replicates DNA during the [G1/&amp;S/M] phase.
+The cell divides into two during the [G1/S/&amp;M] phase.
+Explanation:  The cell cycle proceeds through G1, S, and M in order. During G1 the
+              cell grows and takes in nutrients to prepare for division. During S
+              phase — S stands for synthesis — the cell copies the entire genome so
+              that each daughter cell receives a complete set of DNA. During M
+              phase (mitosis) the duplicated chromosomes are separated and the cell
+              divides into two. Matching each activity to the correct phase checks
+              that the learner knows the order and the purpose of the phases, not
+              just the names.
+</code></pre>
+<p><strong>Or, to place dropdowns in a table.</strong> Use a table when each cell is an
+<em>independent</em> choice — the options can repeat and there is no one-to-one pairing.
+(If instead each item pairs one-to-one with a match from a shared list, use the
+<em>one-to-one match</em> form below rather than a table.)</p>
+<pre><code>Question:  Use the dropdown options to complete the table.
+
+Change to the reaction                            |  Effect on enzyme activity
+Raise the temperature well above the optimum      |  [increase/&amp;decrease/no change]
+Add more substrate once the enzyme is saturated   |  [increase/decrease/&amp;no change]
+Add a competitive inhibitor                       |  [increase/&amp;decrease/no change]
+Explanation:  Above the optimal temperature the enzyme denatures and loses shape,
+              so activity falls. Once every active site is already occupied, adding
+              more substrate cannot speed the reaction, so activity does not change.
+              A competitive inhibitor blocks active sites, so fewer reactions occur
+              and activity falls. Each row is judged on its own and the same options
+              can repeat, which is what makes this a table of independent choices
+              rather than a one-to-one matching.
+</code></pre>
+<p><strong>Or, as a one-to-one match (matching).</strong> Each item pairs with one match from a
+shared list that appears under every item, with each match used once. List each
+item with its correct match; <strong>do not number or letter them</strong> (the drop-down
+choices may shuffle). Keep to <strong>4 or fewer</strong> pairs, and make every match distinct.</p>
+<pre><code>Question:  Match the following.
+Items and their correct match:
+   Mitochondrion   →   Produces most of the ATP in a cell
+   Nucleus   →   Stores the DNA of the cell
+   Ribosome   →   Builds proteins
+   Golgi apparatus   →   Modifies and packages proteins for shipping
+Drop-down choices (offered under every item):  Produces most of the ATP in a cell;
+   Stores the DNA of the cell; Builds proteins; Modifies and packages proteins for
+   shipping
+Explanation:  The mitochondrion runs oxidative phosphorylation to make most of the
+              ATP in a cell, so the mitochondrion is the powerhouse. The nucleus is
+              the vault that stores the DNA of the cell, keeping the genetic
+              instructions safe. The ribosome reads those instructions to build
+              proteins. The Golgi apparatus then modifies and packages those
+              proteins for shipping. Because every drop-down offers all four
+              functions, the learner has to know each pairing rather than guess by
+              elimination.
+</code></pre>
+<h2 id="4-numerical-input">4. Numerical input</h2>
+<ul>
+<li><strong>Instruction:</strong> pick the phrase that matches the answer type:</li>
+<li>whole number → <strong>"Enter your answer as a whole number in the space provided."</strong></li>
+<li>percentage → <strong>"Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response."</strong></li>
+<li>decimal → <strong>"Enter your answer as a decimal to two significant figures."</strong></li>
+<li><strong>Accepted range — required whenever the answer is not a single exact value.</strong>
+  Give the tolerance or range so a correct measured or rounded answer is not
+  marked wrong — e.g. <code>3.14 ± 0.01</code> or <code>3.1–3.2</code>. This is set in the problem but
+  invisible on the page, and a missing range is a common source of wrongly graded
+  answers in live courses. For a genuinely exact value (a count), say so.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre><code>Question:  How many chromosomes are in a typical human somatic cell? Enter your
+           answer as a whole number in the space provided.
+Correct answer:  46
+Accepted range:  exact — 46 is a whole-number count (for a measured or rounded
+                 answer, give a tolerance, e.g. 3.14 ± 0.01)
+Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
+              each chromosome — one inherited from each parent. Humans have 23
+              distinct chromosome types, so two copies of each gives 23 pairs, or
+              46 chromosomes in total. A common mistake is to answer 23, but that
+              is the haploid number found only in gametes (eggs and sperm); those
+              cells carry a single copy of each chromosome so that fertilization
+              restores the full set of 46.
+</code></pre>
+<h2 id="5-text-short-answer">5. Text / short answer</h2>
+<ul>
+<li>No special instruction phrase is required.</li>
+<li><strong>Correct answer:</strong> give the accepted answer (matching is case-insensitive).</li>
+<li><strong>Alternative correct answers — give them whenever they exist.</strong> List every
+  acceptable variant (synonyms, spellings, abbreviations), e.g. accept both <code>DNA</code>
+  and <code>deoxyribonucleic acid</code>. The problem can hold several accepted answers, but
+  only the ones you supply are graded correct — a learner who types a correct
+  synonym you left out is marked wrong.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre><code>Question:  Name the type of cell division that produces two genetically identical
+           daughter cells.
+Correct answer:  mitosis   (case-insensitive)
+Also accept:  mitotic division
+Explanation:  Mitosis is the division that copies the genome once and splits the
+              genome evenly into two daughter cells, each diploid and genetically
+              identical to the parent — this is how the body grows and replaces
+              worn-out cells. Students often confuse mitosis with meiosis, but
+              meiosis includes two rounds of division and produces four haploid
+              cells that are genetically distinct, which is exactly why meiosis is
+              used to make gametes rather than to replace ordinary body cells.
+</code></pre>
+<h2 id="6-open-ended-auto-credit-any-thoughtful-answer">6. Open-ended, auto-credit (any thoughtful answer)</h2>
+<p>The custom one-sentence type that auto-grades <strong>any non-empty answer as
+correct</strong>, then shows the model answer.</p>
+<ul>
+<li><strong>Instruction:</strong> the prompt must end with the exact phrase
+  <strong>"Any thoughtful answer will receive credit; click the Show Answer button to
+  check your thoughts."</strong></li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre><code>Question:  In one sentence, predict what would happen to translation if a cell ran
+           out of tRNA. Any thoughtful answer will receive credit; click the Show
+           Answer button to check your thoughts.
+Grading:  any non-empty answer is marked correct.
+Model answer (shown after the learner answers):  tRNA is the adapter that reads
+           each mRNA codon and delivers the matching amino acid to the ribosome.
+           Without tRNA, the ribosome would have no way to bring in the next amino
+           acid, so the growing polypeptide chain could not be extended and
+           translation would stall — protein synthesis would effectively stop even
+           though the mRNA and ribosome are still present.
+</code></pre>
+<hr />
+<h2 id="attempts-quick-reference">Attempts quick reference</h2>
+<table>
+<thead>
+<tr>
+<th>Problem type</th>
+<th>Options</th>
+<th style="text-align: center;">Knowledge Check</th>
+<th style="text-align: center;">Assignment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple choice (single answer)</td>
+<td>any</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Multiple choice — problem bank</td>
+<td>exactly 2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>Checkbox</td>
+<td>≤ 4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Dropdown — one dropdown</td>
+<td>2 choices</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>Dropdown — one dropdown</td>
+<td>3–4 choices</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Dropdown — 2–4 dropdowns</td>
+<td>any</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Any choice type</td>
+<td>5 or more</td>
+<td style="text-align: center;"><em>rewrite</em></td>
+<td style="text-align: center;"><em>rewrite</em></td>
+</tr>
+<tr>
+<td>Numerical input</td>
+<td>—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>Text / short answer</td>
+<td>—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<p>This is an exact-match check — too few attempts is flagged just like too many.</p>
+<p>A dropdown problem is counted like a checkbox, by its <strong>number of dropdowns</strong>: one
+dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a
+problem with 5 or more dropdowns should be split into more than one problem. A
+one-to-one match set is several drop-downs and follows the same counts.</p>
+  </main>
+  <footer class="pagefoot">Fixatron2000 author guides · <a href="index.html">back to index</a></footer>
+</body>
+</html>

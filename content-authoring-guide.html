@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Authoring Guide — Biology (UBio) — Fixatron2000</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
+  width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body">
+<h1 id="content-authoring-guide-biology-ubio">Content Authoring Guide — Biology (UBio)</h1>
+<p>How to write and enter course content in Studio so the automated QA pass
+(Fixatron2000) stays quiet. This guide covers the <strong>content you write and
+format</strong> — names, question wording, answer choices, explanations, objectives,
+terminology, and clean formatting. It deliberately leaves out <strong>platform
+settings and course configuration</strong> (attempt limits, Show Answer, grading
+weights, downloadable toggles, video IDs, AskTIM enablement); those are set
+during course setup, not while authoring, and are listed for reference in the
+<a href="#appendix--platform-settings-not-authoring">appendix</a>.</p>
+<p>Every finding the tool raises is a <strong>suggestion you can dismiss</strong> — but
+following these conventions up front saves a cleanup pass. Many trip-ups (fonts,
+paste artifacts, headings, bold, attempt counts) are also <strong>auto-fixable</strong>.</p>
+<blockquote>
+<p>Full rule catalog: <a href="rule-reference.html"><code>RULES.md</code></a> · Attempts detail:
+<a href="attempts-policy.html"><code>ATTEMPTS_POLICY.md</code></a></p>
+</blockquote>
+<hr />
+<h2 id="1-unit-knowledge-check-names">1. Unit &amp; knowledge-check names</h2>
+<p>The biology program does <strong>not</strong> number lectures, recitations, assignments, or
+questions. Those naming/numbering checks (<code>L X.Y</code>, <code>Assignment N: Part N</code>,
+<code>Question N</code>, <code>Knowledge Check: Question N</code>) are <strong>turned off for the program</strong>,
+so title those units however your team prefers.</p>
+<p>The naming conventions that <strong>are</strong> enforced concern knowledge checks and videos:</p>
+<p><strong>Follow each video with two or more knowledge checks.</strong> Every video should have
+at least two knowledge checks after it so learners can check their understanding.</p>
+<p><strong>Knowledge checks are named after their video.</strong> A knowledge check takes the
+name of the video that precedes it in the module:</p>
+<ul>
+<li>One knowledge check after a video → <code>Knowledge Check: &lt;video name&gt;</code>
+  (e.g. <code>Knowledge Check: Molecular Biology Experiment</code>).</li>
+<li>Two or more after the same video → add an <code>A</code>/<code>B</code>/<code>C…</code> suffix:
+  <code>Knowledge Check A: Molecular Biology Experiment</code>,
+  <code>Knowledge Check B: Molecular Biology Experiment</code>.</li>
+</ul>
+<p>Give each video a <strong>unique name within its module</strong> — duplicate video names make
+the knowledge checks named after them collide.</p>
+<h2 id="2-writing-style">2. Writing style</h2>
+<ul>
+<li><strong>Address the reader as "you"</strong> (or "learner(s)"), never "student" or "user".</li>
+<li><strong>Give directions plainly</strong> — "Select the best answer.", not "Please select…".</li>
+<li><strong>No contractions</strong> in instructional text — "do not", not "don't".</li>
+<li><strong>Active voice</strong> and the <strong>Oxford comma</strong> — "DNA, RNA, and protein".</li>
+<li><strong>Define acronyms on first use</strong> — spell it out the first time, then use the
+  short form: "endoplasmic reticulum (ER)" first, "ER" after. Widely understood
+  acronyms (DNA, RNA, PCR, ATP…) don't need defining.</li>
+<li><strong>Write literally for an international audience</strong> — avoid US idioms and
+  figurative phrasal verbs ("break a leg", "reach out", "a piece of cake"). If
+  an idiom is unavoidable, define it (and consider defining it in the summary).</li>
+<li><strong>Put a space between a number and its unit</strong> — "37 °C" not "37°C", "5 kg" not
+  "5kg", "500 bp" not "500bp". Standard scientific notation always spaces the
+  value from the unit symbol, degree symbol included.</li>
+<li><strong>Avoid ambiguous pronouns — especially "it".</strong> In a science question a
+  pronoun can point to more than one noun in the sentence, leaving the learner
+  unsure of the referent. Name the noun instead: "the enzyme changes shape", not
+  "it changes shape".</li>
+</ul>
+<h2 id="3-question-wording-say-what-kind-of-answer-you-want">3. Question wording — say what kind of answer you want</h2>
+<p>Write the expected instruction into the question text:</p>
+<table>
+<thead>
+<tr>
+<th>Problem type</th>
+<th>Include this instruction (exact wording)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single-answer multiple choice</td>
+<td>Select the best answer.</td>
+</tr>
+<tr>
+<td>Checkbox (multi-answer)</td>
+<td>Select all that apply.</td>
+</tr>
+<tr>
+<td>Dropdown</td>
+<td>Use the drop-down options to … <em>(finish with the question-specific ask)</em></td>
+</tr>
+<tr>
+<td>Numerical — whole number</td>
+<td>Enter your answer as a whole number in the space provided.</td>
+</tr>
+<tr>
+<td>Numerical — percentage</td>
+<td>Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response.</td>
+</tr>
+<tr>
+<td>Numerical — decimal</td>
+<td>Enter your answer as a decimal to two significant figures.</td>
+</tr>
+<tr>
+<td>Open-ended auto-credit (one sentence)</td>
+<td>Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts.</td>
+</tr>
+</tbody>
+</table>
+<p>Pick the numerical phrase that matches the answer type.</p>
+<h2 id="4-answer-choices">4. Answer choices</h2>
+<ul>
+<li>Provide <strong>at least two</strong> choices, with <strong>at least one correct</strong>.</li>
+<li><strong>No duplicate</strong> choices and <strong>no blank</strong> choices.</li>
+<li>Keep it to <strong>4 choices or fewer</strong> — five or more gets flagged to rewrite.</li>
+<li><strong>No letters or numbers labeling the choices</strong> — enter just the option text.
+  edX shuffles option order, so a hand-typed "A)" or "1." ends up on the wrong
+  choice. Likewise in <strong>explanations</strong>, refer to a choice by its content, not by
+  position ("option B", "the first choice").</li>
+<li><strong>Dropdowns:</strong> the correct answer must <strong>exactly match</strong> one of the options —
+  a stray space or typo makes no option correct.</li>
+<li><strong>Capitalization/punctuation:</strong> options completing a fill-in-the-blank stem
+  start lowercase; standalone questions may start with a capital; add a terminal
+  period only on full-sentence options.</li>
+</ul>
+<h2 id="5-explanations-solutions">5. Explanations &amp; solutions</h2>
+<ul>
+<li><strong>Every problem</strong> needs a solution/explanation, <strong>labeled</strong> with the word
+  "Explanation".</li>
+</ul>
+<p><strong>What makes a strong explanation.</strong> A strong explanation doesn't just tell the
+learner the answer — it teaches the concept behind it.</p>
+<ul>
+<li><strong>Explains why, not just what</strong> — give the reason the answer is correct, don't
+  just assert it.</li>
+<li><strong>Provides reasoning or conceptual context</strong> — connect the answer to the
+  underlying principle.</li>
+<li><strong>Is substantive</strong> — more than one sentence; a single sentence rarely teaches
+  the concept.</li>
+<li><strong>Adds something new</strong> — doesn't merely restate the question or repeat the
+  correct option.</li>
+<li><strong>Addresses the wrong options</strong> — for multiple-choice items, generally explain
+  why the incorrect answers are incorrect, not just why the right one is right.
+  In particular, address the misconception that makes each wrong option tempting.</li>
+<li><strong>Names options by content, not position</strong> — never "Option 1", "the first
+  option", or "choice B". Options may be shuffled when displayed, so a positional
+  reference can point at the wrong answer.</li>
+<li><strong>Is complete</strong> — not cut off mid-sentence.</li>
+</ul>
+<h2 id="6-formatting-clean-paste-the-most-common-trip-ups">6. Formatting &amp; clean paste (the most common trip-ups)</h2>
+<ul>
+<li><strong>Don't paste straight from Word, Google Docs, or ChatGPT</strong> — it drags in
+  hidden markup. Paste as plain text, then format in the Studio editor.</li>
+<li><strong>No custom font, size, or color</strong> — let the platform's styling apply.</li>
+<li><strong>Bold</strong> with the editor's bold (semantic <code>&lt;strong&gt;</code>), not a colored/enlarged
+  font. <strong>Section headers</strong> in overview/summary pages use Heading 4.</li>
+<li><strong>No empty paragraphs or empty components</strong> (blank gaps). Don't nest
+  paragraphs inside list items — use the editor's list button.</li>
+<li><strong>Keep content responsive</strong> — avoid fixed pixel widths on tables and images so
+  it reflows on phones and tablets.</li>
+<li><em>Monospace is sometimes used to display sequence data — if that gets flagged,
+  review and dismiss it.</em></li>
+</ul>
+<h2 id="7-learning-objectives">7. Learning objectives</h2>
+<ul>
+<li>Start each objective with a <strong>measurable action verb</strong> (Bloom's): "describe",
+  "calculate", "predict", "compare" — not "understand", "know", "be familiar
+  with".</li>
+<li>Frame around the <strong>learner</strong>: "you will be able to predict…", not "this
+  lecture covers…".</li>
+<li>Introduce the list with a <strong>stem</strong>: "At the end of this module, you will be
+  able to:". Use <strong>bullet points</strong>, not a numbered list. <strong>Bold</strong> the key topic
+  names.</li>
+</ul>
+<h2 id="8-biology-terminology">8. Biology terminology</h2>
+<ul>
+<li>"PCR", not "PCR reaction" (the R already means "reaction"); same for
+  qPCR/RT-PCR/ddPCR.</li>
+<li>"the active site of the protein", not the possessive "the protein's active
+  site"; likewise "the position of the gene", "the structure of DNA".</li>
+<li>Introduce the method as "dideoxy (Sanger) sequencing" on first use.</li>
+<li>A <strong>trait/phenotype</strong> is dominant or recessive — an allele, gene, or mutation
+  is not. "the dominant trait", not "the dominant allele".</li>
+<li>Italicize genus/species names, gene symbols, and restriction-enzyme prefixes;
+  keep protein names upright.</li>
+</ul>
+<h2 id="9-accessibility-in-content">9. Accessibility in content</h2>
+<ul>
+<li><strong>Alt text</strong> on every image — describe what it shows.</li>
+<li><strong>Meaningful link text</strong> — the linked words should describe the destination.</li>
+<li>The <strong>question text</strong> should serve as the problem's label (the simple problem
+  editor does this automatically).</li>
+<li><strong>Author math/science notation in MathJax</strong> so screen readers read it
+  correctly — exponents (<code>\(x^2\)</code>), scientific notation (<code>\(2 \times 10^{-5}\)</code>),
+  <strong>any</strong> super/subscript (even a lone letter or an ion charge — HTML <code>&lt;sup&gt;</code>/
+  <code>&lt;sub&gt;</code> isn't announced by screen readers), and the multiplication sign
+  (<code>\(2 \times 2\)</code>). Standalone Greek letters, relational operators (<code>≤ ≥ ≠ ±</code>),
+  temperature degrees, and ordinals (<code>1st</code>) are fine in HTML. Full matrix:
+  <a href="math-markup.html"><code>MATH_MARKUP.md</code></a>.</li>
+</ul>
+<h2 id="10-overview-summary-media-pages">10. Overview, summary, media &amp; pages</h2>
+<ul>
+<li>Each lecture and assignment gets an <strong>overview</strong> and a <strong>summary</strong> page; each
+  module gets a <strong>summary</strong> page. (Recitation overview/summary checks are off for
+  the biology program.)</li>
+<li>Lecture summaries include a list of <strong>key takeaways</strong>.</li>
+<li>Module summaries link to the <strong>Module Feedback Form</strong> and back to the
+  <strong>dashboard</strong>.</li>
+</ul>
+<p><em>(The biology program has no course tabs or recitations, so the Resources/
+Glossary/Attributions tab checks and all recitation checks are off.)</em></p>
+<hr />
+<h2 id="appendix-platform-settings-not-authoring">Appendix — platform settings (not authoring)</h2>
+<p>The QA tool also checks these, but they are configuration set during course
+setup or as a Studio settings field, not part of writing content. Hand them to
+whoever owns course configuration. Full detail in
+<a href="attempts-policy.html"><code>ATTEMPTS_POLICY.md</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Expected configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem attempts (<code>max_attempts</code>)</td>
+<td>By problem type. Multiple choice 2; numerical — KC 5 / assignment 3; text — KC 5 / assignment 4; dropdown 1–2 by option count; checkbox (≤4) 2.</td>
+</tr>
+<tr>
+<td>Show Answer</td>
+<td><code>after_all_attempts_or_correct</code> on every problem.</td>
+</tr>
+<tr>
+<td>Grading weights</td>
+<td>Homework 20%, Assignments 80%.</td>
+</tr>
+<tr>
+<td>Course mode &amp; dates</td>
+<td>Self-paced; start date in the future; beta access 365 days early.</td>
+</tr>
+<tr>
+<td>Discussions</td>
+<td>Global Discussions tab hidden; none enabled in individual sections.</td>
+</tr>
+<tr>
+<td>Video settings</td>
+<td>Downloadable; non-empty edX video ID; unit title matches the video.</td>
+</tr>
+<tr>
+<td>Transcripts</td>
+<td>Present, downloadable, non-empty; speaker labeled "INSTRUCTOR".</td>
+</tr>
+<tr>
+<td>AskTIM</td>
+<td>Chat assistant enabled on relevant content (including objectives pages).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-reference-lists">Appendix — reference lists</h2>
+<p>The curated word lists behind three of the checks. These are <strong>editable per
+program</strong> — suggest additions or removals and we can adjust them.</p>
+<p><strong>US idioms flagged</strong> (Avoid US Idioms):
+break a leg · reach out · piece of cake · hit the ground running · on the same
+page · bite the bullet · cut corners · ball is in your court · under the weather
+· call it a day · get the hang of · touch base · in a nutshell · rule of thumb ·
+back to the drawing board · bottom line · up in the air · on the fence · wrap
+your head around · run of the mill · off the top of · long story short · by and
+large · in the loop · at the end of the day · the whole nine yards · rain check ·
+raincheck · throw in the towel · the last straw · jump the gun · cut to the
+chase · tip of the iceberg · ballpark · keep an eye on · down the road</p>
+<p><strong>Acronyms NOT flagged</strong> (Define Acronyms on First Use flags any acronym <em>not</em> on
+this list):
+DNA · RNA · ATP · ADP · AMP · NAD · NADP · FAD · PCR · US · USA · UK · ID · OK ·
+TV · FAQ · URL · HTML · PDF · CPU · GPU · AI · AM · PM · CEO · FBI · NASA · MIT ·
+PHD · BC · AD · EU · UN · WHO · HIV · AIDS · MRI</p>
+<p>Also never flagged: common all-caps words that aren't acronyms (TRUE, FALSE, YES,
+NOTE, FYI, ETC, VS, EG, IE, NB, AKA, TBD, TODO, AND, OR, NOT, THE) and Roman
+numerals (II, IV, VI, IX, XII, …).</p>
+<p><strong>Units checked for number–unit spacing</strong> ("5kg" → "5 kg"; the degree symbol is
+always checked):
+kg · mg · µg · ug · ng · mL · ml · µL · uL · dL · cm · mm · µm · um · nm · km ·
+ms · µs · ns · mol · mmol · µmol · nmol · mM · µM · nM · pM · kHz · MHz · GHz ·
+kPa · kJ · kcal · mV · mA · kDa · Da · bp · kb · rpm · min · hr · sec</p>
+<p>Single-letter units (g, m, s, L, M) are intentionally excluded to avoid false
+positives like "1990s".</p>
+<p><strong>MathJax-only symbols</strong> (flagged if used outside MathJax): ⊣ (the list is
+extendable per program).</p>
+  </main>
+  <footer class="pagefoot">Fixatron2000 author guides · <a href="index.html">back to index</a></footer>
+</body>
+</html>

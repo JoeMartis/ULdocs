@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessible Math & Science Markup — Fixatron2000</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
+  width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body">
+<h1 id="accessible-math-science-markup">Accessible Math &amp; Science Markup</h1>
+<p>Guidance from the MITx accessibility team on how to author math and science
+notation so screen readers read it correctly. The
+<a href="rule-reference.html#accessibility"><code>accessibility-math-mathjax</code></a> rule enforces the
+high-confidence parts of this automatically (see <em>What the rule flags</em> below).</p>
+<p>Questions about a specific case: mitx-access@mit.edu.</p>
+<h2 id="when-to-use-mathjax-vs-html">When to use MathJax vs. HTML</h2>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Author it as</th>
+<th>Example</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Math equation (inline)</td>
+<td>MathJax</td>
+<td><code>\( \frac{y+4}{5}=1 \)</code></td>
+<td>Also for answer choices. <code>[mathjaxinline]…[/mathjaxinline]</code> works too.</td>
+</tr>
+<tr>
+<td>Math expression / formula</td>
+<td>MathJax</td>
+<td><code>\(2x+1\)</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Exponents</td>
+<td>MathJax</td>
+<td><code>\(x^2\)</code></td>
+<td>Multi-character exponents use <code>{}</code>: <code>\(x^{n+1}\)</code>.</td>
+</tr>
+<tr>
+<td>Scientific notation</td>
+<td>MathJax</td>
+<td><code>\(2 \times 10^{-5}\)</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Chemical formulas / ions</td>
+<td>MathJax</td>
+<td><code>\(H_2 O\)</code>, <code>\(Mg^{2+}\)</code></td>
+<td>mhchem extension is <strong>not</strong> currently enabled. Learners may need to be told chemistry is present.</td>
+</tr>
+<tr>
+<td>Greek letters</td>
+<td>HTML if <strong>standalone</strong>; MathJax if part of an expression</td>
+<td><code>&amp;mu;</code> alone; <code>\(\mu = \frac{f}{n}\)</code></td>
+<td>GUI: "special character" menu. Raw HTML: entity code.</td>
+</tr>
+<tr>
+<td>Notation that looks like math but isn't (e.g. genetics)</td>
+<td>MathJax</td>
+<td><code>a \(\frac{bcd^-}{bcd^-}\) male fly</code></td>
+<td>Reads as a fraction; best available option for now.</td>
+</tr>
+<tr>
+<td>Temperature degrees</td>
+<td>Special symbol / HTML entity — <strong>not</strong> MathJax</td>
+<td><code>37 &amp;deg; C</code> or <code>37 &amp;#8451;</code></td>
+<td><code>&amp;deg;</code> reads "37 degree C"; <code>&amp;#8451;</code> reads "37 degrees Celsius". Kelvin <code>&amp;#8490;</code>.</td>
+</tr>
+<tr>
+<td>Word/letter super- or subscript, <strong>alone</strong></td>
+<td>HTML</td>
+<td><code>para &lt;sup&gt;T S&lt;/sup&gt;</code>, <code>m&lt;sup&gt;n&lt;/sup&gt;</code></td>
+<td>Reads "para superscript TS", "m superscript n".</td>
+</tr>
+<tr>
+<td>Word/letter super- or subscript, <strong>in a longer string / context</strong></td>
+<td>MathJax</td>
+<td><code>\(+/m^n\)</code>, <code>\(\frac{m^n}{m^n}\)</code></td>
+<td>Bends screen-reader rules, but no better option today.</td>
+</tr>
+<tr>
+<td>Special symbols that only read aloud in MathJax</td>
+<td>MathJax</td>
+<td><code>\(\dashv\)</code></td>
+<td>e.g. the "Left Tack" ⊣ reads only when in MathJax. List is growing.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-the-rule-flags">What the rule flags</h2>
+<p><code>accessibility-math-mathjax</code> (Accessibility, warning; off by default, on for
+UBio) flags, <strong>only outside existing MathJax</strong>, the high-confidence cases:</p>
+<ul>
+<li>caret exponents (<code>x^2</code>, <code>10^-5</code>) and scientific notation (<code>2 × 10^-5</code>)</li>
+<li>unicode and HTML super/subscripts — <strong>including lone letters and charges</strong>
+  (<code>cm²</code>, <code>mⁿ</code>, <code>H&lt;sub&gt;2&lt;/sub&gt;O</code>, <code>Cl&lt;sup&gt;-&lt;/sup&gt;</code>). The accessibility team's
+  screen-reader testing found HTML super/subscripts are <strong>not announced at all</strong>
+  ("mⁿ" reads "m n", "Cl⁻" drops the charge), so all of them need MathJax.
+  Ordinal suffixes (<code>1st</code>, <code>2nd</code>, <code>3rd</code>, <code>4th</code>) are exempt.</li>
+<li>the <strong>multiplication sign <code>×</code></strong> — screen readers read it as the letter "x",
+  not "times"</li>
+<li>symbols on the MathJax-only list (extend via <code>params.specialSymbols</code>)</li>
+<li><strong>plain-text chemical formulas and ions</strong> (<code>H2O</code>, <code>C6H12O6</code>, <code>Mg2+</code>) — only
+  when <code>params.flagChemistry</code> is true (on for UBio). Candidate tokens are
+  validated against the real element-symbol set, so non-chemistry look-alikes
+  (<code>COVID19</code>, <code>G2</code> phase, <code>T4</code> phage, an <code>A+</code> grade) are not flagged. Note the
+  mhchem MathJax extension is not currently enabled.</li>
+</ul>
+<p>It deliberately does <strong>not</strong> flag (confirmed to read correctly in HTML by the
+accessibility team's screen-reader testing):</p>
+<ul>
+<li><strong>relational operators</strong> <code>≤ ≥ ≠ ± ≈</code> (read as "less than or equal to", etc.)</li>
+<li><strong>standalone Greek letters</strong> (<code>μ</code>, <code>Δ</code>, <code>α</code>) — alone or in a simple expression</li>
+<li><strong>isotopes alone</strong> (<code>14C</code>) and <strong>plain fractions</strong> (<code>1/2</code>) — context-dependent</li>
+<li><strong>ordinals</strong> in <code>&lt;sup&gt;</code> (<code>1st</code>, <code>2nd</code>)</li>
+<li><strong>temperature degrees</strong></li>
+<li>single-element molecules (<code>O2</code>) or charge-free pairs (<code>NaCl</code>)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li>MathJax basics: https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference</li>
+<li>Degree/ASCII codes: https://websitebuilders.com/tools/html-codes/ascii/</li>
+</ul>
+  </main>
+  <footer class="pagefoot">Fixatron2000 author guides · <a href="index.html">back to index</a></footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attempts Policy — Biology (UBio) — Fixatron2000</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
+  width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body">
+<h1 id="attempts-policy-biology-ubio">Attempts Policy — Biology (UBio)</h1>
+<p>How Fixatron2000 expects <code>max_attempts</code> to be set, by problem type. Under the
+Biology profile, attempts are governed by <strong>problem type</strong>. For most types
+Knowledge Checks and Assignments use the <strong>same</strong> count, but a few types now
+<strong>diverge</strong> — knowledge checks are more generous on numerical and text input
+(formative practice), while assignments stay tighter. It's an <strong>exact-match</strong>
+check — too <em>few</em> attempts is flagged just like too many — and the "effective"
+value follows edX inheritance (library wrapper → problem → course-wide default).</p>
+<table>
+<thead>
+<tr>
+<th>Problem type</th>
+<th>Answer options</th>
+<th style="text-align: center;">Knowledge Check</th>
+<th style="text-align: center;">Assignment</th>
+<th>Enforced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple choice (single answer)</td>
+<td>any</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Multiple Choice Attempts</td>
+</tr>
+<tr>
+<td>Multiple choice — problem bank</td>
+<td>exactly 2</td>
+<td style="text-align: center;">2 †</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>Problem Bank 2-Option MC Attempts</td>
+</tr>
+<tr>
+<td>Numerical input</td>
+<td>—</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td>KC Max Attempts / Numerical Attempts</td>
+</tr>
+<tr>
+<td>Dropdown</td>
+<td>2</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td>Dropdown Attempts</td>
+</tr>
+<tr>
+<td>Dropdown</td>
+<td>3–4</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Dropdown Attempts</td>
+</tr>
+<tr>
+<td>Checkbox (multi-select)</td>
+<td>≤ 4</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Simple Checkbox Attempts</td>
+</tr>
+<tr>
+<td>MC / Checkbox / Dropdown</td>
+<td>5 or more</td>
+<td style="text-align: center;"><em>flagged to rewrite</em></td>
+<td style="text-align: center;"><em>flagged to rewrite</em></td>
+<td>Too Many Options</td>
+</tr>
+<tr>
+<td>Text / short-answer (string)</td>
+<td>—</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td>KC Max Attempts / Text Response Attempts</td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>—</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td><em>pending parser support (see below)</em></td>
+</tr>
+<tr>
+<td>Open response, ungraded (ORA)</td>
+<td>—</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;">—</td>
+<td><em>pending parser support (see below)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes-edge-cases">Notes &amp; edge cases</h2>
+<ul>
+<li><strong>KC vs Assignment divergence:</strong> numerical (KC 5 / assignment 3) and text
+  (KC 5 / assignment 4) intentionally differ — knowledge checks are low-stakes
+  formative practice, so learners get more tries there. Multiple choice,
+  dropdown, and checkbox still match across the two.</li>
+<li><strong>† 2-option problem-bank MC → 1 attempt</strong> applies to <strong>assignments only</strong> (a
+  second try on a 2-option question guarantees the correct answer). A directly
+  authored 2-option MC follows the general MC rule (2). A 2-option MC pooled
+  inside a knowledge check is not specifically reduced — a small known gap.</li>
+<li><strong>5+ options:</strong> no attempt count is enforced — the "Too Many Options" rule
+  flags the question for rewrite instead (faculty guidance is to avoid 5+
+  options).</li>
+<li><strong>Drag and drop / Open response (ORA):</strong> the parser does not yet recognize the
+  <code>drag_and_drop_v2</code> or <code>openassessment</code> block types (it detects only
+  <code>multiplechoiceresponse</code>, <code>choiceresponse</code>, <code>numericalresponse</code>,
+  <code>stringresponse</code>, and <code>optionresponse</code>). Their attempt rules are specified
+  above but <strong>not yet enforced</strong> — they await parser support keyed off a sample
+  export. ORA in particular has no standard <code>max_attempts</code> attribute, so where
+  its "2 attempts" lives in the export needs to be confirmed.</li>
+<li><strong>Scope:</strong> these rules apply to problems in KC sections, assignment sections,
+  <strong>and</strong> any practice ("Test Yourself") questions embedded in lectures, so a
+  learner sees consistent behavior everywhere. If ungraded lecture practice
+  should be exempt, that is a future refinement.</li>
+</ul>
+<h2 id="where-this-is-configured">Where this is configured</h2>
+<ul>
+<li>Attempt rules: <code>src/lib/rules/checks/assignments.ts</code> (per-type, incl. Text
+  Response Attempts), <code>src/lib/rules/checks/knowledge-checks.ts</code> (KC Max
+  Attempts, now with a <code>perTypeAttempts</code> map).</li>
+<li>Which are enabled/tuned for Biology: <code>config/profiles/ubio.json</code>
+  (<code>scope: "all"</code> extends a rule to knowledge checks; <code>excludeProblemTypes</code> on
+  KC Max Attempts hands types off to the per-type rules; <code>perTypeAttempts</code> sets
+  numerical/text KCs to 5).</li>
+<li>Rule catalog: <code>docs/RULES.md</code>.</li>
+</ul>
+  </main>
+  <footer class="pagefoot">Fixatron2000 author guides · <a href="index.html">back to index</a></footer>
+</body>
+</html>
