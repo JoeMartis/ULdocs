@@ -1,0 +1,12 @@
+#!/bin/sh
+# Stamps each staged .html file's <span id="last-updated"> with today's date.
+# Activate with: git config core.hooksPath .githooks
+
+today=$(date +%Y-%m-%d)
+
+git diff --cached --name-only --diff-filter=ACM -- '*.html' | while IFS= read -r file; do
+  [ -f "$file" ] || continue
+  grep -q 'id="last-updated"' "$file" || continue
+  perl -pi -e "s/(id=\"last-updated\">Last updated: )\d{4}-\d{2}-\d{2}/\${1}$today/" "$file"
+  git add "$file"
+done
