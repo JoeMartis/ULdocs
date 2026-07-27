@@ -21,6 +21,18 @@
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased; }
+/* Every interactive element needs a visible keyboard focus indicator (WCAG
+   2.4.7); the default outline is easy to lose against these backgrounds. */
+a:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; border-radius:3px; }
+/* Bypass the nav to reach the content (WCAG 2.4.1). Visible only on focus. */
+.skip-link { position:absolute; left:-9999px; top:0; background:var(--bg); color:var(--accent-2);
+  padding:.6rem 1rem; border:1px solid var(--border); border-radius:0 0 6px 0; z-index:10;
+  font-weight:600; }
+.skip-link:focus { left:0; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
 .topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
 .topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
 .topbar a:hover { text-decoration:underline; }
@@ -38,15 +50,21 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 .markdown-body li { margin:.2rem 0; }
 .markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
   font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+/* Scrollable regions are focusable so keyboard users can scroll them (WCAG
+   2.1.1); tabindex="0" + role/label are added to <pre> and tables at build. */
 .markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
   padding:1rem; overflow-x:auto; }
+.markdown-body .table-scroll { overflow-x:auto; margin:1rem 0; }
+.markdown-body .table-scroll:focus-visible, .markdown-body pre:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; }
 .markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
   white-space:pre; }
 .markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
   border-left:.25rem solid var(--border); }
 .markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
-.markdown-body table { border-collapse:collapse; display:block; overflow-x:auto; margin:1rem 0;
-  width:max-content; max-width:100%; }
+/* `display:block` on a <table> strips its semantics from assistive tech —
+   the scrolling now lives on the .table-scroll wrapper instead. */
+.markdown-body table { border-collapse:collapse; margin:0; width:max-content; max-width:100%; }
 .markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
   text-align:left; }
 .markdown-body thead th { background:var(--thead); }
@@ -57,8 +75,9 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 </style>
 </head>
 <body>
-  <nav class="topbar"><a href="index.html">&larr; All guides</a></nav>
-  <main class="markdown-body">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body" id="main">
 <h1 id="fixatron2000-rule-reference">Fixatron2000 Rule Reference</h1>
 <blockquote>
 <p>Auto-generated from <code>config/rules.default.json</code> by <code>scripts/gen-rules-doc.mjs</code> (<code>npm run docs:rules</code>). Do not edit by hand. This is the complete default ruleset; program profiles (e.g. UBio) enable/disable and tune a subset — see <code>docs/PROFILES.md</code>.</p>
@@ -66,11 +85,11 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <p><strong>133 rules</strong> across <strong>26 categories</strong> — 120 static, 13 AI-powered.</p>
 <p>By severity: <strong>60 error</strong>, <strong>67 warning</strong>, <strong>6 info</strong>. <strong>103 on</strong> by default, <strong>30 off</strong> (opt-in per program — most of the biology/writing/prompt/objective rules ship off).</p>
 <p>Assisted correction: <strong>19 rules auto-fix</strong>, <strong>8 offer a suggestion</strong> (see the end of this file).</p>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th></th>
-<th></th>
+<th scope="col"></th>
+<th scope="col"></th>
 </tr>
 </thead>
 <tbody>
@@ -91,7 +110,7 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td><code>auto-fix</code> edits the file (revertable) · <code>suggest</code> proposes text to apply · <code>—</code> detect-only</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="categories">Categories</h2>
 <ul>
 <li><a href="#assignments">Assignments</a> (20)</li>
@@ -123,16 +142,16 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 </ul>
 <hr />
 <h2 id="assignments">Assignments</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -317,18 +336,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>When a Jupyter notebook is referenced in an assignment, verifies that the link points to the correct notebook file.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="knowledge-checks">Knowledge Checks</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -441,18 +460,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Uses AI to detect answer choices that appear incomplete or cut off during authoring, which can confuse learners.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="content-quality">Content Quality</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -547,18 +566,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Flags multiple-choice, checkbox, and dropdown problems with more than 4 answer options in a single response group (5 or more), which the faculty guide flags for rewrite or double-checking. Threshold configurable via params.maxOptions.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="lectures">Lectures</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -644,18 +663,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Detects lecture units that have no content, which usually indicates incomplete course development.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="learning-objectives">Learning Objectives</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -723,18 +742,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Uses AI to check that learning objectives are student-centered — framed as what the learner will be able to do ("students will be able to ...") — rather than instructor- or content-centered ("this lecture covers ...").</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="library-content">Library Content</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -802,18 +821,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Uses AI to evaluate whether problem bank solution explanations are detailed enough to support deeper learning beyond just knowing the answer.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="recitations">Recitations</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -881,18 +900,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Verifies that the unit title matches the embedded video title, catching misplaced videos.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="admin">Admin</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -960,18 +979,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Ensures no individual sections have discussion_enabled set to true, preventing stray discussion threads in the course content.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="writing-style">Writing Style</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1030,18 +1049,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Uses AI to flag lists of three or more items that omit the serial (Oxford) comma before the final "and"/"or".</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="question-prompts">Question Prompts</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1100,18 +1119,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Uses AI to check answer-choice capitalization and terminal punctuation. Phrase options that complete a fill-in-the-blank stem should start lowercase; for standalone questions, leading capitals are accepted. A terminal period is expected only on full-sentence options.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="biology-terminology">Biology Terminology</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1170,18 +1189,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Per faculty convention, a phenotype/trait is dominant or recessive — an allele, gene, or mutation is not. Flags "dominant"/"recessive" attached to "allele", "gene", or "mutation" (e.g. "the dominant allele") and suggests rephrasing (e.g. "the allele encoding the dominant trait"). "Dominant trait", "recessive phenotype", "dominant eye color" are correct and not flagged.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="fonts">Fonts</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1222,18 +1241,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso-<em> styles, Mso</em> classes, <o:p> tags, <font> tags, and AI-generated data attributes like data-start and data-end.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="transcripts">Transcripts</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1274,18 +1293,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Ensures transcript SRT files contain real content (at least 10 lines) and are not empty or placeholder-only files.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="custom-pages">Custom Pages</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1326,18 +1345,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Verifies that the glossary page references the correct course name, catching cases where a glossary was copied from another course.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="video">Video</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1369,18 +1388,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Flags two or more videos sharing the same display name within one module (chapter). Duplicate video names cause knowledge checks named after their video to collide.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="terms">Terms</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1412,18 +1431,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Flags an acronym used in HTML or problem text before it is defined. The first course-wide use should spell it out, e.g. "endoplasmic reticulum (ER)"; bare uses after that are fine. Widely understood acronyms (DNA, RNA, PCR, …) are exempt; extend the exemptions via params.allowAcronyms.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="module-summary">Module Summary</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1455,18 +1474,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Checks that the module summary includes a link back to the course dashboard for easy navigation.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="accessibility">Accessibility</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1498,18 +1517,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Flags math/science notation authored as plain text or HTML that the accessibility team's screen-reader testing found needs MathJax to read correctly: caret exponents (x^2), scientific notation (2 × 10^-5), unicode and HTML super/subscripts including lone letters and charges (mⁿ, Cl<sup>-</sup> — screen readers don't announce the super/subscript; ordinals like "1st" are exempt), the multiplication sign × (read as the letter "x"), and symbols that only read aloud in MathJax. Only fires outside existing MathJax. Does not flag standalone Greek letters, temperature degrees, or relational operators (≤ ≥ ≠ ±), which read correctly in HTML. Plain-text chemical formulas/ions (H2O, Mg2+) are flagged only when params.flagChemistry is true (element-symbol validated to limit noise). Extend the MathJax-only symbol list via params.specialSymbols.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="structure">Structure</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1541,18 +1560,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Reports drafts in the drafts/ directory that are genuinely unpublished — new content with no published counterpart, or drafts whose content differs from the published version. Stale drafts identical to published content (common after re-runs and imports) are ignored.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="pdf-slides">PDF Slides</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1575,18 +1594,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Verifies that the slide download link is placed in its own HTML component directly below the video, not embedded in other content.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="broken-references">Broken References</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1609,18 +1628,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Ensures every video component has a non-empty edxVideoId. Missing IDs mean the video won't play on the platform.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="lists">Lists</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1634,18 +1653,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Ensures list items do not contain nested <p> tags, which cause extra spacing and inconsistent rendering across browsers.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bolding">Bolding</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1659,18 +1678,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Ensures bold text uses semantic <strong> tags instead of deprecated <b> tags or inline font-weight styles, improving accessibility and consistency.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="headings">Headings</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1681,21 +1700,21 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Ensures section headers in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course.</td>
+<td>Ensures section headers in overview and summary pages use <code>&lt;h4&gt;</code> tags to maintain a consistent heading hierarchy across the course.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="asktim">AskTIM</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1709,18 +1728,18 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Checks that the AskTIM AI chat assistant is enabled on relevant content blocks via OL_OPENEDX_CHAT settings, giving learners on-demand help.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="summaries">Summaries</h2>
-<table>
-<thead>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Fixatron2000 Rule Reference table, scrollable"><table>
+<th scope="col"ead>
 <tr>
-<th>Rule</th>
-<th>ID</th>
-<th style="text-align: center;">Severity</th>
-<th style="text-align: center;">Type</th>
-<th style="text-align: center;">Default</th>
-<th style="text-align: center;">Fix / Suggest</th>
-<th>What it checks</th>
+<th scope="col">Rule</th>
+<th scope="col">ID</th>
+<th scope="col" style="text-align: center;">Severity</th>
+<th scope="col" style="text-align: center;">Type</th>
+<th scope="col" style="text-align: center;">Default</th>
+<th scope="col" style="text-align: center;">Fix / Suggest</th>
+<th scope="col">What it checks</th>
 </tr>
 </thead>
 <tbody>
@@ -1734,7 +1753,7 @@ body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
 <td>Checks that bold formatting in summary takeaways follows course standards, using <strong> tags consistently for key terms.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2 id="auto-fix-rules">Auto-fix rules</h2>
 <p>These rules can edit the export file directly (the change is revertable in the UI).</p>
