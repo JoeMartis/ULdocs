@@ -211,9 +211,9 @@ a:focus-visible, [tabindex]:focus-visible {
 <td><code>assignments-attempts-complex-checkbox</code></td>
 <td style="text-align: center;">warning</td>
 <td style="text-align: center;">static</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">auto-fix</td>
-<td>Ensures checkbox problems with more than 5 answer options allow exactly 4 attempts, since these are significantly harder. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default.</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">—</td>
+<td>Deprecated — all checkbox assignment problems now use 3 attempts via the Checkbox Attempts rule, and checkboxes with 5+ options are instead flagged for rewrite by Too Many Answer Options. Previously gave complex checkboxes (5+ options) an extra attempt.</td>
 </tr>
 <tr>
 <td><strong>Problem Bank 2-Option MC Attempts</strong></td>
@@ -240,7 +240,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Ensures dropdown (option response) problems allow attempts scaled to the option count: 1 attempt for 2 options, 2 attempts for 3–4 options. Dropdowns with 5+ options are left to the "Too Many Options" rule. Scans assignments by default; set params.scope to "all" to also cover knowledge checks. The effective value accounts for edX inheritance.</td>
+<td>Ensures dropdown (option response) problems allow attempts scaled to the option count: 1 attempt for 2 options, 2 attempts for 3–4 options. Dropdowns with 5+ options are left to the "Too Many Answer Options" rule. Scans assignments by default; set params.scope to "all" to also cover knowledge checks. The effective value accounts for edX inheritance.</td>
 </tr>
 <tr>
 <td><strong>Simple Checkbox Attempts</strong></td>
@@ -249,7 +249,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✗</td>
 <td style="text-align: center;">—</td>
-<td>Ensures checkbox problems with 4 or fewer answer options allow exactly 2 attempts, since fewer options makes the task closer to single-answer difficulty. Scans assignments by default; set params.scope to "all" to also cover knowledge checks.</td>
+<td>Deprecated — checkbox problems now use 3 attempts regardless of option count (below the too-many-options threshold) via the Checkbox Attempts rule. Previously gave simple checkboxes (4 or fewer options) a reduced attempt count.</td>
 </tr>
 <tr>
 <td><strong>Text Response Attempts</strong></td>
@@ -1757,7 +1757,6 @@ a:focus-visible, [tabindex]:focus-visible {
 <ul>
 <li><strong>No Discussions in Sections</strong> (<code>admin-discussions-enabled-in-sections</code>)</li>
 <li><strong>Checkbox Attempts</strong> (<code>assignments-attempts-checkbox</code>)</li>
-<li><strong>Complex Checkbox Attempts</strong> (<code>assignments-attempts-complex-checkbox</code>)</li>
 <li><strong>Dropdown Attempts</strong> (<code>assignments-attempts-dropdown</code>)</li>
 <li><strong>Multiple Choice Attempts</strong> (<code>assignments-attempts-multiple-choice</code>)</li>
 <li><strong>Numerical Input Attempts</strong> (<code>assignments-attempts-numerical</code>)</li>
@@ -1788,6 +1787,6 @@ a:focus-visible, [tabindex]:focus-visible {
 <li><strong>Learner Not Student</strong> (<code>terms-learner-not-student</code>)</li>
 </ul>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-27</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-28</span></footer>
 </body>
 </html>
