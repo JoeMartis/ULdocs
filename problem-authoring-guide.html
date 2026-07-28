@@ -72,6 +72,15 @@ a:focus-visible, [tabindex]:focus-visible {
 .pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
   border-top:1px solid var(--border); }
 .pagefoot a { color:var(--accent-2); }
+.toc { border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem;
+  margin:1.5rem 0; background:var(--code-bg); }
+.toc p { margin:0 0 .5rem; font-weight:600; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.04em; color:var(--muted); }
+.toc ul { columns:2; column-gap:2rem; margin:0; padding-left:1.2rem; }
+.toc li { margin:.15rem 0; font-size:.92rem; break-inside:avoid; }
+.toc a { color:var(--accent-2); text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+@media (max-width:560px) { .toc ul { columns:1; } }
 </style>
 </head>
 <body>
@@ -87,6 +96,20 @@ write it.</p>
 every correct checkbox with <code>[X]</code>. In a dropdown, the options sit inline in
 brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G1/&amp;S/M]</code>.</p>
 </blockquote>
+<nav class="toc" aria-label="On this page">
+<p>On this page</p>
+<ul>
+<li><a href="#every-problem-the-shared-checklist">Every problem — the shared checklist</a></li>
+<li><a href="#writing-a-strong-explanation">Writing a strong explanation</a></li>
+<li><a href="#1-multiple-choice-single-answer">1. Multiple choice (single answer)</a></li>
+<li><a href="#2-checkbox-select-all-that-apply">2. Checkbox (select all that apply)</a></li>
+<li><a href="#3-dropdown">3. Dropdown</a></li>
+<li><a href="#4-numerical-input">4. Numerical input</a></li>
+<li><a href="#5-text-short-answer">5. Text / short answer</a></li>
+<li><a href="#6-open-ended-auto-credit-any-thoughtful-answer">6. Open-ended, auto-credit</a></li>
+<li><a href="#attempts-quick-reference">Attempts quick reference</a></li>
+</ul>
+</nav>
 <hr />
 <h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2>
 <p>These apply to <strong>all</strong> problem types:</p>
