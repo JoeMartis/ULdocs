@@ -72,6 +72,15 @@ a:focus-visible, [tabindex]:focus-visible {
 .pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
   border-top:1px solid var(--border); }
 .pagefoot a { color:var(--accent-2); }
+.toc { border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem;
+  margin:1.5rem 0; background:var(--code-bg); }
+.toc p { margin:0 0 .5rem; font-weight:600; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.04em; color:var(--muted); }
+.toc ul { columns:2; column-gap:2rem; margin:0; padding-left:1.2rem; }
+.toc li { margin:.15rem 0; font-size:.92rem; break-inside:avoid; }
+.toc a { color:var(--accent-2); text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+@media (max-width:560px) { .toc ul { columns:1; } }
 </style>
 </head>
 <body>
@@ -87,6 +96,23 @@ terminology, and clean formatting.</p>
 <p>Full rule catalog: <a href="rule-reference.html">Rule Reference</a> · Attempts detail:
 <a href="attempts-policy.html">Attempts Policy</a></p>
 </blockquote>
+<nav class="toc" aria-label="On this page">
+<p>On this page</p>
+<ul>
+<li><a href="#1-writing-style">1. Writing style</a></li>
+<li><a href="#2-overview-summary-media-pages">2. Overview, summary, media &amp; pages</a></li>
+<li><a href="#3-lecture-video-names">3. Lecture &amp; video names</a></li>
+<li><a href="#4-problem-names">4. Problem names</a></li>
+<li><a href="#5-question-wording-say-what-kind-of-answer-you-want">5. Question wording</a></li>
+<li><a href="#6-answer-choices">6. Answer choices</a></li>
+<li><a href="#7-explanations-solutions">7. Explanations &amp; solutions</a></li>
+<li><a href="#8-formatting-clean-paste-the-most-common-trip-ups">8. Formatting &amp; clean paste</a></li>
+<li><a href="#9-accessibility-in-content">9. Accessibility in content</a></li>
+<li><a href="#appendix-biology-terminology">Appendix — Biology terminology</a></li>
+<li><a href="#appendix-platform-settings-not-authoring">Appendix — platform settings</a></li>
+<li><a href="#appendix-reference-lists">Appendix — reference lists</a></li>
+</ul>
+</nav>
 <hr />
 <h2 id="1-writing-style">1. Writing style</h2>
 <ul>
