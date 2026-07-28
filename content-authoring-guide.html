@@ -79,7 +79,7 @@ a:focus-visible, [tabindex]:focus-visible {
   <nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
   <main class="markdown-body" id="main">
 <h1 id="content-authoring-guide">Content Authoring Guide</h1>
-<p>How to write and enter course content in Studio so the automated QA pass
+<p>How to write course content in the template so the automated QA pass
 stays quiet. This guide covers the <strong>content you write and
 format</strong> — names, question wording, answer choices, explanations, objectives,
 terminology, and clean formatting.</p>
@@ -88,26 +88,7 @@ terminology, and clean formatting.</p>
 <a href="attempts-policy.html">Attempts Policy</a></p>
 </blockquote>
 <hr />
-<h2 id="1-unit-knowledge-check-names">1. Unit &amp; knowledge-check names</h2>
-<p>The Universal Learning Program does <strong>not</strong> number lectures, recitations, assignments, or
-questions. Those naming/numbering checks (<code>L X.Y</code>, <code>Assignment N: Part N</code>,
-<code>Question N</code>, <code>Knowledge Check: Question N</code>) are <strong>turned off for the program</strong>,
-so title those units however your team prefers.</p>
-<p>The naming conventions that <strong>are</strong> enforced concern knowledge checks and videos:</p>
-<p><strong>Follow each video with two or more knowledge checks.</strong> Every video should have
-at least two knowledge checks after it so learners can check their understanding.</p>
-<p><strong>Knowledge checks are named after their video.</strong> A knowledge check takes the
-name of the video that precedes it in the module:</p>
-<ul>
-<li>One knowledge check after a video → <code>Knowledge Check: &lt;video name&gt;</code>
-  (e.g. <code>Knowledge Check: Molecular Biology Experiment</code>).</li>
-<li>Two or more after the same video → add an <code>A</code>/<code>B</code>/<code>C…</code> suffix:
-  <code>Knowledge Check A: Molecular Biology Experiment</code>,
-  <code>Knowledge Check B: Molecular Biology Experiment</code>.</li>
-</ul>
-<p>Give each video a <strong>unique name within its module</strong> — duplicate video names make
-the knowledge checks named after them collide.</p>
-<h2 id="2-writing-style">2. Writing style</h2>
+<h2 id="1-writing-style">1. Writing style</h2>
 <ul>
 <li><strong>Address the reader as "you"</strong> (or "learner(s)"), never "student" or "user".</li>
 <li><strong>Give directions plainly</strong> — "Select the best answer.", not "Please select…".</li>
@@ -127,7 +108,102 @@ the knowledge checks named after them collide.</p>
   unsure of the referent. Name the noun instead: "the enzyme changes shape", not
   "it changes shape".</li>
 </ul>
-<h2 id="3-question-wording-say-what-kind-of-answer-you-want">3. Question wording — say what kind of answer you want</h2>
+<h2 id="2-overview-summary-media-pages">2. Overview, summary, media &amp; pages</h2>
+<ul>
+<li>Each <strong>module</strong> gets an overview (with <strong>learning goals</strong>) and a module
+  summary (with <strong>key takeaways</strong>).</li>
+<li>Each <strong>lecture</strong> gets an overview (with <strong>learning objectives</strong>) and a
+  lecture summary (with <strong>key takeaways</strong>).</li>
+<li>Each <strong>assignment</strong> gets an overview and a summary page too (no takeaways
+  required there).</li>
+</ul>
+<p><strong>What makes a strong overview.</strong> An overview orients the learner before they
+dive in — it previews, it doesn't teach. The opening line differs by level: a
+lecture uses <strong>learning objectives</strong> ("At the end of this lecture, you will be
+able to:"); a module uses <strong>learning goals</strong> ("Our goals for this module
+are:").</p>
+<ul>
+<li><strong>Bold the title</strong> and <strong>bold the professor's name</strong>.</li>
+<li><strong>Frame it in a sentence or two</strong>: what this lecture or module covers and
+  why it matters, or how it connects to what came before. Don't summarize the
+  whole thing here — that's what the objectives/goals list and the summary
+  page are for.</li>
+<li><strong>Follow immediately with the objectives or goals list</strong>, written like this:</li>
+<li>Start each one with a <strong>measurable action verb</strong> (Bloom's): "describe",
+    "calculate", "predict", "compare" — not "understand", "know", "be familiar
+    with".</li>
+<li>Frame around the <strong>learner</strong>: "you will be able to predict…", not "this
+    lecture covers…".</li>
+<li>Use <strong>bullet points</strong>, not a numbered list, and <strong>bold</strong> the key topic
+    names.</li>
+<li><strong>Keep it short.</strong> A framing paragraph plus the list is enough — a long
+  overview delays the learner from getting to the actual content.</li>
+</ul>
+<p><strong>What makes strong key takeaways.</strong> Key takeaways close the loop the overview
+opened — each objective or goal promised should have a matching takeaway that
+delivers on it. This applies to both lecture summaries and module summaries.</p>
+<ul>
+<li><strong>One takeaway per objective/goal.</strong> If a lecture or module has four, look
+  for four takeaways.</li>
+<li><strong>State the fact or skill, not the topic label.</strong> "Mitosis produces two
+  genetically identical diploid daughter cells" teaches something; "Mitosis"
+  does not.</li>
+<li><strong>One sentence each</strong>, as a bullet list — a takeaway is a fact to remember,
+  not a paragraph to read.</li>
+<li><strong>Introduce nothing new.</strong> A takeaway restates something already taught; it
+  isn't the place for a fact the learner hasn't seen yet.</li>
+<li><strong>Label the section clearly</strong> — the QA tool looks for the word "takeaway" or
+  "key point/concept/term" to confirm the list is there.</li>
+</ul>
+<p><em>Weak:</em> Mitosis · Meiosis · Chromosome number
+  <em>Strong:</em> Mitosis produces two genetically identical diploid daughter cells,
+  used for growth and repair. · Meiosis produces four genetically distinct
+  haploid gametes through two rounds of division. · Diploid cells carry two
+  copies of each chromosome; haploid cells carry one.</p>
+<h2 id="3-unit-knowledge-check-names">3. Unit &amp; knowledge-check names</h2>
+<p>The Universal Learning Program does <strong>not</strong> number lectures, recitations, assignments, or
+questions. Those naming/numbering checks (<code>L X.Y</code>, <code>Assignment N: Part N</code>,
+<code>Question N</code>, <code>Knowledge Check: Question N</code>) are <strong>turned off for the program</strong>,
+so title those units however your team prefers.</p>
+<p>The naming conventions that <strong>are</strong> enforced concern knowledge checks and videos:</p>
+<p><strong>Naming videos.</strong> A video's name flows directly into the name of every
+knowledge check that follows it, so name it well from the start:</p>
+<ul>
+<li><strong>5 words or fewer</strong>, highlighting the key concept from the lesson — a short
+  phrase, not a full sentence. It has to read naturally inside "Knowledge
+  Check: <code>&lt;video name&gt;</code>".</li>
+<li><strong>No numbers or symbols</strong> — that includes Roman numerals ("II", "III"). Name
+  the video for its content, not its position in a sequence.</li>
+<li><strong>Avoid jargon</strong> — use words a learner already knows, not the technical term
+  the lesson is about to teach.</li>
+<li><strong>Title case</strong> — "Molecular Biology Experiment", not "molecular biology
+  experiment" or "MOLECULAR BIOLOGY EXPERIMENT".</li>
+<li><strong>Unique within its module</strong> — duplicate video names make the knowledge
+  checks named after them collide.</li>
+</ul>
+<p><strong>Follow each video with two or more knowledge checks.</strong> Every video should have
+at least two knowledge checks after it so learners can check their understanding.</p>
+<p><strong>Knowledge checks are named after their video.</strong> A knowledge check takes the
+name of the video that precedes it in the module:</p>
+<ul>
+<li>One knowledge check after a video → <code>Knowledge Check: &lt;video name&gt;</code>
+  (e.g. <code>Knowledge Check: Molecular Biology Experiment</code>).</li>
+<li>Two or more after the same video → add an <code>A</code>/<code>B</code>/<code>C…</code> suffix:
+  <code>Knowledge Check A: Molecular Biology Experiment</code>,
+  <code>Knowledge Check B: Molecular Biology Experiment</code>.</li>
+</ul>
+<p><strong>Naming assignment problems.</strong> Title each problem for the question it asks,
+not a generic label — e.g. <code>Transforming Data for Hill Coefficient
+Calculations</code>, not <code>Question 1</code>.</p>
+<ul>
+<li><strong>Descriptive, not generic.</strong> The title should tell the learner (and anyone
+  scanning a list of titles) what the question is about.</li>
+<li><strong>Specific enough to be unique.</strong> A title tied to the actual question
+  content naturally won't collide with another problem's title the way a
+  repeated "Question 1" would across different assignments.</li>
+<li><strong>Title case</strong>, kept to a phrase — not a full restatement of the question.</li>
+</ul>
+<h2 id="4-question-wording-say-what-kind-of-answer-you-want">4. Question wording — say what kind of answer you want</h2>
 <p>Write the expected instruction into the question text:</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Content Authoring Guide table, scrollable"><table>
 <thead>
@@ -168,7 +244,7 @@ the knowledge checks named after them collide.</p>
 </tbody>
 </table></div>
 <p>Pick the numerical phrase that matches the answer type.</p>
-<h2 id="4-answer-choices">4. Answer choices</h2>
+<h2 id="5-answer-choices">5. Answer choices</h2>
 <ul>
 <li>Provide <strong>at least two</strong> choices, with <strong>at least one correct</strong>.</li>
 <li><strong>No duplicate</strong> choices and <strong>no blank</strong> choices.</li>
@@ -179,11 +255,11 @@ the knowledge checks named after them collide.</p>
   position ("option B", "the first choice").</li>
 <li><strong>Dropdowns:</strong> the correct answer must <strong>exactly match</strong> one of the options —
   a stray space or typo makes no option correct.</li>
-<li><strong>Capitalization/punctuation:</strong> options completing a fill-in-the-blank stem
-  start lowercase; standalone questions may start with a capital; add a terminal
-  period only on full-sentence options.</li>
+<li><strong>Capitalization/punctuation:</strong> options completing a fill-in-the-blank
+  question start lowercase; standalone questions may start with a capital; add
+  a terminal period only on full-sentence options.</li>
 </ul>
-<h2 id="5-explanations-solutions">5. Explanations &amp; solutions</h2>
+<h2 id="6-explanations-solutions">6. Explanations &amp; solutions</h2>
 <ul>
 <li><strong>Every problem</strong> needs a solution/explanation, <strong>labeled</strong> with the word
   "Explanation".</li>
@@ -207,44 +283,21 @@ learner the answer — it teaches the concept behind it.</p>
   reference can point at the wrong answer.</li>
 <li><strong>Is complete</strong> — not cut off mid-sentence.</li>
 </ul>
-<h2 id="6-formatting-clean-paste-the-most-common-trip-ups">6. Formatting &amp; clean paste (the most common trip-ups)</h2>
+<h2 id="7-formatting-clean-paste-the-most-common-trip-ups">7. Formatting &amp; clean paste (the most common trip-ups)</h2>
 <ul>
-<li><strong>Don't paste straight from Word, Google Docs, or ChatGPT</strong> — it drags in
-  hidden markup. Paste as plain text, then format in the Studio editor.</li>
+<li><strong>Don't paste rich text straight from Google Docs or ChatGPT</strong> — it drags in
+  hidden markup. Paste as plain text, then apply formatting in the template.</li>
 <li><strong>No custom font, size, or color</strong> — let the platform's styling apply.</li>
-<li><strong>Bold</strong> with the editor's bold (semantic <code>&lt;strong&gt;</code>), not a colored/enlarged
+<li><strong>Bold</strong> with the template's own bold formatting, not a colored/enlarged
   font. <strong>Section headers</strong> in overview/summary pages use Heading 4.</li>
 <li><strong>No empty paragraphs or empty components</strong> (blank gaps). Don't nest
-  paragraphs inside list items — use the editor's list button.</li>
+  paragraphs inside list items — use the template's list formatting.</li>
 <li><strong>Keep content responsive</strong> — avoid fixed pixel widths on tables and images so
   it reflows on phones and tablets.</li>
 <li><em>Monospace is sometimes used to display sequence data — if that gets flagged,
   review and dismiss it.</em></li>
 </ul>
-<h2 id="7-learning-objectives">7. Learning objectives</h2>
-<ul>
-<li>Start each objective with a <strong>measurable action verb</strong> (Bloom's): "describe",
-  "calculate", "predict", "compare" — not "understand", "know", "be familiar
-  with".</li>
-<li>Frame around the <strong>learner</strong>: "you will be able to predict…", not "this
-  lecture covers…".</li>
-<li>Introduce the list with a <strong>stem</strong>: "At the end of this module, you will be
-  able to:". Use <strong>bullet points</strong>, not a numbered list. <strong>Bold</strong> the key topic
-  names.</li>
-</ul>
-<h2 id="8-biology-terminology">8. Biology terminology</h2>
-<ul>
-<li>"PCR", not "PCR reaction" (the R already means "reaction"); same for
-  qPCR/RT-PCR/ddPCR.</li>
-<li>"the active site of the protein", not the possessive "the protein's active
-  site"; likewise "the position of the gene", "the structure of DNA".</li>
-<li>Introduce the method as "dideoxy (Sanger) sequencing" on first use.</li>
-<li>A <strong>trait/phenotype</strong> is dominant or recessive — an allele, gene, or mutation
-  is not. "the dominant trait", not "the dominant allele".</li>
-<li>Italicize genus/species names, gene symbols, and restriction-enzyme prefixes;
-  keep protein names upright.</li>
-</ul>
-<h2 id="9-accessibility-in-content">9. Accessibility in content</h2>
+<h2 id="8-accessibility-in-content">8. Accessibility in content</h2>
 <ul>
 <li><strong>Alt text</strong> on every image — describe essential detail shown.</li>
 <li><strong>Meaningful link text</strong> — the linked words indicate the destination.</li>
@@ -258,22 +311,24 @@ learner the answer — it teaches the concept behind it.</p>
   temperature degrees, and ordinals (<code>1st</code>) are fine in HTML. Full matrix:
   <a href="math-markup.html">Accessible Math &amp; Science Markup</a>.</li>
 </ul>
-<h2 id="10-overview-summary-media-pages">10. Overview, summary, media &amp; pages</h2>
+<h2 id="appendix-biology-terminology">Appendix — Biology terminology</h2>
+<p>Biology-specific terminology conventions — apply these only where the content covers biology.</p>
 <ul>
-<li>Each lecture and assignment gets an <strong>overview</strong> and a <strong>summary</strong> page; each
-  module gets a <strong>summary</strong> page. (Recitation overview/summary checks are off for
-  the Universal Learning Program.)</li>
-<li>Lecture summaries include a list of <strong>key takeaways</strong>.</li>
-<li>Module summaries link to the <strong>Module Feedback Form</strong> and back to the
-  <strong>dashboard</strong>.</li>
+<li>"PCR", not "PCR reaction" (the R already means "reaction"); same for
+  qPCR/RT-PCR/ddPCR.</li>
+<li>"the active site of the protein", not the possessive "the protein's active
+  site"; likewise "the position of the gene", "the structure of DNA".</li>
+<li>Introduce the method as "dideoxy (Sanger) sequencing" on first use.</li>
+<li>A <strong>trait/phenotype</strong> is dominant or recessive — an allele, gene, or mutation
+  is not. "the dominant trait", not "the dominant allele".</li>
+<li>Italicize genus/species names, gene symbols, and restriction-enzyme prefixes;
+  keep protein names upright.</li>
 </ul>
-<p><em>(The Universal Learning Program has no course tabs or recitations, so the Resources/
-Glossary/Attributions tab checks and all recitation checks are off.)</em></p>
 <hr />
 <h2 id="appendix-platform-settings-not-authoring">Appendix — platform settings (not authoring)</h2>
 <p>The QA tool also checks these, but they are configuration set during course
-setup or as a Studio settings field, not part of writing content. Hand them to
-whoever owns course configuration. Full detail in the
+setup or as a platform settings field, not part of writing content. Hand them
+to whoever owns course configuration. Full detail in the
 <a href="attempts-policy.html">Attempts Policy</a>.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Content Authoring Guide table, scrollable"><table>
 <thead>
@@ -348,6 +403,6 @@ positives like "1990s".</p>
 <p><strong>MathJax-only symbols</strong> (flagged if used outside MathJax): ⊣ (the list is
 extendable per program).</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-27</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-28</span></footer>
 </body>
 </html>
