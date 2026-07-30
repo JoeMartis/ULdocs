@@ -69,7 +69,8 @@
   footer { margin-top: 2.5rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
   footer a { color: var(--accent-2); }
 
-  .search { position: relative; max-width: 480px; margin-top: .5rem; }
+  .search-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; }
+  .search { position: relative; flex: 1 1 320px; max-width: 480px; }
   .search input {
     width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -105,8 +106,8 @@
   .search-results .r-empty { padding: .8rem .7rem; color: var(--muted); font-size: .9rem; }
   .search-results mark { background: rgba(47,109,179,.22); color: inherit; border-radius: 2px; }
   .search-option {
-    display: flex; align-items: center; gap: .4rem; max-width: 480px;
-    margin-top: 1.5rem; font-size: .82rem; color: var(--muted); cursor: pointer;
+    display: flex; align-items: center; gap: .4rem; flex: 0 0 auto;
+    font-size: .82rem; color: var(--muted); cursor: pointer; white-space: nowrap;
   }
   .search-option input { margin: 0; }
 </style>
@@ -119,18 +120,20 @@
       <p class="lede">Everything you need to author course content that passes QA — how to write it,
       how to enter each problem type, and how the automated checks judge your work.</p>
 
-      <label class="search-option">
-        <input type="checkbox" id="search-include-rules">
-        Include individual rules from Rule Reference (133)
-      </label>
-      <div class="search" role="search">
-        <span class="icon" aria-hidden="true">🔍</span>
-        <label class="sr-only" for="search-input">Search the guides</label>
-        <input id="search-input" type="text" autocomplete="off" spellcheck="false"
-               placeholder="Search all guides — e.g. “checkbox attempts”, “italicize”, “trailing label”"
-               role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
-        <button class="clear" id="search-clear" type="button" aria-label="Clear search">&times;</button>
-        <div class="search-results" id="search-results" role="listbox"></div>
+      <div class="search-row">
+        <div class="search" role="search">
+          <span class="icon" aria-hidden="true">🔍</span>
+          <label class="sr-only" for="search-input">Search the guides</label>
+          <input id="search-input" type="text" autocomplete="off" spellcheck="false"
+                 placeholder="Search all guides — e.g. “checkbox attempts”, “italicize”, “trailing label”"
+                 role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
+          <button class="clear" id="search-clear" type="button" aria-label="Clear search">&times;</button>
+          <div class="search-results" id="search-results" role="listbox"></div>
+        </div>
+        <label class="search-option">
+          <input type="checkbox" id="search-include-rules">
+          Include individual rules from Rule Reference (133)
+        </label>
       </div>
     </header>
 
