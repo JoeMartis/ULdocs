@@ -214,8 +214,6 @@ learner the answer — it teaches the concept behind it.
 
 ## 8. Formatting
 
-- **Do not paste rich text straight from Google Docs or ChatGPT** — it drags in
-  hidden markup. Paste as plain text, then apply formatting in the template.
 - **No custom font, size, or color** — let the platform's styling apply.
 - **Bold** with the template's own bold formatting, not a colored/enlarged
   font. **Section headers** in overview/summary pages use Heading 4.
