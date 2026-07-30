@@ -81,13 +81,6 @@ a:focus-visible, [tabindex]:focus-visible {
 .toc a { color:var(--accent-2); text-decoration:none; }
 .toc a:hover { text-decoration:underline; }
 @media (max-width:560px) { .toc ul { columns:1; } }
-.markdown-body details > summary { display:flex; align-items:center; gap:.5rem; cursor:pointer;
-  list-style:none; margin:2rem 0 .8rem; padding-bottom:.3rem; border-bottom:1px solid var(--border); }
-.markdown-body details > summary::-webkit-details-marker { display:none; }
-.markdown-body details > summary::before { content:"▸"; color:var(--muted); font-size:.85em;
-  transition:transform .15s ease; flex-shrink:0; }
-.markdown-body details[open] > summary::before { transform:rotate(90deg); }
-.markdown-body details > summary h2 { margin:0; padding:0; border:none; flex:1; }
 </style>
 </head>
 <body>
@@ -117,8 +110,7 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 </ul>
 </nav>
 <hr />
-<details>
-<summary><h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2></summary>
+<h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2>
 <p>These apply to <strong>all</strong> problem types:</p>
 <ul>
 <li><strong>Include the type-specific instruction</strong> (see each type below), as the last
@@ -131,7 +123,6 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <li><strong>Notation:</strong> math/science in MathJax; a space between a number and its unit
   ("37 °C"); no ambiguous "it"; follow the biology terminology rules.</li>
 </ul>
-</details>
 <h2 id="problem-names">Problem names</h2>
 <p><strong>Knowledge-check naming:</strong> a knowledge check is named after the video before it
 — <code>Knowledge Check: &lt;video name&gt;</code>, or <code>Knowledge Check A/B: &lt;video name&gt;</code> when a
@@ -148,8 +139,7 @@ Calculations</code>, not <code>Question 1</code>.</p>
 <li><strong>Title case</strong>, kept to a phrase — not a full restatement of the question.</li>
 </ul>
 <hr />
-<details>
-<summary><h2 id="writing-a-strong-explanation">Writing a strong explanation</h2></summary>
+<h2 id="writing-a-strong-explanation">Writing a strong explanation</h2>
 <p>A strong explanation does not just tell the learner the answer — it teaches the
 concept behind it. This tool gives instant feedback against the criteria below —
 check your explanation with <a href="https://joemartis.github.io/Explain2Me/">Explain2Me</a> —
@@ -173,7 +163,6 @@ but it must give a solid foundation.</p>
   option", or "choice B". Answer options may be shuffled when displayed, so a
   positional reference can point at the wrong answer.</li>
 </ul>
-</details>
 <hr />
 <h2 id="1-multiple-choice-single-answer">1. Multiple choice (single answer)</h2>
 <ul>
