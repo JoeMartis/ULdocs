@@ -1,0 +1,1150 @@
+[
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "1-writing-style",
+"heading": "1. Writing style",
+"text": "Address the reader as \"you\" (or \"learner(s)\"), never \"student\" or \"user\". No contractions in instructional text — \"do not\", not \"don't\". Active voice and the Oxford comma — \"DNA, RNA, and protein\". Define acronyms on first use — spell it out the first time, then use the short form: \"endoplasmic reticulum (ER)\" first, \"ER\" after. Widely understood acronyms (DNA, RNA, PCR, ATP…) do not need defining"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "2-overview-summary-pages",
+"heading": "2. Overview and summary pages",
+"text": "Each module gets an overview (with learning goals ) and a module summary (with key takeaways ). Each lecture gets an overview (with learning objectives ) and a lecture summary (with key takeaways ). Each assignment gets an overview and a summary page too (no takeaways required there). What makes a strong overview. An overview orients the learner before they dive in — it previews, it does not teach"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "3-lecture-video-names",
+"heading": "3. Lecture and video names",
+"text": "The Universal Learning Program does not number lectures. Naming lectures. Name each lecture for the concept it covers, not its position in the sequence: 5 words or fewer , highlighting the key concept from the lesson — a short phrase, not a full sentence. No numbers or symbols — that includes Roman numerals (\"II\", \"III\"). Name the lecture for its content, not its position in a sequence. Avoid jarg"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "4-problem-names",
+"heading": "4. Problem names",
+"text": "Both knowledge-check and assignment problems need a clear, specific title — never a generic placeholder like Question 1 . Naming Knowledge check problems. A knowledge check takes the name of the video that precedes it in the module: One knowledge check after a video → Knowledge Check: <video name> (e.g. Knowledge Check: Molecular Biology Experiment ). Two or more after the same video → add an A / "
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "5-question-wording",
+"heading": "5. Question wording",
+"text": "Write the expected instruction into the question text: Pick the numerical phrase that matches the answer type."
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "6-answer-options",
+"heading": "6. Answer options",
+"text": "Provide at least two choices, with at least one correct . No duplicate choices and no blank choices. Keep it to 4 choices or fewer — five or more gets flagged to rewrite. No letters or numbers labeling the choices — enter just the option text. edX shuffles option order, so a hand-typed \"A)\" or \"1.\" ends up on the wrong choice. Likewise in explanations , refer to a choice by its content, not by pos"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "7-problem-explanations",
+"heading": "7. Problem explanations",
+"text": "Every problem needs a solution/explanation, labeled with the word \"Explanation\". What makes a strong explanation. A strong explanation does not just tell the learner the answer — it teaches the concept behind it. Explains why, not just what — give the reason the answer is correct, do not just assert it. Provides reasoning or conceptual context — connect the answer to the underlying principle. Is s"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "8-formatting",
+"heading": "8. Formatting",
+"text": "No custom font, size, or color — let the platform's styling apply. Bold with the template's own bold formatting, not a colored/enlarged font. Section headers in overview/summary pages use Heading 4. No empty paragraphs or empty components (blank gaps). Do not nest paragraphs inside list items — use the template's list formatting. Keep content responsive — avoid fixed pixel widths on tables and ima"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "9-accessibility",
+"heading": "9. Accessibility",
+"text": "Alt text on every image — describe essential detail shown. Meaningful link text — the linked words indicate the destination. The question text should serve as the problem's label (the simple problem editor does this automatically). Author math/science notation in MathJax so screen readers read it correctly — exponents ( \\(x^2\\) ), scientific notation ( \\(2 \\times 10^{-5}\\) ), any super/subscript ("
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "appendix-biology-terminology",
+"heading": "Appendix — Biology terminology",
+"text": "Biology-specific terminology conventions — apply these only where the content covers biology. \"PCR\", not \"PCR reaction\" (the R already means \"reaction\"); same for qPCR/RT-PCR/ddPCR. \"the active site of the protein\", not the possessive \"the protein's active site\"; likewise \"the position of the gene\", \"the structure of DNA\". Introduce the method as \"dideoxy (Sanger) sequencing\" on first use. A trait"
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "appendix-platform-settings-not-authoring",
+"heading": "Appendix — platform settings (not authoring)",
+"text": "The QA tool also checks these, but they are configuration set during course setup or as a platform settings field, not part of writing content. Hand them to whoever owns course configuration. Full detail in the Attempts Policy ."
+},
+{
+"page": "content-authoring-guide.html",
+"pageTitle": "Content Authoring Guide",
+"anchor": "appendix-reference-lists",
+"heading": "Appendix — reference lists",
+"text": "The curated word lists behind three of the checks. These are editable per program — suggest additions or removals and we can adjust them. US idioms flagged (Avoid US Idioms): break a leg · reach out · piece of cake · hit the ground running · on the same page · bite the bullet · cut corners · ball is in your court · under the weather · call it a day · get the hang of · touch base · in a nutshell · "
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "every-problem-the-shared-checklist",
+"heading": "Every problem — the shared checklist",
+"text": "These apply to all problem types: Include the type-specific instruction (see each type below), as the last sentence of the question. Write an explanation for every problem, labeled with the word \"Explanation\". See Writing a strong explanation below for what the tool checks. Answer options: no hand-typed A. / 1. labels on options (the options may shuffle); keep to 4 options or fewer ; no duplicate "
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "problem-names",
+"heading": "Problem names",
+"text": "Knowledge-check naming: a knowledge check is named after the video before it — Knowledge Check: <video name> , or Knowledge Check A/B: <video name> when a video has two or more. Naming assignment problems. Title each problem for the question it asks, not a generic label — e.g. Transforming Data for Hill Coefficient Calculations , not Question 1 . Descriptive, not generic. The title should tell the"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "writing-a-strong-explanation",
+"heading": "Writing a strong explanation",
+"text": "A strong explanation does not just tell the learner the answer — it teaches the concept behind it. This tool gives instant feedback against the criteria below — check your explanation with Explain2Me — so an explanation can be revised and re-checked until it is strong. Learners have a chat companion for follow-ups, so an explanation need not cover every edge case, but it must give a solid foundati"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "1-multiple-choice-single-answer",
+"heading": "1. Multiple choice (single answer)",
+"text": "Instruction: end the question with \"Select the best answer.\" Options: 2–4 choices; exactly one marked correct; no duplicates or blanks; no A) / 1. labels. Capitalization: options start lowercase unless the option is a proper noun or a full sentence; add a terminal period only on full-sentence options. How to write it in the template: Question: Which organelle produces most of the ATP in a cell? Se"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "2-checkbox-select-all-that-apply",
+"heading": "2. Checkbox (select all that apply)",
+"text": "Instruction: end the question with \"Select all that apply.\" Options: at least 2, at least one correct; 4 or fewer (5+ gets flagged to rewrite); no duplicates, blanks, or labels. How to write it in the template: Question: Which of the following are purines? Select all that apply. Answer choices (mark every correct answer): [X] adenine [X] guanine [ ] cytosine [ ] thymine Explanation: Purines have a"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "3-dropdown",
+"heading": "3. Dropdown",
+"text": "Use a dropdown only for a formatting reason — to complete a statement inline, fill cells in a table, or present a one-to-one match. If the question works as a standalone pick-one question, author it as Multiple Choice instead: a multiple choice lowers the cognitive load for the learner. Instruction: begin with \"Use the dropdown options to …\" (e.g. \"…complete the following statements.\"); for a one-"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "4-numerical-input",
+"heading": "4. Numerical input",
+"text": "Instruction: pick the phrase that matches the answer type: whole number → \"Enter your answer as a whole number in the space provided.\" percentage → \"Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response.\" decimal → \"Enter your answer as a decimal to two significant figures.\" Accepted range — required whenever the answer is not a single exact value. "
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "5-text-short-answer",
+"heading": "5. Text / short answer",
+"text": "No special instruction phrase is required. Correct answer: give the accepted answer (matching is case-insensitive). Alternative correct answers — give them whenever they exist. List every acceptable variant (synonyms, spellings, abbreviations), e.g. accept both DNA and deoxyribonucleic acid . The problem can hold several accepted answers, but only the ones you supply are graded correct — a learner"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "6-open-ended-auto-credit-any-thoughtful-answer",
+"heading": "6. Open-ended, auto-credit (any thoughtful answer)",
+"text": "The custom one-sentence type that auto-grades any non-empty answer as correct , then shows the model answer. Instruction: the prompt must end with the exact phrase \"Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts.\" How to write it in the template: Question: In one sentence, predict what would happen to translation if a cell ran out of tRNA. Any though"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "7-drag-and-drop",
+"heading": "7. Drag and drop",
+"text": "A drag-and-drop-v2 problem where learners sort items into named zones. Write the content below in the template; the build team creates the drag-and-drop block in Studio from it. The parser does not yet recognize this block type (see Attempts Policy ), so nothing here is auto-checked yet. Instruction: state directly what to sort and into what — e.g. \"Drag each item to the zone it belongs in,\" or ph"
+},
+{
+"page": "problem-authoring-guide.html",
+"pageTitle": "Problem Templates",
+"anchor": "attempts-quick-reference",
+"heading": "Attempts quick reference",
+"text": "This is an exact-match check — too few attempts is flagged just like too many. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be split into more than one problem. A one-to-one match set is several drop-downs and follows the same counts. Drag and dro"
+},
+{
+"page": "math-markup.html",
+"pageTitle": "Accessible Math & Science Markup",
+"anchor": "when-to-use-mathjax-vs-html",
+"heading": "When to use MathJax vs. HTML",
+"text": ""
+},
+{
+"page": "math-markup.html",
+"pageTitle": "Accessible Math & Science Markup",
+"anchor": "what-the-rule-flags",
+"heading": "What the rule flags",
+"text": "accessibility-math-mathjax (Accessibility, warning; off by default, on for UBio) flags, only outside existing MathJax , the high-confidence cases: caret exponents ( x^2 , 10^-5 ) and scientific notation ( 2 × 10^-5 ) unicode and HTML super/subscripts — including lone letters and charges ( cm² , mⁿ , H<sub>2</sub>O , Cl<sup>-</sup> ). The accessibility team's screen-reader testing found HTML super/"
+},
+{
+"page": "math-markup.html",
+"pageTitle": "Accessible Math & Science Markup",
+"anchor": "references",
+"heading": "References",
+"text": "MathJax basics: https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference Degree/ASCII codes: https://websitebuilders.com/tools/html-codes/ascii/"
+},
+{
+"page": "attempts-policy.html",
+"pageTitle": "Attempts Policy",
+"anchor": "notes-edge-cases",
+"heading": "Notes & edge cases",
+"text": "KC vs Assignment divergence: numerical (KC 5 / assignment 3) and text (KC 5 / assignment 4) intentionally differ — knowledge checks are low-stakes formative practice, so learners get more tries there. Multiple choice, dropdown, and checkbox still match across the two. † 2-option problem-bank MC → 1 attempt applies to assignments only (a second try on a 2-option question guarantees the correct answ"
+},
+{
+"page": "attempts-policy.html",
+"pageTitle": "Attempts Policy",
+"anchor": "where-this-is-configured",
+"heading": "Where this is configured",
+"text": "Attempt rules: src/lib/rules/checks/assignments.ts (per-type, incl. Text Response Attempts), src/lib/rules/checks/knowledge-checks.ts (KC Max Attempts, now with a perTypeAttempts map). Which are enabled/tuned for Biology: config/profiles/ubio.json ( scope: \"all\" extends a rule to knowledge checks; excludeProblemTypes on KC Max Attempts hands types off to the per-type rules; perTypeAttempts sets nu"
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-explanation-quality",
+"heading": "Assignment Explanation Quality",
+"text": "assignments-explanation-quality · warning · ai · default ✓ — Uses AI to evaluate whether assignment solution explanations provide enough detail for learners to understand the underlying concepts."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-truncated-options",
+"heading": "No Truncated Answer Options",
+"text": "assignments-truncated-options · warning · ai · default ✓ — Uses AI to detect assignment answer choices that appear incomplete or cut off during authoring, which can confuse learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-naming",
+"heading": "Assignment Naming",
+"text": "assignments-naming · error · static · default ✓ — Ensures assignments follow the standard naming pattern: \"Assignment N: Part N\" for consistency across the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-question-numbering",
+"heading": "Question Numbering",
+"text": "assignments-question-numbering · error · static · default ✓ — Verifies that assignment questions are numbered sequentially from \"Question 1\" through \"Question N\" with no gaps or duplicates."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-multiple-choice",
+"heading": "Multiple Choice Attempts",
+"text": "assignments-attempts-multiple-choice · error · static · default ✓ — Ensures multiple-choice assignment problems allow exactly 2 attempts, balancing learner practice with assessment rigor. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-checkbox",
+"heading": "Checkbox Attempts",
+"text": "assignments-attempts-checkbox · error · static · default ✓ — Ensures standard checkbox assignment problems allow exactly 3 attempts, since selecting multiple correct answers is harder. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-complex-checkbox",
+"heading": "Complex Checkbox Attempts",
+"text": "assignments-attempts-complex-checkbox · warning · static · default ✗ — Deprecated — all checkbox assignment problems now use 3 attempts via the Checkbox Attempts rule, and checkboxes with 5+ options are instead flagged for rewrite by Too Many Answer Options. Previously gave complex checkboxes (5+ options) an extra attempt."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-problem-bank-2option",
+"heading": "Problem Bank 2-Option MC Attempts",
+"text": "assignments-attempts-problem-bank-2option · error · static · default ✓ — Ensures multiple-choice problems from problem banks with only 2 options allow exactly 1 attempt, since a second try would be a guaranteed correct answer. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-numerical",
+"heading": "Numerical Input Attempts",
+"text": "assignments-attempts-numerical · error · static · default ✓ — Ensures numerical input assignment problems allow exactly 3 attempts, giving learners room to correct calculation errors. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-dropdown",
+"heading": "Dropdown Attempts",
+"text": "assignments-attempts-dropdown · error · static · default ✓ — Ensures dropdown (option response) problems allow attempts scaled to the option count: 1 attempt for 2 options, 2 attempts for 3–4 options. Dropdowns with 5+ options are left to the \"Too Many Answer Options\" rule. Scans assignments by default; set params.scope to \"all\" to also cover knowledge checks. The effective value accounts for edX inheritance."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-checkbox-simple",
+"heading": "Simple Checkbox Attempts",
+"text": "assignments-attempts-checkbox-simple · error · static · default ✗ — Deprecated — checkbox problems now use 3 attempts regardless of option count (below the too-many-options threshold) via the Checkbox Attempts rule. Previously gave simple checkboxes (4 or fewer options) a reduced attempt count."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-attempts-text",
+"heading": "Text Response Attempts",
+"text": "assignments-attempts-text · error · static · default ✗ — Ensures text/short-answer (string response) assignment problems allow a set number of attempts (expectedAttempts param). Scans assignments by default; set params.scope to \"all\" to also cover knowledge checks. Disabled by default; enabled for this program with expectedAttempts set to 4."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-showanswer",
+"heading": "Show Answer Setting",
+"text": "assignments-showanswer · error · static · default ✓ — Ensures the \"show answer\" setting is configured to \"after_all_attempts_or_correct\" so learners must try the problem before seeing the answer."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-explanation-present",
+"heading": "Explanation Present",
+"text": "assignments-explanation-present · error · static · default ✓ — Verifies that every assignment problem has a complete solution explanation to support learning from mistakes."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-explanation-not-question",
+"heading": "Explanation Not Question Copy",
+"text": "assignments-explanation-not-question · warning · static · default ✓ — Detects when the question text was accidentally copied into the explanation field instead of writing an actual explanation."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-overview-summary",
+"heading": "Overview and Summary Pages",
+"text": "assignments-overview-summary · error · static · default ✓ — Verifies that each assignment includes both an overview page (introducing the assignment) and a summary page (wrapping it up)."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-not-blank",
+"heading": "Assignment Not Blank",
+"text": "assignments-not-blank · error · static · default ✓ — Detects assignment sections that have no content, which usually indicates incomplete course development."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-label-present",
+"heading": "Label Present",
+"text": "assignments-label-present · error · static · default ✓ — Ensures each assignment problem has a <label> element containing the question text, which is required for screen reader accessibility."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-correct-answer",
+"heading": "Correct Answer Marked",
+"text": "assignments-correct-answer · error · static · default ✓ — Verifies that every choice-based assignment problem has at least one answer marked as correct. Problems without a correct answer can never be completed."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-assignments-notebook-links",
+"heading": "Notebook Links",
+"text": "assignments-notebook-links · warning · static · default ✓ — When a Jupyter notebook is referenced in an assignment, verifies that the link points to the correct notebook file."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-naming",
+"heading": "Knowledge Check Naming",
+"text": "knowledge-checks-naming · error · static · default ✓ — Ensures knowledge checks follow the standard naming pattern: \"Knowledge Check: Question N\" (where N is the question number), optionally preceded by a topic prefix like \"Editing: \"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-video-name",
+"heading": "Knowledge Check Named After Video",
+"text": "knowledge-checks-video-name · warning · static · default ✗ — Biology naming convention: a knowledge check is named after the video that precedes it in the module, e.g. \"Knowledge Check: Molecular Biology Experiment\". When a video has two or more knowledge checks, they take an A/B/C… suffix (\"Knowledge Check A: …\", \"Knowledge Check B: …\"). An alternative to the \"Question N\" naming rule; disabled by default, enable per program."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-sequential-numbering",
+"heading": "Sequential Numbering",
+"text": "knowledge-checks-sequential-numbering · error · static · default ✓ — Verifies that knowledge checks are numbered sequentially across each module with no gaps or duplicates."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-max-attempts",
+"heading": "Max Attempts",
+"text": "knowledge-checks-max-attempts · error · static · default ✓ — Ensures knowledge check problems allow the expected number of attempts (default 3; knowledge checks are low-stakes formative assessments). Individual problem types can require a different count via params.perTypeAttempts — in biology, numerical and text (string) problems allow 5. Problem types listed in params.excludeProblemTypes are governed instead by their own option-scaled attempt rules — in biology, multiple-choice, checkbox, and dropdown. The effective value accounts for edX inheritance: library wrapper, then the problem, then the course-wide max_attempts default."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-complex-checkbox-attempts",
+"heading": "Complex Checkbox Attempts",
+"text": "knowledge-checks-complex-checkbox-attempts · warning · static · default ✗ — Deprecated — all knowledge check problems now use 3 attempts via the Max Attempts rule. Previously gave complex checkboxes (5+ options) an extra attempt."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-showanswer",
+"heading": "Show Answer Setting",
+"text": "knowledge-checks-showanswer · error · static · default ✓ — Ensures the \"show answer\" setting is configured to \"after_all_attempts_or_correct\" so learners must attempt the problem before seeing the answer."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-explanation-present",
+"heading": "Explanation Present",
+"text": "knowledge-checks-explanation-present · error · static · default ✓ — Verifies that every knowledge check has a non-empty solution/explanation block, so learners understand why the answer is correct. Whether that explanation is labeled with the word \"Explanation\" is checked separately by knowledge-checks-explanation-keyword."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-explanation-keyword",
+"heading": "Explanation Keyword",
+"text": "knowledge-checks-explanation-keyword · warning · static · default ✓ — Warns when a knowledge check has an explanation that does not include the word \"Explanation\" (a labeling convention). A trivial wording fix, so this is a warning with no AI suggestion."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-label-present",
+"heading": "Label Present",
+"text": "knowledge-checks-label-present · error · static · default ✓ — Ensures each knowledge check problem has a <label> element containing the question text, which is required for screen reader accessibility."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-correct-answer",
+"heading": "Correct Answer Marked",
+"text": "knowledge-checks-correct-answer · error · static · default ✓ — Verifies that every choice-based knowledge check has at least one answer marked as correct. Problems without a correct answer can never be completed."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-explanation-quality",
+"heading": "Knowledge Check Explanation Quality",
+"text": "knowledge-checks-explanation-quality · warning · ai · default ✓ — Uses AI to evaluate whether solution explanations are detailed enough to help learners understand the concept, not just the correct answer."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-knowledge-checks-truncated-options",
+"heading": "No Truncated Answer Options",
+"text": "knowledge-checks-truncated-options · warning · ai · default ✓ — Uses AI to detect answer choices that appear incomplete or cut off during authoring, which can confuse learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-html-empty-content",
+"heading": "No Empty HTML Components",
+"text": "html-empty-content · warning · static · default ✓ — Detects HTML components that are blank or contain only whitespace, which appear as empty space to learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-duplicate-choices",
+"heading": "No Duplicate Choices",
+"text": "problem-duplicate-choices · error · static · default ✓ — Detects multiple-choice and checkbox problems that have identical answer choices, which confuse learners and indicate a copy-paste error."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-single-choice",
+"heading": "No Single-Choice Questions",
+"text": "problem-single-choice · error · static · default ✓ — Ensures multiple-choice problems have at least 2 answer choices. A single choice makes the question trivial."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-links-open-new-window",
+"heading": "Links Open New Window",
+"text": "links-open-new-window · error · static · default ✓ — Ensures links to Jupyter notebooks (.ipynb) and PDF slides open in a new window (target=\"_blank\") so learners don't lose their place in the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-paste-artifacts",
+"heading": "No Paste Artifacts in Problems",
+"text": "problem-paste-artifacts · error · static · default ✓ — Detects Word/Office or AI (ChatGPT) copy-paste artifacts in problem XML, such as mso-* styles, data-start attributes, or ChatGPT wrapper markup."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-html-empty-paragraphs",
+"heading": "No Empty Paragraphs",
+"text": "html-empty-paragraphs · warning · static · default ✓ — Detects empty paragraph tags (, , or ) that create unwanted blank space in the content."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-empty-choice",
+"heading": "No Empty Choices",
+"text": "problem-empty-choice · error · static · default ✓ — Detects answer choices that are blank or contain only whitespace, which usually indicates the problem was not fully authored."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-option-labels",
+"heading": "No Option Letters or Numbers",
+"text": "problem-option-labels · warning · static · default ✓ — Flags answer choices that are hand-labeled with a letter or number (\"A. \", \"1) \", \"(a) \") and explanations that refer to a choice by its position (\"option B\", \"the first choice\"). edX shuffles option order, so hand-typed labels and positional references end up wrong."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-dropdown-correct-match",
+"heading": "Dropdown Correct Answer Matches an Option",
+"text": "problem-dropdown-correct-match · error · static · default ✓ — For dropdown (option response) problems that mark the correct answer with a correct=\"…\" attribute, verifies that value exactly matches one of the listed options. A stray space or typo makes no option correct, so the problem can never be completed."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-problem-too-many-options",
+"heading": "Too Many Answer Options",
+"text": "problem-too-many-options · warning · static · default ✗ — Flags multiple-choice, checkbox, and dropdown problems with more than 4 answer options in a single response group (5 or more), which the faculty guide flags for rewrite or double-checking. Threshold configurable via params.maxOptions."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-naming",
+"heading": "Lecture Naming",
+"text": "lectures-naming · warning · static · default ✓ — Ensures lectures follow the standard naming pattern: \"L X.Y\" followed by the topic name (e.g., \"L 1.2 Introduction to Python\")."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-overview-present",
+"heading": "Overview Present",
+"text": "lectures-overview-present · error · static · default ✓ — Verifies that each lecture includes an overview page with learning objectives so learners know what to expect."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-summary-present",
+"heading": "Summary Present",
+"text": "lectures-summary-present · error · static · default ✓ — Verifies that each lecture includes a summary page to reinforce key concepts covered in the lecture."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-summary-takeaways",
+"heading": "Summary Key Takeaways",
+"text": "lectures-summary-takeaways · warning · static · default ✓ — Checks that each lecture summary includes a list of key takeaways to help learners remember the most important points."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-overview-bold-title",
+"heading": "Overview Bold Title",
+"text": "lectures-overview-bold-title · warning · static · default ✓ — Checks that the lecture title is bolded in the overview page for visual prominence and consistent formatting."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-overview-bold-professor",
+"heading": "Overview Bold Professor",
+"text": "lectures-overview-bold-professor · warning · static · default ✓ — Checks that the professor's name is bolded in the lecture overview page for consistent formatting."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-video-duration",
+"heading": "Video Duration",
+"text": "lectures-video-duration · warning · static · default ✓ — Checks that lecture videos are between 5 and 10 minutes long. Shorter videos may lack depth; longer ones reduce learner engagement."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-title-matches-video",
+"heading": "Title Matches Video",
+"text": "lectures-title-matches-video · warning · static · default ✓ — Verifies that the unit title matches the embedded video title, catching cases where videos were placed in the wrong unit."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lectures-not-blank",
+"heading": "Lecture Not Blank",
+"text": "lectures-not-blank · error · static · default ✓ — Detects lecture units that have no content, which usually indicates incomplete course development."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-bold-topics",
+"heading": "Bold Topics in Objectives",
+"text": "learning-objectives-bold-topics · info · static · default ✓ — Checks that key topic names in learning objectives are bolded with tags for visual emphasis and scannability."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-asktim",
+"heading": "AskTIM on Objectives",
+"text": "learning-objectives-asktim · warning · static · default ✓ — Verifies that the AskTIM chat assistant is enabled on learning objectives pages so learners can ask questions about what they'll learn."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-vague-verbs",
+"heading": "Avoid Vague Objective Verbs",
+"text": "learning-objectives-vague-verbs · warning · static · default ✗ — Flags learning objectives that begin with vague, non-measurable verbs (e.g. \"understand\", \"know\", \"be familiar with\"); objectives should use measurable action verbs from Bloom's taxonomy. The deterministic counterpart to the AI \"Measurable Objective Verbs\" check."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-use-bullets",
+"heading": "Objectives Use Bullet Points",
+"text": "learning-objectives-use-bullets · info · static · default ✗ — Flags learning objectives presented as a numbered list () rather than bullet points ()."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-stem-format",
+"heading": "Objectives Introductory Stem",
+"text": "learning-objectives-stem-format · warning · static · default ✗ — Checks that a learning-objectives list is introduced with an expected stem, e.g. \"At the end of this ___, you will/should be able to:\" or \"Our goals for this ___ are:\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-action-verbs",
+"heading": "Measurable Objective Verbs",
+"text": "learning-objectives-action-verbs · warning · ai · default ✗ — Uses AI to check that learning objectives begin with specific, measurable action verbs (Bloom's taxonomy) rather than vague verbs like \"understand\" or \"be familiar with\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-learning-objectives-student-centered",
+"heading": "Student-Centered Objectives",
+"text": "learning-objectives-student-centered · warning · ai · default ✗ — Uses AI to check that learning objectives are student-centered — framed as what the learner will be able to do (\"students will be able to ...\") — rather than instructor- or content-centered (\"this lecture covers ...\")."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-truncated-options",
+"heading": "No Truncated Answer Options",
+"text": "library-content-truncated-options · warning · ai · default ✓ — Uses AI to detect problem bank answer choices that appear incomplete or cut off during authoring, which can confuse learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-explanation-present",
+"heading": "Explanation Present",
+"text": "library-content-explanation-present · error · static · default ✓ — Verifies that every problem in the shared problem bank has a non-empty solution/explanation block. Whether that explanation is labeled with the word \"Explanation\" is checked separately by library-content-explanation-keyword."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-explanation-keyword",
+"heading": "Explanation Keyword",
+"text": "library-content-explanation-keyword · warning · static · default ✓ — Warns when a problem-bank problem has an explanation that does not include the word \"Explanation\" (a labeling convention). A trivial wording fix, so this is a warning with no AI suggestion."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-label-present",
+"heading": "Label Present",
+"text": "library-content-label-present · error · static · default ✓ — Ensures problem bank problems have a <label> or <div> element containing the question text for accessibility."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-correct-answer",
+"heading": "Correct Answer Marked",
+"text": "library-content-correct-answer · error · static · default ✓ — Verifies that every choice-based problem in the problem bank has at least one answer marked as correct."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-explanation-not-question",
+"heading": "Explanation Not Question Copy",
+"text": "library-content-explanation-not-question · warning · static · default ✓ — Detects when the solution text is just a copy of the question text, which usually indicates the explanation was not actually written."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-library-content-explanation-quality",
+"heading": "Library Content Explanation Quality",
+"text": "library-content-explanation-quality · warning · ai · default ✓ — Uses AI to evaluate whether problem bank solution explanations are detailed enough to support deeper learning beyond just knowing the answer."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-naming",
+"heading": "Recitation Naming",
+"text": "recitations-naming · warning · static · default ✓ — Ensures recitations follow the standard naming pattern: \"R X.Y\" followed by the topic name (e.g., \"R 1.2 Data Wrangling Practice\")."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-overview-present",
+"heading": "Overview Present",
+"text": "recitations-overview-present · error · static · default ✓ — Verifies that each recitation includes an overview page introducing what will be covered."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-summary-present",
+"heading": "Summary Present",
+"text": "recitations-summary-present · error · static · default ✗ — Verifies that each recitation includes a summary page to reinforce key concepts."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-overview-bold-title",
+"heading": "Overview Bold Title",
+"text": "recitations-overview-bold-title · warning · static · default ✓ — Checks that the recitation title is bolded in the overview page for consistent formatting."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-overview-bold-professor",
+"heading": "Overview Bold Professor",
+"text": "recitations-overview-bold-professor · warning · static · default ✓ — Checks that the professor's name is bolded in the recitation overview page for consistent formatting."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-video-duration",
+"heading": "Video Duration",
+"text": "recitations-video-duration · warning · static · default ✓ — Checks that recitation videos are between 5 and 10 minutes long to maintain learner engagement."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-recitations-title-matches-video",
+"heading": "Title Matches Video",
+"text": "recitations-title-matches-video · warning · static · default ✓ — Verifies that the unit title matches the embedded video title, catching misplaced videos."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-grading-homework-weight",
+"heading": "Homework Grading Weight",
+"text": "admin-grading-homework-weight · error · static · default ✓ — Ensures the Homework grading category is weighted at 20% of the total grade."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-grading-assignment-weight",
+"heading": "Assignment Grading Weight",
+"text": "admin-grading-assignment-weight · error · static · default ✓ — Ensures the Assignment grading category is weighted at 80% of the total grade."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-self-paced",
+"heading": "Self-Paced Mode",
+"text": "admin-self-paced · error · static · default ✓ — Ensures the course is set to self-paced mode, allowing learners to progress at their own speed."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-start-date-future",
+"heading": "Start Date Future",
+"text": "admin-start-date-future · warning · static · default ✓ — Ensures the course start date is set and is in the future. A start date in the past means the course may already be visible to learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-beta-days",
+"heading": "Beta Days Early",
+"text": "admin-beta-days · error · static · default ✓ — Ensures days_early_for_beta is set to 365 so beta testers can access the course a full year before the start date."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-discussions-disabled",
+"heading": "Discussions Disabled",
+"text": "admin-discussions-disabled · error · static · default ✓ — Ensures the global Discussions tab is hidden, since this course uses alternative discussion mechanisms."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-admin-discussions-enabled-in-sections",
+"heading": "No Discussions in Sections",
+"text": "admin-discussions-enabled-in-sections · error · static · default ✓ — Ensures no individual sections have discussion_enabled set to true, preventing stray discussion threads in the course content."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-writing-avoid-please",
+"heading": "Avoid \"Please\"",
+"text": "writing-avoid-please · warning · static · default ✗ — Flags use of \"please\" in instructional text. Course directions should be stated directly (e.g. \"Select the best answer\" rather than \"Please select the best answer\")."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-writing-number-unit-space",
+"heading": "Space Between Number and Unit",
+"text": "writing-number-unit-space · warning · static · default ✗ — Flags a number written with no space before its unit — \"37°C\" instead of \"37 °C\", \"5kg\" instead of \"5 kg\". Standard scientific notation always puts a space between the numeric value and the unit symbol (including the degree symbol). Covers the degree symbol (literal or ° entity) and a list of multi-character units; single-letter units are excluded to avoid false positives (1990s, 100s). Percent is opt-in via params.flagPercent; extend the unit list via params.extraUnits."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-text-avoid-idioms",
+"heading": "Avoid US Idioms",
+"text": "text-avoid-idioms · warning · static · default ✗ — Flags US idioms and figurative phrases (\"break a leg\", \"reach out\", \"a piece of cake\") in HTML, problems, and video transcripts, which can confuse learners reading English as a second language. Prefer a literal phrasing. Override or extend the phrase list via params.idioms."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-writing-no-contractions",
+"heading": "No Contractions",
+"text": "writing-no-contractions · warning · static · default ✗ — Flags contractions (don't, it's, you're, etc.) in instructional and problem text, in favor of a more formal tone. Possessives (\"the cell's membrane\") are not flagged."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-writing-active-voice",
+"heading": "Active Voice",
+"text": "writing-active-voice · warning · ai · default ✗ — Uses AI to flag instructional text that relies heavily on passive voice where active voice would read more clearly."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-writing-oxford-comma",
+"heading": "Oxford Comma",
+"text": "writing-oxford-comma · warning · ai · default ✗ — Uses AI to flag lists of three or more items that omit the serial (Oxford) comma before the final \"and\"/\"or\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-mc-select-best-answer",
+"heading": "Multiple Choice: \"Select the best answer\"",
+"text": "prompts-mc-select-best-answer · warning · static · default ✗ — Ensures single-answer multiple-choice problems include the instruction \"Select the best answer.\" so learners know exactly one option is expected."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-checkbox-select-all",
+"heading": "Checkbox: \"Select all that apply\"",
+"text": "prompts-checkbox-select-all · warning · static · default ✗ — Ensures checkbox (multi-answer) problems include the instruction \"Select all that apply.\" so learners know more than one option may be correct."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-numerical-answer-format",
+"heading": "Numerical: Answer-Format Instruction",
+"text": "prompts-numerical-answer-format · warning · static · default ✗ — Ensures numerical-input problems tell the learner how to format their answer. The expected phrase depends on the answer type: whole number (\"Enter your answer as a whole number in the space provided.\"), percentage (\"Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response.\"), or decimal (\"Enter your answer as a decimal to two significant figures.\")."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-dropdown-instruction",
+"heading": "Dropdown: \"Use the drop-down options to …\"",
+"text": "prompts-dropdown-instruction · warning · static · default ✗ — Ensures dropdown (option response) problems include a prompt beginning \"Use the drop-down options to …\" (the remainder is question-specific)."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-open-ended-credit-phrase",
+"heading": "Open-Ended: Auto-Credit Phrase",
+"text": "prompts-open-ended-credit-phrase · warning · static · default ✗ — Ensures open-ended one-sentence problems that auto-grade any non-empty answer as correct (a customresponse with a textline and an any-answer check) end with \"Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts.\""
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-prompts-answer-option-format",
+"heading": "Answer Option Formatting",
+"text": "prompts-answer-option-format · warning · ai · default ✗ — Uses AI to check answer-choice capitalization and terminal punctuation. Options should start lowercase unless the option is a proper noun or a full sentence. A terminal period is expected only on full-sentence options."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-pcr-reaction",
+"heading": "Avoid \"PCR reaction\"",
+"text": "bio-pcr-reaction · warning · static · default ✗ — Flags the redundant phrase \"PCR reaction\", including prefixed variants (qPCR, RT-PCR, ddPCR, real-time PCR) — the R in PCR already stands for \"reaction\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-active-site-possessive",
+"heading": "Avoid Possessives on Scientific Terms",
+"text": "bio-active-site-possessive · warning · static · default ✗ — Flags the possessive form of scientific terms (e.g. \"protein's\", \"DNA's\", \"cell's\", \"gene's\") regardless of the following word — prefer \"the active site of the protein\" over \"the protein's active site\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-sanger-dideoxy",
+"heading": "Dideoxy (Sanger) sequencing",
+"text": "bio-sanger-dideoxy · warning · static · default ✗ — Flags bare \"Sanger sequencing\"; the method should be introduced as \"dideoxy (Sanger) sequencing\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-address-as-you",
+"heading": "Address learners as \"you\"",
+"text": "bio-address-as-you · info · static · default ✗ — Flags \"student\"/\"user\" in prose in favor of addressing the reader directly as \"you\". Per faculty, \"learner\" is the accepted third-person term (used in Universal) and is not flagged."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-italics-nomenclature",
+"heading": "Italicize biological nomenclature",
+"text": "bio-italics-nomenclature · warning · ai · default ✗ — Uses AI to check that genus/species names, gene symbols, and restriction-enzyme prefixes are italicized, and that protein names are not. These are conventional typographic italics, not emphasis — use <i>, not <em>."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bio-phenotype-dominance",
+"heading": "Dominant/Recessive Describes the Trait",
+"text": "bio-phenotype-dominance · warning · static · default ✗ — Per faculty convention, a phenotype/trait is dominant or recessive — an allele, gene, or mutation is not. Flags \"dominant\"/\"recessive\" attached to \"allele\", \"gene\", or \"mutation\" (e.g. \"the dominant allele\") and suggests rephrasing (e.g. \"the allele encoding the dominant trait\"). \"Dominant trait\", \"recessive phenotype\", \"dominant eye color\" are correct and not flagged."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-fonts-family-default",
+"heading": "No Custom Font Family",
+"text": "fonts-family-default · error · static · default ✓ — Ensures no inline font-family styles are applied. Custom fonts break the platform's consistent look and may not render correctly on all devices."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-fonts-size-default",
+"heading": "No Custom Font Size",
+"text": "fonts-size-default · warning · static · default ✓ — Ensures no inline font-size styles are applied. Custom font sizes override the platform's responsive typography and can harm readability."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-fonts-color-default",
+"heading": "No Custom Font Color",
+"text": "fonts-color-default · warning · static · default ✓ — Ensures no inline color styles are applied. Custom colors can break accessibility contrast requirements and visual consistency."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-word-paste-artifacts",
+"heading": "No Copy-Paste Artifacts",
+"text": "word-paste-artifacts · error · static · default ✓ — Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso- styles, Mso classes, tags, tags, and AI-generated data attributes like data-start and data-end."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-transcripts-present",
+"heading": "Transcript Present",
+"text": "transcripts-present · error · static · default ✓ — Verifies that every video has an associated transcript file. Transcripts are required for accessibility and aid comprehension."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-transcripts-downloadable",
+"heading": "Transcript Downloadable",
+"text": "transcripts-downloadable · error · static · default ✓ — Verifies that transcripts have download_track set to true so learners can download them for offline use."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-transcripts-instructor-speaker",
+"heading": "Instructor Speaker Name",
+"text": "transcripts-instructor-speaker · warning · static · default ✓ — Checks that all transcripts use \"INSTRUCTOR\" as the speaker name for consistency across the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-transcripts-not-empty",
+"heading": "Transcripts Not Empty",
+"text": "transcripts-not-empty · error · static · default ✓ — Ensures transcript SRT files contain real content (at least 10 lines) and are not empty or placeholder-only files."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-custom-pages-resources-exists",
+"heading": "Resources Tab Exists",
+"text": "custom-pages-resources-exists · error · static · default ✓ — Verifies that the course includes a Resources tab where learners can find supplemental materials."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-custom-pages-glossary-exists",
+"heading": "Glossary Tab Exists",
+"text": "custom-pages-glossary-exists · error · static · default ✓ — Verifies that the course includes a Glossary tab defining key terms used throughout the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-custom-pages-attributions-exists",
+"heading": "Attributions Tab Exists",
+"text": "custom-pages-attributions-exists · warning · static · default ✓ — Checks for an Attributions tab that credits third-party content used in the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-custom-pages-glossary-course-name",
+"heading": "Glossary Course Name",
+"text": "custom-pages-glossary-course-name · warning · static · default ✓ — Verifies that the glossary page references the correct course name, catching cases where a glossary was copied from another course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-video-present",
+"heading": "Video Present",
+"text": "video-present · error · static · default ✓ — Verifies that every lecture and recitation vertical contains a video component. Missing videos indicate incomplete content."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-video-downloadable",
+"heading": "Video Downloadable",
+"text": "video-downloadable · error · static · default ✓ — Verifies that videos have download_video set to true so learners can download them for offline viewing."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-video-unique-name-in-module",
+"heading": "Unique Video Name in Module",
+"text": "video-unique-name-in-module · warning · static · default ✓ — Flags two or more videos sharing the same display name within one module (chapter). Duplicate video names cause knowledge checks named after their video to collide."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-terms-learner-not-student",
+"heading": "Learner Not Student",
+"text": "terms-learner-not-student · warning · static · default ✓ — Ensures inclusive language by checking that content uses \"learner(s)\" instead of \"student\", \"user\", or second-person \"you\"."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-terms-acronym-consistency",
+"heading": "Acronym Plural Consistency",
+"text": "terms-acronym-consistency · info · ai · default ✓ — Uses AI to check that acronyms are pluralized consistently throughout the course (e.g., always \"APIs\" or always \"API's\", not a mix)."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-text-acronym-first-use",
+"heading": "Define Acronyms on First Use",
+"text": "text-acronym-first-use · warning · static · default ✓ — Flags an acronym used in HTML or problem text before it is defined. The first course-wide use should spell it out, e.g. \"endoplasmic reticulum (ER)\"; bare uses after that are fine. Widely understood acronyms (DNA, RNA, PCR, …) are exempt; extend the exemptions via params.allowAcronyms."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-module-summary-exists",
+"heading": "Module Summary Exists",
+"text": "module-summary-exists · error · static · default ✓ — Verifies that each module has a summary page providing a wrap-up of the module's content."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-module-summary-has-survey-link",
+"heading": "Module Feedback Form Link",
+"text": "module-summary-has-survey-link · warning · static · default ✓ — Checks that the module summary includes a link whose text is \"Module Feedback Form\" so learners can share their experience."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-module-summary-has-dashboard-link",
+"heading": "Dashboard Link Present",
+"text": "module-summary-has-dashboard-link · warning · static · default ✓ — Checks that the module summary includes a link back to the course dashboard for easy navigation."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-html-img-alt-text",
+"heading": "Image Alt Text",
+"text": "html-img-alt-text · error · static · default ✓ — Ensures every <img> tag has a non-empty alt attribute so screen readers can describe images to visually impaired learners."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-html-empty-links",
+"heading": "No Empty Links",
+"text": "html-empty-links · error · static · default ✓ — Ensures every tag has visible link text or an aria-label so screen readers can describe the link's purpose."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-accessibility-math-mathjax",
+"heading": "Math Notation Should Use MathJax",
+"text": "accessibility-math-mathjax · warning · static · default ✗ — Flags math/science notation authored as plain text or HTML that the accessibility team's screen-reader testing found needs MathJax to read correctly: caret exponents (x^2), scientific notation (2 × 10^-5), unicode and HTML super/subscripts including lone letters and charges (mⁿ, Cl- — screen readers don't announce the super/subscript; ordinals like \"1st\" are exempt), the multiplication sign × (read as the letter \"x\"), and symbols that only read aloud in MathJax. Only fires outside existing MathJax. Does not flag standalone Greek letters, temperature degrees, or relational operators (≤ ≥ ≠ ±), which read correctly in HTML. Plain-text chemical formulas/ions (H2O, Mg2+) are flagged only when params.flagChemistry is true (element-symbol validated to limit noise). Extend the MathJax-only symbol list via params.specialSymbols."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-chapter-has-content",
+"heading": "Chapters Have Content",
+"text": "chapter-has-content · error · static · default ✓ — Verifies that every chapter contains at least one sequential (subsection). Empty chapters indicate incomplete course structure."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-sequential-ordering-consistency",
+"heading": "Sequential Ordering Consistent",
+"text": "sequential-ordering-consistency · warning · static · default ✓ — Checks that subsections within each chapter follow consistent numbering without unexpected gaps."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-structure-has-drafts",
+"heading": "Draft Content Warning",
+"text": "structure-has-drafts · info · static · default ✓ — Reports drafts in the drafts/ directory that are genuinely unpublished — new content with no published counterpart, or drafts whose content differs from the published version. Stale drafts identical to published content (common after re-runs and imports) are ignored."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-pdf-slides-link-format",
+"heading": "Slide Link Format",
+"text": "pdf-slides-link-format · warning · static · default ✓ — Checks that slide download link text is a label naming the deck and ends with \"(PDF)\", e.g. \"Lecture 1.1 (PDF)\". Texts like \"PDF version\" or a bare \"(PDF)\" don't qualify."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-pdf-slides-separate-component",
+"heading": "Slide Link Separate Component",
+"text": "pdf-slides-separate-component · warning · static · default ✓ — Verifies that the slide download link is placed in its own HTML component directly below the video, not embedded in other content."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-html-broken-static-links",
+"heading": "Static File Links Valid",
+"text": "html-broken-static-links · error · static · default ✓ — Verifies that all links pointing to /static/ files actually reference files that exist in the course export."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-video-missing-edx-id",
+"heading": "Video Has edX ID",
+"text": "video-missing-edx-id · error · static · default ✓ — Ensures every video component has a non-empty edxVideoId. Missing IDs mean the video won't play on the platform."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-lists-no-p-in-li",
+"heading": "No Paragraphs in List Items",
+"text": "lists-no-p-in-li · error · static · default ✓ — Ensures list items do not contain nested tags, which cause extra spacing and inconsistent rendering across browsers."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-bolding-use-strong",
+"heading": "Use Strong for Bold",
+"text": "bolding-use-strong · error · static · default ✓ — Ensures bold text uses semantic tags instead of deprecated tags or inline font-weight styles, improving accessibility and consistency."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-headings-h4-overview-summary",
+"heading": "H4 in Overview/Summary",
+"text": "headings-h4-overview-summary · error · static · default ✓ — Ensures section headers in overview and summary pages use tags to maintain a consistent heading hierarchy across the course."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-asktim-present",
+"heading": "AskTIM Chat Enabled",
+"text": "asktim-present · warning · static · default ✓ — Checks that the AskTIM AI chat assistant is enabled on relevant content blocks via OL_OPENEDX_CHAT settings, giving learners on-demand help."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "rule-summaries-bolding-standards",
+"heading": "Summary Bolding Standards",
+"text": "summaries-bolding-standards · info · static · default ✓ — Checks that bold formatting in summary takeaways follows course standards, using tags consistently for key terms."
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "categories",
+"heading": "Categories",
+"text": "Assignments (20) Knowledge Checks (12) Content Quality (10) Lectures (9) Learning Objectives (7) Library Content (7) Recitations (7) Admin (7) Writing Style (6) Question Prompts (6) Biology Terminology (6) Fonts (4) Transcripts (4) Custom Pages (4) Video (3) Terms (3) Module Summary (3) Accessibility (3) Structure (3) PDF Slides (2) Broken References (2) Lists (1) Bolding (1) Headings (1) AskTIM ("
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "auto-fix-rules",
+"heading": "Auto-fix rules",
+"text": "These rules can edit the export file directly (the change is revertable in the UI). No Discussions in Sections ( admin-discussions-enabled-in-sections ) Checkbox Attempts ( assignments-attempts-checkbox ) Dropdown Attempts ( assignments-attempts-dropdown ) Multiple Choice Attempts ( assignments-attempts-multiple-choice ) Numerical Input Attempts ( assignments-attempts-numerical ) Text Response Att"
+},
+{
+"page": "rule-reference.html",
+"pageTitle": "Rule Reference",
+"anchor": "suggestion-rules",
+"heading": "Suggestion rules",
+"text": "These rules propose replacement text for the author to apply. The \"Explanation Quality\" suggestions are AI-generated; the rest are template/text replacements. Explanation Present ( assignments-explanation-present ) Assignment Explanation Quality ( assignments-explanation-quality ) Explanation Present ( knowledge-checks-explanation-present ) Knowledge Check Explanation Quality ( knowledge-checks-ex"
+}
+]
