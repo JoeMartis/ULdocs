@@ -363,14 +363,22 @@ nothing here is auto-checked yet.</p>
   each item to the zone it belongs in," or phrasing specific to the categories
   (e.g. "Place each argument under the side it supports.").</li>
 <li><strong>Zones:</strong> name each zone with a short label — these become the drop
-  targets.</li>
+  targets. A zone also needs a plain-language description for screen readers;
+  reusing the zone's label is fine unless the zone needs more context.</li>
 <li><strong>Items:</strong> list each draggable item with the zone it belongs in. An item
   can belong to more than one zone if more than one answer is accepted for it,
   though most problems use a one-to-one mapping.</li>
+<li><strong>Mode:</strong> we build these in <strong>Assessment mode</strong> — the learner places every
+  item, then submits, and only then finds out what is correct (matching the
+  attempt limits in <a href="attempts-policy.html">Attempts Policy</a>). Standard
+  mode instead gives unlimited tries with instant right/wrong feedback per
+  drop; flag it if a problem should work that way instead.</li>
 <li><strong>Explanation:</strong> one paragraph covering the overall reasoning, as with
   other problem types — the build team derives each item's individual
-  correct/incorrect feedback text from your zone mapping, so you do not need
-  to write those separately.</li>
+  correct/incorrect feedback text (shown when it is dropped) from your zone
+  mapping, so you do not need to write those separately. The generic
+  before-you-start and completion messages are also filled in by the build
+  team unless you want something more specific.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
 <pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Place each argument under the side it supports: Fair use (Suno/Udio)
