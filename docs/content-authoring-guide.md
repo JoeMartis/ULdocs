@@ -55,9 +55,9 @@ On this page
 
 **What makes a strong overview.** An overview orients the learner before they
 dive in — it previews, it does not teach. The opening line differs by level: a
+module uses **learning goals** ("Our goals for this module are:"); a
 lecture uses **learning objectives** ("At the end of this lecture, you will be
-able to:"); a module uses **learning goals** ("Our goals for this module
-are:").
+able to:").
 
 - **Bold the title** and **bold the professor's name**.
 - **Frame it in a sentence or two**: what this lecture or module covers and
