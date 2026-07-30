@@ -89,9 +89,9 @@ but it must give a solid foundation.
 - **Instruction:** end the question with **"Select the best answer."**
 - **Options:** 2–4 choices; exactly **one** marked correct; no duplicates or
   blanks; no `A)`/`1.` labels.
-- **Capitalization:** options completing a fill-in-the-blank question start
-  lowercase; standalone questions may start with a capital; add a terminal
-  period only on full-sentence options.
+- **Capitalization:** options start lowercase unless the option is a proper
+  noun or a full sentence; add a terminal period only on full-sentence
+  options.
 
 **How to write it in the template:**
 

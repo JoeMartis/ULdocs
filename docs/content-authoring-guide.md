@@ -185,9 +185,9 @@ Pick the numerical phrase that matches the answer type.
   position ("option B", "the first choice").
 - **Dropdowns:** the correct answer must **exactly match** one of the options —
   a stray space or typo makes no option correct.
-- **Capitalization/punctuation:** options completing a fill-in-the-blank
-  question start lowercase; standalone questions may start with a capital; add
-  a terminal period only on full-sentence options.
+- **Capitalization/punctuation:** options start lowercase unless the option
+  is a proper noun or a full sentence; add a terminal period only on
+  full-sentence options.
 
 ## 7. Problem explanations
 
