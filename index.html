@@ -69,7 +69,7 @@
   footer { margin-top: 2.5rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
   footer a { color: var(--accent-2); }
 
-  .search { position: relative; max-width: 480px; margin-top: 1.75rem; }
+  .search { position: relative; max-width: 480px; margin-top: .5rem; }
   .search input {
     width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -104,6 +104,11 @@
   .search-results .r-text { font-size: .82rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .search-results .r-empty { padding: .8rem .7rem; color: var(--muted); font-size: .9rem; }
   .search-results mark { background: rgba(47,109,179,.22); color: inherit; border-radius: 2px; }
+  .search-option {
+    display: flex; align-items: center; gap: .4rem; max-width: 480px;
+    margin-top: 1.5rem; font-size: .82rem; color: var(--muted); cursor: pointer;
+  }
+  .search-option input { margin: 0; }
 </style>
 </head>
 <body>
@@ -114,6 +119,10 @@
       <p class="lede">Everything you need to author course content that passes QA — how to write it,
       how to enter each problem type, and how the automated checks judge your work.</p>
 
+      <label class="search-option">
+        <input type="checkbox" id="search-include-rules">
+        Include individual rules from Rule Reference (133)
+      </label>
       <div class="search" role="search">
         <span class="icon" aria-hidden="true">🔍</span>
         <label class="sr-only" for="search-input">Search the guides</label>
@@ -181,9 +190,14 @@
     var clearBtn = document.getElementById('search-clear');
     var results = document.getElementById('search-results');
     var wrap = document.querySelector('.search');
+    var includeRulesBox = document.getElementById('search-include-rules');
     var index = null;
     var activeIndex = -1;
     var currentItems = [];
+
+    function isIndividualRule(entry) {
+      return entry.page === 'rule-reference.html' && entry.anchor.indexOf('rule-') === 0;
+    }
 
     fetch('search-index.json').then(function (r) { return r.json(); }).then(function (data) {
       index = data;
@@ -230,7 +244,8 @@
         currentItems = [];
         return;
       }
-      var scored = index.map(function (e) { return { e: e, s: score(e, terms) }; })
+      var pool = includeRulesBox.checked ? index : index.filter(function (e) { return !isIndividualRule(e); });
+      var scored = pool.map(function (e) { return { e: e, s: score(e, terms) }; })
         .filter(function (x) { return x.s > 0; })
         .sort(function (a, b) { return b.s - a.s; })
         .slice(0, 8);
@@ -293,6 +308,10 @@
       results.classList.remove('open');
       input.setAttribute('aria-expanded', 'false');
       input.focus();
+    });
+
+    includeRulesBox.addEventListener('change', function () {
+      if (input.value) render(input.value);
     });
 
     document.addEventListener('click', function (e) {
