@@ -228,11 +228,9 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
   marked wrong — e.g. `3.14 ± 0.01` or `3.1–3.2`. This is set in the problem but
   invisible on the page, and a missing range is a common source of wrongly graded
   answers in live courses. For a genuinely exact value (a count), say so.
-- **Trailing label — optional, for a unit or word shown right after the input
-  box** (e.g. `%`, or "red-eyed flies"), so the learner does not have to type it.
-  Give the label in the template; the build team sets it via the
-  `trailing_text` attribute on `<textline>` in Studio's **XML editor** —
-  the simple/visual editor does not expose or reliably preserve it.
+- **Trailing label (if applicable)** — a unit or word shown right after the
+  input box (e.g. `%`, or "red-eyed flies"), so the learner does not have to
+  type it.
 
 **How to write it in the template:**
 
@@ -242,6 +240,7 @@ Question:  How many chromosomes are in a typical human somatic cell? Enter your
 Correct answer:  46
 Accepted range:  exact — 46 is a whole-number count (for a measured or rounded
                  answer, give a tolerance, e.g. 3.14 ± 0.01)
+Trailing label (if applicable):  chromosomes
 Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
               each chromosome — one inherited from each parent. Humans have 23
               distinct chromosome types, so two copies of each gives 23 pairs, or
@@ -249,20 +248,6 @@ Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
               is the haploid number found only in gametes (eggs and sperm); those
               cells carry a single copy of each chromosome so that fertilization
               restores the full set of 46.
-```
-
-**How to write it in the template — with a trailing label:**
-
-```
-Question:  In a cross between two heterozygous flies, what percentage of
-           offspring are expected to have red eyes? Enter your answer as a
-           percentage with no rounding.
-Correct answer:  75
-Accepted range:  exact — a Punnett square ratio, not a measured value
-Trailing label:  %
-Explanation:  Red eye color is dominant, so a cross between two heterozygous
-              (Rr) flies produces offspring in a 3:1 ratio of red-eyed (RR or
-              Rr) to white-eyed (rr) — 75% red-eyed.
 ```
 
 ## 5. Text / short answer
