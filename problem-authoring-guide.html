@@ -106,6 +106,7 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <li><a href="#4-numerical-input">4. Numerical input</a></li>
 <li><a href="#5-text-short-answer">5. Text / short answer</a></li>
 <li><a href="#6-open-ended-auto-credit-any-thoughtful-answer">6. Open-ended, auto-credit</a></li>
+<li><a href="#7-drag-and-drop">7. Drag and drop</a></li>
 <li><a href="#attempts-quick-reference">Attempts quick reference</a></li>
 </ul>
 </nav>
@@ -350,6 +351,49 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
            acid, so the growing polypeptide chain could not be extended and
            translation would stall — protein synthesis would effectively stop even
            though the mRNA and ribosome are still present.
+</code></pre>
+<h2 id="7-drag-and-drop">7. Drag and drop</h2>
+<p>A <code>drag-and-drop-v2</code> problem where learners sort items into named zones.
+<strong>Write the content below in the template; the build team creates the
+drag-and-drop block in Studio from it.</strong> The parser does not yet recognize
+this block type (see <a href="attempts-policy.html">Attempts Policy</a>), so
+nothing here is auto-checked yet.</p>
+<ul>
+<li><strong>Instruction:</strong> state directly what to sort and into what — e.g. "Drag
+  each item to the zone it belongs in," or phrasing specific to the categories
+  (e.g. "Place each argument under the side it supports.").</li>
+<li><strong>Zones:</strong> name each zone with a short label — these become the drop
+  targets.</li>
+<li><strong>Items:</strong> list each draggable item with the zone it belongs in. An item
+  can belong to more than one zone if more than one answer is accepted for it,
+  though most problems use a one-to-one mapping.</li>
+<li><strong>Explanation:</strong> one paragraph covering the overall reasoning, as with
+  other problem types — the build team derives each item's individual
+  correct/incorrect feedback text from your zone mapping, so you do not need
+  to write those separately.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Place each argument under the side it supports: Fair use (Suno/Udio)
+           or Infringement (labels).
+Zones:
+   Zone 1: Fair use (Suno/Udio)
+   Zone 2: Infringement (labels)
+Items (drag to the correct zone):
+   The model extracts abstract patterns rather than storing copies of songs. → Zone 1
+   The outputs compete directly with the original recordings. → Zone 2
+   A human who learns a style by listening is not infringing. → Zone 1
+   Entire catalogues were copied to build a commercial product. → Zone 2
+   The system is designed to make new music, not reproduce its training set. → Zone 1
+   Targeted prompts can produce outputs resembling specific hit recordings. → Zone 2
+Explanation:  Each fact belongs to one of two stories. One is learning, which
+              copyright allows. The other is copying lots of work to build a
+              rival product, which it usually does not. Learning from patterns,
+              the human-listener comparison, and designing the system to make
+              new music all support the first story. Competing with the
+              originals, copying whole catalogues for profit, and prompts that
+              produce recognizable songs all support the second. Both sides
+              tell a sensible story from the same facts, which makes this case
+              especially difficult.
 </code></pre>
 <hr />
 <h2 id="attempts-quick-reference">Attempts quick reference</h2>
