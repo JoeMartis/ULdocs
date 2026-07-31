@@ -10,15 +10,19 @@
 | Checkbox (multi-select) | ≤ 4 | **3** | **3** | Checkbox Attempts |
 | MC / Checkbox / Dropdown | 5 or more | *flagged to rewrite* | *flagged to rewrite* | Too Many Answer Options |
 | Text / short-answer (string) | — | **5** | **4** | KC Max Attempts / Text Response Attempts |
-| Drag and drop | — | **5** | **4** | *pending parser support (see below)* |
+| Drag and drop | 2–4 items | **3** | **2** | *pending parser support (see below)* |
+| Drag and drop | 5–6 items | **4** | **3** | *pending parser support (see below)* |
+| Drag and drop | 7–8 items | **5** | **4** | *pending parser support (see below)* |
+| Drag and drop | 9+ items | *flagged to split into multiple problems* | *flagged to split into multiple problems* | *pending parser support (see below)* |
 | Open response, ungraded (ORA) | — | **2** | — | *pending parser support (see below)* |
 
 ## Notes & edge cases
 
-- **KC vs Assignment divergence:** numerical (KC 5 / assignment 3) and text
-  (KC 5 / assignment 4) intentionally differ — knowledge checks are low-stakes
-  formative practice, so learners get more tries there. Multiple choice,
-  dropdown, and checkbox still match across the two.
+- **KC vs Assignment divergence:** numerical (KC 5 / assignment 3), text
+  (KC 5 / assignment 4), and drag and drop (KC always one more than assignment)
+  intentionally differ — knowledge checks are low-stakes formative practice, so
+  learners get more tries there. Multiple choice, dropdown, and checkbox still
+  match across the two.
 - **† 2-option problem-bank MC → 1 attempt** applies to **assignments only** (a
   second try on a 2-option question guarantees the correct answer). A directly
   authored 2-option MC follows the general MC rule (2). A 2-option MC pooled
@@ -26,6 +30,14 @@
 - **5+ options:** no attempt count is enforced — the "Too Many Answer Options" rule
   flags the question for rewrite instead (faculty guidance is to avoid 5+
   options).
+- **Drag and drop scales with item count:** more draggable items means more
+  chances to place one wrong, so attempts step up in the same spirit as the
+  Dropdown and Checkbox option-count scaling. A problem with 9 or more items
+  should be split into multiple problems rather than given more attempts,
+  mirroring the "Too Many Answer Options" philosophy above. A **strict
+  one-to-one match** (every zone used exactly once, no repeats) gets **one
+  additional attempt** at every tier, since there is no elimination benefit the
+  way there is when zones repeat.
 - **Drag and drop / Open response (ORA):** the parser does not yet recognize the
   `drag_and_drop_v2` or `openassessment` block types (it detects only
   `multiplechoiceresponse`, `choiceresponse`, `numericalresponse`,

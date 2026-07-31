@@ -368,7 +368,10 @@ Explanation:  Mitosis copies the genome once and splits it evenly into two
 | Any choice type | 5 or more | *rewrite* | *rewrite* |
 | Numerical input | — | 5 | 3 |
 | Text / short answer | — | 5 | 4 |
-| Drag and drop | — | 5 | 4 |
+| Drag and drop | 2–4 items | 3 | 2 |
+| Drag and drop | 5–6 items | 4 | 3 |
+| Drag and drop | 7–8 items | 5 | 4 |
+| Drag and drop | 9+ items | *split* | *split* |
 | Open response, ungraded (ORA) | — | 2 | — |
 
 This is an exact-match check — too few attempts is flagged just like too many.
@@ -377,6 +380,13 @@ A dropdown problem is counted like a checkbox, by its **number of dropdowns**: o
 dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a
 problem with 5 or more dropdowns should be split into more than one problem. A
 one-to-one match set is several drop-downs and follows the same counts.
+
+A drag-and-drop problem is counted by its **number of draggable items** — more
+items means more chances to place one wrong. A problem with 9 or more items
+should be split into more than one problem rather than given more attempts. A
+**strict one-to-one match** (every zone used exactly once, no repeats) gets
+**one additional attempt** at every tier, since there is no elimination
+benefit the way there is when zones repeat.
 
 **Drag and drop and Open response (ORA)** are not yet parsed by the checking
 tool, so their attempt counts above are the target policy but are **not yet

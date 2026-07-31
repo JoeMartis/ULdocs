@@ -148,9 +148,30 @@ a:focus-visible, [tabindex]:focus-visible {
 </tr>
 <tr>
 <td>Drag and drop</td>
-<td>—</td>
+<td>2–4 items</td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td><em>pending parser support (see below)</em></td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>5–6 items</td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td><em>pending parser support (see below)</em></td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>7–8 items</td>
 <td style="text-align: center;"><strong>5</strong></td>
 <td style="text-align: center;"><strong>4</strong></td>
+<td><em>pending parser support (see below)</em></td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>9+ items</td>
+<td style="text-align: center;"><em>flagged to split into multiple problems</em></td>
+<td style="text-align: center;"><em>flagged to split into multiple problems</em></td>
 <td><em>pending parser support (see below)</em></td>
 </tr>
 <tr>
@@ -164,10 +185,11 @@ a:focus-visible, [tabindex]:focus-visible {
 </table></div>
 <h2 id="notes-edge-cases">Notes &amp; edge cases</h2>
 <ul>
-<li><strong>KC vs Assignment divergence:</strong> numerical (KC 5 / assignment 3) and text
-  (KC 5 / assignment 4) intentionally differ — knowledge checks are low-stakes
-  formative practice, so learners get more tries there. Multiple choice,
-  dropdown, and checkbox still match across the two.</li>
+<li><strong>KC vs Assignment divergence:</strong> numerical (KC 5 / assignment 3), text
+  (KC 5 / assignment 4), and drag and drop (KC always one more than assignment)
+  intentionally differ — knowledge checks are low-stakes formative practice, so
+  learners get more tries there. Multiple choice, dropdown, and checkbox still
+  match across the two.</li>
 <li><strong>† 2-option problem-bank MC → 1 attempt</strong> applies to <strong>assignments only</strong> (a
   second try on a 2-option question guarantees the correct answer). A directly
   authored 2-option MC follows the general MC rule (2). A 2-option MC pooled
@@ -175,6 +197,14 @@ a:focus-visible, [tabindex]:focus-visible {
 <li><strong>5+ options:</strong> no attempt count is enforced — the "Too Many Answer Options" rule
   flags the question for rewrite instead (faculty guidance is to avoid 5+
   options).</li>
+<li><strong>Drag and drop scales with item count:</strong> more draggable items means more
+  chances to place one wrong, so attempts step up in the same spirit as the
+  Dropdown and Checkbox option-count scaling. A problem with 9 or more items
+  should be split into multiple problems rather than given more attempts,
+  mirroring the "Too Many Answer Options" philosophy above. A <strong>strict
+  one-to-one match</strong> (every zone used exactly once, no repeats) gets
+  <strong>one additional attempt</strong> at every tier, since there is no elimination
+  benefit the way there is when zones repeat.</li>
 <li><strong>Drag and drop / Open response (ORA):</strong> the parser does not yet recognize the
   <code>drag_and_drop_v2</code> or <code>openassessment</code> block types (it detects only
   <code>multiplechoiceresponse</code>, <code>choiceresponse</code>, <code>numericalresponse</code>,
@@ -199,6 +229,6 @@ a:focus-visible, [tabindex]:focus-visible {
 <li>Rule catalog: <a href="rule-reference.html">Rule Reference</a>.</li>
 </ul>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-28</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-31</span></footer>
 </body>
 </html>

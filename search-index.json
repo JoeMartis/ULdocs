@@ -158,7 +158,7 @@
 "pageTitle": "Problem Templates",
 "anchor": "attempts-quick-reference",
 "heading": "Attempts quick reference",
-"text": "This is an exact-match check — too few attempts is flagged just like too many. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be split into more than one problem. A one-to-one match set is several drop-downs and follows the same counts. Drag and dro"
+"text": "This is an exact-match check — too few attempts is flagged just like too many. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be split into more than one problem. A one-to-one match set is several drop-downs and follows the same counts. A drag-and-d"
 },
 {
 "page": "math-markup.html",
@@ -186,7 +186,7 @@
 "pageTitle": "Attempts Policy",
 "anchor": "notes-edge-cases",
 "heading": "Notes & edge cases",
-"text": "KC vs Assignment divergence: numerical (KC 5 / assignment 3) and text (KC 5 / assignment 4) intentionally differ — knowledge checks are low-stakes formative practice, so learners get more tries there. Multiple choice, dropdown, and checkbox still match across the two. † 2-option problem-bank MC → 1 attempt applies to assignments only (a second try on a 2-option question guarantees the correct answ"
+"text": "KC vs Assignment divergence: numerical (KC 5 / assignment 3), text (KC 5 / assignment 4), and drag and drop (KC always one more than assignment) intentionally differ — knowledge checks are low-stakes formative practice, so learners get more tries there. Multiple choice, dropdown, and checkbox still match across the two. † 2-option problem-bank MC → 1 attempt applies to assignments only (a second t"
 },
 {
 "page": "attempts-policy.html",
