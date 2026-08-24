@@ -175,16 +175,23 @@
         <span class="go">Open</span>
       </a>
 
-      <a class="card tool" href="https://joemartis.github.io/Explain2Me/">
+      <!-- The two tool cards open in a new tab so an author does not lose the
+           guide they were reading. rel="noopener" is explicit rather than
+           relying on the implicit behaviour modern browsers apply to
+           target="_blank"; "noreferrer" is deliberately NOT set, so these
+           sites can still see that their traffic came from here. Opening a new
+           tab unannounced is what WCAG 3.2.5 is about, so the sr-only note
+           says so — the ↗ in the eyebrow is the sighted equivalent. -->
+      <a class="card tool" href="https://joemartis.github.io/Explain2Me/" target="_blank" rel="noopener">
         <span class="num" aria-hidden="true">TOOL ↗</span>
-        <h2>Explanation Checker <span class="sr-only">(external site)</span></h2>
+        <h2>Explanation Checker <span class="sr-only">(external site, opens in a new tab)</span></h2>
         <p>Paste an explanation and get instant feedback against the quality criteria before you submit.</p>
         <span class="go">Open the tool</span>
       </a>
 
-      <a class="card tool" href="https://joemartis.github.io/DescribeMe/">
+      <a class="card tool" href="https://joemartis.github.io/DescribeMe/" target="_blank" rel="noopener">
         <span class="num" aria-hidden="true">TOOL ↗</span>
-        <h2>Slide Description Writer <span class="sr-only">(external site)</span></h2>
+        <h2>Slide Description Writer <span class="sr-only">(external site, opens in a new tab)</span></h2>
         <p>Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.</p>
         <span class="go">Open the tool</span>
       </a>
