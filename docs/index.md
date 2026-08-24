@@ -9,3 +9,4 @@ how to enter each problem type, and how the automated checks judge your work.
 - **[Attempts Policy](attempts-policy.html)** — How many attempts each problem type gets in knowledge checks and assignments.
 - **[Rule Reference](rule-reference.html)** — The full list of automated checks, with what each one looks for.
 - **[Explanation Checker](https://joemartis.github.io/Explain2Me/)** (external site) — Paste an explanation and get instant feedback against the quality criteria before you submit.
+- **[Slide Description Writer](https://joemartis.github.io/DescribeMe/)** (external site) — Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.
