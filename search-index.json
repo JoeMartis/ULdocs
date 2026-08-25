@@ -11,7 +11,7 @@
 "pageTitle": "Content Authoring Guide",
 "anchor": "2-overview-summary-pages",
 "heading": "2. Overview and summary pages",
-"text": "Each module gets an overview (with learning goals ) and a module summary (with key takeaways ). Each lecture gets an overview (with learning objectives ) and a lecture summary (with key takeaways ). Each assignment gets an overview and a summary page too (no takeaways required there). Naming an overview. Lead with the program, then the module, so a learner arriving from a link knows where they are"
+"text": "A program contains modules ; a module contains lectures , recitations , and assignments . The four programs are Universal Biology , Universal AI , Universal Climate , and Universal Semiconductor Manufacturing . Each module gets an overview (with learning goals ) and a module summary (with key takeaways ). Each lecture gets an overview (with learning objectives ) and a lecture summary (with key tak"
 },
 {
 "page": "content-authoring-guide.html",

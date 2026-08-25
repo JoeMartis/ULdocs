@@ -46,19 +46,25 @@ On this page
 
 ## 2. Overview and summary pages
 
+A **program** contains **modules**; a module contains **lectures**,
+**recitations**, and **assignments**. The four programs are **Universal
+Biology**, **Universal AI**, **Universal Climate**, and **Universal
+Semiconductor Manufacturing**.
+
 - Each **module** gets an overview (with **learning goals**) and a module
   summary (with **key takeaways**).
 - Each **lecture** gets an overview (with **learning objectives**) and a
   lecture summary (with **key takeaways**).
+- Each **recitation** gets an overview as well; a recitation summary is not
+  required by default.
 - Each **assignment** gets an overview and a summary page too (no takeaways
   required there).
 
 **Naming an overview.** Lead with the program, then the module, so a learner
-arriving from a link knows where they are: **Universal Biology: Cell
-Structure**. Do not open with a greeting — "Welcome to Large Language Models!"
-tells the learner nothing they did not already know. The four programs are
-**Universal Biology**, **Universal AI**, **Universal Climate**, and **Universal
-Semiconductor Manufacturing**.
+arriving from a link knows where they are: **Universal Biology: Cell Biology**,
+or **Universal Biology: Fundamentals of Molecular Biology Lab**. Do not open
+with a greeting — "Welcome to Large Language Models!" tells the learner nothing
+they did not already know.
 
 **Goals or objectives?** These are not two words for the same thing, and the
 difference is not only which page they sit on.
