@@ -53,25 +53,59 @@ On this page
 - Each **assignment** gets an overview and a summary page too (no takeaways
   required there).
 
-**What makes a strong overview.** An overview orients the learner before they
-dive in — it previews, it does not teach. The opening line differs by level: a
-module uses **learning goals** ("Our goals for this module are:"); a
-lecture uses **learning objectives** ("At the end of this lecture, you will be
-able to:").
+**Naming an overview.** Lead with the course, then the module, so a learner
+arriving from a link knows where they are in the program: **Universal Biology:
+Cell Structure**. Do not open with a greeting — "Welcome to Large Language
+Models!" tells the learner nothing they did not already know. The four courses
+are **Universal Biology**, **Universal AI**, **Universal Climate**, and
+**Universal Semiconductor Manufacturing**.
 
-- **Bold the title** and **bold the professor's name**.
+**Goals or objectives?** These are not two words for the same thing, and the
+difference is not only which page they sit on.
+
+- A **learning goal** is a broad, high-level statement of what the learner will
+  be able to do by the end of the **module**.
+- A **learning objective** is a specific, measurable, observable step that
+  shows the learner is getting there — one **lecture's** worth.
+
+The test: an objective is narrow enough that a knowledge check straight after
+that lecture could measure it. A goal is what the objectives beneath it add up
+to, and usually no single check can measure it on its own.
+
+**Write both the same way, at different altitudes.**
+
+- **Same framing.** Both are addressed to the learner, in the second person, as
+  an outcome: "At the end of this module, you will be able to:" and "At the end
+  of this lecture, you will be able to:". Frame neither around us nor around
+  the material — not "Our goals for this module are:", not "This lecture
+  covers…".
+- **Same kind of verb, different reach.** Both start with a real action verb,
+  never "understand", "know", or "be familiar with". A goal's verb reaches
+  across the whole module — "explain", "evaluate", "connect", "apply". An
+  objective's verb points at one thing you could mark — "calculate", "label",
+  "predict", "compare".
+- **Both are bullet lists**, not numbered, with the key topic names **bolded**.
+
+*Weak goal:* Understand cell division.
+*Strong goal:* Explain how a cell's stage in the cycle determines whether it
+divides, repairs, or dies.
+
+*Weak objective:* Learn about mitosis.
+*Strong objective:* Predict the chromosome number of a daughter cell after
+**mitosis** and after **meiosis**.
+
+**What makes a strong overview.** An overview orients the learner before they
+dive in — it previews, it does not teach.
+
+- **Bold the title.** On a **lecture** or **recitation** overview, **bold the
+  professor's name** as well — the QA pass checks for it on both. A module
+  overview usually spans several lecturers, so name one there only if a single
+  person genuinely owns the module.
 - **Frame it in a sentence or two**: what this lecture or module covers and
   why it matters, or how it connects to what came before. Do not summarize the
-  whole thing here — that is what the objectives/goals list and the summary
+  whole thing here — that is what the goals or objectives list and the summary
   page are for.
-- **Follow immediately with the objectives or goals list**, written like this:
-- Start each one with a **measurable action verb** (Bloom's): "describe",
-  "calculate", "predict", "compare" — not "understand", "know", "be familiar
-  with".
-- Frame around the **learner**: "you will be able to predict…", not "this
-  lecture covers…".
-- Use **bullet points**, not a numbered list, and **bold** the key topic
-  names.
+- **Follow immediately with the goals or objectives list**, written as above.
 - **Keep it short.** A framing paragraph plus the list is enough — a long
   overview delays the learner from getting to the actual content.
 

@@ -11,7 +11,7 @@
 "pageTitle": "Content Authoring Guide",
 "anchor": "2-overview-summary-pages",
 "heading": "2. Overview and summary pages",
-"text": "Each module gets an overview (with learning goals ) and a module summary (with key takeaways ). Each lecture gets an overview (with learning objectives ) and a lecture summary (with key takeaways ). Each assignment gets an overview and a summary page too (no takeaways required there). What makes a strong overview. An overview orients the learner before they dive in — it previews, it does not teach"
+"text": "Each module gets an overview (with learning goals ) and a module summary (with key takeaways ). Each lecture gets an overview (with learning objectives ) and a lecture summary (with key takeaways ). Each assignment gets an overview and a summary page too (no takeaways required there). Naming an overview. Lead with the course, then the module, so a learner arriving from a link knows where they are "
 },
 {
 "page": "content-authoring-guide.html",
