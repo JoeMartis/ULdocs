@@ -27,7 +27,9 @@ On this page
 
 ## 1. Writing style
 
-- **Address the reader as "you"** (or "learner(s)"), never "student" or "user".
+- **Address the reader as "you"** in Universal Biology, Universal Climate, and
+  Universal Semiconductor Manufacturing. **Universal AI uses "learner(s)"**
+  instead. Never "student" or "user", in any program.
 - **No contractions** in instructional text — "do not", not "don't".
 - **Active voice** and the **Oxford comma** — "DNA, RNA, and protein".
 - **Define acronyms on first use** — spell it out the first time, then use the
@@ -80,11 +82,12 @@ to, and usually no single check can measure it on its own.
 
 **Write both the same way, at different altitudes.**
 
-- **Same framing.** Both are addressed to the learner, in the second person, as
-  an outcome: "At the end of this module, you will be able to:" and "At the end
-  of this lecture, you will be able to:". Frame neither around us nor around
-  the material — not "Our goals for this module are:", not "This lecture
-  covers…".
+- **Same framing.** Both are addressed to the person doing the learning, as an
+  outcome: "At the end of this module, you will be able to:" and "At the end of
+  this lecture, you will be able to:" — in your program's voice from §1, so
+  Universal AI writes "the learner will be able to:" instead. Frame neither
+  around us nor around the material — not "Our goals for this module are:", not
+  "This lecture covers…".
 - **Same kind of verb, different reach.** Both start with a real action verb,
   never "understand", "know", or "be familiar with". A goal's verb reaches
   across the whole module — "explain", "evaluate", "connect", "apply". An
@@ -139,14 +142,19 @@ copies of each chromosome; haploid cells carry one.
 
 ## 3. Lecture and video names
 
-The Universal Learning Program does **not** number lectures.
+**Numbering is per program.** Universal AI numbers its lectures — the position,
+then the topic: `L 1.2 Introduction to Python`. Universal Biology, Universal
+Climate, and Universal Semiconductor Manufacturing do **not** number lectures
+at all. Both conventions are checked, so following the wrong one for your
+program is flagged.
 
-**Naming lectures.** Name each lecture for the concept it covers, not its position
-in the sequence:
+**Naming lectures.** Name each lecture for the concept it covers. In Universal
+AI that name follows the `L X.Y` prefix; in the other three it stands alone:
 
 - **5 words or fewer**, highlighting the key concept from the lesson — a short
   phrase, not a full sentence.
-- **No numbers or symbols** — that includes Roman numerals ("II", "III"). Name
+- **No numbers or symbols inside the name** — that includes Roman numerals
+  ("II", "III"). Outside Universal AI there is no numeric prefix either: name
   the lecture for its content, not its position in a sequence.
 - **Avoid jargon** — use words a learner already knows, not the technical term
   the lesson is about to teach.
@@ -175,11 +183,13 @@ at least two knowledge checks after it so learners can check their understanding
 
 ## 4. Problem names
 
-Both knowledge-check and assignment problems need a clear, specific title — never a
-generic placeholder like `Question 1`.
+**These conventions are per program.** Universal AI numbers its problems;
+Universal Biology, Universal Climate, and Universal Semiconductor Manufacturing
+name them after their content. Both are enforced as errors, so following the
+wrong one for your program blocks publishing.
 
-**Naming Knowledge check problems.** A knowledge check takes the
-name of the video that precedes it in the module:
+**Naming knowledge check problems.** Outside Universal AI, a knowledge check
+takes the name of the video that precedes it in the module:
 
 - One knowledge check after a video → `Knowledge Check: <video name>`
   (e.g. `Knowledge Check: Molecular Biology Experiment`).
@@ -187,9 +197,12 @@ name of the video that precedes it in the module:
   `Knowledge Check A: Molecular Biology Experiment`,
   `Knowledge Check B: Molecular Biology Experiment`.
 
-**Naming assignment problems.** Title each problem for the question it asks,
-not a generic label — e.g. `Transforming Data for Hill Coefficient
-Calculations`, not `Question 1`.
+In **Universal AI**, a knowledge check is `Knowledge Check: Question N`
+instead, where N is the question number.
+
+**Naming assignment problems.** Outside Universal AI, title each problem for
+the question it asks, not a generic label — e.g. `Transforming Data for Hill
+Coefficient Calculations`, not `Question 1`.
 
 - **Descriptive, not generic.** The title should tell the learner (and anyone
   scanning a list of titles) what the question is about.
@@ -197,6 +210,9 @@ Calculations`, not `Question 1`.
   content naturally will not collide with another problem's title the way a
   repeated "Question 1" would across different assignments.
 - **Title case**, kept to a phrase — not a full restatement of the question.
+
+In **Universal AI**, assignment questions are numbered sequentially instead —
+`Question 1` through `Question N`, with no gaps and no duplicates.
 
 ## 5. Question wording
 

@@ -4,7 +4,7 @@
 "pageTitle": "Content Authoring Guide",
 "anchor": "1-writing-style",
 "heading": "1. Writing style",
-"text": "Address the reader as \"you\" (or \"learner(s)\"), never \"student\" or \"user\". No contractions in instructional text — \"do not\", not \"don't\". Active voice and the Oxford comma — \"DNA, RNA, and protein\". Define acronyms on first use — spell it out the first time, then use the short form: \"endoplasmic reticulum (ER)\" first, \"ER\" after. Widely understood acronyms (DNA, RNA, PCR, ATP…) do not need defining"
+"text": "Address the reader as \"you\" in Universal Biology, Universal Climate, and Universal Semiconductor Manufacturing. Universal AI uses \"learner(s)\" instead. Never \"student\" or \"user\", in any program. No contractions in instructional text — \"do not\", not \"don't\". Active voice and the Oxford comma — \"DNA, RNA, and protein\". Define acronyms on first use — spell it out the first time, then use the short fo"
 },
 {
 "page": "content-authoring-guide.html",
@@ -18,14 +18,14 @@
 "pageTitle": "Content Authoring Guide",
 "anchor": "3-lecture-video-names",
 "heading": "3. Lecture and video names",
-"text": "The Universal Learning Program does not number lectures. Naming lectures. Name each lecture for the concept it covers, not its position in the sequence: 5 words or fewer , highlighting the key concept from the lesson — a short phrase, not a full sentence. No numbers or symbols — that includes Roman numerals (\"II\", \"III\"). Name the lecture for its content, not its position in a sequence. Avoid jarg"
+"text": "Numbering is per program. Universal AI numbers its lectures — the position, then the topic: L 1.2 Introduction to Python . Universal Biology, Universal Climate, and Universal Semiconductor Manufacturing do not number lectures at all. Both conventions are checked, so following the wrong one for your program is flagged. Naming lectures. Name each lecture for the concept it covers. In Universal AI th"
 },
 {
 "page": "content-authoring-guide.html",
 "pageTitle": "Content Authoring Guide",
 "anchor": "4-problem-names",
 "heading": "4. Problem names",
-"text": "Both knowledge-check and assignment problems need a clear, specific title — never a generic placeholder like Question 1 . Naming Knowledge check problems. A knowledge check takes the name of the video that precedes it in the module: One knowledge check after a video → Knowledge Check: <video name> (e.g. Knowledge Check: Molecular Biology Experiment ). Two or more after the same video → add an A / "
+"text": "These conventions are per program. Universal AI numbers its problems; Universal Biology, Universal Climate, and Universal Semiconductor Manufacturing name them after their content. Both are enforced as errors, so following the wrong one for your program blocks publishing. Naming knowledge check problems. Outside Universal AI, a knowledge check takes the name of the video that precedes it in the mo"
 },
 {
 "page": "content-authoring-guide.html",
