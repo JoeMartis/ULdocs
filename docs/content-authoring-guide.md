@@ -53,12 +53,12 @@ On this page
 - Each **assignment** gets an overview and a summary page too (no takeaways
   required there).
 
-**Naming an overview.** Lead with the course, then the module, so a learner
-arriving from a link knows where they are in the program: **Universal Biology:
-Cell Structure**. Do not open with a greeting — "Welcome to Large Language
-Models!" tells the learner nothing they did not already know. The four courses
-are **Universal Biology**, **Universal AI**, **Universal Climate**, and
-**Universal Semiconductor Manufacturing**.
+**Naming an overview.** Lead with the program, then the module, so a learner
+arriving from a link knows where they are: **Universal Biology: Cell
+Structure**. Do not open with a greeting — "Welcome to Large Language Models!"
+tells the learner nothing they did not already know. The four programs are
+**Universal Biology**, **Universal AI**, **Universal Climate**, and **Universal
+Semiconductor Manufacturing**.
 
 **Goals or objectives?** These are not two words for the same thing, and the
 difference is not only which page they sit on.
