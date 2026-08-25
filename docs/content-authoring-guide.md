@@ -73,8 +73,8 @@ difference is not only which page they sit on.
 
 - A **learning goal** is a broad, high-level statement of what the learner will
   be able to do by the end of the **module**.
-- A **learning objective** is a specific, measurable, observable step that
-  shows the learner is getting there — one **lecture's** worth.
+- A **learning objective** is a specific, measurable step that shows the
+  learner is getting there — one **lecture's** worth.
 
 The test: an objective is narrow enough that a knowledge check straight after
 that lecture could measure it. A goal is what the objectives beneath it add up
