@@ -319,7 +319,7 @@ to whoever owns course configuration. Full detail in the
 
 | Setting | Expected configuration |
 | --- | --- |
-| Problem attempts (`max_attempts`) | By problem type. Multiple choice 2; numerical — KC 5 / assignment 3; text — KC 5 / assignment 4; dropdown 1–2 by option count; checkbox (≤4) 2. |
+| Problem attempts (`max_attempts`) | By problem type. Multiple choice 2; numerical — KC 5 / assignment 3; text — KC 5 / assignment 4; dropdown 1–2 by option count; checkbox (≤4) 3. Drag and drop and open response are listed in the [Attempts Policy](attempts-policy.html) only. |
 | Show Answer | `after_all_attempts_or_correct` on every problem. |
 | Grading weights | Homework 20%, Assignments 80%. |
 | Course mode & dates | Self-paced; start date in the future; beta access 365 days early. |
