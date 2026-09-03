@@ -192,10 +192,11 @@ Message: *Module summary has no key takeaways list.*
 ### 3.7 Worth adding in the same pass
 
 - **`module-overview-naming`** (`warning`, static) — the overview title reads
-  `<Program>: <Module>`, e.g. "Universal Biology: Cell Biology", and does not
-  open with a greeting ("Welcome to…"). This was the faculty's first point and
-  nothing checks it today; the program list is already per-program config
-  from §1.
+  `<Program>: <Module>`, e.g. "Universal Biology: Cell Biology". This was the
+  faculty's first point and nothing checks it today; the program list is
+  already per-program config from §1. Check the title only: welcoming a
+  learner in the overview's opening sentence is wanted, so nothing here
+  should flag a greeting.
 - **`module-overview-bold-title`** (`warning`, static) — mirrors
   `lectures-overview-bold-title`. Note there is deliberately **no** module
   counterpart to `lectures-overview-bold-professor`: the guide asks for a

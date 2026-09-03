@@ -64,9 +64,7 @@ Semiconductor Manufacturing**.
 
 **Naming an overview.** Lead with the program, then the module, so a learner
 arriving from a link knows where they are: **Universal Biology: Cell Biology**,
-or **Universal Biology: Fundamentals of Molecular Biology Lab**. Do not open
-with a greeting — "Welcome to Large Language Models!" tells the learner nothing
-they did not already know.
+or **Universal Biology: Fundamentals of Molecular Biology Lab**.
 
 **Goals or objectives?** These are not two words for the same thing, and the
 difference is not only which page they sit on.
