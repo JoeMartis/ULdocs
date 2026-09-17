@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the Checker Checks</title>
+<!--
+  The Fixatron500 rule catalogue — the Google Docs add-on that runs on the
+  template while you write. NOT the same thing as rule-reference.html, which
+  is the Studio QA pass that runs after content is in Studio. Different tool,
+  different rule ids (kc-*, docs-*, ai-* here; html-*, lectures-*, and the
+  rest there).
+
+  Unlike the other guide pages on this site, this one is not generated from
+  docs/*.md: it keeps the layout it was designed with (the tally strip,
+  per-rule severity pills), which the shared Markdown pipeline cannot
+  express. Edit it here directly.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+
+<style>
+:root {
+  --paper:#f8f9fa; --raised:#ffffff; --ink:#1a1d21; --ink-soft:#474d55;
+  --ink-faint:#767d87; --rule:#dde1e6; --rule-soft:#eaedf0;
+  --accent:#2c4f78; --accent-soft:#e5ecf3; --accent-ink:#1f3b5c;
+  --error:#a8271f; --error-soft:#f7e7e5;
+  --warn:#7d5400; --warn-soft:#f7f0dd;
+  --code-bg:#eef1f4; --code-ink:#252a30; --code-rule:#dfe4e9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#15181b; --raised:#1d2126; --ink:#e6e9ec; --ink-soft:#aeb5bd;
+    --ink-faint:#848c95; --rule:#2f343a; --rule-soft:#25292e;
+    --accent:#8fb6de; --accent-soft:#1c2733; --accent-ink:#aecbe9;
+    --error:#ef8d84; --error-soft:#331e1c;
+    --warn:#d5a33e; --warn-soft:#2c2416;
+    --code-bg:#21262b; --code-ink:#dfe3e8; --code-rule:#2e343a;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#15181b; --raised:#1d2126; --ink:#e6e9ec; --ink-soft:#aeb5bd;
+  --ink-faint:#848c95; --rule:#2f343a; --rule-soft:#25292e;
+  --accent:#8fb6de; --accent-soft:#1c2733; --accent-ink:#aecbe9;
+  --error:#ef8d84; --error-soft:#331e1c;
+  --warn:#d5a33e; --warn-soft:#2c2416;
+  --code-bg:#21262b; --code-ink:#dfe3e8; --code-rule:#2e343a;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper); color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.75rem 6rem; }
+
+/* ── site chrome ──────────────────────────────────────────
+   These pages sit inside the Module Author Guides site, so they carry the
+   same way back that every other guide has. Built from the page's own tokens
+   so it reads as part of the design rather than bolted on. */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 10;
+  background: var(--raised); color: var(--accent);
+  padding: .6rem 1rem; border: 1px solid var(--rule); font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+.topbar { padding: 1.4rem 0 0; }
+.topbar a {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); text-decoration: none;
+}
+.topbar a:hover { text-decoration: underline; }
+.pagefoot {
+  margin-top: 1.1rem; font-size: .8rem; color: var(--ink-faint);
+  display: flex; gap: .4rem .9rem; flex-wrap: wrap; align-items: baseline;
+}
+
+.masthead { border-bottom: 2px solid var(--ink); padding: 1.6rem 0 1.4rem; margin-bottom: 2rem; }
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+  display: flex; gap: .55rem; flex-wrap: wrap; align-items: baseline;
+}
+.eyebrow .sep { color: var(--rule); }
+h1 {
+  font-family: Newsreader, Georgia, serif; font-weight: 500;
+  font-size: clamp(2.3rem, 5.5vw, 3.4rem); line-height: 1.05;
+  letter-spacing: -.015em; margin: .5rem 0 .55rem; text-wrap: balance;
+}
+.standfirst {
+  font-family: Newsreader, Georgia, serif; font-size: 1.22rem; line-height: 1.5;
+  color: var(--ink-soft); max-width: 44rem; margin: 0;
+}
+
+.tally {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 1.75rem;
+}
+.tally div { background: var(--paper); padding: .8rem .95rem; }
+.tally dt {
+  font-family: "IBM Plex Mono", monospace; font-size: .64rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: .15rem;
+}
+.tally dd {
+  margin: 0; font-size: 1.4rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  line-height: 1.1; font-family: Newsreader, Georgia, serif;
+}
+.tally dd small { font-size: .8rem; font-weight: 400; color: var(--ink-faint); font-family: "IBM Plex Sans", sans-serif; }
+
+.intro { margin-top: 2rem; display: grid; gap: 1.1rem; }
+.intro p { margin: 0; max-width: 44rem; color: var(--ink-soft); font-size: .96rem; }
+.intro b { color: var(--ink); font-weight: 600; }
+
+.legend {
+  border: 1px solid var(--rule); background: var(--raised);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  margin-top: 1.5rem;
+}
+.legend > div { padding: .95rem 1.1rem; }
+.legend > div + div { border-left: 1px solid var(--rule); }
+@media (max-width: 40rem) { .legend > div + div { border-left: 0; border-top: 1px solid var(--rule); } }
+.legend h2 { font-size: .95rem; margin: .45rem 0 .3rem; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; letter-spacing: 0; }
+.legend p { margin: 0; font-size: .89rem; color: var(--ink-soft); }
+
+nav.toc {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: .1rem 2rem; margin-top: 2rem; padding-top: 1.3rem; border-top: 1px solid var(--rule);
+}
+nav.toc a {
+  display: flex; justify-content: space-between; gap: 1rem; padding: .38rem 0;
+  text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--rule-soft); font-size: .91rem;
+}
+nav.toc a:hover { color: var(--accent); }
+nav.toc .n { font-family: "IBM Plex Mono", monospace; font-size: .76rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+section { margin-top: 3.5rem; scroll-margin-top: 1.5rem; }
+.cat-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-bottom: 2px solid var(--ink); padding-bottom: .4rem; flex-wrap: wrap; }
+.cat-head h2 { font-family: Newsreader, Georgia, serif; font-weight: 500; font-size: 1.75rem; margin: 0; letter-spacing: -.01em; }
+.cat-count { font-family: "IBM Plex Mono", monospace; font-size: .78rem; color: var(--ink-faint); display: flex; gap: .5rem; align-items: baseline; }
+.cat-count .n { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.cat-blurb { margin: .8rem 0 0; color: var(--ink-soft); font-size: .95rem; max-width: 44rem; }
+
+.rules { margin-top: 1.1rem; }
+.rule {
+  display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0 1.2rem;
+  padding: .95rem 0; border-bottom: 1px solid var(--rule-soft); align-items: start;
+}
+@media (max-width: 34rem) { .rule { grid-template-columns: 1fr; gap: .4rem; } }
+.rule-body { min-width: 0; }
+.rule h3 { font-size: .98rem; font-weight: 600; margin: 0 0 .15rem; letter-spacing: -.005em; }
+.rule p { margin: 0; font-size: .93rem; color: var(--ink-soft); max-width: 42rem; }
+.rid {
+  font-family: "IBM Plex Mono", monospace; font-size: .72rem; color: var(--ink-faint);
+  display: inline-block; margin-top: .35rem;
+}
+.sev { padding-top: .12rem; }
+.pill {
+  display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .64rem;
+  font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  padding: .14rem .45rem; border-radius: 2px;
+}
+.pill.err { background: var(--error-soft); color: var(--error); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+
+code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .86em; }
+p code, li code { background: var(--code-bg); color: var(--code-ink); padding: .08em .32em; border-radius: 2px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+
+.deep { border: 1px solid var(--accent); margin-top: 1.1rem; }
+.deep-head { background: var(--accent-soft); padding: .9rem 1.1rem; border-bottom: 1px solid var(--accent); }
+.deep-head p { margin: 0; font-size: .92rem; color: var(--ink-soft); }
+.deep-head b { color: var(--accent-ink); }
+.deep .rules { margin-top: 0; padding: 0 1.1rem; }
+.deep .rule:last-child { border-bottom: 0; }
+
+footer { margin-top: 4.5rem; padding-top: 1.4rem; border-top: 2px solid var(--ink); font-size: .89rem; color: var(--ink-faint); }
+footer p { max-width: 46rem; margin: 0 0 .7rem; }
+footer b { color: var(--ink-soft); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media print { .rule { break-inside: avoid; } section { break-before: auto; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="wrap">
+
+<nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
+
+<header class="masthead">
+  <div class="eyebrow">
+    <span>MIT Universal Learning</span><span class="sep">/</span>
+    <span>Module authoring</span><span class="sep">/</span>
+    <span>Fixatron500 rules</span>
+  </div>
+  <h1>What the Checker Checks</h1>
+  <p class="standfirst">Every check the sidebar runs on your module, what each one wants, and which ones you can safely ignore.</p>
+
+  <dl class="tally">
+    <div><dt>As you write</dt><dd>60 <small>checks</small></dd></div>
+    <div><dt>Errors</dt><dd>15</dd></div>
+    <div><dt>Warnings</dt><dd>45</dd></div>
+    <div><dt>Deep check</dt><dd>8 <small>on demand</small></dd></div>
+  </dl>
+
+  <div class="intro">
+    <p>Sixty checks run inside your document every few seconds while the sidebar is open. They cost nothing, need no setup, and nothing leaves the document. Eight more read your explanations properly, but those call a model — they cost money and run only when you press <b>Deep check</b>.</p>
+    <p>This list applies to <b>both templates</b>. The checks do not care whether your module is headings down a page or rows in a table.</p>
+    <p><b>Not the same thing as the <a href="rule-reference.html">Rule Reference</a>.</b> This page is Fixatron500, which reads your template in Google Docs while you write it. The Rule Reference is the automated QA pass that runs later, on content already in Studio. Two tools, two catalogues — the short codes tell them apart, and quoting one is the fastest way to say which check you mean.</p>
+  </div>
+
+  <div class="legend">
+    <div>
+      <span class="pill err">error</span>
+      <h2>Fix these</h2>
+      <p>Something here will break or mislead once the module is converted into the course. Fifteen of the sixty.</p>
+    </div>
+    <div>
+      <span class="pill warn">warning</span>
+      <h2>Judge these</h2>
+      <p>A judgement you are allowed to disagree with. Click <b>dismiss</b> on any that is wrong for your module and it stays dismissed.</p>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <a href="#questions">Questions <span class="n">24</span></a>
+    <a href="#structure">Structure <span class="n">9</span></a>
+    <a href="#converter">Converter <span class="n">7</span></a>
+    <a href="#writing-style">Writing Style <span class="n">5</span></a>
+    <a href="#biology-terminology">Biology Terminology <span class="n">5</span></a>
+    <a href="#media">Media <span class="n">3</span></a>
+    <a href="#learning-objectives">Learning Objectives <span class="n">2</span></a>
+    <a href="#formatting">Formatting <span class="n">2</span></a>
+    <a href="#accessibility">Accessibility <span class="n">1</span></a>
+    <a href="#terms">Terms <span class="n">1</span></a>
+    <a href="#placeholders">Placeholders <span class="n">1</span></a>
+    <a href="#deep-check">Deep check <span class="n">8</span></a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section id="questions">
+  <div class="cat-head">
+    <h2>Questions</h2>
+    <div class="cat-count"><span class="n">24</span> <span class="pill err">11 errors</span></div>
+  </div>
+  <p class="cat-blurb">The largest group by far, and the one that decides whether a problem works at all. Eleven of these are errors.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Questions have an explanation</h3>
+        <p>The explanation is still the template's placeholder. Replace it with an "Explanation:" line saying why the correct answer is correct.</p>
+        <code class="rid">kc-explanation-present</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Questions have a stem</h3>
+        <p>No question text. The question stem belongs at the first list level, above the choices.</p>
+        <code class="rid">kc-stem-present</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Questions mark a correct answer</h3>
+        <p>No correct answer marked. Mark the correct choice with "(X)", or every correct one with "[X]" if more than one applies.</p>
+        <code class="rid">kc-correct-answer</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Dropdowns mark one correct option</h3>
+        <p>A dropdown has no correct option marked with "&amp;".</p>
+        <code class="rid">kc-dropdown-answer</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>No duplicate choices</h3>
+        <p>A choice repeats another word for word.</p>
+        <code class="rid">problem-duplicate-choices</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>No empty choices</h3>
+        <p>A choice is empty.</p>
+        <code class="rid">problem-empty-choice</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Choice questions offer alternatives</h3>
+        <p>There is only one choice. A choice question needs at least two.</p>
+        <code class="rid">problem-single-choice</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Questions match their declared type</h3>
+        <p>What is written does not match the declared type — 2 choices are marked correct. Mark one, or change the type to checkbox.</p>
+        <code class="rid">problem-type-mismatch</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Typed answers give the answer</h3>
+        <p>No "Correct answer:" line. A numerical input has no options to mark, so the answer has to be written out.</p>
+        <code class="rid">problem-answer-present</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Numerical answers are numbers</h3>
+        <p>The correct answer is not a number. A numerical problem is graded by comparing numbers, so write the value alone — no units and no words.</p>
+        <code class="rid">problem-numerical-answer</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Numerical answers give an accepted range</h3>
+        <p>No accepted range. Give the tolerance a correct answer may fall within — "± 0.01", "± 2%", "3.1 – 3.2" — or write "exact" if the value is a count. The range is invisible on the page, so a missing one shows up as correct answers being marked wrong.</p>
+        <code class="rid">problem-numerical-range</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Explanations are not questions</h3>
+        <p>The explanation ends in a question mark — it should explain the answer, not ask another question.</p>
+        <code class="rid">kc-explanation-not-question</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Choice questions are not overlong</h3>
+        <p>There are more than four choices. The guide keeps a problem to 4 or fewer — split the question rather than lengthening the list.</p>
+        <code class="rid">problem-too-many-options</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Multiple choice says "Select the best answer"</h3>
+        <p>Single-answer question is missing the prompt "Select the best answer."</p>
+        <code class="rid">prompts-mc-select-best-answer</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Checkbox says "Select all that apply"</h3>
+        <p>Multiple-answer question is missing the prompt "Select all that apply."</p>
+        <code class="rid">prompts-checkbox-select-all</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Dropdowns explain themselves</h3>
+        <p>Dropdown question does not tell the learner to use the dropdowns — e.g. "Use the dropdown options to complete the following statements."</p>
+        <code class="rid">prompts-dropdown-instruction</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>"Type:" names a question type</h3>
+        <p>The declared type is not one the tool knows. Use one of: multiple choice, checkbox, dropdown, numerical input, short answer, open-ended auto-credit, drag and drop. Until this line is read the question is classified by guessing from its markers.</p>
+        <code class="rid">problem-type-unknown</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Accepted answers are distinct</h3>
+        <p>An accepted answer repeats one already listed. Matching ignores case, so this variant grades nothing the first one does not.</p>
+        <code class="rid">problem-accepted-answers</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Options are not hand-lettered</h3>
+        <p>The options carry hand-typed letters. Options may be shuffled when they are displayed, so a label ends up against the wrong option — delete them.</p>
+        <code class="rid">problem-option-labels</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Explanations do more than assert the answer</h3>
+        <p>The explanation is too short. Say why the answer is right and what makes a wrong option tempting — one that only states the answer leaves a learner where they were.</p>
+        <code class="rid">kc-explanation-substantive</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Explanations name options by content</h3>
+        <p>The explanation names an option by its position. Options are shuffled when they are displayed, so name the option by what it says instead.</p>
+        <code class="rid">kc-explanation-positional</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Numerical input says how to enter the answer</h3>
+        <p>Numerical input does not say how to enter the answer — e.g. "Enter your answer as a whole number in the space provided."</p>
+        <code class="rid">prompts-numerical-instruction</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Open-ended problems carry the auto-credit sentence</h3>
+        <p>Open-ended problem does not say that answering earns credit. Add "Any thoughtful answer will receive credit." to the question, so it does not read as graded.</p>
+        <code class="rid">prompts-open-ended-phrase</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Knowledge Checks are lettered in sequence</h3>
+        <p>A knowledge-check letter is out of sequence. Letters should run A, B, C without gaps.</p>
+        <code class="rid">kc-sequential-lettering</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="structure">
+  <div class="cat-head">
+    <h2>Structure</h2>
+    <div class="cat-count"><span class="n">9</span> <span class="pill err">1 error</span></div>
+  </div>
+  <p class="cat-blurb">Whether the document is shaped like a module. These read heading levels, so they are the ones that catch a page in the wrong place.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Module has its top-level sections</h3>
+        <p>A top-level section is missing.</p>
+        <code class="rid">docs-module-sections</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Top-level sections are in template order</h3>
+        <p>Expected order: Introduction → Lectures → Assignments → Conclusion.</p>
+        <code class="rid">docs-section-order</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Each section holds what the template puts in it</h3>
+        <p>A section is missing one of the units the template puts in it.</p>
+        <code class="rid">docs-section-contents</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Each lecture has its Overview and Summary</h3>
+        <p>A lecture or assignment is missing its Overview or Summary.</p>
+        <code class="rid">docs-lecture-sections</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Each assignment has its Overview and Summary</h3>
+        <p>A lecture or assignment is missing its Overview or Summary.</p>
+        <code class="rid">docs-assignment-sections</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Heading levels do not skip a level</h3>
+        <p>A heading level was skipped. A unit needs a subsection to sit in.</p>
+        <code class="rid">docs-heading-level-skip</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Tables are captioned</h3>
+        <p>Table has no caption. Add a "Caption:" line immediately before or after it.</p>
+        <code class="rid">docs-table-caption</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No empty headings</h3>
+        <p>A blank line carries a heading style. It looks like spacing, but it still makes a section in the export — delete the line, or set it to Normal text.</p>
+        <code class="rid">docs-empty-heading</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Key Takeaways are not a copy of the objectives</h3>
+        <p>Key Takeaways repeat the Learning Objectives word for word. Takeaways should say what the learner now knows, not restate the goals.</p>
+        <code class="rid">docs-takeaways-not-objectives</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="media">
+  <div class="cat-head">
+    <h2>Media</h2>
+    <div class="cat-count"><span class="n">3</span> <span class="pill err">2 errors</span></div>
+  </div>
+  <p class="cat-blurb">Videos, transcripts and images need names the converter can match to real files.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Media markers name something</h3>
+        <p>A media marker has nothing after its colon. Give it the file name, or delete the line if there is no file.</p>
+        <code class="rid">media-marker-empty</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Videos name their file</h3>
+        <p>A video has no "Video File Name:" line. Without it the video cannot be matched to a file.</p>
+        <code class="rid">media-video-file-name</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Video file names are unique</h3>
+        <p>Two videos point at the same file. One of these videos is pointing at the wrong file.</p>
+        <code class="rid">media-duplicate-video</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessibility">
+  <div class="cat-head">
+    <h2>Accessibility</h2>
+    <div class="cat-count"><span class="n">1</span> <span class="pill err">1 error</span></div>
+  </div>
+  <p class="cat-blurb">Required, not advisory. A learner using a screen reader gets nothing from an image without it.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill err">error</span></div>
+      <div class="rule-body">
+        <h3>Images have alt text</h3>
+        <p>Image has no alt text. Add a description (right-click → Alt text) so screen readers can describe it.</p>
+        <code class="rid">docs-image-alt-text</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learning-objectives">
+  <div class="cat-head">
+    <h2>Learning Objectives</h2>
+    <div class="cat-count"><span class="n">2</span></div>
+  </div>
+  <p class="cat-blurb">An objective an assessment cannot test is not an objective.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Objectives use measurable verbs</h3>
+        <p>An objective starts with a vague, non-measurable verb — use a measurable action verb (Bloom's taxonomy).</p>
+        <code class="rid">docs-objectives-vague-verbs</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Objectives have an introductory stem</h3>
+        <p>Objectives are missing an introductory stem — e.g. "At the end of this lecture, you will be able to:".</p>
+        <code class="rid">docs-objectives-stem</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="converter">
+  <div class="cat-head">
+    <h2>Converter</h2>
+    <div class="cat-count"><span class="n">7</span></div>
+  </div>
+  <p class="cat-blurb">Habits that look fine in the document and become garbage in the course. Nothing here is about writing.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Bulleted lists are real lists</h3>
+        <p>2 consecutive paragraphs start with a bullet character typed as text. Use Format → Bullets &amp; numbering — a typed bullet converts as a stray glyph, and inside a question its options are not read as options at all.</p>
+        <code class="rid">docs-manual-bullets</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Numbered lists are real lists</h3>
+        <p>3 consecutive paragraphs are numbered by hand. Use Format → Bullets &amp; numbering so the numbering survives conversion.</p>
+        <code class="rid">docs-manual-numbering</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No blank paragraphs for spacing</h3>
+        <p>2 blank paragraphs in a row, just after "Please review this module before you begin. Students shouldn…". Use paragraph spacing (Format → Line &amp; paragraph spacing) instead — these become empty elements in the export.</p>
+        <code class="rid">docs-empty-paragraphs</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No tabs for layout</h3>
+        <p>Tab characters used for layout. Use indentation or a list instead — tabs do not survive conversion.</p>
+        <code class="rid">docs-tab-characters</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Images are inline</h3>
+        <p>Images here are positioned or wrapped rather than inline. Select the image and choose "In line" — floating images do not convert reliably.</p>
+        <code class="rid">docs-floating-images</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No drawings or text boxes</h3>
+        <p>Drawing or text box found. Replace it with an image (with alt text) or real text — drawings are lost in conversion.</p>
+        <code class="rid">docs-drawings</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Headings use heading styles</h3>
+        <p>This looks like a heading styled with bold text. Apply a real heading style (Format → Paragraph styles) so the document structure survives conversion.</p>
+        <code class="rid">docs-fake-headings</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formatting">
+  <div class="cat-head">
+    <h2>Formatting</h2>
+    <div class="cat-count"><span class="n">2</span></div>
+  </div>
+  <p class="cat-blurb">Direct formatting does not survive conversion. Use the document’s own styles.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No custom fonts</h3>
+        <p>Custom font "Comic Sans MS" — the document body is set in Arial.</p>
+        <code class="rid">docs-font-family</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No custom font sizes</h3>
+        <p>Custom font size 18pt — the document body is 11pt.</p>
+        <code class="rid">docs-font-size</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing-style">
+  <div class="cat-head">
+    <h2>Writing Style</h2>
+    <div class="cat-count"><span class="n">5</span></div>
+  </div>
+  <p class="cat-blurb">House style. All warnings — disagree and dismiss where your subject calls for it.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Avoid "please"</h3>
+        <p>Avoid "please" in instructional text.</p>
+        <code class="rid">writing-avoid-please</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No contractions</h3>
+        <p>A contraction was used.</p>
+        <code class="rid">writing-no-contractions</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Use US spellings</h3>
+        <p>A British spelling was used where the US form is expected.</p>
+        <code class="rid">writing-us-spelling</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Space between number and unit</h3>
+        <p>Put a space between the number and the degree symbol (e.g. "37 °C", not "37°C").</p>
+        <code class="rid">writing-number-unit-space</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Avoid US idioms</h3>
+        <p>A US idiom is used that may confuse international learners — consider a literal phrasing.</p>
+        <code class="rid">text-avoid-idioms</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="biology-terminology">
+  <div class="cat-head">
+    <h2>Biology Terminology</h2>
+    <div class="cat-count"><span class="n">5</span></div>
+  </div>
+  <p class="cat-blurb">Subject-specific, and only on for biology modules. Dismiss freely if your field uses a term differently.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>"PCR reaction" is redundant</h3>
+        <p>Drop "reaction" after PCR — the R already stands for "reaction".</p>
+        <code class="rid">bio-pcr-reaction</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>No possessives for non-person nouns</h3>
+        <p>Avoid the possessive form for non-person nouns — rephrase (e.g. "the active site of the protein", not "circle's").</p>
+        <code class="rid">bio-active-site-possessive</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Introduce Sanger sequencing as dideoxy</h3>
+        <p>Introduce as "dideoxy (Sanger) sequencing".</p>
+        <code class="rid">bio-sanger-dideoxy</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Address the learner as "you"</h3>
+        <p>Found "Students" — address the learner directly as "you" (or use "learner" if a third-person term is needed).</p>
+        <code class="rid">bio-address-as-you</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Dominance describes the phenotype</h3>
+        <p>"Dominant"/"recessive" describes the trait or phenotype, not the allele, gene, or mutation — rephrase (e.g. "the allele encoding the dominant trait", not "dominant allele").</p>
+        <code class="rid">bio-phenotype-dominance</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="cat-head">
+    <h2>Terms</h2>
+    <div class="cat-count"><span class="n">1</span></div>
+  </div>
+  <p class="cat-blurb">Acronyms, once each.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Define acronyms on first use</h3>
+        <p>An acronym is used before it is defined. Spell it out on first use, e.g. "…full term… (CRISPR)".</p>
+        <code class="rid">text-acronym-first-use</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="placeholders">
+  <div class="cat-head">
+    <h2>Placeholders</h2>
+    <div class="cat-count"><span class="n">1</span></div>
+  </div>
+  <p class="cat-blurb">The one that counts down as you fill the template in.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Template placeholders are replaced</h3>
+        <p>"Assignment 1 Name" is the template's placeholder text. Replace it with the real name or content — left as it is, it converts as written.</p>
+        <code class="rid">docs-template-placeholder</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="deep-check">
+  <div class="cat-head">
+    <h2>The deep check</h2>
+    <div class="cat-count"><span class="n">8</span> <span class="pill err">1 error</span></div>
+  </div>
+  <p class="cat-blurb">These read what you wrote and judge whether it teaches — which no amount of pattern-matching can do. They run only when you press the button, on the part of the module you choose, against your own API key.</p>
+
+  <div class="deep">
+    <div class="deep-head">
+      <p><b>Not judged:</b> placeholders you have not filled in, and parts not written yet. The sixty checks above already report those for nothing.</p>
+    </div>
+    <div class="rules">
+      <div class="rule">
+        <div class="sev"><span class="pill err">error</span></div>
+        <div class="rule-body">
+          <h3>Explanations are sound</h3>
+          <p>The reasoning does not support the answer you keyed — it argues for a different option, or states something false. The only one filed as an error: a thin explanation leaves a learner where they were, but a confident wrong one teaches them something untrue.</p>
+          <code class="rid">ai-explanation-unsound</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Explanations say why</h3>
+          <p>The explanation asserts the answer is correct and gives no reason, so a learner who got it wrong has nothing to reason from next time.</p>
+          <code class="rid">ai-explanation-why</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Explanations add something</h3>
+          <p>The explanation restates the question, or repeats the wording of the correct option, adding nothing the learner did not already have in front of them.</p>
+          <code class="rid">ai-explanation-restates</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Explanations explain</h3>
+          <p>What is in the explanation is not an explanation at all — a note left for yourself, or words that carry no meaning.</p>
+          <code class="rid">ai-explanation-quality</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Options are complete</h3>
+          <p>An answer choice is cut off mid-thought, or is obviously missing its ending.</p>
+          <code class="rid">ai-truncated-option</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Options are parallel</h3>
+          <p>The choices do not match each other in form — fragments mixed with full sentences, or inconsistent capitalisation and trailing punctuation.</p>
+          <code class="rid">ai-option-format</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Prefer active voice</h3>
+          <p>A sentence is passive where the active would be clearer. Only raised where there is an identifiable actor and the rewrite is obvious.</p>
+          <code class="rid">ai-active-voice</code>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="sev"><span class="pill warn">warning</span></div>
+        <div class="rule-body">
+          <h3>Acronyms expand consistently</h3>
+          <p>The same acronym is spelled out differently in different places.</p>
+          <code class="rid">ai-acronym-consistency</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><b>Two ways to silence a check.</b> <em>Dismiss</em> hides one finding, and is keyed to what that finding says — so editing the sentence around it brings it back, deliberately, because the text it was a judgement about has changed. <em>Mute rule</em> hides a whole rule for the module, for when a rule does not apply to your subject at all. Both live in the document, so the next person to open it sees the judgement already made.</p>
+  <p><b>If a check is wrong, say so.</b> These are rules written by people, and a rule that misfires on a real module is worth fixing rather than working around. Dismiss it, carry on, and tell us which one.</p>
+  <p><b>Rule names are the short codes</b> under each entry — quoting one (<code>problem-numerical-range</code>, say) is the fastest way to be precise about which check you mean.</p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-17</span></p>
+</footer>
+
+</div>
+
+</body>
+</html>

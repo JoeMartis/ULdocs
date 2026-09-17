@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authoring a UL Module in Tables</title>
+<!--
+  Fixatron500 guide — the two-column table template. Unlike the other guide
+  pages on this site, this one is not generated from docs/*.md: it keeps the
+  layout it was designed with (the row-map diagram, problem-type cards,
+  severity pills), which the shared Markdown pipeline cannot express. Edit it
+  here directly. Its sibling is module-template-headings.html.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+
+<style>
+:root {
+  --paper:#f7f9f7; --raised:#ffffff; --ink:#1a1e1c; --ink-soft:#465049;
+  --ink-faint:#737d76; --rule:#dbe3dd; --rule-soft:#e9efea;
+  --accent:#1f5148; --accent-soft:#e4eeea; --accent-ink:#164039;
+  --error:#b3261e; --error-soft:#f8e5e3;
+  --warn:#8a5d00; --warn-soft:#f8f0dc;
+  --ok:#2f6b4f;
+  --mark:#fff2a8; --mark-ink:#3f3510;
+  --code-bg:#eef3ef; --code-ink:#252b27; --code-rule:#dde5df;
+  --cellA:#e4eeea; --cellB:#ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#141817; --raised:#1d2321; --ink:#e4eae6; --ink-soft:#a9b4ad;
+    --ink-faint:#818b85; --rule:#2f3835; --rule-soft:#252c29;
+    --accent:#79c2ae; --accent-soft:#1c2a27; --accent-ink:#9ad6c4;
+    --error:#f09086; --error-soft:#331f1d;
+    --warn:#d9a840; --warn-soft:#2e2617;
+    --ok:#82c2a0;
+    --mark:#5d5320; --mark-ink:#f8eeba;
+    --code-bg:#1f2523; --code-ink:#dce3de; --code-rule:#2d3532;
+    --cellA:#1c2a27; --cellB:#1d2321;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#141817; --raised:#1d2321; --ink:#e4eae6; --ink-soft:#a9b4ad;
+  --ink-faint:#818b85; --rule:#2f3835; --rule-soft:#252c29;
+  --accent:#79c2ae; --accent-soft:#1c2a27; --accent-ink:#9ad6c4;
+  --error:#f09086; --error-soft:#331f1d;
+  --warn:#d9a840; --warn-soft:#2e2617;
+  --ok:#82c2a0;
+  --mark:#5d5320; --mark-ink:#f8eeba;
+  --code-bg:#1f2523; --code-ink:#dce3de; --code-rule:#2d3532;
+  --cellA:#1c2a27; --cellB:#1d2321;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper); color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.75rem 6rem; }
+
+/* ── site chrome ──────────────────────────────────────────
+   These pages sit inside the Module Author Guides site, so they carry the
+   same way back that every other guide has. Built from the page's own tokens
+   so it reads as part of the design rather than bolted on. */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 10;
+  background: var(--raised); color: var(--accent);
+  padding: .6rem 1rem; border: 1px solid var(--rule); font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+.topbar { padding: 1.4rem 0 0; }
+.topbar a {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); text-decoration: none;
+}
+.topbar a:hover { text-decoration: underline; }
+.pagefoot {
+  margin-top: 1.1rem; font-size: .8rem; color: var(--ink-faint);
+  display: flex; gap: .4rem .9rem; flex-wrap: wrap; align-items: baseline;
+}
+
+.masthead { border-bottom: 2px solid var(--ink); padding: 1.6rem 0 1.5rem; margin-bottom: 2.5rem; }
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .7rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; gap: .6rem; align-items: baseline; flex-wrap: wrap;
+}
+.eyebrow .sep { color: var(--rule); }
+h1 {
+  font-family: Newsreader, Georgia, serif; font-weight: 500;
+  font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.05;
+  letter-spacing: -.015em; margin: .5rem 0 .6rem; text-wrap: balance;
+}
+.standfirst {
+  font-family: Newsreader, Georgia, serif; font-size: 1.25rem; line-height: 1.5;
+  color: var(--ink-soft); max-width: 44rem; margin: 0;
+}
+.which {
+  margin-top: 1.5rem; padding: .85rem 1.1rem;
+  background: var(--accent-soft); border-left: 3px solid var(--accent);
+  font-size: .93rem; color: var(--ink);
+}
+.which strong { font-weight: 600; }
+
+section { margin-top: 4rem; scroll-margin-top: 1.5rem; }
+h2 {
+  font-family: Newsreader, Georgia, serif; font-weight: 500; font-size: 2rem;
+  line-height: 1.15; letter-spacing: -.01em; margin: 0 0 .35rem; text-wrap: balance;
+}
+h2 .num {
+  font-family: "IBM Plex Mono", monospace; font-size: .78rem; font-weight: 500;
+  color: var(--accent); letter-spacing: .1em; display: block; margin-bottom: .5rem;
+}
+h3 { font-weight: 600; font-size: 1.05rem; letter-spacing: -.005em; margin: 2.25rem 0 .6rem; }
+.lede { color: var(--ink-soft); max-width: 42rem; margin: 0 0 1.75rem; }
+p { max-width: 42rem; }
+section > p { margin: 0 0 1rem; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+nav.toc {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .1rem 2rem; margin: 2.5rem 0 0; padding: 1.4rem 0 0; border-top: 1px solid var(--rule);
+}
+nav.toc a {
+  display: flex; gap: .7rem; align-items: baseline; padding: .4rem 0;
+  text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--rule-soft); font-size: .92rem;
+}
+nav.toc a:hover { color: var(--accent); }
+nav.toc .n { font-family: "IBM Plex Mono", monospace; font-size: .74rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+ol.steps li {
+  counter-increment: s; display: grid; grid-template-columns: 2.6rem 1fr;
+  gap: 0 1.1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--rule-soft);
+}
+ol.steps li::before {
+  content: counter(s, decimal-leading-zero);
+  font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 500;
+  color: var(--accent); padding-top: .18rem; font-variant-numeric: tabular-nums;
+}
+/* Everything but the counter sits in the second column. Without this, the
+   ::before takes cell 1, the heading takes cell 2, and the paragraph wraps
+   onto the next row into the 2.6rem number column — 41px wide. */
+ol.steps li > h3, ol.steps li > p { grid-column: 2; }
+ol.steps h3 { margin: 0 0 .25rem; font-size: 1rem; }
+ol.steps p { margin: 0; color: var(--ink-soft); font-size: .95rem; max-width: 40rem; }
+ol.steps p + p { margin-top: .5rem; }
+
+code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .875em; }
+p code, li code, td code, dd code { background: var(--code-bg); color: var(--code-ink); padding: .1em .35em; border-radius: 2px; }
+pre {
+  background: var(--code-bg); color: var(--code-ink);
+  border: 1px solid var(--code-rule); border-left: 3px solid var(--accent);
+  padding: 1rem 1.15rem; overflow-x: auto; margin: 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .84rem; line-height: 1.75;
+}
+pre:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+pre .key { color: var(--accent-ink); font-weight: 600; }
+mark { background: var(--mark); color: var(--mark-ink); padding: .05em .2em; border-radius: 2px; }
+
+.types { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.type { border: 1px solid var(--rule); background: var(--raised); display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); }
+@media (max-width: 46rem) { .type { grid-template-columns: 1fr; } }
+.type-head { padding: 1.25rem 1.35rem; border-right: 1px solid var(--rule); }
+@media (max-width: 46rem) { .type-head { border-right: 0; border-bottom: 1px solid var(--rule); } }
+.type-head h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.type-head .letter { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; }
+.type-head p { font-size: .88rem; color: var(--ink-soft); margin: .45rem 0 0; }
+.type-body { padding: 1.25rem 1.35rem; min-width: 0; }
+.needs { margin: .9rem 0 0; font-size: .86rem; color: var(--ink-soft); display: flex; gap: .5rem; align-items: baseline; }
+.needs b { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+.scroll { overflow-x: auto; margin-top: 1.25rem; }
+.scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+table.data { border-collapse: collapse; width: 100%; font-size: .92rem; min-width: 34rem; }
+table.data th, table.data td { text-align: left; padding: .7rem .9rem .7rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+table.data th {
+  font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); border-bottom: 1px solid var(--rule);
+}
+table.data td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ── the row diagram: the heart of this guide ─────────────── */
+.rows { margin-top: 1.5rem; border: 1px solid var(--rule); overflow-x: auto; }
+.rows:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+table.rowmap { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: .88rem; }
+table.rowmap td {
+  border: 1px solid var(--rule); padding: .7rem .9rem; vertical-align: top;
+  font-family: "IBM Plex Mono", monospace; font-size: .82rem;
+}
+table.rowmap td.banner { background: var(--cellA); font-weight: 600; color: var(--accent-ink); }
+table.rowmap td.label { background: var(--cellA); width: 32%; color: var(--accent-ink); }
+table.rowmap td.content { background: var(--cellB); }
+table.rowmap .becomes {
+  display: block; font-family: "IBM Plex Sans", sans-serif; font-size: .72rem;
+  font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-faint); margin-top: .3rem;
+}
+table.rowmap .sub { color: var(--ink-soft); font-weight: 400; display: block; margin-top: .25rem; }
+
+.note { border-left: 3px solid var(--rule); padding: .1rem 0 .1rem 1.1rem; margin: 1.5rem 0; color: var(--ink-soft); font-size: .95rem; }
+.note.warn { border-left-color: var(--warn); }
+.note b { color: var(--ink); font-weight: 600; }
+.note p { margin: 0; }
+.note p + p { margin-top: .6rem; }
+
+.pill { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .12rem .45rem; border-radius: 2px; vertical-align: .08em; }
+.pill.err { background: var(--error-soft); color: var(--error); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+
+dl.defs { margin: 1.25rem 0 0; }
+dl.defs div { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0 1.5rem; padding: .8rem 0; border-bottom: 1px solid var(--rule-soft); }
+@media (max-width: 40rem) { dl.defs div { grid-template-columns: 1fr; gap: .2rem; } }
+dl.defs dt { font-weight: 600; font-size: .93rem; }
+dl.defs dd { margin: 0; color: var(--ink-soft); font-size: .93rem; }
+
+ul.plain { padding-left: 1.1rem; margin: .75rem 0; max-width: 42rem; }
+ul.plain li { margin-bottom: .5rem; color: var(--ink-soft); }
+ul.plain li b { color: var(--ink); font-weight: 600; }
+
+footer { margin-top: 5rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); font-size: .88rem; color: var(--ink-faint); }
+footer p { max-width: 44rem; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="wrap">
+
+<nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
+
+<header class="masthead">
+  <div class="eyebrow">
+    <span>MIT Universal Learning</span><span class="sep">/</span>
+    <span>Module authoring</span><span class="sep">/</span>
+    <span>Two-column table</span>
+  </div>
+  <h1>Authoring a UL Module in Tables</h1>
+  <p class="standfirst">How to fill in the table template, what each problem type needs, and how to read what the checker tells you while you write.</p>
+
+  <div class="which">
+    <strong>This guide is for the table template</strong> — the one where the whole module is a single two-column table,
+    and each row is a page. If your template runs straight down the page as headings and paragraphs instead,
+    you want the <a href="module-template-headings.html">headings guide</a>.
+  </div>
+
+  <nav class="toc">
+    <a href="#start"><span class="n">01</span> Quick start</a>
+    <a href="#rows"><span class="n">02</span> One row, one page</a>
+    <a href="#problems"><span class="n">03</span> The seven problem types</a>
+    <a href="#sidebar"><span class="n">04</span> Reading the sidebar</a>
+    <a href="#deep"><span class="n">05</span> The deep check</a>
+    <a href="#mistakes"><span class="n">06</span> Common mistakes</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ══ 01 QUICK START ══════════════════════════════════════ -->
+<section id="start">
+  <h2><span class="num">01</span>Quick start</h2>
+  <p class="lede">Five minutes from opening your copy to your first check. Nothing here needs setting up — the checker travels with the document.</p>
+
+  <ol class="steps">
+    <li>
+      <h3>Open your copy of the template</h3>
+      <p>You have your own copy. Anything you type stays in it, and nothing you do here touches anyone else's module.</p>
+    </li>
+    <li>
+      <h3>Open the checker</h3>
+      <p>In the menu bar: <b>Fixatron500 → Check document</b>. A sidebar opens on the right. The first time, Google asks you to authorise the script — that is the copy asking to read the document it lives in.</p>
+    </li>
+    <li>
+      <h3>Press <b>Check now</b></h3>
+      <p>A fresh copy reports <b>99 placeholders and nothing else</b>. That is correct, and it is the number to expect: every one is a <code>&lt;&lt;span like this&gt;&gt;</code> waiting to be replaced. If you see anything <em>other</em> than placeholders on a copy you have not typed in, something is wrong — say so.</p>
+    </li>
+    <li>
+      <h3>Type in the right-hand cells</h3>
+      <p>The left cell of a row names the page. The right cell holds what is on it. Almost everything you write goes in the right-hand column — the exceptions are the page names themselves.</p>
+      <p>Delete the whole <code>&lt;&lt; &gt;&gt;</code> span, guillemets and all, and write your own words in its place. The text inside is an instruction to you, not text to keep.</p>
+    </li>
+    <li>
+      <h3>Watch the count come down</h3>
+      <p>The sidebar re-runs itself while it is open. The four counters at the top track the work: <span class="mono">videos named</span>, <span class="mono">questions explained</span>, <span class="mono">answers marked</span>, <span class="mono">placeholders left</span>. Finished, they read <span class="mono">2/2 · 9/9 · 9/9</span> and nothing is reported.</p>
+    </li>
+    <li>
+      <h3>Fix the errors, judge the warnings</h3>
+      <p>An <span class="pill err">error</span> will break the conversion into the course. A <span class="pill warn">warning</span> is a judgement you are allowed to disagree with — click <b>dismiss</b> on any finding that is wrong for your module, and it stays dismissed.</p>
+    </li>
+  </ol>
+
+  <div class="note">
+    <p><b>The template's own examples are worked examples, not filler.</b> Knowledge Checks A to F under the first video each show a different problem type, complete with the lines that type needs. Read the one you want, then write over it. Lecture&nbsp;2 shows the plain shape — two checks and nothing else — which is what a lecture actually looks like once you are past the examples.</p>
+  </div>
+</section>
+
+<!-- ══ 02 ROWS ════════════════════════════════════════════ -->
+<section id="rows">
+  <h2><span class="num">02</span>One row, one page</h2>
+  <p class="lede">The whole module is one table. The rows are not layout — they are the structure of the course, and the converter reads them literally.</p>
+
+  <p>There are only two kinds of row, and the difference is whether anything is written outside the first cell.</p>
+
+  <div class="rows" tabindex="0" role="region" aria-label="Row map diagram, scrollable">
+    <table class="rowmap">
+      <tr>
+        <td class="banner" colspan="2">Lectures<span class="becomes">Banner row → a section</span></td>
+      </tr>
+      <tr>
+        <td class="banner" colspan="2">&lt;&lt;Lecture 1 Name&gt;&gt;<span class="becomes">Banner row → a subsection</span></td>
+      </tr>
+      <tr>
+        <td class="label">Overview and Learning Objectives<span class="becomes">Names the page</span></td>
+        <td class="content">Overview<span class="sub">&lt;&lt;A paragraph saying what this lecture covers…&gt;&gt;</span><span class="becomes">Everything on it</span></td>
+      </tr>
+      <tr>
+        <td class="label">&lt;&lt;An opening question&gt;&gt;</td>
+        <td class="content">[word cloud] &lt;&lt;the prompt&gt;&gt;…</td>
+      </tr>
+      <tr>
+        <td class="label">&lt;&lt;Video 1 Name&gt;&gt;</td>
+        <td class="content">Video File Name: …<span class="sub">Transcript File Name: …</span></td>
+      </tr>
+      <tr>
+        <td class="label">Knowledge Check A: &lt;&lt;Video 1 Name&gt;&gt;</td>
+        <td class="content">Problem Type: multiple choice<span class="sub">Question: … Answer choices: … Explanation: …</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="scroll" tabindex="0" role="region" aria-label="Row shapes, scrollable">
+    <table class="data">
+      <thead><tr><th scope="col">Row shape</th><th scope="col">Becomes</th><th scope="col">How to make one</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Banner</b><br><span style="color:var(--ink-faint);font-size:.86rem">one cell across the width</span></td>
+          <td>A <b>section</b> if it names one — Introduction, Lectures, Assignments, Conclusion. Otherwise a <b>subsection</b>: a lecture, an assignment.</td>
+          <td>Select both cells of a row and merge them, then type the name.</td>
+        </tr>
+        <tr>
+          <td><b>Two-column</b><br><span style="color:var(--ink-faint);font-size:.86rem">a label and its contents</span></td>
+          <td>A <b>page</b>. The left cell is its name; the right cell is everything on it.</td>
+          <td>The default row. Put the name left, the content right.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note warn">
+    <p><b>A banner row is one with nothing written outside its first cell.</b> Merging is how you normally make one, but it is the emptiness that counts, not the merge. Type a stray character into the right-hand half of a banner and it stops being a banner — it becomes a page with a one-character name, and the section it was announcing disappears from the structure.</p>
+  </div>
+
+  <h3>Inside a right-hand cell</h3>
+  <p>A cell holds a whole page, so it can carry its own headings and bullets. A heading inside a cell is a header <em>within</em> that page — <code>Overview</code>, <code>Learning Objectives</code>, <code>Key Takeaways</code>. Bullets nest from the cell, not from the page.</p>
+
+  <h3>Adding a page</h3>
+  <ul class="plain">
+    <li><b>A new page</b> — put the cursor in a row and insert a row below. Name it in the left cell, write it in the right.</li>
+    <li><b>A new lecture</b> — insert a row, merge its cells, and type the lecture name. Then add its pages as ordinary two-column rows beneath it.</li>
+    <li><b>Never add a third column.</b> The reading is two-column throughout; anything past the second cell is not part of the structure.</li>
+  </ul>
+
+  <h3>Three rules the checker enforces about names</h3>
+  <ul class="plain">
+    <li><b>A knowledge check repeats its video's name.</b> <code>Knowledge Check A: Membrane Receptors</code> sits under the video row called <code>Membrane Receptors</code>. Rename the video and you must rename its checks.</li>
+    <li><b>Letters run in order.</b> A, then B, then C, under each video. Skipping to C is reported.</li>
+    <li><b>An opening question goes before the first video.</b> It asks what a learner already thinks, which only works before they have been told.</li>
+  </ul>
+
+  <h3>A video row</h3>
+  <pre tabindex="0"><span class="key">Video File Name:</span> UB-CellBio_Components_01_Intro_v2
+<span class="key">Transcript File Name:</span> UB-CellBio_Components_01_Intro_v2_transcript</pre>
+  <p style="margin-top:.9rem;font-size:.93rem;color:var(--ink-soft)">No file extension on the video name. A picture page uses <code>File Name:</code> and <code>Alt Text:</code> instead — and the alt text is required, because a learner using a screen reader gets nothing else.</p>
+</section>
+
+<!-- ══ 03 PROBLEM TYPES ═══════════════════════════════════ -->
+<section id="problems">
+  <h2><span class="num">03</span>The seven problem types</h2>
+  <p class="lede">Every problem opens with a <code>Problem Type:</code> line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its <code>(X)</code> and an open-ended question look identical.</p>
+
+  <div class="types">
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check A</div>
+        <h3>Multiple choice</h3>
+        <p>One correct answer, chosen from a list. Round boxes, one tick.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> multiple choice
+<span class="key">Question:</span> Which organelle produces most of the
+ATP in a cell? <mark>Select the best answer.</mark>
+<span class="key">Answer choices:</span>
+  ( ) the nucleus
+  (X) the mitochondrion
+  ( ) the ribosome
+<span class="key">Explanation:</span> The mitochondrion runs oxidative
+phosphorylation… The nucleus is tempting because
+it holds the DNA, but storing instructions is not
+producing energy.</pre>
+        <p class="needs"><b>Must end with</b> <span>“Select the best answer.”</span></p>
+        <p class="needs"><b>At most</b> <span>four options.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check B</div>
+        <h3>Checkbox</h3>
+        <p>More than one correct answer. Square boxes, and <em>every</em> correct one marked.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> checkbox
+<span class="key">Question:</span> Which of the following are purines?
+<mark>Select all that apply.</mark>
+<span class="key">Answer choices:</span>
+  [ ] cytosine
+  [X] adenine
+  [X] guanine
+<span class="key">Explanation:</span> Purines have a two-ring structure,
+and adenine and guanine are the two in DNA.
+Cytosine is a pyrimidine, with a single ring.</pre>
+        <p class="needs"><b>Square brackets</b> <span><code>[X]</code>, not <code>(X)</code> — and on every correct option, not just the first.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check C</div>
+        <h3>Dropdown</h3>
+        <p>Choices sit inside the sentence. No separate list.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> dropdown
+<span class="key">Question:</span> <mark>Use the dropdown options to complete
+the statement.</mark> DNA replication happens during
+the [&amp;S/G1/M] phase of the cell cycle.
+<span class="key">Explanation:</span> S phase is when the genome is
+copied, which is what replication means. G1 and M
+fall either side of it.</pre>
+        <p class="needs"><b>The <code>&amp;</code></b> <span>marks the correct option inside the brackets.</span></p>
+        <p class="needs"><b>Must contain</b> <span>“dropdown” or “Match the following”.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check D</div>
+        <h3>Numerical input</h3>
+        <p>A number typed in. Needs a tolerance, or it is an error.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> numerical input
+<span class="key">Question:</span> How many chromosomes are in a human
+somatic cell? <mark>Enter your answer as a number.</mark>
+<span class="key">Answer:</span> 46
+<span class="key">Accepted range:</span> exact
+<span class="key">Explanation:</span> Somatic cells are diploid, so the
+23 pairs come to 46 chromosomes in all.</pre>
+        <p class="needs"><b><code>Accepted range:</code></b> <span>is required — <code>exact</code> for a count, or <code>± 0.01</code>, <code>± 2%</code>, <code>3.1 – 3.2</code>.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check E</div>
+        <h3>Short answer</h3>
+        <p>A word or two, matched against what you list.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> short answer
+<span class="key">Question:</span> Which phase separates the sister
+chromatids?
+<span class="key">Answer:</span> anaphase
+<span class="key">Also accept:</span> late anaphase; anaphase A
+<span class="key">Explanation:</span> Anaphase is the phase in which the
+spindle pulls the sister chromatids apart.</pre>
+        <p class="needs"><b>Semicolons</b> <span>separate alternatives — commas are read as part of one answer.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Check F</div>
+        <h3>Open-ended auto-credit</h3>
+        <p>Credit for answering at all. No right answer to explain.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> open-ended auto-credit
+<span class="key">Question:</span> What would you target to fight
+influenza? <mark>Any thoughtful answer will receive
+credit.</mark>
+<span class="key">Grading:</span> any non-empty answer is marked correct.
+<span class="key">Model answer:</span> Entry, replication and release are
+each reasonable targets to name.</pre>
+        <p class="needs"><b>No <code>Explanation:</code></b> <span>— the model answer shows a good response instead, and nothing is being justified.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">Not worked</div>
+        <h3>Drag and drop</h3>
+        <p>Offered on the <code>Problem Type:</code> menu, but no convention is documented for it yet.</p>
+      </div>
+      <div class="type-body">
+        <p style="margin:0;color:var(--ink-soft);font-size:.93rem">There is no worked example in the template, because there is no agreed way to write one. If you need this type, write the problem as clearly as you can and flag it when you hand the module over — the checker will not be able to tell you whether you got it right.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <h3>What every explanation needs</h3>
+  <p>Two jobs in one place: <b>why the keyed answer is right</b>, and <b>what makes a wrong option tempting</b>. Below about fifteen words there is no room for both, and the checker says so.</p>
+  <p>Name options by what they say, never by where they sit. Options are shuffled when a learner sees them, so “the first option” points at whatever happens to be first for that person.</p>
+</section>
+
+<!-- ══ 04 SIDEBAR ═════════════════════════════════════════ -->
+<section id="sidebar">
+  <h2><span class="num">04</span>Reading the sidebar</h2>
+  <p class="lede">Sixty checks run locally, every few seconds while the sidebar is open. They cost nothing and never leave the document.</p>
+
+  <dl class="defs">
+    <div><dt>Check now</dt><dd>Re-runs everything immediately. It also runs on its own while the sidebar is open, so you rarely need this.</dd></div>
+    <div><dt>Highlight</dt><dd>Paints the flagged text yellow in the document, so you can find it without clicking each finding.</dd></div>
+    <div><dt>Clear highlights</dt><dd>Removes only the highlighting this tool added. Your own highlighting is left alone.</dd></div>
+    <div><dt>Clicking a finding</dt><dd>Jumps the cursor to the line it is about — including inside a table cell.</dd></div>
+    <div><dt>dismiss</dt><dd>Silences that one finding. It is keyed to what the finding <em>says</em>, so editing the sentence around it brings it back — deliberately, because the text it was a judgement about has changed.</dd></div>
+    <div><dt>mute rule</dt><dd>Silences a whole rule for this module. Use it when a rule does not apply to your subject at all.</dd></div>
+    <div><dt>Show what I read here</dt><dd>In the menu. Shows you the document as the checker sees it, which is the fastest way to work out why something was or was not found — particularly useful with tables, where what is in which cell is not always obvious.</dd></div>
+  </dl>
+
+  <div class="note">
+    <p><b>Dismissals live in the document, not in your account.</b> The next person to open it sees the judgement already made, rather than making it again. They do not travel to a copy — a copy is new content.</p>
+  </div>
+
+  <h3>What the sixty checks cover</h3>
+  <p style="font-size:.93rem;color:var(--ink-soft)">Every one of them, with what it wants and which are errors: <a href="checker-rules.html">What the Checker Checks</a>.</p>
+  <div class="scroll" tabindex="0" role="region" aria-label="Check categories, scrollable">
+    <table class="data">
+      <thead><tr><th scope="col">Area</th><th scope="col" class="n">Checks</th><th scope="col">Examples</th></tr></thead>
+      <tbody>
+        <tr><td>Questions</td><td class="n">24</td><td>explanation present and substantial; correct answer marked; declared type matches what is written; the instruction each type needs; A-B-C lettering</td></tr>
+        <tr><td>Structure</td><td class="n">9</td><td>the four sections present; lecture contents; row shapes in order</td></tr>
+        <tr><td>Converter</td><td class="n">7</td><td>habits that survive docx→OLX as garbage — typed numbering, manual spacing</td></tr>
+        <tr><td>Writing style</td><td class="n">5</td><td>“please” in instructional text; US spelling; idiom</td></tr>
+        <tr><td>Biology terms</td><td class="n">5</td><td>possessives on non-person nouns; terminology drift</td></tr>
+        <tr><td>Media</td><td class="n">3</td><td>video and transcript names; empty markers</td></tr>
+        <tr><td>Objectives</td><td class="n">2</td><td>a verb an assessment can actually test</td></tr>
+        <tr><td>Formatting</td><td class="n">2</td><td>fonts and sizes that will not survive conversion</td></tr>
+        <tr><td>Accessibility</td><td class="n">1</td><td>alt text on images <span class="pill err">error</span></td></tr>
+        <tr><td>Placeholders</td><td class="n">1</td><td>every <code>&lt;&lt; &gt;&gt;</code> still unfilled</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ 05 DEEP CHECK ══════════════════════════════════════ -->
+<section id="deep">
+  <h2><span class="num">05</span>The deep check</h2>
+  <p class="lede">A second tier that reads your explanations and judges whether they teach. It calls a model, so it costs money and runs only when you press the button.</p>
+
+  <h3>Setting up your key</h3>
+  <ol class="steps">
+    <li>
+      <h3>Press <b>Deep check</b></h3>
+      <p>The first time, it asks for an API key. Paste yours and press <b>Save key</b>.</p>
+    </li>
+    <li>
+      <h3>The key is yours alone</h3>
+      <p>It is stored against your Google account and this script — not in the document, not in the code, and not visible to anyone else who opens your module. It has a spend limit on it.</p>
+    </li>
+    <li>
+      <h3>Choose what to review</h3>
+      <p>You are shown the parts of the module and what each would cost in tokens before you commit. Reviewing one lecture is a fraction of the whole module, and each part is remembered separately — going back to a lecture you have already reviewed costs nothing.</p>
+    </li>
+  </ol>
+
+  <h3>The eight things it judges</h3>
+  <div class="scroll" tabindex="0" role="region" aria-label="Deep check criteria, scrollable">
+    <table class="data">
+      <thead><tr><th scope="col">Check</th><th scope="col">Asks</th></tr></thead>
+      <tbody>
+        <tr><td><b>Explanations say why</b></td><td>Does it give a reason, or just assert the answer?</td></tr>
+        <tr><td><b>Explanations add something</b></td><td>Does it restate the question in different words?</td></tr>
+        <tr><td><b>Explanations explain</b></td><td>Would a learner who got it wrong now understand?</td></tr>
+        <tr><td><b>Explanations are sound</b> <span class="pill err">error</span></td><td>Does the reasoning actually support the keyed answer? This is the one filed as an error — a confidently wrong explanation teaches something false.</td></tr>
+        <tr><td><b>Options are complete</b></td><td>Has an option been cut off mid-phrase?</td></tr>
+        <tr><td><b>Options are parallel</b></td><td>Do the options match each other in form?</td></tr>
+        <tr><td><b>Prefer active voice</b></td><td>Passive constructions that read as evasive.</td></tr>
+        <tr><td><b>Acronyms expand consistently</b></td><td>Is the same acronym spelled out twice, or never?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Suggest an explanation</h3>
+  <p>On any weak-explanation finding there is a <b>Suggest an explanation</b> button. It drafts a replacement you can copy, and it will append a note if it thinks your keyed answer might be wrong. It is a draft, not an answer — read it before you use it.</p>
+
+  <div class="note">
+    <p><b>What it will not judge.</b> Placeholders you have not filled in yet, and parts not written. The static checks already report those for nothing, and a model told to count them reports the same gap twice.</p>
+  </div>
+</section>
+
+<!-- ══ 06 MISTAKES ════════════════════════════════════════ -->
+<section id="mistakes">
+  <h2><span class="num">06</span>Common mistakes</h2>
+  <p class="lede">The ones that come up most, and what they look like when they do.</p>
+
+  <dl class="defs">
+    <div>
+      <dt>Typing into a banner row</dt>
+      <dd>A stray character in the right-hand half of a merged row stops it being a banner. The section it announces vanishes from the structure, and everything under it moves up a level.</dd>
+    </div>
+    <div>
+      <dt>Content in the left cell</dt>
+      <dd>The left cell names the page. Put a paragraph there and it becomes part of the name. Everything except the name belongs on the right.</dd>
+    </div>
+    <div>
+      <dt>Adding a third column</dt>
+      <dd>The reading is two-column throughout. A third cell is not part of the structure and its contents may not reach the course at all.</dd>
+    </div>
+    <div>
+      <dt>Keeping the guillemets</dt>
+      <dd>Writing your question <em>inside</em> <code>&lt;&lt; &gt;&gt;</code> leaves it marked as filler, so it is reported as unwritten and the rules that judge it stay quiet. Delete the marks with the instruction.</dd>
+    </div>
+    <div>
+      <dt>A checkbox with one tick</dt>
+      <dd>Round boxes and a single <code>(X)</code> is a multiple choice wearing a checkbox label. Nothing reports it, because a single answer is technically legal — but it is not what you meant.</dd>
+    </div>
+    <div>
+      <dt>Alternatives separated by commas</dt>
+      <dd><code>Answer: anaphase, late anaphase</code> is read as one answer nobody will ever type. Use <code>Also accept:</code> with semicolons.</dd>
+    </div>
+    <div>
+      <dt>An explanation of one short sentence</dt>
+      <dd>Under about fifteen words there is no room to say why the answer is right <em>and</em> why a wrong option attracts. A well-built single sentence that does both passes.</dd>
+    </div>
+    <div>
+      <dt>Naming an option by position</dt>
+      <dd>“The first option is wrong because…” — options are shuffled per learner. Name the option by what it says.</dd>
+    </div>
+    <div>
+      <dt>Renaming a video, not its checks</dt>
+      <dd>A knowledge check takes its video's name. Nothing reports the mismatch, so it is worth a second look after any rename.</dd>
+    </div>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  <p><b>If the checker says something you think is wrong, it may well be.</b> Dismiss it and carry on — then say so, because a rule that misfires on a real module is a rule worth fixing rather than working around.</p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-17</span></p>
+</footer>
+
+</div>
+
+</body>
+</html>
