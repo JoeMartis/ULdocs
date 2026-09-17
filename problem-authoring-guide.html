@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Problem Authoring Guide</title>
+<title>Problem Templates</title>
 <style>
 :root {
   --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
@@ -72,13 +72,22 @@ a:focus-visible, [tabindex]:focus-visible {
 .pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
   border-top:1px solid var(--border); }
 .pagefoot a { color:var(--accent-2); }
+.toc { border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem;
+  margin:1.5rem 0; background:var(--code-bg); }
+.toc p { margin:0 0 .5rem; font-weight:600; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.04em; color:var(--muted); }
+.toc ul { columns:2; column-gap:2rem; margin:0; padding-left:1.2rem; }
+.toc li { margin:.15rem 0; font-size:.92rem; break-inside:avoid; }
+.toc a { color:var(--accent-2); text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+@media (max-width:560px) { .toc ul { columns:1; } }
 </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
   <main class="markdown-body" id="main">
-<h1 id="problem-authoring-guide">Problem Authoring Guide</h1>
+<h1 id="problem-authoring-guide">Problem Templates</h1>
 <p>For each type below you will find: the exact instruction to include, the rules for
 the answer options, and a <strong>filled-in template example</strong> showing exactly how to
 write it.</p>
@@ -87,6 +96,19 @@ write it.</p>
 every correct checkbox with <code>[X]</code>. In a dropdown, the options sit inline in
 brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G1/&amp;S/M]</code>.</p>
 </blockquote>
+<nav class="toc" aria-label="On this page">
+<p>On this page</p>
+<ul>
+<li><a href="#1-multiple-choice-single-answer">1. Multiple choice (single answer)</a></li>
+<li><a href="#2-checkbox-select-all-that-apply">2. Checkbox (select all that apply)</a></li>
+<li><a href="#3-dropdown">3. Dropdown</a></li>
+<li><a href="#4-numerical-input">4. Numerical input</a></li>
+<li><a href="#5-text-short-answer">5. Text / short answer</a></li>
+<li><a href="#6-open-ended-auto-credit-any-thoughtful-answer">6. Open-ended, auto-credit</a></li>
+<li><a href="#7-drag-and-drop">7. Drag and drop</a></li>
+<li><a href="#attempts-quick-reference">Attempts quick reference</a></li>
+</ul>
+</nav>
 <hr />
 <h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2>
 <p>These apply to <strong>all</strong> problem types:</p>
@@ -101,9 +123,22 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <li><strong>Notation:</strong> math/science in MathJax; a space between a number and its unit
   ("37 °C"); no ambiguous "it"; follow the biology terminology rules.</li>
 </ul>
+<hr />
+<h2 id="problem-names">Problem names</h2>
 <p><strong>Knowledge-check naming:</strong> a knowledge check is named after the video before it
 — <code>Knowledge Check: &lt;video name&gt;</code>, or <code>Knowledge Check A/B: &lt;video name&gt;</code> when a
 video has two or more.</p>
+<p><strong>Naming assignment problems.</strong> Title each problem for the question it asks,
+not a generic label — e.g. <code>Transforming Data for Hill Coefficient
+Calculations</code>, not <code>Question 1</code>.</p>
+<ul>
+<li><strong>Descriptive, not generic.</strong> The title should tell the learner (and anyone
+  scanning a list of titles) what the question is about.</li>
+<li><strong>Specific enough to be unique.</strong> A title tied to the actual question
+  content naturally will not collide with another problem's title the way a
+  repeated "Question 1" would across different assignments.</li>
+<li><strong>Title case</strong>, kept to a phrase — not a full restatement of the question.</li>
+</ul>
 <hr />
 <h2 id="writing-a-strong-explanation">Writing a strong explanation</h2>
 <p>A strong explanation does not just tell the learner the answer — it teaches the
@@ -135,9 +170,9 @@ but it must give a solid foundation.</p>
 <li><strong>Instruction:</strong> end the question with <strong>"Select the best answer."</strong></li>
 <li><strong>Options:</strong> 2–4 choices; exactly <strong>one</strong> marked correct; no duplicates or
   blanks; no <code>A)</code>/<code>1.</code> labels.</li>
-<li><strong>Capitalization:</strong> options completing a fill-in-the-blank question start
-  lowercase; standalone questions may start with a capital; add a terminal
-  period only on full-sentence options.</li>
+<li><strong>Capitalization:</strong> options start lowercase unless the option is a proper
+  noun or a full sentence; add a terminal period only on full-sentence
+  options.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
 <pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Which organelle produces most of the ATP in a cell? Select the best answer.
@@ -258,6 +293,9 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
   marked wrong — e.g. <code>3.14 ± 0.01</code> or <code>3.1–3.2</code>. This is set in the problem but
   invisible on the page, and a missing range is a common source of wrongly graded
   answers in live courses. For a genuinely exact value (a count), say so.</li>
+<li><strong>Trailing label (if applicable)</strong> — a unit or word shown right after the
+  input box (e.g. <code>%</code>, or "red-eyed flies"), so the learner does not have to
+  type it.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
 <pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  How many chromosomes are in a typical human somatic cell? Enter your
@@ -265,6 +303,7 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
 Correct answer:  46
 Accepted range:  exact — 46 is a whole-number count (for a measured or rounded
                  answer, give a tolerance, e.g. 3.14 ± 0.01)
+Trailing label (if applicable):  chromosomes
 Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
               each chromosome — one inherited from each parent. Humans have 23
               distinct chromosome types, so two copies of each gives 23 pairs, or
@@ -316,9 +355,58 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
            translation would stall — protein synthesis would effectively stop even
            though the mRNA and ribosome are still present.
 </code></pre>
+<h2 id="7-drag-and-drop">7. Drag and drop</h2>
+<p>A <code>drag-and-drop-v2</code> problem where learners sort items into named zones.
+<strong>Write the content below in the template; the build team creates the
+drag-and-drop block in Studio from it.</strong> The parser does not yet recognize
+this block type (see <a href="attempts-policy.html">Attempts Policy</a>), so
+nothing here is auto-checked yet.</p>
+<ul>
+<li><strong>Instruction:</strong> state directly what to sort and into what — e.g. "Drag
+  each item to the zone it belongs in," or phrasing specific to the categories
+  (e.g. "Place each statement under the process it describes.").</li>
+<li><strong>Zones:</strong> name each zone with a short label — these become the drop
+  targets. A zone also needs a plain-language description for screen readers;
+  reusing the zone's label is fine unless the zone needs more context.</li>
+<li><strong>Items:</strong> list each draggable item with the zone it belongs in. An item
+  can belong to more than one zone if more than one answer is accepted for it,
+  though most problems use a one-to-one mapping.</li>
+<li><strong>Mode:</strong> we build these in <strong>Assessment mode</strong> — the learner places every
+  item, then submits, and only then finds out what is correct (matching the
+  attempt limits in <a href="attempts-policy.html">Attempts Policy</a>). Standard
+  mode instead gives unlimited tries with instant right/wrong feedback per
+  drop; flag it if a problem should work that way instead.</li>
+<li><strong>Explanation:</strong> one paragraph covering the overall reasoning, as with
+  other problem types — the build team derives each item's individual
+  correct/incorrect feedback text (shown when it is dropped) from your zone
+  mapping, so you do not need to write those separately. The generic
+  before-you-start and completion messages are also filled in by the build
+  team unless you want something more specific.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Place each statement under the type of cell division it describes:
+           Mitosis or Meiosis.
+Zones:
+   Zone 1: Mitosis
+   Zone 2: Meiosis
+Items (drag to the correct zone):
+   Produces two genetically identical diploid daughter cells. → Zone 1
+   Produces four genetically distinct haploid gametes. → Zone 2
+   Used for growth and tissue repair. → Zone 1
+   Involves two rounds of division. → Zone 2
+   Occurs in nearly all body cells. → Zone 1
+   Occurs only in the cells that produce eggs or sperm. → Zone 2
+Explanation:  Mitosis copies the genome once and splits it evenly into two
+              daughter cells identical to the parent, which is how the body
+              grows and replaces worn-out cells. Meiosis instead runs two
+              rounds of division, producing four haploid cells that are
+              genetically distinct from one another and from the parent —
+              which is why meiosis is restricted to the cells that become
+              gametes rather than ordinary body cells.
+</code></pre>
 <hr />
 <h2 id="attempts-quick-reference">Attempts quick reference</h2>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Problem Authoring Guide table, scrollable"><table>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Problem Templates table, scrollable"><table>
 <thead>
 <tr>
 <th scope="col">Problem type</th>
@@ -343,8 +431,8 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 <tr>
 <td>Checkbox</td>
 <td>≤ 4</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
 </tr>
 <tr>
 <td>Dropdown — one dropdown</td>
@@ -382,6 +470,36 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">4</td>
 </tr>
+<tr>
+<td>Drag and drop</td>
+<td>2–4 items</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>5–6 items</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>7–8 items</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td>Drag and drop</td>
+<td>9+ items</td>
+<td style="text-align: center;"><em>split</em></td>
+<td style="text-align: center;"><em>split</em></td>
+</tr>
+<tr>
+<td>Open response, ungraded (ORA)</td>
+<td>—</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+</tr>
 </tbody>
 </table></div>
 <p>This is an exact-match check — too few attempts is flagged just like too many.</p>
@@ -389,7 +507,16 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a
 problem with 5 or more dropdowns should be split into more than one problem. A
 one-to-one match set is several drop-downs and follows the same counts.</p>
+<p>A drag-and-drop problem is counted by its <strong>number of draggable items</strong> — more
+items means more chances to place one wrong. A problem with 9 or more items
+should be split into more than one problem rather than given more attempts. A
+<strong>strict one-to-one match</strong> (every zone used exactly once, no repeats) gets
+<strong>one additional attempt</strong> at every tier, since there is no elimination
+benefit the way there is when zones repeat.</p>
+<p><strong>Drag and drop and Open response (ORA)</strong> are not yet parsed by the checking
+tool, so their attempt counts above are the target policy but are <strong>not yet
+enforced</strong>.</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-27</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-31</span></footer>
 </body>
 </html>
