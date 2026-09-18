@@ -113,6 +113,12 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <h2 id="every-problem-the-shared-checklist">Every problem — the shared checklist</h2>
 <p>These apply to <strong>all</strong> problem types:</p>
 <ul>
+<li><strong>Open with a <code>Problem Type:</code> line</strong> naming the type, exactly as the template
+does: <code>multiple choice</code>, <code>checkbox</code>, <code>dropdown</code>, <code>numerical input</code>,
+<code>short answer</code>, <code>open-ended auto-credit</code>, or <code>drag and drop</code>. This is the line
+that tells the checker what you are writing — without it a multiple choice
+that is missing its <code>(X)</code> and an open-ended question look identical, and the
+type is guessed from the markers instead.</li>
 <li><strong>Include the type-specific instruction</strong> (see each type below), as the last
   sentence of the question.</li>
 <li><strong>Write an explanation</strong> for every problem, labeled with the word
@@ -175,7 +181,8 @@ but it must give a solid foundation.</p>
   options.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Which organelle produces most of the ATP in a cell? Select the best answer.
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  multiple choice
+Question:  Which organelle produces most of the ATP in a cell? Select the best answer.
 Answer choices (mark the one correct answer):
    (  ) the nucleus
    (X) the mitochondrion
@@ -197,7 +204,8 @@ Explanation:  The mitochondrion is the site of oxidative phosphorylation, where
   to rewrite); no duplicates, blanks, or labels.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Which of the following are purines? Select all that apply.
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  checkbox
+Question:  Which of the following are purines? Select all that apply.
 Answer choices (mark every correct answer):
    [X] adenine
    [X] guanine
@@ -228,7 +236,8 @@ choice lowers the cognitive load for the learner.</p>
 <li><strong>Options:</strong> 4 or fewer per dropdown; no labels.</li>
 </ul>
 <p><strong>How to write it in the template — in a statement:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Use the dropdown options to match the phase of the cell cycle to the
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  dropdown
+Question:  Use the dropdown options to match the phase of the cell cycle to the
            activity during that phase.
 The cell grows and acquires nutrients during the [&amp;G1/S/M] phase.
 The cell replicates DNA during the [G1/&amp;S/M] phase.
@@ -246,7 +255,8 @@ Explanation:  The cell cycle proceeds through G1, S, and M in order. During G1 t
 <em>independent</em> choice — the options can repeat and there is no one-to-one pairing.
 (If instead each item pairs one-to-one with a match from a shared list, use the
 <em>one-to-one match</em> form below rather than a table.)</p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Use the dropdown options to complete the table.
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  dropdown
+Question:  Use the dropdown options to complete the table.
 
 Change to the reaction                            |  Effect on enzyme activity
 Raise the temperature well above the optimum      |  [increase/&amp;decrease/no change]
@@ -264,7 +274,8 @@ Explanation:  Above the optimal temperature the enzyme denatures and loses shape
 shared list that appears under every item, with each match used once. List each
 item with its correct match; <strong>do not number or letter them</strong> (the drop-down
 choices may shuffle). Keep to <strong>4 or fewer</strong> pairs, and make every match distinct.</p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Match the following.
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  dropdown
+Question:  Match the following.
 Items and their correct match:
    Mitochondrion   →   Produces most of the ATP in a cell
    Nucleus   →   Stores the DNA of the cell
@@ -298,7 +309,8 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
   type it.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  How many chromosomes are in a typical human somatic cell? Enter your
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  numerical input
+Question:  How many chromosomes are in a typical human somatic cell? Enter your
            answer as a whole number in the space provided.
 Correct answer:  46
 Accepted range:  exact — 46 is a whole-number count (for a measured or rounded
@@ -323,7 +335,8 @@ Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
   synonym you left out is marked wrong.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Name the type of cell division that produces two genetically identical
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  short answer
+Question:  Name the type of cell division that produces two genetically identical
            daughter cells.
 Correct answer:  mitosis   (case-insensitive)
 Also accept:  mitotic division
@@ -344,7 +357,8 @@ correct</strong>, then shows the model answer.</p>
   check your thoughts."</strong></li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  In one sentence, predict what would happen to translation if a cell ran
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  open-ended auto-credit
+Question:  In one sentence, predict what would happen to translation if a cell ran
            out of tRNA. Any thoughtful answer will receive credit; click the Show
            Answer button to check your thoughts.
 Grading:  any non-empty answer is marked correct.
@@ -384,7 +398,8 @@ nothing here is auto-checked yet.</p>
   team unless you want something more specific.</li>
 </ul>
 <p><strong>How to write it in the template:</strong></p>
-<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Question:  Place each statement under the type of cell division it describes:
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  drag and drop
+Question:  Place each statement under the type of cell division it describes:
            Mitosis or Meiosis.
 Zones:
    Zone 1: Mitosis
@@ -517,6 +532,6 @@ benefit the way there is when zones repeat.</p>
 tool, so their attempt counts above are the target policy but are <strong>not yet
 enforced</strong>.</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-31</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-18</span></footer>
 </body>
 </html>
