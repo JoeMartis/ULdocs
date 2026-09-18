@@ -6,11 +6,16 @@
 <title>Module Author Guides</title>
 <!--
   Landing page for course/module authors. Drop-in for GitHub Pages.
-  The guide pages (content-authoring-guide.html, etc.) are generated from the
-  Markdown in docs/ by scripts/build_guide_html.py — rerun that after editing a
-  guide. The two dashed "TOOL" cards are external sites, not pages in this
-  repo: Explain2Me and DescribeMe. Keep this list in step with docs/index.md,
-  which carries the same set as Markdown.
+
+  The guide pages are hand-mirrored from the Markdown in docs/ — there is no
+  generator in this repo, despite what this comment used to claim, so an edit
+  to a guide has to be made in both places. The three Fixatron500 pages
+  (module-template-*.html, checker-rules.html) are the exception: they keep
+  their own layout and have no Markdown source.
+
+  The two dashed "TOOL" cards are external sites, not pages in this repo:
+  Explain2Me and DescribeMe. Keep the card list and its grouping in step with
+  docs/index.md, which carries the same set as Markdown.
 -->
 <style>
   :root {
@@ -52,7 +57,16 @@
   .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; }
   h1 { margin: .35rem 0 .5rem; font-size: 2rem; line-height: 1.15; }
   .lede { color: var(--muted); font-size: 1.05rem; max-width: 60ch; margin: 0; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  /* Groups replace the old flat grid. Eleven cards in one run encoded three
+     different taxonomies at once — a sequence (GUIDE 01/02/03), a document
+     type (REFERENCE) and a tool (FIXATRON500) — so there was no single
+     question to scan by. The headings are also real structure for anyone
+     navigating by heading, where the cards used to be eleven h2 siblings. */
+  .group + .group { margin-top: 2.5rem; }
+  .group-title { font-size: 1.15rem; margin: 0 0 .25rem; }
+  .group-lede { color: var(--muted); font-size: .93rem; margin: 0; max-width: 70ch; }
+  .group-lede a { color: var(--accent-2); }
   a.card {
     display: flex; flex-direction: column; text-decoration: none; color: inherit;
     background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -62,7 +76,9 @@
   a.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow); border-color: var(--accent); }
   a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .card .num { font-size: .78rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
-  .card h2 { margin: .35rem 0 .4rem; font-size: 1.12rem; }
+  /* h3 now: the group heading above each grid is the h2, so a card sits one
+     level down and the outline reads group → card. */
+  .card h3 { margin: .35rem 0 .4rem; font-size: 1.12rem; }
   .card p { margin: 0; color: var(--muted); font-size: .93rem; }
   .card .go { margin-top: .9rem; color: var(--accent-2); font-weight: 600; font-size: .9rem; }
   .card .go::after { content: " →"; }
@@ -139,98 +155,122 @@
       </div>
     </header>
 
-    <main class="grid" id="guides" aria-label="Author guides">
-      <a class="card" href="content-authoring-guide.html">
-        <span class="num">GUIDE 01</span>
-        <h2>Content Authoring Guide</h2>
-        <p>General writing, formatting, terminology, and page-structure rules for course content.</p>
-        <span class="go">Open</span>
-      </a>
+    <main id="guides" aria-label="Author guides">
 
-      <a class="card" href="problem-authoring-guide.html">
-        <span class="num">GUIDE 02</span>
-        <h2>Problem Templates</h2>
-        <p>How to author each problem type in the Word template, with worked examples and what makes a strong explanation.</p>
-        <span class="go">Open</span>
-      </a>
+      <section class="group" aria-labelledby="g-writing">
+        <h2 class="group-title" id="g-writing">Writing your module</h2>
+        <p class="group-lede">The template you were given, and the standards that apply to what you put in it.</p>
+        <div class="grid">
 
-      <a class="card" href="math-markup.html">
-        <span class="num">GUIDE 03</span>
-        <h2>Accessible Math &amp; Science Markup</h2>
-        <p>How to write math and science notation so screen readers read it correctly.</p>
-        <span class="go">Open</span>
-      </a>
+          <!-- The two template shapes sit adjacent and are distinguished in the
+               eyebrow rather than merged behind a chooser: an author already
+               knows which document they were handed, and routing them through
+               one guide to reach the other costs half of them a click. -->
+          <a class="card" href="module-template-headings.html">
+            <span class="num">TEMPLATE &middot; HEADINGS</span>
+            <h3>Authoring a UL Module</h3>
+            <p>The heading-and-paragraph template: how the document is built, what each problem type needs, and how to read the sidebar.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <a class="card" href="attempts-policy.html">
-        <span class="num">REFERENCE</span>
-        <h2>Attempts Policy</h2>
-        <p>How many attempts each problem type gets in knowledge checks and assignments.</p>
-        <span class="go">Open</span>
-      </a>
+          <a class="card" href="module-template-tables.html">
+            <span class="num">TEMPLATE &middot; TABLES</span>
+            <h3>Authoring a UL Module in Tables</h3>
+            <p>The two-column table template, where each row is a page. Same problem types, different document shape.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <a class="card" href="rule-reference.html">
-        <span class="num">REFERENCE</span>
-        <h2>Rule Reference</h2>
-        <p>The full list of automated checks, with what each one looks for.</p>
-        <span class="go">Open</span>
-      </a>
+          <a class="card" href="problem-authoring-guide.html">
+            <span class="num">PROBLEMS</span>
+            <h3>Problem Templates</h3>
+            <p>How to author each problem type, with worked examples and what makes a strong explanation. The same guidance is inside the template itself.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <!-- Fixatron500 — the checker that runs inside the Google Docs template
-           while a module is being written. Grouped because all three are about
-           that one tool, and because "What the Checker Checks" would otherwise
-           be mistaken for the Rule Reference above it: different tool,
-           different catalogue, different short codes. -->
-      <a class="card" href="module-template-headings.html">
-        <span class="num">FIXATRON500</span>
-        <h2>Authoring a UL Module</h2>
-        <p>The heading-and-paragraph template: how the document is built, what each problem type needs, and how to read the sidebar.</p>
-        <span class="go">Open</span>
-      </a>
+          <a class="card" href="content-authoring-guide.html">
+            <span class="num">WRITING</span>
+            <h3>Content Authoring Guide</h3>
+            <p>General writing, formatting, terminology, and page-structure rules for course content.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <a class="card" href="module-template-tables.html">
-        <span class="num">FIXATRON500</span>
-        <h2>Authoring a UL Module in Tables</h2>
-        <p>The two-column table template, where each row is a page. Same problem types, different document shape.</p>
-        <span class="go">Open</span>
-      </a>
+          <a class="card" href="math-markup.html">
+            <span class="num">NOTATION</span>
+            <h3>Accessible Math &amp; Science Markup</h3>
+            <p>How to write math and science notation so screen readers read it correctly.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <a class="card" href="checker-rules.html">
-        <span class="num">FIXATRON500</span>
-        <h2>What the Checker Checks</h2>
-        <p>All 60 checks the sidebar runs while you write, plus the 8 in the deep check. Not the Rule Reference — that is the QA pass on content already in Studio.</p>
-        <span class="go">Open</span>
-      </a>
+          <a class="card" href="attempts-policy.html">
+            <span class="num">REFERENCE</span>
+            <h3>Attempts Policy</h3>
+            <p>How many attempts each problem type gets in knowledge checks and assignments.</p>
+            <span class="go">Open</span>
+          </a>
 
-      <!-- The two tool cards open in a new tab so an author does not lose the
-           guide they were reading. rel="noopener" is explicit rather than
-           relying on the implicit behaviour modern browsers apply to
-           target="_blank"; "noreferrer" is deliberately NOT set, so these
-           sites can still see that their traffic came from here. Opening a new
-           tab unannounced is what WCAG 3.2.5 is about, so the sr-only note
-           says so — the ↗ in the eyebrow is the sighted equivalent. -->
-      <a class="card tool" href="https://joemartis.github.io/Explain2Me/" target="_blank" rel="noopener">
-        <span class="num" aria-hidden="true">TOOL ↗</span>
-        <h2>Explanation Checker <span class="sr-only">(external site, opens in a new tab)</span></h2>
-        <p>Paste an explanation and get instant feedback against the quality criteria before you submit.</p>
-        <span class="go">Open the tool</span>
-      </a>
+        </div>
+      </section>
 
-      <a class="card tool" href="https://joemartis.github.io/DescribeMe/" target="_blank" rel="noopener">
-        <span class="num" aria-hidden="true">TOOL ↗</span>
-        <h2>Slide Description Writer <span class="sr-only">(external site, opens in a new tab)</span></h2>
-        <p>Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.</p>
-        <span class="go">Open the tool</span>
-      </a>
+      <section class="group" aria-labelledby="g-checked">
+        <h2 class="group-title" id="g-checked">What gets checked</h2>
+        <!-- These two are the reason the page is grouped at all. They are
+             separate tools with separate catalogues, and while they sat five
+             cards apart with unrelated eyebrows there was no way for an author
+             to tell which one applied to them. Adjacent, the difference can be
+             stated once and read at a glance. -->
+        <p class="group-lede">Two different tools, at two different stages. Fixatron500 reads your document while you write it; the QA pass runs later, on content already in Studio. They have separate rule catalogues.</p>
+        <div class="grid">
 
-      <!-- The manual for the card above. Its own card rather than a second
-           link inside that one: the card IS the link, and an anchor cannot
-           be nested in an anchor. -->
-      <a class="card tool" href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">
-        <span class="num" aria-hidden="true">MANUAL ↗</span>
-        <h2>Slide Description Writer — manual <span class="sr-only">(external site, opens in a new tab)</span></h2>
-        <p>Quick start and full instructions for the tool above: slides, lecture video, transcripts, text &amp; math mode, and what the export contains.</p>
-        <span class="go">Read the manual</span>
-      </a>
+          <a class="card" href="checker-rules.html">
+            <span class="num">FIXATRON500</span>
+            <h3>What the Checker Checks</h3>
+            <p>All 60 checks the sidebar runs in the document as you write, plus the 8 in the deep check.</p>
+            <span class="go">Open</span>
+          </a>
+
+          <a class="card" href="rule-reference.html">
+            <span class="num">QA PASS</span>
+            <h3>Rule Reference</h3>
+            <p>The full list of automated checks that run on content in Studio, with what each one looks for.</p>
+            <span class="go">Open</span>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="g-tools">
+        <h2 class="group-title" id="g-tools">Tools</h2>
+        <!-- The manual is a link here rather than a third card. Folding it into
+             the tool card would mean making that card a container with two
+             links instead of an anchor, leaving one card in the grid that does
+             not behave like the other nine. -->
+        <p class="group-lede">Both open in a new tab. The Slide Description Writer has a <a href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">full manual<span class="sr-only"> (external site, opens in a new tab)</span></a>.</p>
+        <div class="grid">
+
+          <!-- Both tool cards open in a new tab so an author does not lose the
+               guide they were reading. rel="noopener" is explicit rather than
+               relying on the implicit behaviour modern browsers apply to
+               target="_blank"; "noreferrer" is deliberately NOT set, so these
+               sites can still see that their traffic came from here. Opening a
+               new tab unannounced is what WCAG 3.2.5 is about, so the sr-only
+               note says so — the ↗ in the eyebrow is the sighted equivalent. -->
+          <a class="card tool" href="https://joemartis.github.io/Explain2Me/" target="_blank" rel="noopener">
+            <span class="num" aria-hidden="true">TOOL &#8599;</span>
+            <h3>Explanation Checker <span class="sr-only">(external site, opens in a new tab)</span></h3>
+            <p>Paste an explanation and get instant feedback against the quality criteria before you submit.</p>
+            <span class="go">Open the tool</span>
+          </a>
+
+          <a class="card tool" href="https://joemartis.github.io/DescribeMe/" target="_blank" rel="noopener">
+            <span class="num" aria-hidden="true">TOOL &#8599;</span>
+            <h3>Slide Description Writer <span class="sr-only">(external site, opens in a new tab)</span></h3>
+            <p>Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.</p>
+            <span class="go">Open the tool</span>
+          </a>
+
+        </div>
+      </section>
+
     </main>
 
     <footer>
