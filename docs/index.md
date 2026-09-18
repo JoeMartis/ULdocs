@@ -13,3 +13,4 @@ how to enter each problem type, and how the automated checks judge your work.
 - **[What the Checker Checks](checker-rules.html)** (Fixatron500) — All 60 checks the sidebar runs while you write, plus the 8 in the deep check. Not the Rule Reference above — that is the QA pass on content already in Studio.
 - **[Explanation Checker](https://joemartis.github.io/Explain2Me/)** (external site) — Paste an explanation and get instant feedback against the quality criteria before you submit.
 - **[Slide Description Writer](https://joemartis.github.io/DescribeMe/)** (external site) — Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.
+- **[Slide Description Writer — manual](https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481)** (external site) — Quick start and full instructions for the tool above: slides, lecture video, transcripts, text & math mode, and what the export contains.
