@@ -150,7 +150,7 @@
         </div>
         <label class="search-option">
           <input type="checkbox" id="search-include-rules">
-          Include individual rules from Rule Reference (133)
+          Include individual rules and checks (201)
         </label>
       </div>
     </header>
@@ -290,8 +290,12 @@
     var activeIndex = -1;
     var currentItems = [];
 
+    // Two pages now carry per-rule entries — Rule Reference (the QA pass) and
+    // What the Checker Checks (Fixatron500) — so this keys off the anchor
+    // convention rather than naming one page. Section anchors never start
+    // "rule-"; only individual rules do.
     function isIndividualRule(entry) {
-      return entry.page === 'rule-reference.html' && entry.anchor.indexOf('rule-') === 0;
+      return entry.anchor.indexOf('rule-') === 0;
     }
 
     fetch('search-index.json').then(function (r) { return r.json(); }).then(function (data) {

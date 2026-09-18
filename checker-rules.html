@@ -145,6 +145,9 @@ section { margin-top: 3.5rem; scroll-margin-top: 1.5rem; }
 .cat-blurb { margin: .8rem 0 0; color: var(--ink-soft); font-size: .95rem; max-width: 44rem; }
 
 .rules { margin-top: 1.1rem; }
+/* Deep-linkable from search, so give the target the same breathing room
+   sections get. */
+.rule { scroll-margin-top: 1.5rem; }
 .rule {
   display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0 1.2rem;
   padding: .95rem 0; border-bottom: 1px solid var(--rule-soft); align-items: start;
@@ -253,7 +256,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">The largest group by far, and the one that decides whether a problem works at all. Eleven of these are errors.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-kc-explanation-present">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Questions have an explanation</h3>
@@ -261,7 +264,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-explanation-present</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-stem-present">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Questions have a stem</h3>
@@ -269,7 +272,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-stem-present</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-correct-answer">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Questions mark a correct answer</h3>
@@ -277,7 +280,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-correct-answer</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-dropdown-answer">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Dropdowns mark one correct option</h3>
@@ -285,7 +288,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-dropdown-answer</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-duplicate-choices">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>No duplicate choices</h3>
@@ -293,7 +296,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-duplicate-choices</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-empty-choice">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>No empty choices</h3>
@@ -301,7 +304,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-empty-choice</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-single-choice">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Choice questions offer alternatives</h3>
@@ -309,7 +312,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-single-choice</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-type-mismatch">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Questions match their declared type</h3>
@@ -317,7 +320,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-type-mismatch</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-answer-present">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Typed answers give the answer</h3>
@@ -325,7 +328,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-answer-present</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-numerical-answer">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Numerical answers are numbers</h3>
@@ -333,7 +336,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-numerical-answer</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-numerical-range">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Numerical answers give an accepted range</h3>
@@ -341,7 +344,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-numerical-range</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-explanation-not-question">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Explanations are not questions</h3>
@@ -349,7 +352,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-explanation-not-question</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-too-many-options">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Choice questions are not overlong</h3>
@@ -357,7 +360,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-too-many-options</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-prompts-mc-select-best-answer">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Multiple choice says "Select the best answer"</h3>
@@ -365,7 +368,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">prompts-mc-select-best-answer</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-prompts-checkbox-select-all">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Checkbox says "Select all that apply"</h3>
@@ -373,7 +376,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">prompts-checkbox-select-all</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-prompts-dropdown-instruction">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Dropdowns explain themselves</h3>
@@ -381,7 +384,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">prompts-dropdown-instruction</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-type-unknown">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>"Type:" names a question type</h3>
@@ -389,7 +392,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-type-unknown</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-accepted-answers">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Accepted answers are distinct</h3>
@@ -397,7 +400,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-accepted-answers</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-problem-option-labels">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Options are not hand-lettered</h3>
@@ -405,7 +408,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">problem-option-labels</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-explanation-substantive">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Explanations do more than assert the answer</h3>
@@ -413,7 +416,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-explanation-substantive</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-explanation-positional">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Explanations name options by content</h3>
@@ -421,7 +424,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">kc-explanation-positional</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-prompts-numerical-instruction">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Numerical input says how to enter the answer</h3>
@@ -429,7 +432,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">prompts-numerical-instruction</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-prompts-open-ended-phrase">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Open-ended problems carry the auto-credit sentence</h3>
@@ -437,7 +440,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">prompts-open-ended-phrase</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-kc-sequential-lettering">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Knowledge Checks are lettered in sequence</h3>
@@ -455,7 +458,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Whether the document is shaped like a module. These read heading levels, so they are the ones that catch a page in the wrong place.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-module-sections">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Module has its top-level sections</h3>
@@ -463,7 +466,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-module-sections</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-section-order">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Top-level sections are in template order</h3>
@@ -471,7 +474,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-section-order</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-section-contents">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Each section holds what the template puts in it</h3>
@@ -479,7 +482,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-section-contents</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-lecture-sections">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Each lecture has its Overview and Summary</h3>
@@ -487,7 +490,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-lecture-sections</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-assignment-sections">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Each assignment has its Overview and Summary</h3>
@@ -495,7 +498,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-assignment-sections</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-heading-level-skip">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Heading levels do not skip a level</h3>
@@ -503,7 +506,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-heading-level-skip</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-table-caption">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Tables are captioned</h3>
@@ -511,7 +514,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-table-caption</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-empty-heading">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No empty headings</h3>
@@ -519,7 +522,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-empty-heading</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-takeaways-not-objectives">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Key Takeaways are not a copy of the objectives</h3>
@@ -537,7 +540,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Videos, transcripts and images need names the converter can match to real files.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-media-marker-empty">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Media markers name something</h3>
@@ -545,7 +548,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">media-marker-empty</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-media-video-file-name">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Videos name their file</h3>
@@ -553,7 +556,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">media-video-file-name</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-media-duplicate-video">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Video file names are unique</h3>
@@ -571,7 +574,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Required, not advisory. A learner using a screen reader gets nothing from an image without it.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-image-alt-text">
       <div class="sev"><span class="pill err">error</span></div>
       <div class="rule-body">
         <h3>Images have alt text</h3>
@@ -589,7 +592,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">An objective an assessment cannot test is not an objective.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-objectives-vague-verbs">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Objectives use measurable verbs</h3>
@@ -597,7 +600,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-objectives-vague-verbs</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-objectives-stem">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Objectives have an introductory stem</h3>
@@ -615,7 +618,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Habits that look fine in the document and become garbage in the course. Nothing here is about writing.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-manual-bullets">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Bulleted lists are real lists</h3>
@@ -623,7 +626,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-manual-bullets</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-manual-numbering">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Numbered lists are real lists</h3>
@@ -631,7 +634,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-manual-numbering</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-empty-paragraphs">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No blank paragraphs for spacing</h3>
@@ -639,7 +642,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-empty-paragraphs</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-tab-characters">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No tabs for layout</h3>
@@ -647,7 +650,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-tab-characters</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-floating-images">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Images are inline</h3>
@@ -655,7 +658,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-floating-images</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-drawings">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No drawings or text boxes</h3>
@@ -663,7 +666,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-drawings</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-fake-headings">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Headings use heading styles</h3>
@@ -681,7 +684,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Direct formatting does not survive conversion. Use the document’s own styles.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-font-family">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No custom fonts</h3>
@@ -689,7 +692,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">docs-font-family</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-docs-font-size">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No custom font sizes</h3>
@@ -707,7 +710,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">House style. All warnings — disagree and dismiss where your subject calls for it.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-writing-avoid-please">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Avoid "please"</h3>
@@ -715,7 +718,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">writing-avoid-please</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-writing-no-contractions">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No contractions</h3>
@@ -723,7 +726,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">writing-no-contractions</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-writing-us-spelling">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Use US spellings</h3>
@@ -731,7 +734,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">writing-us-spelling</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-writing-number-unit-space">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Space between number and unit</h3>
@@ -739,7 +742,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">writing-number-unit-space</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-text-avoid-idioms">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Avoid US idioms</h3>
@@ -757,7 +760,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Subject-specific, and only on for biology modules. Dismiss freely if your field uses a term differently.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-bio-pcr-reaction">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>"PCR reaction" is redundant</h3>
@@ -765,7 +768,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">bio-pcr-reaction</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-bio-active-site-possessive">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>No possessives for non-person nouns</h3>
@@ -773,7 +776,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">bio-active-site-possessive</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-bio-sanger-dideoxy">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Introduce Sanger sequencing as dideoxy</h3>
@@ -781,7 +784,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">bio-sanger-dideoxy</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-bio-address-as-you">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Address the learner as "you"</h3>
@@ -789,7 +792,7 @@ footer b { color: var(--ink-soft); }
         <code class="rid">bio-address-as-you</code>
       </div>
     </div>
-    <div class="rule">
+    <div class="rule" id="rule-bio-phenotype-dominance">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Dominance describes the phenotype</h3>
@@ -807,7 +810,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">Acronyms, once each.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-text-acronym-first-use">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Define acronyms on first use</h3>
@@ -825,7 +828,7 @@ footer b { color: var(--ink-soft); }
   </div>
   <p class="cat-blurb">The one that counts down as you fill the template in.</p>
   <div class="rules">
-    <div class="rule">
+    <div class="rule" id="rule-docs-template-placeholder">
       <div class="sev"><span class="pill warn">warning</span></div>
       <div class="rule-body">
         <h3>Template placeholders are replaced</h3>
@@ -848,7 +851,7 @@ footer b { color: var(--ink-soft); }
       <p><b>Not judged:</b> placeholders you have not filled in, and parts not written yet. The sixty checks above already report those for nothing.</p>
     </div>
     <div class="rules">
-      <div class="rule">
+      <div class="rule" id="rule-ai-explanation-unsound">
         <div class="sev"><span class="pill err">error</span></div>
         <div class="rule-body">
           <h3>Explanations are sound</h3>
@@ -856,7 +859,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-explanation-unsound</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-explanation-why">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Explanations say why</h3>
@@ -864,7 +867,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-explanation-why</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-explanation-restates">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Explanations add something</h3>
@@ -872,7 +875,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-explanation-restates</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-explanation-quality">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Explanations explain</h3>
@@ -880,7 +883,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-explanation-quality</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-truncated-option">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Options are complete</h3>
@@ -888,7 +891,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-truncated-option</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-option-format">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Options are parallel</h3>
@@ -896,7 +899,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-option-format</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-active-voice">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Prefer active voice</h3>
@@ -904,7 +907,7 @@ footer b { color: var(--ink-soft); }
           <code class="rid">ai-active-voice</code>
         </div>
       </div>
-      <div class="rule">
+      <div class="rule" id="rule-ai-acronym-consistency">
         <div class="sev"><span class="pill warn">warning</span></div>
         <div class="rule-body">
           <h3>Acronyms expand consistently</h3>
@@ -922,7 +925,7 @@ footer b { color: var(--ink-soft); }
   <p><b>Two ways to silence a check.</b> <em>Dismiss</em> hides one finding, and is keyed to what that finding says — so editing the sentence around it brings it back, deliberately, because the text it was a judgement about has changed. <em>Mute rule</em> hides a whole rule for the module, for when a rule does not apply to your subject at all. Both live in the document, so the next person to open it sees the judgement already made.</p>
   <p><b>If a check is wrong, say so.</b> These are rules written by people, and a rule that misfires on a real module is worth fixing rather than working around. Dismiss it, carry on, and tell us which one.</p>
   <p><b>Rule names are the short codes</b> under each entry — quoting one (<code>problem-numerical-range</code>, say) is the fastest way to be precise about which check you mean.</p>
-  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-17</span></p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-18</span></p>
 </footer>
 
 </div>
