@@ -26,6 +26,12 @@ On this page
 
 These apply to **all** problem types:
 
+- **Open with a `Problem Type:` line** naming the type, exactly as the template
+  does: `multiple choice`, `checkbox`, `dropdown`, `numerical input`,
+  `short answer`, `open-ended auto-credit`, or `drag and drop`. This is the line
+  that tells the checker what you are writing — without it a multiple choice
+  that is missing its `(X)` and an open-ended question look identical, and the
+  type is guessed from the markers instead.
 - **Include the type-specific instruction** (see each type below), as the last
   sentence of the question.
 - **Write an explanation** for every problem, labeled with the word
@@ -96,6 +102,7 @@ but it must give a solid foundation.
 **How to write it in the template:**
 
 ```
+Problem Type:  multiple choice
 Question:  Which organelle produces most of the ATP in a cell? Select the best answer.
 Answer choices (mark the one correct answer):
    (  ) the nucleus
@@ -121,6 +128,7 @@ Explanation:  The mitochondrion is the site of oxidative phosphorylation, where
 **How to write it in the template:**
 
 ```
+Problem Type:  checkbox
 Question:  Which of the following are purines? Select all that apply.
 Answer choices (mark every correct answer):
    [X] adenine
@@ -156,6 +164,7 @@ choice lowers the cognitive load for the learner.
 **How to write it in the template — in a statement:**
 
 ```
+Problem Type:  dropdown
 Question:  Use the dropdown options to match the phase of the cell cycle to the
            activity during that phase.
 The cell grows and acquires nutrients during the [&G1/S/M] phase.
@@ -177,6 +186,7 @@ Explanation:  The cell cycle proceeds through G1, S, and M in order. During G1 t
 *one-to-one match* form below rather than a table.)
 
 ```
+Problem Type:  dropdown
 Question:  Use the dropdown options to complete the table.
 
 Change to the reaction                            |  Effect on enzyme activity
@@ -198,6 +208,7 @@ item with its correct match; **do not number or letter them** (the drop-down
 choices may shuffle). Keep to **4 or fewer** pairs, and make every match distinct.
 
 ```
+Problem Type:  dropdown
 Question:  Match the following.
 Items and their correct match:
    Mitochondrion   →   Produces most of the ATP in a cell
@@ -235,6 +246,7 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
 **How to write it in the template:**
 
 ```
+Problem Type:  numerical input
 Question:  How many chromosomes are in a typical human somatic cell? Enter your
            answer as a whole number in the space provided.
 Correct answer:  46
@@ -263,6 +275,7 @@ Explanation:  Somatic (body) cells are diploid, meaning they carry two copies of
 **How to write it in the template:**
 
 ```
+Problem Type:  short answer
 Question:  Name the type of cell division that produces two genetically identical
            daughter cells.
 Correct answer:  mitosis   (case-insensitive)
@@ -288,6 +301,7 @@ correct**, then shows the model answer.
 **How to write it in the template:**
 
 ```
+Problem Type:  open-ended auto-credit
 Question:  In one sentence, predict what would happen to translation if a cell ran
            out of tRNA. Any thoughtful answer will receive credit; click the Show
            Answer button to check your thoughts.
@@ -332,6 +346,7 @@ nothing here is auto-checked yet.
 **How to write it in the template:**
 
 ```
+Problem Type:  drag and drop
 Question:  Place each statement under the type of cell division it describes:
            Mitosis or Meiosis.
 Zones:

@@ -6,11 +6,16 @@
 <title>Module Author Guides</title>
 <!--
   Landing page for course/module authors. Drop-in for GitHub Pages.
-  The guide pages (content-authoring-guide.html, etc.) are generated from the
-  Markdown in docs/ by scripts/build_guide_html.py — rerun that after editing a
-  guide. The two dashed "TOOL" cards are external sites, not pages in this
-  repo: Explain2Me and DescribeMe. Keep this list in step with docs/index.md,
-  which carries the same set as Markdown.
+
+  The guide pages are hand-mirrored from the Markdown in docs/ — there is no
+  generator in this repo, despite what this comment used to claim, so an edit
+  to a guide has to be made in both places. The three Fixatron500 pages
+  (module-template-*.html, checker-rules.html) are the exception: they keep
+  their own layout and have no Markdown source.
+
+  The two dashed "TOOL" cards are external sites, not pages in this repo:
+  Explain2Me and DescribeMe. Keep the card list and its grouping in step with
+  docs/index.md, which carries the same set as Markdown.
 -->
 <style>
   :root {
@@ -52,7 +57,16 @@
   .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; }
   h1 { margin: .35rem 0 .5rem; font-size: 2rem; line-height: 1.15; }
   .lede { color: var(--muted); font-size: 1.05rem; max-width: 60ch; margin: 0; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  /* Groups replace the old flat grid. Eleven cards in one run encoded three
+     different taxonomies at once — a sequence (GUIDE 01/02/03), a document
+     type (REFERENCE) and a tool (FIXATRON500) — so there was no single
+     question to scan by. The headings are also real structure for anyone
+     navigating by heading, where the cards used to be eleven h2 siblings. */
+  .group + .group { margin-top: 2.5rem; }
+  .group-title { font-size: 1.15rem; margin: 0 0 .25rem; }
+  .group-lede { color: var(--muted); font-size: .93rem; margin: 0; max-width: 70ch; }
+  .group-lede a { color: var(--accent-2); }
   a.card {
     display: flex; flex-direction: column; text-decoration: none; color: inherit;
     background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -62,7 +76,9 @@
   a.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow); border-color: var(--accent); }
   a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .card .num { font-size: .78rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
-  .card h2 { margin: .35rem 0 .4rem; font-size: 1.12rem; }
+  /* h3 now: the group heading above each grid is the h2, so a card sits one
+     level down and the outline reads group → card. */
+  .card h3 { margin: .35rem 0 .4rem; font-size: 1.12rem; }
   .card p { margin: 0; color: var(--muted); font-size: .93rem; }
   .card .go { margin-top: .9rem; color: var(--accent-2); font-weight: 600; font-size: .9rem; }
   .card .go::after { content: " →"; }
@@ -134,7 +150,7 @@
         </div>
         <label class="search-option">
           <input type="checkbox" id="search-include-rules">
-          Include individual rules from Rule Reference (133)
+          Include individual rules and checks (201)
         </label>
       </div>
     </header>
@@ -225,7 +241,7 @@
 
     <footer>
       Bookmark this page. Guides are updated regularly — check back for the latest.
-      <span id="last-updated">Last updated: 2026-09-17</span>
+      <span id="last-updated">Last updated: 2026-09-18</span>
     </footer>
   </div>
 
@@ -240,8 +256,12 @@
     var activeIndex = -1;
     var currentItems = [];
 
+    // Two pages now carry per-rule entries — Rule Reference (the QA pass) and
+    // What the Checker Checks (Fixatron500) — so this keys off the anchor
+    // convention rather than naming one page. Section anchors never start
+    // "rule-"; only individual rules do.
     function isIndividualRule(entry) {
-      return entry.page === 'rule-reference.html' && entry.anchor.indexOf('rule-') === 0;
+      return entry.anchor.indexOf('rule-') === 0;
     }
 
     fetch('search-index.json').then(function (r) { return r.json(); }).then(function (data) {
