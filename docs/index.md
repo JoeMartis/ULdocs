@@ -7,7 +7,7 @@ how to enter each problem type, and how the automated checks judge your work.
 
 The template you were given, and the standards that apply to what you put in it.
 
-- **[Authoring a UL Module](module-template-headings.html)** — The heading-and-paragraph template: how the document is built, what each problem type needs, and how to read the sidebar.
+- **[Authoring a UL Module in a Flat File](module-template-headings.html)** — The heading-and-paragraph template: how the document is built, what each problem type needs, and how to read the sidebar.
 - **[Authoring a UL Module in Tables](module-template-tables.html)** — The two-column table template, where each row is a page. Same problem types, different document shape.
 - **[Problem Templates](problem-authoring-guide.html)** — How to author each problem type, with worked examples and what makes a strong explanation. The same guidance is inside the template itself.
 - **[Content Authoring Guide](content-authoring-guide.html)** — General writing, formatting, terminology, and page-structure rules for course content.
