@@ -99,6 +99,7 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <nav class="toc" aria-label="On this page">
 <p>On this page</p>
 <ul>
+<li><a href="#problem-names">Problem names</a></li>
 <li><a href="#1-multiple-choice-single-answer">1. Multiple choice (single answer)</a></li>
 <li><a href="#2-checkbox-select-all-that-apply">2. Checkbox (select all that apply)</a></li>
 <li><a href="#3-dropdown">3. Dropdown</a></li>
@@ -124,7 +125,8 @@ with its <code>Poll question:</code> line (see <a href="#8-poll">8. Poll</a>).</
 <li><strong>Include the type-specific instruction</strong> (see each type below), as the last
   sentence of the question.</li>
 <li><strong>Write an explanation</strong> for every problem, labeled with the word
-  "Explanation" — except a poll, which has no correct answer to explain (see
+  "Explanation" — except an open-ended auto-credit problem, whose model answer
+  takes its place, and a poll, which has no correct answer to explain (see
   <a href="#8-poll">8. Poll</a>). See <a href="#writing-a-strong-explanation">Writing a strong explanation</a>
   below for what the tool checks.</li>
 <li><strong>Answer options:</strong> no hand-typed <code>A.</code> / <code>1.</code> labels on options (the options
@@ -379,10 +381,11 @@ It leaves a note in the problem's place on the page, holding the question,
 zones, items, and explanation, and lists the problem under "Drag and drop to
 build in Studio" in its report. The build team creates the drag-and-drop
 block in Studio from that note (Add New Component → Advanced → Drag and
-Drop), then deletes the note, which learners would otherwise see. The
-checking tool does not yet parse this block type (see
-<a href="attempts-policy.html">Attempts Policy</a>), so nothing here is auto-checked
-yet.</p>
+Drop), then deletes the note, which learners would otherwise see. The check
+on the course export does not yet read <code>drag-and-drop-v2</code> (see
+<a href="attempts-policy.html">Attempts Policy</a>), so its attempt count is not
+enforced. The checker you run while writing reads it as drag and drop and
+checks its explanation, but not its zones and items.</p>
 <ul>
 <li><strong>Instruction:</strong> state directly what to sort and into what — e.g. "Drag
   each item to the zone it belongs in," or phrasing specific to the categories
@@ -392,7 +395,9 @@ yet.</p>
   reusing the zone's label is fine unless the zone needs more context.</li>
 <li><strong>Items:</strong> list each draggable item with the zone it belongs in. An item
   can belong to more than one zone if more than one answer is accepted for it,
-  though most problems use a one-to-one mapping.</li>
+  though most problems use a one-to-one mapping. Type the zones and items as
+  plain lines, not bullets: as bullets, the checker can read them as answers
+  with none marked.</li>
 <li><strong>Mode:</strong> we build these in <strong>Assessment mode</strong> — the learner places every
   item, then submits, and only then finds out what is correct (matching the
   attempt limits in <a href="attempts-policy.html">Attempts Policy</a>). Standard
@@ -400,7 +405,7 @@ yet.</p>
   drop; flag it if a problem should work that way instead.</li>
 <li><strong>Explanation:</strong> one paragraph covering the overall reasoning, as with
   other problem types — the build team derives each item's individual
-  correct/incorrect feedback text (shown when it is dropped) from your zone
+  correct/incorrect feedback text (shown once the learner submits) from your zone
   mapping, so you do not need to write those separately. The generic
   before-you-start and completion messages are also filled in by the build
   team unless you want something more specific.</li>
@@ -587,7 +592,7 @@ should be split into more than one problem rather than given more attempts. A
 <strong>one additional attempt</strong> at every tier, since there is no elimination
 benefit the way there is when zones repeat.</p>
 <p>A <strong>poll</strong> takes no attempts: it is not graded, and how many times a learner may
-vote is its own <strong>Submissions allowed</strong> setting — 1 unless the problem says
+vote is its own <strong>Submissions allowed</strong> setting — 1 unless the poll says
 otherwise.</p>
 <p><strong>Drag and drop and Open response (ORA)</strong> are not yet parsed by the checking
 tool, so their attempt counts above are the target policy but are <strong>not yet

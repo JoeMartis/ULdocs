@@ -39,7 +39,7 @@
   additional attempt** at every tier, since there is no elimination benefit the
   way there is when zones repeat.
 - **Drag and drop / Open response (ORA):** the parser does not yet recognize the
-  `drag_and_drop_v2` or `openassessment` block types (it detects only
+  `drag-and-drop-v2` or `openassessment` block types (it detects only
   `multiplechoiceresponse`, `choiceresponse`, `numericalresponse`,
   `stringresponse`, and `optionresponse`). Their attempt rules are specified
   above but **not yet enforced** — they await parser support keyed off a sample

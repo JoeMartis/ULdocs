@@ -409,7 +409,7 @@ footer p { max-width: 44rem; }
 <!-- ══ 03 PROBLEM TYPES ═══════════════════════════════════ -->
 <section id="problems">
   <h2><span class="num">03</span>The eight problem types</h2>
-  <p class="lede">Every problem opens with a <code>Problem Type:</code> line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its <code>(X)</code> and an open-ended question look identical.</p>
+  <p class="lede">Every problem but a poll opens with a <code>Problem Type:</code> line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its <code>(X)</code> and an open-ended question look identical.</p>
 
   <div class="types">
 
@@ -532,9 +532,9 @@ each reasonable targets to name.</pre>
 
     <article class="type">
       <div class="type-head">
-        <div class="letter">After Check F</div>
+        <div class="letter">Not worked</div>
         <h3>Poll</h3>
-        <p>Learners vote, then see how everyone voted. No right answer, and not graded.</p>
+        <p>Learners vote, then see how everyone voted. No right answer, and not graded. Not worked in the template: write it as below, as the <a href="problem-authoring-guide.html#8-poll">problem authoring guide</a> shows.</p>
       </div>
       <div class="type-body">
 <pre tabindex="0"><span class="key">Poll question:</span> Which phase of the cell
@@ -576,7 +576,7 @@ splits it evenly into two identical cells, while
 meiosis halves it to make gametes…</pre>
         <p class="needs"><b>Each item</b> <span>names the zone it goes in, after an arrow: <code>→ Zone 1</code>.</span></p>
         <p class="needs"><b>Built in Studio</b> <span>— the converter leaves a note in the problem's place with all of the above, and the problem is built from it by hand.</span></p>
-        <p class="needs"><b>The checker</b> <span>does not check the zones and items, so it cannot tell you whether they are right. Keep the <code>Problem Type:</code> line: without it, bulleted items look like answers with none marked.</span></p>
+        <p class="needs"><b>The checker</b> <span>does not check the zones and items, so it cannot tell you whether they are right. Keep the <code>Problem Type:</code> line, and type the zones and items as plain lines, not bullets: as bullets they can read as answers with none marked.</span></p>
       </div>
     </article>
 

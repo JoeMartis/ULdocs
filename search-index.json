@@ -1173,7 +1173,7 @@
   "pageTitle": "Authoring a UL Module",
   "anchor": "problems",
   "heading": "The eight problem types",
-  "text": "Every problem opens with a Problem Type: line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the ATP in a cell? Select the best answer. Answer c"
+  "text": "Every problem but a poll opens with a Problem Type: line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the ATP in a cell? Select the best answe"
  },
  {
   "page": "module-template-headings.html",
@@ -1215,7 +1215,7 @@
   "pageTitle": "Authoring a UL Module in Tables",
   "anchor": "problems",
   "heading": "The eight problem types",
-  "text": "Every problem opens with a Problem Type: line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the ATP in a cel"
+  "text": "Every problem but a poll opens with a Problem Type: line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the A"
  },
  {
   "page": "module-template-tables.html",
