@@ -350,7 +350,7 @@ checks its explanation, but not its zones and items.
   drop; flag it if a problem should work that way instead.
 - **Explanation:** one paragraph covering the overall reasoning, as with
   other problem types — the build team derives each item's individual
-  correct/incorrect feedback text (shown when it is dropped) from your zone
+  correct/incorrect feedback text (shown once the learner submits) from your zone
   mapping, so you do not need to write those separately. The generic
   before-you-start and completion messages are also filled in by the build
   team unless you want something more specific.
