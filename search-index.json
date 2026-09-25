@@ -88,7 +88,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "every-problem-the-shared-checklist",
   "heading": "Every problem — the shared checklist",
-  "text": "These apply to all problem types: Open with a Problem Type: line naming the type, exactly as the template does: multiple choice , checkbox , dropdown , numerical input , short answer , open-ended auto-credit , drag and drop , or poll . This is the line that tells the checker what you are writing — without it a multiple choice that is missing its (X) and an open-ended question look identical, and t"
+  "text": "These apply to all problem types: Open with a Problem Type: line naming the type, exactly as the template does: multiple choice , checkbox , dropdown , numerical input , short answer , open-ended auto-credit , or drag and drop . This is the line that tells the checker what you are writing — without it a multiple choice that is missing its (X) and an open-ended question look identical, and the type"
  },
  {
   "page": "problem-authoring-guide.html",
@@ -158,7 +158,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "8-poll",
   "heading": "8. Poll",
-  "text": "A Studio poll block: learners vote, then see how everyone voted. A poll has no correct answer and is not graded. Write it in the template like a problem; the converter does not build it. It leaves a note in the poll's place on the page, holding the question, answers, and settings, and lists the poll under \"Polls to build in Studio\" in its report. The build team creates the Poll in Studio from that"
+  "text": "A Studio poll block: learners vote, then see how everyone voted. A poll has no correct answer and is not graded. Write it in the template with the lines below; the converter does not build it. It leaves a note in the poll's place on the page, holding the question, answers, and settings, and lists the poll under \"Polls to build in Studio\" in its report. The build team creates the Poll in Studio fro"
  },
  {
   "page": "problem-authoring-guide.html",
