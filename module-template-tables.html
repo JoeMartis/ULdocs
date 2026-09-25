@@ -534,10 +534,24 @@ to see.
       <div class="type-head">
         <div class="letter">Not worked</div>
         <h3>Drag and drop</h3>
-        <p>Offered on the <code>Problem Type:</code> menu, but no convention is documented for it yet.</p>
+        <p>Learners sort items into named zones. Not worked in the template: write it as below, as the <a href="problem-authoring-guide.html#7-drag-and-drop">problem authoring guide</a> shows.</p>
       </div>
       <div class="type-body">
-        <p style="margin:0;color:var(--ink-soft);font-size:.93rem">There is no worked example in the template, because there is no agreed way to write one. If you need this type, write the problem as clearly as you can and flag it when you hand the module over — the checker will not be able to tell you whether you got it right.</p>
+<pre tabindex="0"><span class="key">Problem Type:</span> drag and drop
+<span class="key">Question:</span> Place each statement under the type
+of cell division it describes.
+<span class="key">Zones:</span>
+  Zone 1: Mitosis
+  Zone 2: Meiosis
+<span class="key">Items (drag to the correct zone):</span>
+  Used for growth and tissue repair. → Zone 1
+  Produces four haploid gametes. → Zone 2
+<span class="key">Explanation:</span> Mitosis copies the genome once and
+splits it evenly into two identical cells, while
+meiosis halves it to make gametes…</pre>
+        <p class="needs"><b>Each item</b> <span>names the zone it goes in, after an arrow: <code>→ Zone 1</code>.</span></p>
+        <p class="needs"><b>Built in Studio</b> <span>— the converter leaves a note in the problem's place with all of the above, and the problem is built from it by hand.</span></p>
+        <p class="needs"><b>The checker</b> <span>does not check the zones and items, so it cannot tell you whether they are right. Keep the <code>Problem Type:</code> line: without it, bulleted items look like answers with none marked.</span></p>
       </div>
     </article>
 
