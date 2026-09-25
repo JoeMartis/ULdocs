@@ -255,7 +255,7 @@ footer p { max-width: 44rem; }
   <nav class="toc">
     <a href="#start"><span class="n">01</span> Quick start</a>
     <a href="#rows"><span class="n">02</span> One row, one page</a>
-    <a href="#problems"><span class="n">03</span> The seven problem types</a>
+    <a href="#problems"><span class="n">03</span> The eight problem types</a>
     <a href="#sidebar"><span class="n">04</span> Reading the sidebar</a>
     <a href="#deep"><span class="n">05</span> The deep check</a>
     <a href="#mistakes"><span class="n">06</span> Common mistakes</a>
@@ -383,7 +383,7 @@ footer p { max-width: 44rem; }
 
 <!-- ══ 03 PROBLEM TYPES ═══════════════════════════════════ -->
 <section id="problems">
-  <h2><span class="num">03</span>The seven problem types</h2>
+  <h2><span class="num">03</span>The eight problem types</h2>
   <p class="lede">Every problem opens with a <code>Problem Type:</code> line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its <code>(X)</code> and an open-ended question look identical.</p>
 
   <div class="types">
@@ -502,6 +502,32 @@ credit.</mark>
 <span class="key">Model answer:</span> Entry, replication and release are
 each reasonable targets to name.</pre>
         <p class="needs"><b>No <code>Explanation:</code></b> <span>— the model answer shows a good response instead, and nothing is being justified.</span></p>
+      </div>
+    </article>
+
+    <article class="type">
+      <div class="type-head">
+        <div class="letter">After Check F</div>
+        <h3>Poll</h3>
+        <p>Learners vote, then see how everyone voted. No right answer, and not graded.</p>
+      </div>
+      <div class="type-body">
+<pre tabindex="0"><span class="key">Problem Type:</span> poll
+<span class="key">Question:</span> Which phase of the cell cycle would
+you most like to see demonstrated in a video?
+<span class="key">Answer choices:</span>
+  ( ) interphase
+  ( ) mitosis
+  ( ) cytokinesis
+<span class="key">Feedback:</span> Thanks for voting! The results show
+which demonstration your classmates most want
+to see.
+<span class="key">Show results to learners:</span> Yes
+<span class="key">Submissions allowed:</span> 1</pre>
+        <p class="needs"><b>Mark none</b> <span>— a poll has no correct answer, so a mark is reported and left out.</span></p>
+        <p class="needs"><b>No <code>Explanation:</code></b> <span>— <code>Feedback:</code> is what a learner sees after voting.</span></p>
+        <p class="needs"><b>Built in Studio</b> <span>— the converter leaves a note in the poll's place with all of the above, and the poll is built from it by hand.</span></p>
+        <p class="needs"><b>The checker</b> <span>does not know <code>poll</code> yet. It warns that the type is unknown, then guesses from the round brackets, so it may also ask for a marked answer, an explanation, and “Select the best answer.” A poll needs none of them.</span></p>
       </div>
     </article>
 
@@ -658,7 +684,7 @@ each reasonable targets to name.</pre>
 
 <footer>
   <p><b>If the checker says something you think is wrong, it may well be.</b> Dismiss it and carry on — then say so, because a rule that misfires on a real module is a rule worth fixing rather than working around.</p>
-  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-17</span></p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-25</span></p>
 </footer>
 
 </div>
