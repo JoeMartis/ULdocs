@@ -379,8 +379,10 @@ page, holding the question, answers, and settings, and lists the poll under
 "Polls to build in Studio" in its report. The build team creates the Poll in
 Studio from that note (Add New Component → Advanced → Poll), then deletes the
 note, which learners would otherwise see. The checker does not know this type
-yet: it warns that `poll` is not a type it knows (`problem-type-unknown`),
-which is expected until it does.
+yet. It warns that `poll` is not a type it knows (`problem-type-unknown`), then
+guesses the type from the round brackets, so it may also ask for what a
+multiple choice needs: a marked answer, an explanation, and "Select the best
+answer." A poll needs none of them, so do not add them to quiet the checker.
 
 - **Question:** the prompt learners vote on. No instruction phrase is
   required.
