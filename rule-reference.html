@@ -524,7 +524,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Detects empty paragraph tags (<p></p>, <p/>, or <p>&nbsp;</p>) that create unwanted blank space in the content.</td>
+<td>Detects empty paragraph tags (<code>&lt;p&gt;&lt;/p&gt;</code>, <code>&lt;p/&gt;</code>, or <code>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</code>) that create unwanted blank space in the content.</td>
 </tr>
 <tr id="rule-problem-empty-choice">
 <td><strong>No Empty Choices</strong></td>
@@ -682,7 +682,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">—</td>
-<td>Checks that key topic names in learning objectives are bolded with <strong> tags for visual emphasis and scannability.</td>
+<td>Checks that key topic names in learning objectives are bolded with <code>&lt;strong&gt;</code> tags for visual emphasis and scannability.</td>
 </tr>
 <tr id="rule-learning-objectives-asktim">
 <td><strong>AskTIM on Objectives</strong></td>
@@ -709,7 +709,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✗</td>
 <td style="text-align: center;">—</td>
-<td>Flags learning objectives presented as a numbered list (<ol>) rather than bullet points (<ul>).</td>
+<td>Flags learning objectives presented as a numbered list (<code>&lt;ol&gt;</code>) rather than bullet points (<code>&lt;ul&gt;</code>).</td>
 </tr>
 <tr id="rule-learning-objectives-stem-format">
 <td><strong>Objectives Introductory Stem</strong></td>
@@ -1235,7 +1235,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso-<em> styles, Mso</em> classes, <o:p> tags, <font> tags, and AI-generated data attributes like data-start and data-end.</td>
+<td>Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches <code>mso-*</code> styles, <code>Mso*</code> classes, <code>&lt;o:p&gt;</code> tags, <code>&lt;font&gt;</code> tags, and AI-generated data attributes like data-start and data-end.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1502,7 +1502,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">—</td>
-<td>Ensures every <a> tag has visible link text or an aria-label so screen readers can describe the link's purpose.</td>
+<td>Ensures every <code>&lt;a&gt;</code> tag has visible link text or an aria-label so screen readers can describe the link's purpose.</td>
 </tr>
 <tr id="rule-accessibility-math-mathjax">
 <td><strong>Math Notation Should Use MathJax</strong></td>
@@ -1647,7 +1647,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix, suggest</td>
-<td>Ensures list items do not contain nested <p> tags, which cause extra spacing and inconsistent rendering across browsers.</td>
+<td>Ensures list items do not contain nested <code>&lt;p&gt;</code> tags, which cause extra spacing and inconsistent rendering across browsers.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1672,7 +1672,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Ensures bold text uses semantic <strong> tags instead of deprecated <b> tags or inline font-weight styles, improving accessibility and consistency.</td>
+<td>Ensures bold text uses semantic <code>&lt;strong&gt;</code> tags instead of deprecated <code>&lt;b&gt;</code> tags or inline font-weight styles, improving accessibility and consistency.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1697,7 +1697,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">auto-fix</td>
-<td>Ensures section headers in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course.</td>
+<td>Ensures section headers in overview and summary pages use <code>&lt;h4&gt;</code> tags to maintain a consistent heading hierarchy across the course.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1747,7 +1747,7 @@ a:focus-visible, [tabindex]:focus-visible {
 <td style="text-align: center;">static</td>
 <td style="text-align: center;">✓</td>
 <td style="text-align: center;">—</td>
-<td>Checks that bold formatting in summary takeaways follows course standards, using <strong> tags consistently for key terms.</td>
+<td>Checks that bold formatting in summary takeaways follows course standards, using <code>&lt;strong&gt;</code> tags consistently for key terms.</td>
 </tr>
 </tbody>
 </table></div>

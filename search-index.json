@@ -466,7 +466,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-html-empty-paragraphs",
   "heading": "No Empty Paragraphs",
-  "text": "html-empty-paragraphs · warning · static · default ✓ — Detects empty paragraph tags (, , or ) that create unwanted blank space in the content."
+  "text": "html-empty-paragraphs · warning · static · default ✓ — Detects empty paragraph tags (<p></p>, <p/>, or <p>&nbsp;</p>) that create unwanted blank space in the content."
  },
  {
   "page": "rule-reference.html",
@@ -564,7 +564,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-learning-objectives-bold-topics",
   "heading": "Bold Topics in Objectives",
-  "text": "learning-objectives-bold-topics · info · static · default ✓ — Checks that key topic names in learning objectives are bolded with tags for visual emphasis and scannability."
+  "text": "learning-objectives-bold-topics · info · static · default ✓ — Checks that key topic names in learning objectives are bolded with <strong> tags for visual emphasis and scannability."
  },
  {
   "page": "rule-reference.html",
@@ -585,7 +585,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-learning-objectives-use-bullets",
   "heading": "Objectives Use Bullet Points",
-  "text": "learning-objectives-use-bullets · info · static · default ✗ — Flags learning objectives presented as a numbered list () rather than bullet points ()."
+  "text": "learning-objectives-use-bullets · info · static · default ✗ — Flags learning objectives presented as a numbered list (<ol>) rather than bullet points (<ul>)."
  },
  {
   "page": "rule-reference.html",
@@ -907,7 +907,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-word-paste-artifacts",
   "heading": "No Copy-Paste Artifacts",
-  "text": "word-paste-artifacts · error · static · default ✓ — Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso- styles, Mso classes, tags, tags, and AI-generated data attributes like data-start and data-end."
+  "text": "word-paste-artifacts · error · static · default ✓ — Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso-* styles, Mso* classes, <o:p> tags, <font> tags, and AI-generated data attributes like data-start and data-end."
  },
  {
   "page": "rule-reference.html",
@@ -1040,7 +1040,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-html-empty-links",
   "heading": "No Empty Links",
-  "text": "html-empty-links · error · static · default ✓ — Ensures every tag has visible link text or an aria-label so screen readers can describe the link's purpose."
+  "text": "html-empty-links · error · static · default ✓ — Ensures every <a> tag has visible link text or an aria-label so screen readers can describe the link's purpose."
  },
  {
   "page": "rule-reference.html",
@@ -1103,21 +1103,21 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-lists-no-p-in-li",
   "heading": "No Paragraphs in List Items",
-  "text": "lists-no-p-in-li · error · static · default ✓ — Ensures list items do not contain nested tags, which cause extra spacing and inconsistent rendering across browsers."
+  "text": "lists-no-p-in-li · error · static · default ✓ — Ensures list items do not contain nested <p> tags, which cause extra spacing and inconsistent rendering across browsers."
  },
  {
   "page": "rule-reference.html",
   "pageTitle": "Rule Reference",
   "anchor": "rule-bolding-use-strong",
   "heading": "Use Strong for Bold",
-  "text": "bolding-use-strong · error · static · default ✓ — Ensures bold text uses semantic tags instead of deprecated tags or inline font-weight styles, improving accessibility and consistency."
+  "text": "bolding-use-strong · error · static · default ✓ — Ensures bold text uses semantic <strong> tags instead of deprecated <b> tags or inline font-weight styles, improving accessibility and consistency."
  },
  {
   "page": "rule-reference.html",
   "pageTitle": "Rule Reference",
   "anchor": "rule-headings-h4-overview-summary",
   "heading": "H4 in Overview/Summary",
-  "text": "headings-h4-overview-summary · error · static · default ✓ — Ensures section headers in overview and summary pages use tags to maintain a consistent heading hierarchy across the course."
+  "text": "headings-h4-overview-summary · error · static · default ✓ — Ensures section headers in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course."
  },
  {
   "page": "rule-reference.html",
@@ -1131,7 +1131,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-summaries-bolding-standards",
   "heading": "Summary Bolding Standards",
-  "text": "summaries-bolding-standards · info · static · default ✓ — Checks that bold formatting in summary takeaways follows course standards, using tags consistently for key terms."
+  "text": "summaries-bolding-standards · info · static · default ✓ — Checks that bold formatting in summary takeaways follows course standards, using <strong> tags consistently for key terms."
  },
  {
   "page": "rule-reference.html",
