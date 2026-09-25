@@ -106,6 +106,7 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <li><a href="#5-text-short-answer">5. Text / short answer</a></li>
 <li><a href="#6-open-ended-auto-credit-any-thoughtful-answer">6. Open-ended, auto-credit</a></li>
 <li><a href="#7-drag-and-drop">7. Drag and drop</a></li>
+<li><a href="#8-poll">8. Poll</a></li>
 <li><a href="#attempts-quick-reference">Attempts quick reference</a></li>
 </ul>
 </nav>
@@ -115,14 +116,15 @@ brackets and the correct one is marked with <code>&amp;</code> — e.g. <code>[G
 <ul>
 <li><strong>Open with a <code>Problem Type:</code> line</strong> naming the type, exactly as the template
 does: <code>multiple choice</code>, <code>checkbox</code>, <code>dropdown</code>, <code>numerical input</code>,
-<code>short answer</code>, <code>open-ended auto-credit</code>, or <code>drag and drop</code>. This is the line
+<code>short answer</code>, <code>open-ended auto-credit</code>, <code>drag and drop</code>, or <code>poll</code>. This is the line
 that tells the checker what you are writing — without it a multiple choice
 that is missing its <code>(X)</code> and an open-ended question look identical, and the
 type is guessed from the markers instead.</li>
 <li><strong>Include the type-specific instruction</strong> (see each type below), as the last
   sentence of the question.</li>
 <li><strong>Write an explanation</strong> for every problem, labeled with the word
-  "Explanation". See <a href="#writing-a-strong-explanation">Writing a strong explanation</a>
+  "Explanation" — except a poll, which has no correct answer to explain (see
+  <a href="#8-poll">8. Poll</a>). See <a href="#writing-a-strong-explanation">Writing a strong explanation</a>
   below for what the tool checks.</li>
 <li><strong>Answer options:</strong> no hand-typed <code>A.</code> / <code>1.</code> labels on options (the options
   may shuffle); keep to <strong>4 options or fewer</strong>; no duplicate or blank options.</li>
@@ -419,6 +421,55 @@ Explanation:  Mitosis copies the genome once and splits it evenly into two
               which is why meiosis is restricted to the cells that become
               gametes rather than ordinary body cells.
 </code></pre>
+<h2 id="8-poll">8. Poll</h2>
+<p>A Studio <code>poll</code> block: learners vote, then see how everyone voted. A poll has
+no correct answer and is not graded. <strong>Write it in the template like a problem;
+the converter does not build it.</strong> It leaves a note in the poll's place on the
+page, holding the question, answers, and settings, and lists the poll under
+"Polls to build in Studio" in its report. The build team creates the Poll in
+Studio from that note (Add New Component → Advanced → Poll), then deletes the
+note, which learners would otherwise see. The checker does not know this type
+yet: it warns that <code>poll</code> is not a type it knows (<code>problem-type-unknown</code>),
+which is expected until it does.</p>
+<ul>
+<li><strong>Question:</strong> the prompt learners vote on. No instruction phrase is
+  required.</li>
+<li><strong>Answers:</strong> list each under <code>Answer choices</code> with <code>(  )</code>, and <strong>mark none</strong> —
+  a poll has no correct answer, so a mark is reported and left out. The shared
+  rules for options apply: no labels, 4 or fewer, no duplicates or blanks.</li>
+<li><strong>A picture for an answer (optional):</strong> under the answer, an
+  <code>Image File Name:</code> line and an <code>Alt Text:</code> line, with the picture pasted just
+  below them. The picture goes into the course's files, and the note gives the
+  address to enter in the answer's image field. Each answer needs words, a
+  picture, or both.</li>
+<li><strong>Feedback (optional):</strong> what a learner sees after voting — the place for
+  anything you would otherwise put in an explanation. A poll has no Show
+  Answer, so it takes no <code>Explanation:</code>.</li>
+<li><strong>Show results to learners:</strong> <code>Yes</code> (the default) or <code>No</code>. With <code>No</code>, only
+  course staff see the results — the poll's <strong>Private results</strong> setting in
+  Studio.</li>
+<li><strong>Submissions allowed:</strong> how many times a learner may vote — <code>1</code> (the
+  default), or <code>0</code> for no limit. Allow more than one only with the results
+  hidden; otherwise a learner can change their vote after seeing everyone
+  else's.</li>
+</ul>
+<p><strong>How to write it in the template:</strong></p>
+<pre tabindex="0" role="region" aria-label="Code example, scrollable"><code>Problem Type:  poll
+Question:  Which phase of the cell cycle would you most like to see
+           demonstrated in a video?
+Answer choices (mark none):
+   (  ) interphase
+   (  ) mitosis
+   (  ) cytokinesis
+        Image File Name:  cytokinesis_micrograph
+        Alt Text:  A dividing animal cell pinching into two daughter cells,
+                   with a cleavage furrow across its middle.
+   (  ) the checkpoints between phases
+Feedback:  Thanks for voting! The results show which demonstration your
+           classmates most want to see.
+Show results to learners:  Yes
+Submissions allowed:  1
+</code></pre>
 <hr />
 <h2 id="attempts-quick-reference">Attempts quick reference</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Problem Templates table, scrollable"><table>
@@ -528,10 +579,13 @@ should be split into more than one problem rather than given more attempts. A
 <strong>strict one-to-one match</strong> (every zone used exactly once, no repeats) gets
 <strong>one additional attempt</strong> at every tier, since there is no elimination
 benefit the way there is when zones repeat.</p>
+<p>A <strong>poll</strong> takes no attempts: it is not graded, and how many times a learner may
+vote is its own <strong>Submissions allowed</strong> setting — 1 unless the problem says
+otherwise.</p>
 <p><strong>Drag and drop and Open response (ORA)</strong> are not yet parsed by the checking
 tool, so their attempt counts above are the target policy but are <strong>not yet
 enforced</strong>.</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-18</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-25</span></footer>
 </body>
 </html>

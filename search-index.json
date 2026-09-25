@@ -88,7 +88,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "every-problem-the-shared-checklist",
   "heading": "Every problem — the shared checklist",
-  "text": "These apply to all problem types: Include the type-specific instruction (see each type below), as the last sentence of the question. Write an explanation for every problem, labeled with the word \"Explanation\". See Writing a strong explanation below for what the tool checks. Answer options: no hand-typed A. / 1. labels on options (the options may shuffle); keep to 4 options or fewer ; no duplicate "
+  "text": "These apply to all problem types: Open with a Problem Type: line naming the type, exactly as the template does: multiple choice , checkbox , dropdown , numerical input , short answer , open-ended auto-credit , drag and drop , or poll . This is the line that tells the checker what you are writing — without it a multiple choice that is missing its (X) and an open-ended question look identical, and t"
  },
  {
   "page": "problem-authoring-guide.html",
@@ -109,14 +109,14 @@
   "pageTitle": "Problem Templates",
   "anchor": "1-multiple-choice-single-answer",
   "heading": "1. Multiple choice (single answer)",
-  "text": "Instruction: end the question with \"Select the best answer.\" Options: 2–4 choices; exactly one marked correct; no duplicates or blanks; no A) / 1. labels. Capitalization: options start lowercase unless the option is a proper noun or a full sentence; add a terminal period only on full-sentence options. How to write it in the template: Question: Which organelle produces most of the ATP in a cell? Se"
+  "text": "Instruction: end the question with \"Select the best answer.\" Options: 2–4 choices; exactly one marked correct; no duplicates or blanks; no A) / 1. labels. Capitalization: options start lowercase unless the option is a proper noun or a full sentence; add a terminal period only on full-sentence options. How to write it in the template: Problem Type: multiple choice Question: Which organelle produces"
  },
  {
   "page": "problem-authoring-guide.html",
   "pageTitle": "Problem Templates",
   "anchor": "2-checkbox-select-all-that-apply",
   "heading": "2. Checkbox (select all that apply)",
-  "text": "Instruction: end the question with \"Select all that apply.\" Options: at least 2, at least one correct; 4 or fewer (5+ gets flagged to rewrite); no duplicates, blanks, or labels. How to write it in the template: Question: Which of the following are purines? Select all that apply. Answer choices (mark every correct answer): [X] adenine [X] guanine [ ] cytosine [ ] thymine Explanation: Purines have a"
+  "text": "Instruction: end the question with \"Select all that apply.\" Options: at least 2, at least one correct; 4 or fewer (5+ gets flagged to rewrite); no duplicates, blanks, or labels. How to write it in the template: Problem Type: checkbox Question: Which of the following are purines? Select all that apply. Answer choices (mark every correct answer): [X] adenine [X] guanine [ ] cytosine [ ] thymine Expl"
  },
  {
   "page": "problem-authoring-guide.html",
@@ -144,7 +144,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "6-open-ended-auto-credit-any-thoughtful-answer",
   "heading": "6. Open-ended, auto-credit (any thoughtful answer)",
-  "text": "The custom one-sentence type that auto-grades any non-empty answer as correct , then shows the model answer. Instruction: the prompt must end with the exact phrase \"Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts.\" How to write it in the template: Question: In one sentence, predict what would happen to translation if a cell ran out of tRNA. Any though"
+  "text": "The custom one-sentence type that auto-grades any non-empty answer as correct , then shows the model answer. Instruction: the prompt must end with the exact phrase \"Any thoughtful answer will receive credit; click the Show Answer button to check your thoughts.\" How to write it in the template: Problem Type: open-ended auto-credit Question: In one sentence, predict what would happen to translation "
  },
  {
   "page": "problem-authoring-guide.html",
@@ -152,6 +152,13 @@
   "anchor": "7-drag-and-drop",
   "heading": "7. Drag and drop",
   "text": "A drag-and-drop-v2 problem where learners sort items into named zones. Write the content below in the template; the build team creates the drag-and-drop block in Studio from it. The parser does not yet recognize this block type (see Attempts Policy ), so nothing here is auto-checked yet. Instruction: state directly what to sort and into what — e.g. \"Drag each item to the zone it belongs in,\" or ph"
+ },
+ {
+  "page": "problem-authoring-guide.html",
+  "pageTitle": "Problem Templates",
+  "anchor": "8-poll",
+  "heading": "8. Poll",
+  "text": "A Studio poll block: learners vote, then see how everyone voted. A poll has no correct answer and is not graded. Write it in the template like a problem; the converter does not build it. It leaves a note in the poll's place on the page, holding the question, answers, and settings, and lists the poll under \"Polls to build in Studio\" in its report. The build team creates the Poll in Studio from that"
  },
  {
   "page": "problem-authoring-guide.html",
