@@ -18,6 +18,7 @@ On this page
 - [5. Text / short answer](#5-text-short-answer)
 - [6. Open-ended, auto-credit](#6-open-ended-auto-credit-any-thoughtful-answer)
 - [7. Drag and drop](#7-drag-and-drop)
+- [8. Poll](#8-poll)
 - [Attempts quick reference](#attempts-quick-reference)
 
 ---
@@ -28,14 +29,15 @@ These apply to **all** problem types:
 
 - **Open with a `Problem Type:` line** naming the type, exactly as the template
   does: `multiple choice`, `checkbox`, `dropdown`, `numerical input`,
-  `short answer`, `open-ended auto-credit`, or `drag and drop`. This is the line
+  `short answer`, `open-ended auto-credit`, `drag and drop`, or `poll`. This is the line
   that tells the checker what you are writing — without it a multiple choice
   that is missing its `(X)` and an open-ended question look identical, and the
   type is guessed from the markers instead.
 - **Include the type-specific instruction** (see each type below), as the last
   sentence of the question.
 - **Write an explanation** for every problem, labeled with the word
-  "Explanation". See [Writing a strong explanation](#writing-a-strong-explanation)
+  "Explanation" — except a poll, which has no correct answer to explain (see
+  [8. Poll](#8-poll)). See [Writing a strong explanation](#writing-a-strong-explanation)
   below for what the tool checks.
 - **Answer options:** no hand-typed `A.` / `1.` labels on options (the options
   may shuffle); keep to **4 options or fewer**; no duplicate or blank options.
@@ -368,6 +370,59 @@ Explanation:  Mitosis copies the genome once and splits it evenly into two
               gametes rather than ordinary body cells.
 ```
 
+## 8. Poll
+
+A Studio `poll` block: learners vote, then see how everyone voted. A poll has
+no correct answer and is not graded. **Write it in the template like a problem;
+the converter does not build it.** It leaves a note in the poll's place on the
+page, holding the question, answers, and settings, and lists the poll under
+"Polls to build in Studio" in its report. The build team creates the Poll in
+Studio from that note (Add New Component → Advanced → Poll), then deletes the
+note, which learners would otherwise see. The checker does not know this type
+yet: it warns that `poll` is not a type it knows (`problem-type-unknown`),
+which is expected until it does.
+
+- **Question:** the prompt learners vote on. No instruction phrase is
+  required.
+- **Answers:** list each under `Answer choices` with `(  )`, and **mark none** —
+  a poll has no correct answer, so a mark is reported and left out. The shared
+  rules for options apply: no labels, 4 or fewer, no duplicates or blanks.
+- **A picture for an answer (optional):** under the answer, an
+  `Image File Name:` line and an `Alt Text:` line, with the picture pasted just
+  below them. The picture goes into the course's files, and the note gives the
+  address to enter in the answer's image field. Each answer needs words, a
+  picture, or both.
+- **Feedback (optional):** what a learner sees after voting — the place for
+  anything you would otherwise put in an explanation. A poll has no Show
+  Answer, so it takes no `Explanation:`.
+- **Show results to learners:** `Yes` (the default) or `No`. With `No`, only
+  course staff see the results — the poll's **Private results** setting in
+  Studio.
+- **Submissions allowed:** how many times a learner may vote — `1` (the
+  default), or `0` for no limit. Allow more than one only with the results
+  hidden; otherwise a learner can change their vote after seeing everyone
+  else's.
+
+**How to write it in the template:**
+
+```
+Problem Type:  poll
+Question:  Which phase of the cell cycle would you most like to see
+           demonstrated in a video?
+Answer choices (mark none):
+   (  ) interphase
+   (  ) mitosis
+   (  ) cytokinesis
+        Image File Name:  cytokinesis_micrograph
+        Alt Text:  A dividing animal cell pinching into two daughter cells,
+                   with a cleavage furrow across its middle.
+   (  ) the checkpoints between phases
+Feedback:  Thanks for voting! The results show which demonstration your
+           classmates most want to see.
+Show results to learners:  Yes
+Submissions allowed:  1
+```
+
 ---
 
 ## Attempts quick reference
@@ -402,6 +457,10 @@ should be split into more than one problem rather than given more attempts. A
 **strict one-to-one match** (every zone used exactly once, no repeats) gets
 **one additional attempt** at every tier, since there is no elimination
 benefit the way there is when zones repeat.
+
+A **poll** takes no attempts: it is not graded, and how many times a learner may
+vote is its own **Submissions allowed** setting — 1 unless the problem says
+otherwise.
 
 **Drag and drop and Open response (ORA)** are not yet parsed by the checking
 tool, so their attempt counts above are the target policy but are **not yet
