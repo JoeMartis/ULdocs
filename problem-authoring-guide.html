@@ -374,10 +374,15 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 </code></pre>
 <h2 id="7-drag-and-drop">7. Drag and drop</h2>
 <p>A <code>drag-and-drop-v2</code> problem where learners sort items into named zones.
-<strong>Write the content below in the template; the build team creates the
-drag-and-drop block in Studio from it.</strong> The parser does not yet recognize
-this block type (see <a href="attempts-policy.html">Attempts Policy</a>), so
-nothing here is auto-checked yet.</p>
+<strong>Write the content below in the template; the converter does not build it.</strong>
+It leaves a note in the problem's place on the page, holding the question,
+zones, items, and explanation, and lists the problem under "Drag and drop to
+build in Studio" in its report. The build team creates the drag-and-drop
+block in Studio from that note (Add New Component → Advanced → Drag and
+Drop), then deletes the note, which learners would otherwise see. The
+checking tool does not yet parse this block type (see
+<a href="attempts-policy.html">Attempts Policy</a>), so nothing here is auto-checked
+yet.</p>
 <ul>
 <li><strong>Instruction:</strong> state directly what to sort and into what — e.g. "Drag
   each item to the zone it belongs in," or phrasing specific to the categories

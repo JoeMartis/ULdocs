@@ -320,10 +320,15 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 ## 7. Drag and drop
 
 A `drag-and-drop-v2` problem where learners sort items into named zones.
-**Write the content below in the template; the build team creates the
-drag-and-drop block in Studio from it.** The parser does not yet recognize
-this block type (see [Attempts Policy](attempts-policy.html)), so
-nothing here is auto-checked yet.
+**Write the content below in the template; the converter does not build it.**
+It leaves a note in the problem's place on the page, holding the question,
+zones, items, and explanation, and lists the problem under "Drag and drop to
+build in Studio" in its report. The build team creates the drag-and-drop
+block in Studio from that note (Add New Component → Advanced → Drag and
+Drop), then deletes the note, which learners would otherwise see. The
+checking tool does not yet parse this block type (see
+[Attempts Policy](attempts-policy.html)), so nothing here is auto-checked
+yet.
 
 - **Instruction:** state directly what to sort and into what — e.g. "Drag
   each item to the zone it belongs in," or phrasing specific to the categories

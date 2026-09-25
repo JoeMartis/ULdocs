@@ -151,7 +151,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "7-drag-and-drop",
   "heading": "7. Drag and drop",
-  "text": "A drag-and-drop-v2 problem where learners sort items into named zones. Write the content below in the template; the build team creates the drag-and-drop block in Studio from it. The parser does not yet recognize this block type (see Attempts Policy ), so nothing here is auto-checked yet. Instruction: state directly what to sort and into what — e.g. \"Drag each item to the zone it belongs in,\" or ph"
+  "text": "A drag-and-drop-v2 problem where learners sort items into named zones. Write the content below in the template; the converter does not build it. It leaves a note in the problem's place on the page, holding the question, zones, items, and explanation, and lists the problem under \"Drag and drop to build in Studio\" in its report. The build team creates the drag-and-drop block in Studio from that note"
  },
  {
   "page": "problem-authoring-guide.html",
