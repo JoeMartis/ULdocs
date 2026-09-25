@@ -95,7 +95,7 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 | **No Single-Choice Questions** | `problem-single-choice` | error | static | ✓ | — | Ensures multiple-choice problems have at least 2 answer choices. A single choice makes the question trivial. |
 | **Links Open New Window** | `links-open-new-window` | error | static | ✓ | — | Ensures links to Jupyter notebooks (.ipynb) and PDF slides open in a new window (target="\_blank") so learners don't lose their place in the course. |
 | **No Paste Artifacts in Problems** | `problem-paste-artifacts` | error | static | ✓ | auto-fix | Detects Word/Office or AI (ChatGPT) copy-paste artifacts in problem XML, such as mso-\* styles, data-start attributes, or ChatGPT wrapper markup. |
-| **No Empty Paragraphs** | `html-empty-paragraphs` | warning | static | ✓ | auto-fix | Detects empty paragraph tags (  ,  , or  ) that create unwanted blank space in the content. |
+| **No Empty Paragraphs** | `html-empty-paragraphs` | warning | static | ✓ | auto-fix | Detects empty paragraph tags (`<p></p>`, `<p/>`, or `<p>&nbsp;</p>`) that create unwanted blank space in the content. |
 | **No Empty Choices** | `problem-empty-choice` | error | static | ✓ | — | Detects answer choices that are blank or contain only whitespace, which usually indicates the problem was not fully authored. |
 | **No Option Letters or Numbers** | `problem-option-labels` | warning | static | ✓ | — | Flags answer choices that are hand-labeled with a letter or number ("A. ", "1) ", "(a) ") and explanations that refer to a choice by its position ("option B", "the first choice"). edX shuffles option order, so hand-typed labels and positional references end up wrong. |
 | **Dropdown Correct Answer Matches an Option** | `problem-dropdown-correct-match` | error | static | ✓ | — | For dropdown (option response) problems that mark the correct answer with a correct="…" attribute, verifies that value exactly matches one of the listed options. A stray space or typo makes no option correct, so the problem can never be completed. |
@@ -119,10 +119,10 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Bold Topics in Objectives** | `learning-objectives-bold-topics` | info | static | ✓ | — | Checks that key topic names in learning objectives are bolded with  **tags for visual emphasis and scannability.** |
+| **Bold Topics in Objectives** | `learning-objectives-bold-topics` | info | static | ✓ | — | Checks that key topic names in learning objectives are bolded with `<strong>` tags for visual emphasis and scannability. |
 | **AskTIM on Objectives** | `learning-objectives-asktim` | warning | static | ✓ | — | Verifies that the AskTIM chat assistant is enabled on learning objectives pages so learners can ask questions about what they'll learn. |
 | **Avoid Vague Objective Verbs** | `learning-objectives-vague-verbs` | warning | static | ✗ | — | Flags learning objectives that begin with vague, non-measurable verbs (e.g. "understand", "know", "be familiar with"); objectives should use measurable action verbs from Bloom's taxonomy. The deterministic counterpart to the AI "Measurable Objective Verbs" check. |
-| **Objectives Use Bullet Points** | `learning-objectives-use-bullets` | info | static | ✗ | — | Flags learning objectives presented as a numbered list (  ) rather than bullet points (  ). |
+| **Objectives Use Bullet Points** | `learning-objectives-use-bullets` | info | static | ✗ | — | Flags learning objectives presented as a numbered list (`<ol>`) rather than bullet points (`<ul>`). |
 | **Objectives Introductory Stem** | `learning-objectives-stem-format` | warning | static | ✗ | — | Checks that a learning-objectives list is introduced with an expected stem, e.g. "At the end of this \_\_\_, you will/should be able to:" or "Our goals for this \_\_\_ are:". |
 | **Measurable Objective Verbs** | `learning-objectives-action-verbs` | warning | ai | ✗ | — | Uses AI to check that learning objectives begin with specific, measurable action verbs (Bloom's taxonomy) rather than vague verbs like "understand" or "be familiar with". |
 | **Student-Centered Objectives** | `learning-objectives-student-centered` | warning | ai | ✗ | — | Uses AI to check that learning objectives are student-centered — framed as what the learner will be able to do ("students will be able to ...") — rather than instructor- or content-centered ("this lecture covers ..."). |
@@ -203,7 +203,7 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 | **No Custom Font Family** | `fonts-family-default` | error | static | ✓ | auto-fix | Ensures no inline font-family styles are applied. Custom fonts break the platform's consistent look and may not render correctly on all devices. |
 | **No Custom Font Size** | `fonts-size-default` | warning | static | ✓ | auto-fix | Ensures no inline font-size styles are applied. Custom font sizes override the platform's responsive typography and can harm readability. |
 | **No Custom Font Color** | `fonts-color-default` | warning | static | ✓ | auto-fix | Ensures no inline color styles are applied. Custom colors can break accessibility contrast requirements and visual consistency. |
-| **No Copy-Paste Artifacts** | `word-paste-artifacts` | error | static | ✓ | auto-fix | Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches mso- *styles, Mso* classes,  tags,  tags, and AI-generated data attributes like data-start and data-end. |
+| **No Copy-Paste Artifacts** | `word-paste-artifacts` | error | static | ✓ | auto-fix | Detects leftover markup from pasting content out of Word, Office, or AI tools. Catches `mso-*` styles, `Mso*` classes, `<o:p>` tags, `<font>` tags, and AI-generated data attributes like data-start and data-end. |
 
 ## Transcripts
 
@@ -252,7 +252,7 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Image Alt Text** | `html-img-alt-text` | error | static | ✓ | — | Ensures every `<img>` tag has a non-empty alt attribute so screen readers can describe images to visually impaired learners. |
-| **No Empty Links** | `html-empty-links` | error | static | ✓ | — | Ensures every tag has visible link text or an aria-label so screen readers can describe the link's purpose. |
+| **No Empty Links** | `html-empty-links` | error | static | ✓ | — | Ensures every `<a>` tag has visible link text or an aria-label so screen readers can describe the link's purpose. |
 | **Math Notation Should Use MathJax** | `accessibility-math-mathjax` | warning | static | ✗ | — | Flags math/science notation authored as plain text or HTML that the accessibility team's screen-reader testing found needs MathJax to read correctly: caret exponents (x^2), scientific notation (2 × 10^-5), unicode and HTML super/subscripts including lone letters and charges (mⁿ, Cl- — screen readers don't announce the super/subscript; ordinals like "1st" are exempt), the multiplication sign × (read as the letter "x"), and symbols that only read aloud in MathJax. Only fires outside existing MathJax. Does not flag standalone Greek letters, temperature degrees, or relational operators (≤ ≥ ≠ ±), which read correctly in HTML. Plain-text chemical formulas/ions (H2O, Mg2+) are flagged only when params.flagChemistry is true (element-symbol validated to limit noise). Extend the MathJax-only symbol list via params.specialSymbols. |
 
 ## Structure
@@ -281,19 +281,19 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **No Paragraphs in List Items** | `lists-no-p-in-li` | error | static | ✓ | auto-fix, suggest | Ensures list items do not contain nested tags, which cause extra spacing and inconsistent rendering across browsers. |
+| **No Paragraphs in List Items** | `lists-no-p-in-li` | error | static | ✓ | auto-fix, suggest | Ensures list items do not contain nested `<p>` tags, which cause extra spacing and inconsistent rendering across browsers. |
 
 ## Bolding
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Use Strong for Bold** | `bolding-use-strong` | error | static | ✓ | auto-fix | Ensures bold text uses semantic  **tags instead of deprecated  **tags or inline font-weight styles, improving accessibility and consistency.**** |
+| **Use Strong for Bold** | `bolding-use-strong` | error | static | ✓ | auto-fix | Ensures bold text uses semantic `<strong>` tags instead of deprecated `<b>` tags or inline font-weight styles, improving accessibility and consistency. |
 
 ## Headings
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **H4 in Overview/Summary** | `headings-h4-overview-summary` | error | static | ✓ | auto-fix | Ensures section headers in overview and summary pages usetags to maintain a consistent heading hierarchy across the course. |
+| **H4 in Overview/Summary** | `headings-h4-overview-summary` | error | static | ✓ | auto-fix | Ensures section headers in overview and summary pages use `<h4>` tags to maintain a consistent heading hierarchy across the course. |
 
 ## AskTIM
 
@@ -305,7 +305,7 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Summary Bolding Standards** | `summaries-bolding-standards` | info | static | ✓ | — | Checks that bold formatting in summary takeaways follows course standards, using  **tags consistently for key terms.** |
+| **Summary Bolding Standards** | `summaries-bolding-standards` | info | static | ✓ | — | Checks that bold formatting in summary takeaways follows course standards, using `<strong>` tags consistently for key terms. |
 
 ---
 
