@@ -1290,9 +1290,9 @@
  {
   "page": "checker-rules.html",
   "pageTitle": "What the Checker Checks",
-  "anchor": "biology-terminology",
-  "heading": "Biology Terminology",
-  "text": "5 Subject-specific, and only on for biology modules. Dismiss freely if your field uses a term differently."
+  "anchor": "subject-terminology",
+  "heading": "Subject Terminology",
+  "text": "5 Terminology conventions. These run on every module, not only biology ones \u2014 three of them can only match biological writing, but the other two apply to any subject. Dismiss freely if your field uses a term differently."
  },
  {
   "page": "checker-rules.html",
