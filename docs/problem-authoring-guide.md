@@ -37,7 +37,8 @@ These apply to **all** problem types:
 - **Include the type-specific instruction** (see each type below), as the last
   sentence of the question.
 - **Write an explanation** for every problem, labeled with the word
-  "Explanation" — except a poll, which has no correct answer to explain (see
+  "Explanation" — except an open-ended auto-credit problem, whose model answer
+  takes its place, and a poll, which has no correct answer to explain (see
   [8. Poll](#8-poll)). See [Writing a strong explanation](#writing-a-strong-explanation)
   below for what the tool checks.
 - **Answer options:** no hand-typed `A.` / `1.` labels on options (the options
@@ -325,10 +326,11 @@ It leaves a note in the problem's place on the page, holding the question,
 zones, items, and explanation, and lists the problem under "Drag and drop to
 build in Studio" in its report. The build team creates the drag-and-drop
 block in Studio from that note (Add New Component → Advanced → Drag and
-Drop), then deletes the note, which learners would otherwise see. The
-checking tool does not yet parse this block type (see
-[Attempts Policy](attempts-policy.html)), so nothing here is auto-checked
-yet.
+Drop), then deletes the note, which learners would otherwise see. The check
+on the course export does not yet read `drag-and-drop-v2` (see
+[Attempts Policy](attempts-policy.html)), so its attempt count is not
+enforced. The checker you run while writing reads it as drag and drop and
+checks its explanation, but not its zones and items.
 
 - **Instruction:** state directly what to sort and into what — e.g. "Drag
   each item to the zone it belongs in," or phrasing specific to the categories
@@ -338,7 +340,9 @@ yet.
   reusing the zone's label is fine unless the zone needs more context.
 - **Items:** list each draggable item with the zone it belongs in. An item
   can belong to more than one zone if more than one answer is accepted for it,
-  though most problems use a one-to-one mapping.
+  though most problems use a one-to-one mapping. Type the zones and items as
+  plain lines, not bullets: as bullets, the checker can read them as answers
+  with none marked.
 - **Mode:** we build these in **Assessment mode** — the learner places every
   item, then submits, and only then finds out what is correct (matching the
   attempt limits in [Attempts Policy](attempts-policy.html)). Standard
@@ -467,7 +471,7 @@ should be split into more than one problem rather than given more attempts. A
 benefit the way there is when zones repeat.
 
 A **poll** takes no attempts: it is not graded, and how many times a learner may
-vote is its own **Submissions allowed** setting — 1 unless the problem says
+vote is its own **Submissions allowed** setting — 1 unless the poll says
 otherwise.
 
 **Drag and drop and Open response (ORA)** are not yet parsed by the checking
