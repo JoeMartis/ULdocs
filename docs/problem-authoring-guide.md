@@ -29,10 +29,11 @@ These apply to **all** problem types:
 
 - **Open with a `Problem Type:` line** naming the type, exactly as the template
   does: `multiple choice`, `checkbox`, `dropdown`, `numerical input`,
-  `short answer`, `open-ended auto-credit`, `drag and drop`, or `poll`. This is the line
+  `short answer`, `open-ended auto-credit`, or `drag and drop`. This is the line
   that tells the checker what you are writing — without it a multiple choice
   that is missing its `(X)` and an open-ended question look identical, and the
-  type is guessed from the markers instead.
+  type is guessed from the markers instead. A poll is the exception: it opens
+  with its `Poll question:` line (see [8. Poll](#8-poll)).
 - **Include the type-specific instruction** (see each type below), as the last
   sentence of the question.
 - **Write an explanation** for every problem, labeled with the word
@@ -319,10 +320,15 @@ Model answer (shown after the learner answers):  tRNA is the adapter that reads
 ## 7. Drag and drop
 
 A `drag-and-drop-v2` problem where learners sort items into named zones.
-**Write the content below in the template; the build team creates the
-drag-and-drop block in Studio from it.** The parser does not yet recognize
-this block type (see [Attempts Policy](attempts-policy.html)), so
-nothing here is auto-checked yet.
+**Write the content below in the template; the converter does not build it.**
+It leaves a note in the problem's place on the page, holding the question,
+zones, items, and explanation, and lists the problem under "Drag and drop to
+build in Studio" in its report. The build team creates the drag-and-drop
+block in Studio from that note (Add New Component → Advanced → Drag and
+Drop), then deletes the note, which learners would otherwise see. The
+checking tool does not yet parse this block type (see
+[Attempts Policy](attempts-policy.html)), so nothing here is auto-checked
+yet.
 
 - **Instruction:** state directly what to sort and into what — e.g. "Drag
   each item to the zone it belongs in," or phrasing specific to the categories
@@ -373,25 +379,26 @@ Explanation:  Mitosis copies the genome once and splits it evenly into two
 ## 8. Poll
 
 A Studio `poll` block: learners vote, then see how everyone voted. A poll has
-no correct answer and is not graded. **Write it in the template like a problem;
-the converter does not build it.** It leaves a note in the poll's place on the
-page, holding the question, answers, and settings, and lists the poll under
-"Polls to build in Studio" in its report. The build team creates the Poll in
-Studio from that note (Add New Component → Advanced → Poll), then deletes the
-note, which learners would otherwise see. The checker does not know this type
-yet. It warns that `poll` is not a type it knows (`problem-type-unknown`), then
-guesses the type from the round brackets, so it may also ask for what a
-multiple choice needs: a marked answer, an explanation, and "Select the best
-answer." A poll needs none of them, so do not add them to quiet the checker.
+no correct answer and is not graded. **Write it in the template with the lines
+below; the converter does not build it.** It leaves a note in the poll's place
+on the page, holding the question, answers, and settings, and lists the poll
+under "Polls to build in Studio" in its report. The build team creates the Poll
+in Studio from that note (Add New Component → Advanced → Poll), then deletes
+the note, which learners would otherwise see.
 
-- **Question:** the prompt learners vote on. No instruction phrase is
+A poll is not written like the other problems: no `Problem Type:` line, no
+`Question:` line, and no `(  )` on its answers. Written with those, the checker
+reads it as a question and reports that it has no marked answer and no
+explanation.
+
+- **Poll question:** the prompt learners vote on. No instruction phrase is
   required.
-- **Answers:** list each under `Answer choices` with `(  )`, and **mark none** —
-  a poll has no correct answer, so a mark is reported and left out. The shared
-  rules for options apply: no labels, 4 or fewer, no duplicates or blanks.
-- **A picture for an answer (optional):** under the answer, an
-  `Image File Name:` line and an `Alt Text:` line, with the picture pasted just
-  below them. The picture goes into the course's files, and the note gives the
+- **Poll answers:** one answer to a bullet, with nothing to mark — a poll has
+  no correct answer. The shared rules for options apply: no labels, 4 or fewer,
+  no duplicates or blanks.
+- **A picture for an answer (optional):** under the answer, bulleted one level
+  in, an `Image File Name:` line and an `Alt Text:` line, with the picture
+  pasted just below them. The picture goes into the course's files, and the note gives the
   address to enter in the answer's image field. Each answer needs words, a
   picture, or both.
 - **Feedback (optional):** what a learner sees after voting — the place for
@@ -408,17 +415,16 @@ answer." A poll needs none of them, so do not add them to quiet the checker.
 **How to write it in the template:**
 
 ```
-Problem Type:  poll
-Question:  Which phase of the cell cycle would you most like to see
-           demonstrated in a video?
-Answer choices (mark none):
-   (  ) interphase
-   (  ) mitosis
-   (  ) cytokinesis
-        Image File Name:  cytokinesis_micrograph
-        Alt Text:  A dividing animal cell pinching into two daughter cells,
-                   with a cleavage furrow across its middle.
-   (  ) the checkpoints between phases
+Poll question:  Which phase of the cell cycle would you most like to see
+                demonstrated in a video?
+Poll answers:
+   • interphase
+   • mitosis
+   • cytokinesis
+        ◦ Image File Name:  cytokinesis_micrograph
+        ◦ Alt Text:  A dividing animal cell pinching into two daughter cells,
+                     with a cleavage furrow across its middle.
+   • the checkpoints between phases
 Feedback:  Thanks for voting! The results show which demonstration your
            classmates most want to see.
 Show results to learners:  Yes
