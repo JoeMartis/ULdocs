@@ -298,6 +298,49 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
               functions, the learner has to know each pairing rather than guess by
               elimination.
 </code></pre>
+<h3 id="options-that-contain-a-slash-or-square-brackets">Options that contain a slash or square brackets</h3>
+<p>A dropdown's options sit inside square brackets, separated by slashes. An option
+with its own slash or square brackets confuses that, so put the option in quotes
+to keep it whole. Learners don't see the quotes.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Quoting dropdown options table, scrollable"><table>
+<thead>
+<tr>
+<th scope="col">You write</th>
+<th scope="col">Learners choose from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[Bandwidth density/Data Rate/&amp;"I/O Port Count"]</code></td>
+<td>Bandwidth density, Data Rate, I/O Port Count</td>
+</tr>
+<tr>
+<td><code>[&amp;"[0, 1]"/(0, 1)]</code></td>
+<td>[0, 1], (0, 1)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Without the quotes:</p>
+<ul>
+<li><strong>A slash splits the option in two.</strong> <code>[Bandwidth density/Data Rate/&amp;I/O Port Count]</code>
+  offers "I" and "O Port Count", and "I" becomes the answer.</li>
+<li><strong>Square brackets break the dropdown.</strong> In <code>[&amp;[0, 1]/(0, 1)]</code>, the bracket after
+  1 ends the dropdown early, so learners see the line as typed, with nothing to
+  choose from, and any answer is marked correct.</li>
+</ul>
+<p>Tips:</p>
+<ul>
+<li>The <code>&amp;</code> can go before the opening quote or just inside it: <code>&amp;"I/O Port Count"</code>
+  and <code>"&amp;I/O Port Count"</code> both work.</li>
+<li>Quote every option that needs it: <code>[&amp;"mg/dL"/"mmol/L"]</code>.</li>
+<li>Straight and curly quotes both work.</li>
+<li><strong>Don't quote other options.</strong> Learners see those quotes, so <code>[&amp;"ATP"/"DNA"]</code>
+  shows "ATP" with its quotation marks.</li>
+</ul>
+<p>The conversion report flags common mistakes under <strong>Review before publishing</strong>,
+such as an unquoted I/O or mg/dL, or a dropdown problem that ended up with no
+dropdown. It can't catch every mistake, so always quote an option that has a slash
+or square brackets.</p>
 <h2 id="4-numerical-input">4. Numerical input</h2>
 <ul>
 <li><strong>Instruction:</strong> pick the phrase that matches the answer type:</li>
@@ -598,6 +641,6 @@ otherwise.</p>
 tool, so their attempt counts above are the target policy but are <strong>not yet
 enforced</strong>.</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-25</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-01</span></footer>
 </body>
 </html>

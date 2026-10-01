@@ -128,6 +128,13 @@
  {
   "page": "problem-authoring-guide.html",
   "pageTitle": "Problem Templates",
+  "anchor": "options-that-contain-a-slash-or-square-brackets",
+  "heading": "Options that contain a slash or square brackets",
+  "text": "A dropdown's options sit inside square brackets, separated by slashes. An option with its own slash or square brackets confuses that, so put the option in quotes to keep it whole. Learners don't see the quotes. You write Learners choose from [Bandwidth density/Data Rate/&\"I/O Port Count\"] Bandwidth density, Data Rate, I/O Port Count [&\"[0, 1]\"/(0, 1)] [0, 1], (0, 1) Without the quotes: A slash splits the option in two. [Bandwidth density/Data Rate/&I/O Port Count] offers \"I\" and \"O Port Count\", and \"I\" becomes the answer. Square brackets break the dropdown. In [&[0, 1]/(0, 1)] , the bracket after 1 ends the dropdown early, so learners see the line as typed, with nothing to choose from, and any answer is marked correct. Tips: The & can go before the opening quote or just inside it: &\"I/O Port Count\" and \"&I/O Port Count\" both work. Quote every option that needs it: [&\"mg/dL\"/\"mmol/L\"] . Straight and curly quotes both work. Don't quote other options. Learners see those quotes, so [&\"ATP\"/\"DNA\"] shows \"ATP\" with its quotation marks. The conversion report flags common mistakes under Review before publishing , such as an unquoted I/O or mg/dL, or a dropdown problem that ended up with no dropdown. It can't catch every mistake, so always quote an option that has a slash or square brackets."
+ },
+ {
+  "page": "problem-authoring-guide.html",
+  "pageTitle": "Problem Templates",
   "anchor": "4-numerical-input",
   "heading": "4. Numerical input",
   "text": "Instruction: pick the phrase that matches the answer type: whole number → \"Enter your answer as a whole number in the space provided.\" percentage → \"Enter your answer as a percentage with no rounding. Do not include the percent symbol in your response.\" decimal → \"Enter your answer as a decimal to two significant figures.\" Accepted range — required whenever the answer is not a single exact value. "
@@ -1299,7 +1306,7 @@
   "pageTitle": "What the Checker Checks",
   "anchor": "subject-terminology",
   "heading": "Subject Terminology",
-  "text": "5 Terminology conventions. These run on every module, not only biology ones \u2014 three of them can only match biological writing, but the other two apply to any subject. Dismiss freely if your field uses a term differently."
+  "text": "5 Terminology conventions. These run on every module, not only biology ones — three of them can only match biological writing, but the other two apply to any subject. Dismiss freely if your field uses a term differently."
  },
  {
   "page": "checker-rules.html",
