@@ -232,6 +232,39 @@ Explanation:  The mitochondrion runs oxidative phosphorylation to make most of t
               elimination.
 ```
 
+### Options that contain a slash or square brackets
+
+A dropdown's options sit inside square brackets, separated by slashes. An option
+with its own slash or square brackets confuses that, so put the option in quotes
+to keep it whole. Learners don't see the quotes.
+
+| You write | Learners choose from |
+| --- | --- |
+| `[Bandwidth density/Data Rate/&"I/O Port Count"]` | Bandwidth density, Data Rate, I/O Port Count |
+| `[&"[0, 1]"/(0, 1)]` | [0, 1], (0, 1) |
+
+Without the quotes:
+
+- **A slash splits the option in two.** `[Bandwidth density/Data Rate/&I/O Port Count]`
+  offers "I" and "O Port Count", and "I" becomes the answer.
+- **Square brackets break the dropdown.** In `[&[0, 1]/(0, 1)]`, the bracket after
+  1 ends the dropdown early, so learners see the line as typed, with nothing to
+  choose from, and any answer is marked correct.
+
+Tips:
+
+- The `&` can go before the opening quote or just inside it: `&"I/O Port Count"`
+  and `"&I/O Port Count"` both work.
+- Quote every option that needs it: `[&"mg/dL"/"mmol/L"]`.
+- Straight and curly quotes both work.
+- **Don't quote other options.** Learners see those quotes, so `[&"ATP"/"DNA"]`
+  shows "ATP" with its quotation marks.
+
+The conversion report flags common mistakes under **Review before publishing**,
+such as an unquoted I/O or mg/dL, or a dropdown problem that ended up with no
+dropdown. It can't catch every mistake, so always quote an option that has a slash
+or square brackets.
+
 ## 4. Numerical input
 
 - **Instruction:** pick the phrase that matches the answer type:
