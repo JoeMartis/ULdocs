@@ -260,11 +260,6 @@ Tips:
 - **Don't quote other options.** Learners see those quotes, so `[&"ATP"/"DNA"]`
   shows "ATP" with its quotation marks.
 
-The conversion report flags common mistakes under **Review before publishing**,
-such as an unquoted I/O or mg/dL, or a dropdown problem that ended up with no
-dropdown. It can't catch every mistake, so always quote an option that has a slash
-or square brackets.
-
 ## 4. Numerical input
 
 - **Instruction:** pick the phrase that matches the answer type:
