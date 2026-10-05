@@ -1220,6 +1220,27 @@
  {
   "page": "module-template-tables.html",
   "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "components",
+  "heading": "A page in several components",
+  "text": "A page can hold more than one component — the instructions for a reading in one text component, and the article itself in the next. Give the page one row for each component, and merge its name cell down beside them. Required Reading Names the page, merged down Read this article from the MIT Climate Portal before you watch the next video. Component 1 [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Component 2 Write the page as usual — its name in the left cell, its first component in the right cell. Add a row for each further component — insert a row below, leave its left cell empty, and write the component in its right-hand cell. Merge the name cell down — select the name cell and the empty cells under it, then merge them. In Google Docs, right-click and choose Merge cells ; in Word, choose Table Layout › Merge Cells . Each right-hand cell becomes its own component, in the order of the rows. Only a new row starts a new component: headings, bullets, and paragraphs in one cell stay one component. A row can hold anything a right-hand cell can — text, a picture, a video, or a problem. A row left empty becomes a component that tells learners its content is still in development, and the conversion report lists the page as still to write. Merge the name cell, not the content cells. Start the merge at the row that holds the name. A merged cell with nothing in it names no page, so its rows are read as more of the page above, and the conversion report says so. A right-hand cell merged down across rows is reported as a table problem to fix."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "platform-notes",
+  "heading": "Text the platform team adds",
+  "text": "When the platform team puts text in for you — an article from the MIT Climate Portal, for example — do not paste it into the document. Give it a row of its own on the page, and write a note there for the platform team, in square brackets: [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Write the whole note in square brackets , alone in its cell. Include the words “platform team”. That is how the converter tells the note apart from your own text. Name the article and give its link , so the platform team pastes the right one. Use square brackets, not << >> . The checker reports << >> as template text still to replace. Learners never see the note. The component shows “Content for this page is still in development” until the platform team pastes the text in Studio, and the conversion report lists the note under Finish in Studio , with the page it is on. If learners should be able to open the original article, link it in the instructions row as well."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "template-key",
+  "heading": "The template key",
+  "text": "If your copy of the template opens with a key — a small table whose rows are named Section Title , Subsection Title , and Unit Title — leave it where it is. The converter leaves the key out of the course, with its Template Key heading. Write the module's name on the line just above the module's own table; a module that still has the template's name is reported."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
   "anchor": "problems",
   "heading": "The eight problem types",
   "text": "Every problem but a poll opens with a Problem Type: line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the A"
