@@ -350,6 +350,11 @@ footer p { max-width: 44rem; }
           <td>A <b>page</b>. The left cell is its name; the right cell is everything on it.</td>
           <td>The default row. Put the name left, the content right.</td>
         </tr>
+        <tr>
+          <td><b>Name merged down</b><br><span style="color:var(--ink-faint);font-size:.86rem">one name beside several rows</span></td>
+          <td>A <b>page in several components</b>. Each right-hand cell is one component of it, in order.</td>
+          <td>Add a row for each component, then merge the name cell down beside them. See <a href="#components">A page in several components</a>.</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -359,7 +364,7 @@ footer p { max-width: 44rem; }
   </div>
 
   <h3>Inside a right-hand cell</h3>
-  <p>A cell holds a whole page, so it can carry its own headings and bullets. A heading inside a cell is a header <em>within</em> that page — <code>Overview</code>, <code>Learning Objectives</code>, <code>Key Takeaways</code>. Bullets nest from the cell, not from the page.</p>
+  <p>A cell holds a whole page, so it can carry its own headings and bullets. A heading inside a cell is a header <em>within</em> that page — <code>Overview</code>, <code>Learning Objectives</code>, <code>Key Takeaways</code>. Bullets nest from the cell, not from the page. Everything in one cell is one component on the page; to split a page into components, give each its own row (below).</p>
 
   <h3>Adding a page</h3>
   <ul class="plain">
@@ -367,6 +372,46 @@ footer p { max-width: 44rem; }
     <li><b>A new lecture</b> — insert a row, merge its cells, and type the lecture name. Then add its pages as ordinary two-column rows beneath it.</li>
     <li><b>Never add a third column.</b> The reading is two-column throughout; anything past the second cell is not part of the structure.</li>
   </ul>
+
+  <h3 id="components">A page in several components</h3>
+  <p>A page can hold more than one component — the instructions for a reading in one text component, and the article itself in the next. Give the page one row for each component, and merge its name cell down beside them.</p>
+
+  <div class="rows" tabindex="0" role="region" aria-label="A page in two components, scrollable">
+    <table class="rowmap">
+      <tr>
+        <td class="label" rowspan="2">Required Reading<span class="becomes">Names the page, merged down</span></td>
+        <td class="content">Read this article from the MIT Climate Portal before you watch the next video.<span class="becomes">Component 1</span></td>
+      </tr>
+      <tr>
+        <td class="content">[Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.]<span class="becomes">Component 2</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <ul class="plain">
+    <li><b>Write the page as usual</b> — its name in the left cell, its first component in the right cell.</li>
+    <li><b>Add a row for each further component</b> — insert a row below, leave its left cell empty, and write the component in its right-hand cell.</li>
+    <li><b>Merge the name cell down</b> — select the name cell and the empty cells under it, then merge them. In Google Docs, right-click and choose <b>Merge cells</b>; in Word, choose <b>Table Layout › Merge Cells</b>.</li>
+  </ul>
+  <p>Each right-hand cell becomes its own component, in the order of the rows. Only a new row starts a new component: headings, bullets, and paragraphs in one cell stay one component. A row can hold anything a right-hand cell can — text, a picture, a video, or a problem. A row left empty becomes a component that tells learners its content is still in development, and the conversion report lists the page as still to write.</p>
+
+  <div class="note warn">
+    <p><b>Merge the name cell, not the content cells.</b> Start the merge at the row that holds the name. A merged cell with nothing in it names no page, so its rows are read as more of the page above, and the conversion report says so. A right-hand cell merged down across rows is reported as a table problem to fix.</p>
+  </div>
+
+  <h3 id="platform-notes">Text the platform team adds</h3>
+  <p>When the platform team puts text in for you — an article from the MIT Climate Portal, for example — do not paste it into the document. Give it a row of its own on the page, and write a note there for the platform team, in square brackets:</p>
+  <pre tabindex="0" style="white-space:pre-wrap">[Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.]</pre>
+  <ul class="plain">
+    <li><b>Write the whole note in square brackets</b>, alone in its cell.</li>
+    <li><b>Include the words “platform team”.</b> That is how the converter tells the note apart from your own text.</li>
+    <li><b>Name the article and give its link</b>, so the platform team pastes the right one.</li>
+    <li><b>Use square brackets, not <code>&lt;&lt; &gt;&gt;</code>.</b> The checker reports <code>&lt;&lt; &gt;&gt;</code> as template text still to replace.</li>
+  </ul>
+  <p>Learners never see the note. The component shows “Content for this page is still in development” until the platform team pastes the text in Studio, and the conversion report lists the note under <b>Finish in Studio</b>, with the page it is on. If learners should be able to open the original article, link it in the instructions row as well.</p>
+
+  <h3 id="template-key">The template key</h3>
+  <p>If your copy of the template opens with a key — a small table whose rows are named <code>Section Title</code>, <code>Subsection Title</code>, and <code>Unit Title</code> — leave it where it is. The converter leaves the key out of the course, with its <code>Template Key</code> heading. Write the module's name on the line just above the module's own table; a module that still has the template's name is reported.</p>
 
   <h3>Three rules the checker enforces about names</h3>
   <ul class="plain">
@@ -663,6 +708,10 @@ meiosis halves it to make gametes…</pre>
       <dd>The left cell names the page. Put a paragraph there and it becomes part of the name. Everything except the name belongs on the right.</dd>
     </div>
     <div>
+      <dt>Merging the content cells down</dt>
+      <dd>To split a page into components, merge the <em>name</em> cell down beside its rows. A right-hand cell merged across rows is reported, and the rows beside it read as empty.</dd>
+    </div>
+    <div>
       <dt>Adding a third column</dt>
       <dd>The reading is two-column throughout. A third cell is not part of the structure and its contents may not reach the course at all.</dd>
     </div>
@@ -697,7 +746,7 @@ meiosis halves it to make gametes…</pre>
 
 <footer>
   <p><b>If the checker says something you think is wrong, it may well be.</b> Dismiss it and carry on — then say so, because a rule that misfires on a real module is a rule worth fixing rather than working around.</p>
-  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-25</span></p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-05</span></p>
 </footer>
 
 </div>
