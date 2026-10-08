@@ -270,7 +270,7 @@ learner the answer — it teaches the concept behind it.
 
 - **No custom font, size, or color** — let the platform's styling apply.
 - **Bold** with the template's own bold formatting, not a colored/enlarged
-  font. **Section headers** in overview/summary pages use Heading 4.
+  font. **Section headings** in overview/summary pages use Heading 4.
 - **No empty paragraphs or empty components** (blank gaps). Do not nest
   paragraphs inside list items — use the template's list formatting.
 - **Keep content responsive** — avoid fixed pixel widths on tables and images so

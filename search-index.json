@@ -53,7 +53,7 @@
   "pageTitle": "Content Authoring Guide",
   "anchor": "8-formatting",
   "heading": "8. Formatting",
-  "text": "No custom font, size, or color — let the platform's styling apply. Bold with the template's own bold formatting, not a colored/enlarged font. Section headers in overview/summary pages use Heading 4. No empty paragraphs or empty components (blank gaps). Do not nest paragraphs inside list items — use the template's list formatting. Keep content responsive — avoid fixed pixel widths on tables and ima"
+  "text": "No custom font, size, or color — let the platform's styling apply. Bold with the template's own bold formatting, not a colored/enlarged font. Section headings in overview/summary pages use Heading 4. No empty paragraphs or empty components (blank gaps). Do not nest paragraphs inside list items — use the template's list formatting. Keep content responsive — avoid fixed pixel widths on tables and ima"
  },
  {
   "page": "content-authoring-guide.html",
@@ -1124,7 +1124,7 @@
   "pageTitle": "Rule Reference",
   "anchor": "rule-headings-h4-overview-summary",
   "heading": "H4 in Overview/Summary",
-  "text": "headings-h4-overview-summary · error · static · default ✓ — Ensures section headers in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course."
+  "text": "headings-h4-overview-summary · error · static · default ✓ — Ensures section headings in overview and summary pages use <h4> tags to maintain a consistent heading hierarchy across the course."
  },
  {
   "page": "rule-reference.html",
@@ -1173,7 +1173,7 @@
   "pageTitle": "Authoring a UL Module",
   "anchor": "structure",
   "heading": "How the document is built",
-  "text": "Heading level is not styling here. It is the structure of the course, and the converter reads it literally. Level Becomes In the template Heading 1 a section Introduction · Lectures · Assignments · Conclusion Heading 2 a subsection a lecture · an assignment · Module Overview Heading 3 a page a video · a knowledge check · a problem · Summary Heading 4 a header inside that page Overview · Learning O"
+  "text": "Heading level is not styling here. It is the structure of the course, and the converter reads it literally. Level Becomes In the template Heading 1 a section Introduction · Lectures · Assignments · Conclusion Heading 2 a subsection a lecture · an assignment · Module Overview Heading 3 a page a video · a knowledge check · a problem · Summary Heading 4 a heading inside that page Overview · Learning O"
  },
  {
   "page": "module-template-headings.html",
@@ -1201,7 +1201,7 @@
   "pageTitle": "Authoring a UL Module",
   "anchor": "mistakes",
   "heading": "Common mistakes",
-  "text": "The ones that come up most, and what they look like when they do. A problem at Heading 4 It stops being its own page and becomes a header inside the page above it. Nothing looks wrong in the document. Use Heading 3 for anything that should be a page. Keeping the guillemets Writing your question inside << >> leaves it marked as filler, so it is reported as unwritten and the rules that judge it stay"
+  "text": "The ones that come up most, and what they look like when they do. A problem at Heading 4 It stops being its own page and becomes a heading inside the page above it. Nothing looks wrong in the document. Use Heading 3 for anything that should be a page. Keeping the guillemets Writing your question inside << >> leaves it marked as filler, so it is reported as unwritten and the rules that judge it stay"
  },
  {
   "page": "module-template-tables.html",

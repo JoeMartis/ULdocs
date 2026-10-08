@@ -293,7 +293,7 @@ Assisted correction: **19 rules auto-fix**, **8 offer a suggestion** (see the en
 
 | Rule | ID | Severity | Type | Default | Fix / Suggest | What it checks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **H4 in Overview/Summary** | `headings-h4-overview-summary` | error | static | ✓ | auto-fix | Ensures section headers in overview and summary pages use `<h4>` tags to maintain a consistent heading hierarchy across the course. |
+| **H4 in Overview/Summary** | `headings-h4-overview-summary` | error | static | ✓ | auto-fix | Ensures section headings in overview and summary pages use `<h4>` tags to maintain a consistent heading hierarchy across the course. |
 
 ## AskTIM
 
