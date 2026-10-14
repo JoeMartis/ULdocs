@@ -1278,7 +1278,7 @@
   "pageTitle": "What the Checker Checks",
   "anchor": "formatting",
   "heading": "Formatting",
-  "text": "2 Direct formatting does not survive conversion. Use the document’s own styles."
+  "text": "4 Where formatting carries meaning. The first two want it left alone — direct formatting does not survive conversion, so use the document’s own styles. The last two want it applied: a subscript or a superscript is part of what a formula says, not decoration on it."
  },
  {
   "page": "checker-rules.html",
