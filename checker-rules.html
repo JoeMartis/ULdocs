@@ -206,14 +206,14 @@ footer b { color: var(--ink-soft); }
   <p class="standfirst">Every check the sidebar runs on your module, what each one wants, and which ones you can safely ignore.</p>
 
   <dl class="tally">
-    <div><dt>As you write</dt><dd>60 <small>checks</small></dd></div>
+    <div><dt>As you write</dt><dd>62 <small>checks</small></dd></div>
     <div><dt>Errors</dt><dd>15</dd></div>
-    <div><dt>Warnings</dt><dd>45</dd></div>
+    <div><dt>Warnings</dt><dd>47</dd></div>
     <div><dt>Deep check</dt><dd>8 <small>on demand</small></dd></div>
   </dl>
 
   <div class="intro">
-    <p>Sixty checks run inside your document every few seconds while the sidebar is open. They cost nothing, need no setup, and nothing leaves the document. Eight more read your explanations properly, but those call a model — they cost money and run only when you press <b>Deep check</b>.</p>
+    <p>Sixty-two checks run inside your document every few seconds while the sidebar is open. They cost nothing, need no setup, and nothing leaves the document. Eight more read your explanations properly, but those call a model — they cost money and run only when you press <b>Deep check</b>.</p>
     <p>This list applies to <b>both templates</b>. The checks do not care whether your module is headings down a page or rows in a table.</p>
     <p><b>Not the same thing as the <a href="rule-reference.html">Rule Reference</a>.</b> This page is Fixatron500, which reads your template in Google Docs while you write it. The Rule Reference is the automated QA pass that runs later, on content already in Studio. Two tools, two catalogues — the short codes tell them apart, and quoting one is the fastest way to say which check you mean.</p>
   </div>
@@ -222,7 +222,7 @@ footer b { color: var(--ink-soft); }
     <div>
       <span class="pill err">error</span>
       <h2>Fix these</h2>
-      <p>Something here will break or mislead once the module is converted into the course. Fifteen of the sixty.</p>
+      <p>Something here will break or mislead once the module is converted into the course. Fifteen of the sixty-two.</p>
     </div>
     <div>
       <span class="pill warn">warning</span>
@@ -239,7 +239,7 @@ footer b { color: var(--ink-soft); }
     <a href="#subject-terminology">Subject Terminology <span class="n">5</span></a>
     <a href="#media">Media <span class="n">3</span></a>
     <a href="#learning-objectives">Learning Objectives <span class="n">2</span></a>
-    <a href="#formatting">Formatting <span class="n">2</span></a>
+    <a href="#formatting">Formatting <span class="n">4</span></a>
     <a href="#accessibility">Accessibility <span class="n">1</span></a>
     <a href="#terms">Terms <span class="n">1</span></a>
     <a href="#placeholders">Placeholders <span class="n">1</span></a>
@@ -680,9 +680,9 @@ footer b { color: var(--ink-soft); }
 <section id="formatting">
   <div class="cat-head">
     <h2>Formatting</h2>
-    <div class="cat-count"><span class="n">2</span></div>
+    <div class="cat-count"><span class="n">4</span></div>
   </div>
-  <p class="cat-blurb">Direct formatting does not survive conversion. Use the document’s own styles.</p>
+  <p class="cat-blurb">Where formatting carries meaning. The first two want it left alone — direct formatting does not survive conversion, so use the document’s own styles. The last two want it applied: a subscript or a superscript is part of what a formula says, not decoration on it.</p>
   <div class="rules">
     <div class="rule" id="rule-docs-font-family">
       <div class="sev"><span class="pill warn">warning</span></div>
@@ -697,6 +697,22 @@ footer b { color: var(--ink-soft); }
       <div class="rule-body">
         <h3>No custom font sizes</h3>
         <p>Custom font size 18pt — the document body is 11pt.</p>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Formula digits are subscripted</h3>
+        <p>The digits in "CO2" are not subscripted. Select them and use Format &rarr; Text &rarr; Subscript (&#8984;,) &mdash; typed at full height they convert as ordinary text. Known formulae only, so Chapter 2 and Type 2 diabetes are left alone, and CO&#8322; typed with the Unicode subscript character already passes.</p>
+        <code class="rid">docs-formula-subscript</code>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="sev"><span class="pill warn">warning</span></div>
+      <div class="rule-body">
+        <h3>Ionic charges are superscripted</h3>
+        <p>The charge on "Ca2+" is not superscripted. Select it and use Format &rarr; Text &rarr; Superscript (&#8984;.) &mdash; a charge at full height reads as part of the formula. Sulfate is reported by both rules at once: the 4 of SO<sub>4</sub><sup>2&minus;</sup> belongs down and the charge belongs up.</p>
+        <code class="rid">docs-formula-superscript</code>
+      </div>
+    </div>
         <code class="rid">docs-font-size</code>
       </div>
     </div>
@@ -848,7 +864,7 @@ footer b { color: var(--ink-soft); }
 
   <div class="deep">
     <div class="deep-head">
-      <p><b>Not judged:</b> placeholders you have not filled in, and parts not written yet. The sixty checks above already report those for nothing.</p>
+      <p><b>Not judged:</b> placeholders you have not filled in, and parts not written yet. The sixty-two checks above already report those for nothing.</p>
     </div>
     <div class="rules">
       <div class="rule" id="rule-ai-explanation-unsound">
