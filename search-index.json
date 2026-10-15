@@ -179,7 +179,7 @@
   "pageTitle": "Accessible Math & Science Markup",
   "anchor": "when-to-use-mathjax-vs-html",
   "heading": "When to use MathJax vs. HTML",
-  "text": ""
+  "text": "Notation Author it as Example Notes Math equation (inline) MathJax \\( \\frac{y+4}{5}=1 \\) Also for answer choices. [mathjaxinline]…[/mathjaxinline] works too. Math expression / formula MathJax \\(2x+1\\) Exponents MathJax \\(x^2\\) Multi-character exponents use {} : \\(x^{n+1}\\) . Scientific notation MathJax \\(2 \\times 10^{-5}\\) Chemical formulas / ions MathJax \\(H_2 O\\) , \\(Mg^{2+}\\) mhchem extension i"
  },
  {
   "page": "math-markup.html",
