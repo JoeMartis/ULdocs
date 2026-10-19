@@ -112,18 +112,32 @@ a:focus-visible, [tabindex]:focus-visible {
 <td>KC Max Attempts / Numerical Attempts</td>
 </tr>
 <tr>
-<td>Dropdown</td>
+<td>Dropdown — one dropdown</td>
 <td>2</td>
 <td style="text-align: center;"><strong>1</strong></td>
 <td style="text-align: center;"><strong>1</strong></td>
 <td>Dropdown Attempts</td>
 </tr>
 <tr>
-<td>Dropdown</td>
+<td>Dropdown — one dropdown</td>
 <td>3–4</td>
 <td style="text-align: center;"><strong>2</strong></td>
 <td style="text-align: center;"><strong>2</strong></td>
 <td>Dropdown Attempts</td>
+</tr>
+<tr>
+<td>Dropdown — 2–4 dropdowns, incl. matching</td>
+<td>any</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Dropdown Attempts <em>(see below)</em></td>
+</tr>
+<tr>
+<td>Dropdown — 5 or more dropdowns</td>
+<td>any</td>
+<td style="text-align: center;"><em>split into more than one problem</em></td>
+<td style="text-align: center;"><em>split into more than one problem</em></td>
+<td><em>no rule checks this</em></td>
 </tr>
 <tr>
 <td>Checkbox (multi-select)</td>
@@ -200,6 +214,14 @@ too many. A quick-reference copy of this table is in the
 <li><strong>5+ options:</strong> no attempt count is enforced — the "Too Many Answer Options" rule
   flags the question for rewrite instead (faculty guidance is to avoid 5+
   options).</li>
+<li><strong>Several dropdowns in one question</strong> are counted by the number of dropdowns,
+  not the choices in each: 2–4 dropdowns get 2 attempts whatever each one
+  offers, and a question with 5 or more should be split into more than one
+  problem. A one-to-one match set is several dropdowns and follows the same
+  counts. The QA pass's Dropdown Attempts rule is described as scaling by the
+  number of choices — 1 attempt for 2 — so on a question of several
+  two-choice dropdowns it may expect 1. The policy is 2: if it flags such a
+  question, do not apply its auto-fix, which would set it to 1.</li>
 <li><strong>Drag and drop scales with item count:</strong> more draggable items means more
   chances to place one wrong, so attempts step up in the same spirit as the
   Dropdown and Checkbox option-count scaling. A problem with 9 or more items

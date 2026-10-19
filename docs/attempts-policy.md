@@ -5,8 +5,10 @@
 | Multiple choice (single answer) | any | **2** | **2** | Multiple Choice Attempts |
 | Multiple choice — problem bank | exactly 2 | 2 † | **1** | Problem Bank 2-Option MC Attempts |
 | Numerical input | — | **5** | **3** | KC Max Attempts / Numerical Attempts |
-| Dropdown | 2 | **1** | **1** | Dropdown Attempts |
-| Dropdown | 3–4 | **2** | **2** | Dropdown Attempts |
+| Dropdown — one dropdown | 2 | **1** | **1** | Dropdown Attempts |
+| Dropdown — one dropdown | 3–4 | **2** | **2** | Dropdown Attempts |
+| Dropdown — 2–4 dropdowns, incl. matching | any | **2** | **2** | Dropdown Attempts *(see below)* |
+| Dropdown — 5 or more dropdowns | any | *split into more than one problem* | *split into more than one problem* | *no rule checks this* |
 | Checkbox (multi-select) | ≤ 4 | **3** | **3** | Checkbox Attempts |
 | MC / Checkbox / Dropdown | 5 or more | *flagged to rewrite* | *flagged to rewrite* | Too Many Answer Options |
 | Text / short-answer (string) | — | **5** | **4** | KC Max Attempts / Text Response Attempts |
@@ -34,6 +36,14 @@ too many. A quick-reference copy of this table is in the
 - **5+ options:** no attempt count is enforced — the "Too Many Answer Options" rule
   flags the question for rewrite instead (faculty guidance is to avoid 5+
   options).
+- **Several dropdowns in one question** are counted by the number of dropdowns,
+  not the choices in each: 2–4 dropdowns get 2 attempts whatever each one
+  offers, and a question with 5 or more should be split into more than one
+  problem. A one-to-one match set is several dropdowns and follows the same
+  counts. The QA pass's Dropdown Attempts rule is described as scaling by the
+  number of choices — 1 attempt for 2 — so on a question of several
+  two-choice dropdowns it may expect 1. The policy is 2: if it flags such a
+  question, do not apply its auto-fix, which would set it to 1.
 - **Drag and drop scales with item count:** more draggable items means more
   chances to place one wrong, so attempts step up in the same spirit as the
   Dropdown and Checkbox option-count scaling. A problem with 9 or more items
