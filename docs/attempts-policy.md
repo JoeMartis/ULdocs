@@ -16,6 +16,10 @@
 | Drag and drop | 9+ items | *flagged to split into multiple problems* | *flagged to split into multiple problems* | *pending parser support (see below)* |
 | Open response, ungraded (ORA) | — | **2** | — | *pending parser support (see below)* |
 
+Where a count is enforced it is exact — too few attempts is flagged just like
+too many. A quick-reference copy of this table is in the
+[Problem Templates](problem-authoring-guide.html#attempts-quick-reference) guide.
+
 ## Notes & edge cases
 
 - **KC vs Assignment divergence:** numerical (KC 5 / assignment 3), text
@@ -45,6 +49,9 @@
   above but **not yet enforced** — they await parser support keyed off a sample
   export. ORA in particular has no standard `max_attempts` attribute, so where
   its "2 attempts" lives in the export needs to be confirmed.
+- **Polls** take no attempts: a poll is not graded, and how many times a learner
+  may vote is its own **Submissions allowed** setting — 1 unless the poll says
+  otherwise.
 - **Scope:** these rules apply to problems in KC sections, assignment sections,
   **and** any practice ("Test Yourself") questions embedded in lectures, so a
   learner sees consistent behavior everywhere. If ungraded lecture practice

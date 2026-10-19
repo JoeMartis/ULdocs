@@ -172,7 +172,7 @@
   "pageTitle": "Problem Templates",
   "anchor": "attempts-quick-reference",
   "heading": "Attempts quick reference",
-  "text": "This is an exact-match check — too few attempts is flagged just like too many. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be split into more than one problem. A one-to-one match set is several drop-downs and follows the same counts. A drag-and-d"
+  "text": "Where a count is enforced it is exact — too few attempts is flagged just like too many. This table is a quick reference; the full policy, with the reasons behind each count, is the Attempts Policy. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be s"
  },
  {
   "page": "math-markup.html",

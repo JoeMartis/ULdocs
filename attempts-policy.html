@@ -183,6 +183,9 @@ a:focus-visible, [tabindex]:focus-visible {
 </tr>
 </tbody>
 </table></div>
+<p>Where a count is enforced it is exact — too few attempts is flagged just like
+too many. A quick-reference copy of this table is in the
+<a href="problem-authoring-guide.html#attempts-quick-reference">Problem Templates</a> guide.</p>
 <h2 id="notes-edge-cases">Notes &amp; edge cases</h2>
 <ul>
 <li><strong>KC vs Assignment divergence:</strong> numerical (KC 5 / assignment 3), text
@@ -212,6 +215,9 @@ a:focus-visible, [tabindex]:focus-visible {
   above but <strong>not yet enforced</strong> — they await parser support keyed off a sample
   export. ORA in particular has no standard <code>max_attempts</code> attribute, so where
   its "2 attempts" lives in the export needs to be confirmed.</li>
+<li><strong>Polls</strong> take no attempts: a poll is not graded, and how many times a learner
+  may vote is its own <strong>Submissions allowed</strong> setting — 1 unless the poll says
+  otherwise.</li>
 <li><strong>Scope:</strong> these rules apply to problems in KC sections, assignment sections,
   <strong>and</strong> any practice ("Test Yourself") questions embedded in lectures, so a
   learner sees consistent behavior everywhere. If ungraded lecture practice
@@ -229,6 +235,6 @@ a:focus-visible, [tabindex]:focus-visible {
 <li>Rule catalog: <a href="rule-reference.html">Rule Reference</a>.</li>
 </ul>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-09-25</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-19</span></footer>
 </body>
 </html>
