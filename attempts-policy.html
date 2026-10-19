@@ -218,10 +218,10 @@ too many. A quick-reference copy of this table is in the
   not the choices in each: 2–4 dropdowns get 2 attempts whatever each one
   offers, and a question with 5 or more should be split into more than one
   problem. A one-to-one match set is several dropdowns and follows the same
-  counts. The QA pass's Dropdown Attempts rule is described as scaling by the
-  number of choices — 1 attempt for 2 — so on a question of several
-  two-choice dropdowns it may expect 1. The policy is 2: if it flags such a
-  question, do not apply its auto-fix, which would set it to 1.</li>
+  counts. The QA pass's Dropdown Attempts rule does not count dropdowns: it
+  goes by the smallest one in the question, so if any dropdown has only 2
+  choices it expects 1 attempt, and its auto-fix sets 1. For a question with
+  2–4 dropdowns the policy is 2 — leave it at 2 and do not apply that fix.</li>
 <li><strong>Drag and drop scales with item count:</strong> more draggable items means more
   chances to place one wrong, so attempts step up in the same spirit as the
   Dropdown and Checkbox option-count scaling. A problem with 9 or more items
