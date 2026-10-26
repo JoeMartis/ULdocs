@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- "UL", for MIT Universal Learning, in the site's accent blue. The letters
-       are drawn strokes, not text, so the icon looks the same everywhere
-       regardless of which fonts a computer has. -->
-  <rect width="32" height="32" rx="7" fill="#1f497d"/>
-  <g fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6.5 9 V18.5 a4.5 4.5 0 0 0 9 0 V9"/>
-    <path d="M20 9 V23 H25.5"/>
+  <!-- An open book on MIT red, matching the Module Preview's icon (an eye on
+       the same red) so the two tabs read as a family but stay distinct. -->
+  <rect width="32" height="32" rx="7" fill="#a31f34"/>
+  <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 10.5 C13.2 8.6 9.6 8 6.5 8.4 V22.4 C9.6 22 13.2 22.6 16 24.5 Z"/>
+    <path d="M16 10.5 C18.8 8.6 22.4 8 25.5 8.4 V22.4 C22.4 22 18.8 22.6 16 24.5 Z"/>
   </g>
 </svg>
