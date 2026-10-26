@@ -243,17 +243,24 @@
         <!-- The manual is a link here rather than a third card. Folding it into
              the tool card would mean making that card a container with two
              links instead of an anchor, leaving one card in the grid that does
-             not behave like the other nine. -->
-        <p class="group-lede">Both open in a new tab. The Slide Description Writer has a <a href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">full manual<span class="sr-only"> (external site, opens in a new tab)</span></a>.</p>
+             not behave like the others. -->
+        <p class="group-lede">All three open in a new tab. The Module Preview has a <a href="preview-your-module.html">guide to using it</a>, and the Slide Description Writer has a <a href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">full manual<span class="sr-only"> (external site, opens in a new tab)</span></a>.</p>
         <div class="grid">
 
-          <!-- Both tool cards open in a new tab so an author does not lose the
+          <!-- The tool cards open in a new tab so an author does not lose the
                guide they were reading. rel="noopener" is explicit rather than
                relying on the implicit behaviour modern browsers apply to
                target="_blank"; "noreferrer" is deliberately NOT set, so these
                sites can still see that their traffic came from here. Opening a
                new tab unannounced is what WCAG 3.2.5 is about, so the sr-only
                note says so — the ↗ in the eyebrow is the sighted equivalent. -->
+          <a class="card tool" href="https://github.mit.edu/pages/jmartis/wordthang-converter/" target="_blank" rel="noopener">
+            <span class="num" aria-hidden="true">TOOL &#8599;</span>
+            <h3>Module Preview <span class="sr-only">(external site, opens in a new tab)</span></h3>
+            <p>Drop in your Word document and see every page as learners will, with what to fix beside it. Your document stays on your computer.</p>
+            <span class="go">Open the tool</span>
+          </a>
+
           <a class="card tool" href="https://joemartis.github.io/Explain2Me/" target="_blank" rel="noopener">
             <span class="num" aria-hidden="true">TOOL &#8599;</span>
             <h3>Explanation Checker <span class="sr-only">(external site, opens in a new tab)</span></h3>
@@ -275,7 +282,7 @@
 
     <footer>
       Bookmark this page. Guides are updated regularly — check back for the latest.
-      <span id="last-updated">Last updated: 2026-09-24</span>
+      <span id="last-updated">Last updated: 2026-10-26</span>
     </footer>
   </div>
 
