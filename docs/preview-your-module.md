@@ -1,8 +1,9 @@
 # Preview Your Module
 
-The Module Preview shows your Word document the way learners will see it in
-the course, page by page, with what to fix in the document beside each page.
-Nothing is built or imported, and you do not need Studio.
+The Module Preview shows your module the way learners will see it in the
+course, page by page, with what to fix in the document beside each page. It
+works from a Word copy of your Google Doc. Nothing is built or imported, and
+you do not need Studio.
 
 **[Open the Module Preview](https://github.mit.edu/pages/jmartis/wordthang-converter/)** (opens in a new tab)
 
