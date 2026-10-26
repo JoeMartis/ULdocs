@@ -30,6 +30,6 @@ All three open in a new tab. The Module Preview has a
 Writer has a
 [full manual](https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481).
 
-- **[Module Preview](https://github.mit.edu/pages/jmartis/wordthang-converter/)** (external site) — Drop in your Word document and see every page as learners will, with what to fix beside it. Your document stays on your computer.
+- **[Module Preview](https://github.mit.edu/pages/jmartis/wordthang-converter/)** (external site) — Download your Google Doc as a Word document, drop it in, and see every page as learners will, with what to fix beside it. Your document stays on your computer.
 - **[Explanation Checker](https://joemartis.github.io/Explain2Me/)** (external site) — Paste an explanation and get instant feedback against the quality criteria before you submit.
 - **[Slide Description Writer](https://joemartis.github.io/DescribeMe/)** (external site) — Turn slides or lecture-video frames into screen-reader-ready descriptions with MathML, ready to paste into your module.

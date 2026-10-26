@@ -1,8 +1,9 @@
 # Preview Your Module
 
-The Module Preview shows your Word document the way learners will see it in
-the course, page by page, with what to fix in the document beside each page.
-Nothing is built or imported, and you do not need Studio.
+The Module Preview shows your module the way learners will see it in the
+course, page by page, with what to fix in the document beside each page. It
+works from a Word copy of your Google Doc. Nothing is built or imported, and
+you do not need Studio.
 
 **[Open the Module Preview](https://github.mit.edu/pages/jmartis/wordthang-converter/)** (opens in a new tab)
 
@@ -10,6 +11,22 @@ Nothing is built or imported, and you do not need Studio.
 
 The preview reads your document in your own browser. It is not uploaded
 anywhere, and nobody else can see it.
+
+## Start from your Google Doc
+
+Your module is a Google Doc, and the preview reads Word documents. To preview
+it, download a copy as a Word document:
+
+1. In your Google Doc, choose **File → Download → Microsoft Word (.docx)**.
+2. Open the downloaded file in the Module Preview, as described below.
+
+Make your fixes in the Google Doc, not in the downloaded copy. The copy is
+only for previewing: changes made to it do not reach the Google Doc.
+
+The preview does not see changes you make in the Google Doc. After a round
+of changes, download it again, then select **Choose another…** (in browsers
+other than Chrome and Edge, **Choose it again…**) and pick the new download.
+**Read it again** only rereads the copy you already opened.
 
 ## Open your document
 
@@ -56,6 +73,9 @@ the items for other pages, each with a button that takes you to its page.
 The number beside a page in the outline is how many items that page has.
 
 ## Edit and save as you go
+
+This is for a document you save in Word. For a Google Doc, see
+[Start from your Google Doc](#start-from-your-google-doc).
 
 In **Chrome** or **Edge**, keep the preview open while you work. Each time
 you save in Word, the preview reads your document again and shows the

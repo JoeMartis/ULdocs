@@ -1845,7 +1845,7 @@
   "pageTitle": "Preview Your Module",
   "anchor": "preview-your-module",
   "heading": "Preview Your Module",
-  "text": "The Module Preview shows your Word document the way learners will see it in the course, page by page, with what to fix in the document beside each page. Nothing is built or imported, and you do not need Studio. Open the Module Preview (opens in a new tab)"
+  "text": "The Module Preview shows your module the way learners will see it in the course, page by page, with what to fix in the document beside each page. It works from a Word copy of your Google Doc. Nothing is built or imported, and you do not need Studio. Open the Module Preview (opens in a new tab)"
  },
  {
   "page": "preview-your-module.html",
@@ -1853,6 +1853,13 @@
   "anchor": "your-document-stays-on-your-computer",
   "heading": "Your document stays on your computer",
   "text": "The preview reads your document in your own browser. It is not uploaded anywhere, and nobody else can see it."
+ },
+ {
+  "page": "preview-your-module.html",
+  "pageTitle": "Preview Your Module",
+  "anchor": "start-from-your-google-doc",
+  "heading": "Start from your Google Doc",
+  "text": "Your module is a Google Doc, and the preview reads Word documents. To preview it, download a copy as a Word document: In your Google Doc, choose File → Download → Microsoft Word (.docx). Open the downloaded file in the Module Preview, as described below. Make your fixes in the Google Doc, not in the downloaded copy. The copy is only for previewing: changes made to it do not reach the Google Doc. The preview does not see changes you make in the Google Doc. After a round of changes, download it again, then select Choose another… (in browsers other than Chrome and Edge, Choose it again…) and pick the new download. Read it again only rereads the copy you already opened."
  },
  {
   "page": "preview-your-module.html",
@@ -1880,6 +1887,6 @@
   "pageTitle": "Preview Your Module",
   "anchor": "edit-and-save-as-you-go",
   "heading": "Edit and save as you go",
-  "text": "In Chrome or Edge, keep the preview open while you work. Each time you save in Word, the preview reads your document again and shows the change, usually within a few seconds, on the page you were looking at. The bar at the top says when the document was last read. If Word is still saving when the preview reads the document, the preview keeps showing the version before your save and tries again. If it still cannot read the save, it says so above the page. Read it again reads the document straight away. Choose another… opens a different document. The next time you open the preview, Preview your document again opens the same document. Chrome or Edge may ask you to allow the preview to read it. In other browsers, the preview does not see your saves. After you save in Word, select Choose it again… and pick the document again."
+  "text": "This is for a document you save in Word. For a Google Doc, see Start from your Google Doc. In Chrome or Edge, keep the preview open while you work. Each time you save in Word, the preview reads your document again and shows the change, usually within a few seconds, on the page you were looking at. The bar at the top says when the document was last read. If Word is still saving when the preview reads the document, the preview keeps showing the version before your save and tries again. If it still cannot read the save, it says so above the page. Read it again reads the document straight away. Choose another… opens a different document. The next time you open the preview, Preview your document again opens the same document. Chrome or Edge may ask you to allow the preview to read it. In other browsers, the preview does not see your saves. After you save in Word, select Choose it again… and pick the document again."
  }
 ]
