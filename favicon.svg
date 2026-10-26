@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- "UL", for MIT Universal Learning, in the site's accent blue. The letters
+       are drawn strokes, not text, so the icon looks the same everywhere
+       regardless of which fonts a computer has. -->
+  <rect width="32" height="32" rx="7" fill="#1f497d"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.5 9 V18.5 a4.5 4.5 0 0 0 9 0 V9"/>
+    <path d="M20 9 V23 H25.5"/>
+  </g>
+</svg>
