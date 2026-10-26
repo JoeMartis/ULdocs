@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview Your Module</title>
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+/* Every interactive element needs a visible keyboard focus indicator (WCAG
+   2.4.7); the default outline is easy to lose against these backgrounds. */
+a:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; border-radius:3px; }
+/* Bypass the nav to reach the content (WCAG 2.4.1). Visible only on focus. */
+.skip-link { position:absolute; left:-9999px; top:0; background:var(--bg); color:var(--accent-2);
+  padding:.6rem 1rem; border:1px solid var(--border); border-radius:0 0 6px 0; z-index:10;
+  font-weight:600; }
+.skip-link:focus { left:0; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+/* Scrollable regions are focusable so keyboard users can scroll them (WCAG
+   2.1.1); tabindex="0" + role/label are added to <pre> and tables at build. */
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body .table-scroll { overflow-x:auto; margin:1rem 0; }
+.markdown-body .table-scroll:focus-visible, .markdown-body pre:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+/* `display:block` on a <table> strips its semantics from assistive tech —
+   the scrolling now lives on the .table-scroll wrapper instead. */
+.markdown-body table { border-collapse:collapse; margin:0; width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body" id="main">
+<h1 id="preview-your-module">Preview Your Module</h1>
+<p>The Module Preview shows your Word document the way learners will see it in
+the course, page by page, with what to fix in the document beside each page.
+Nothing is built or imported, and you do not need Studio.</p>
+<p><strong><a href="https://github.mit.edu/pages/jmartis/wordthang-converter/" target="_blank" rel="noopener">Open the Module Preview</a></strong> (opens in a new tab)</p>
+<h2 id="your-document-stays-on-your-computer">Your document stays on your computer</h2>
+<p>The preview reads your document in your own browser. It is not uploaded
+anywhere, and nobody else can see it.</p>
+<h2 id="open-your-document">Open your document</h2>
+<ol>
+<li>Open the Module Preview. The first visit loads about 12 MB, so &ldquo;Getting
+the preview ready&hellip;&rdquo; shows for a few seconds. Later visits are faster.</li>
+<li>Select <strong>Choose your document&hellip;</strong> and pick your module&rsquo;s Word document, or
+drag the document onto the page.</li>
+<li>The first page of your module appears. A large module takes a few seconds
+to read.</li>
+</ol>
+<p>The preview reads Word documents (.docx). If your document is a .doc, is
+saved as a Strict Open XML Document, or is protected by a password, open it
+in Word and save it as a <strong>Word Document (.docx)</strong> with no password.</p>
+<h2 id="see-it-as-learners-do">See it as learners do</h2>
+<p>Switch between two looks with <strong>Simple</strong> and <strong>edX</strong> at the top of the page.</p>
+<ul>
+<li><strong>Simple</strong> shows the course outline on the left, the page in the middle,
+and <strong>To fix in the document</strong> on the right.</li>
+<li><strong>edX</strong> is laid out like the course&rsquo;s own learning page: the breadcrumb at
+the top (select a section or subsection name to jump to another), the row
+of pages in the subsection, and <strong>Previous</strong> and <strong>Next</strong>. Select
+<strong>Course</strong> in the breadcrumb to see the course outline, and <strong>Resume</strong> to
+return to the page you were on.</li>
+</ul>
+<p>Move between pages with <strong>Previous</strong> and <strong>Next</strong>, or select a page in the
+outline. The preview remembers which page you were on, and returns you there
+the next time you open the same document.</p>
+<p>Problems show their questions, choices, Submit button, and attempts as
+learners see them, but you cannot answer them in the preview. Select
+<strong>Preview the answer</strong> under a problem to see the answer and explanation
+that learners see once they finish it. Videos show where they will play,
+and say when a video still needs its ID set in Studio.</p>
+<h2 id="fix-what-it-finds">Fix what it finds</h2>
+<p><strong>To fix in the document</strong> lists what to change in your Word document for
+the page shown, such as a picture with no alt text or a problem missing its
+explanation. Each item says what is wrong, and <strong>How to fix it</strong> opens the
+guide that covers it. Under the list, <strong>elsewhere in the module</strong> collects
+the items for other pages, each with a button that takes you to its page.
+The number beside a page in the outline is how many items that page has.</p>
+<h2 id="edit-and-save-as-you-go">Edit and save as you go</h2>
+<p>In <strong>Chrome</strong> or <strong>Edge</strong>, keep the preview open while you work. Each time
+you save in Word, the preview reads your document again and shows the
+change, usually within a few seconds, on the page you were looking at. The
+bar at the top says when the document was last read.</p>
+<ul>
+<li>If Word is still saving when the preview reads the document, the preview
+keeps showing the version before your save and tries again. If it still
+cannot read the save, it says so above the page.</li>
+<li><strong>Read it again</strong> reads the document straight away.</li>
+<li><strong>Choose another&hellip;</strong> opens a different document.</li>
+<li>The next time you open the preview, <strong>Preview <em>your document</em> again</strong>
+opens the same document. Chrome or Edge may ask you to allow the preview to
+read it.</li>
+</ul>
+<p>In other browsers, the preview does not see your saves. After you save in
+Word, select <strong>Choose it again&hellip;</strong> and pick the document again.</p>
+  </main>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-26</span></footer>
+</body>
+</html>
