@@ -112,18 +112,32 @@ a:focus-visible, [tabindex]:focus-visible {
 <td>KC Max Attempts / Numerical Attempts</td>
 </tr>
 <tr>
-<td>Dropdown</td>
+<td>Dropdown — one dropdown</td>
 <td>2</td>
 <td style="text-align: center;"><strong>1</strong></td>
 <td style="text-align: center;"><strong>1</strong></td>
 <td>Dropdown Attempts</td>
 </tr>
 <tr>
-<td>Dropdown</td>
+<td>Dropdown — one dropdown</td>
 <td>3–4</td>
 <td style="text-align: center;"><strong>2</strong></td>
 <td style="text-align: center;"><strong>2</strong></td>
 <td>Dropdown Attempts</td>
+</tr>
+<tr>
+<td>Dropdown — 2–4 dropdowns, incl. matching</td>
+<td>any</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td>Dropdown Attempts <em>(see below)</em></td>
+</tr>
+<tr>
+<td>Dropdown — 5 or more dropdowns</td>
+<td>any</td>
+<td style="text-align: center;"><em>split into more than one problem</em></td>
+<td style="text-align: center;"><em>split into more than one problem</em></td>
+<td><em>no rule checks this</em></td>
 </tr>
 <tr>
 <td>Checkbox (multi-select)</td>
@@ -183,6 +197,9 @@ a:focus-visible, [tabindex]:focus-visible {
 </tr>
 </tbody>
 </table></div>
+<p>Where a count is enforced it is exact — too few attempts is flagged just like
+too many. A quick-reference copy of this table is in the
+<a href="problem-authoring-guide.html#attempts-quick-reference">Problem Templates</a> guide.</p>
 <h2 id="notes-edge-cases">Notes &amp; edge cases</h2>
 <ul>
 <li><strong>KC vs Assignment divergence:</strong> numerical (KC 5 / assignment 3), text
@@ -197,6 +214,14 @@ a:focus-visible, [tabindex]:focus-visible {
 <li><strong>5+ options:</strong> no attempt count is enforced — the "Too Many Answer Options" rule
   flags the question for rewrite instead (faculty guidance is to avoid 5+
   options).</li>
+<li><strong>Several dropdowns in one question</strong> are counted by the number of dropdowns,
+  not the choices in each: 2–4 dropdowns get 2 attempts whatever each one
+  offers, and a question with 5 or more should be split into more than one
+  problem. A one-to-one match set is several dropdowns and follows the same
+  counts. The QA pass's Dropdown Attempts rule does not count dropdowns: it
+  goes by the smallest one in the question, so if any dropdown has only 2
+  choices it expects 1 attempt, and its auto-fix sets 1. For a question with
+  2–4 dropdowns the policy is 2 — leave it at 2 and do not apply that fix.</li>
 <li><strong>Drag and drop scales with item count:</strong> more draggable items means more
   chances to place one wrong, so attempts step up in the same spirit as the
   Dropdown and Checkbox option-count scaling. A problem with 9 or more items
@@ -212,6 +237,9 @@ a:focus-visible, [tabindex]:focus-visible {
   above but <strong>not yet enforced</strong> — they await parser support keyed off a sample
   export. ORA in particular has no standard <code>max_attempts</code> attribute, so where
   its "2 attempts" lives in the export needs to be confirmed.</li>
+<li><strong>Polls</strong> take no attempts: a poll is not graded, and how many times a learner
+  may vote is its own <strong>Submissions allowed</strong> setting — 1 unless the poll says
+  otherwise.</li>
 <li><strong>Scope:</strong> these rules apply to problems in KC sections, assignment sections,
   <strong>and</strong> any practice ("Test Yourself") questions embedded in lectures, so a
   learner sees consistent behavior everywhere. If ungraded lecture practice
@@ -229,6 +257,6 @@ a:focus-visible, [tabindex]:focus-visible {
 <li>Rule catalog: <a href="rule-reference.html">Rule Reference</a>.</li>
 </ul>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-07-31</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-19</span></footer>
 </body>
 </html>

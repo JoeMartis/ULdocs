@@ -172,14 +172,14 @@
   "pageTitle": "Problem Templates",
   "anchor": "attempts-quick-reference",
   "heading": "Attempts quick reference",
-  "text": "This is an exact-match check — too few attempts is flagged just like too many. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be split into more than one problem. A one-to-one match set is several drop-downs and follows the same counts. A drag-and-d"
+  "text": "Where a count is enforced it is exact — too few attempts is flagged just like too many. This table is a quick reference; the full policy, with the reasons behind each count, is the Attempts Policy. A dropdown problem is counted like a checkbox, by its number of dropdowns : one dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a problem with 5 or more dropdowns should be s"
  },
  {
   "page": "math-markup.html",
   "pageTitle": "Accessible Math & Science Markup",
   "anchor": "when-to-use-mathjax-vs-html",
   "heading": "When to use MathJax vs. HTML",
-  "text": ""
+  "text": "Notation Author it as Example Notes Math equation (inline) MathJax \\( \\frac{y+4}{5}=1 \\) Also for answer choices. [mathjaxinline]…[/mathjaxinline] works too. Math expression / formula MathJax \\(2x+1\\) Exponents MathJax \\(x^2\\) Multi-character exponents use {} : \\(x^{n+1}\\) . Scientific notation MathJax \\(2 \\times 10^{-5}\\) Chemical formulas / ions MathJax \\(H_2 O\\) , \\(Mg^{2+}\\) mhchem extension i"
  },
  {
   "page": "math-markup.html",
@@ -1162,111 +1162,6 @@
   "text": "These rules propose replacement text for the author to apply. The \"Explanation Quality\" suggestions are AI-generated; the rest are template/text replacements. Explanation Present ( assignments-explanation-present ) Assignment Explanation Quality ( assignments-explanation-quality ) Explanation Present ( knowledge-checks-explanation-present ) Knowledge Check Explanation Quality ( knowledge-checks-ex"
  },
  {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "start",
-  "heading": "Quick start",
-  "text": "Five minutes from opening your copy to your first check. Nothing here needs setting up — the checker travels with the document. Open your copy of the template You have your own copy. Anything you type stays in it, and nothing you do here touches anyone else's module. Open the checker In the menu bar: Fixatron500 → Check document . A sidebar opens on the right. The first time, Google asks you to au"
- },
- {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "structure",
-  "heading": "How the document is built",
-  "text": "Heading level is not styling here. It is the structure of the course, and the converter reads it literally. Level Becomes In the template Heading 1 a section Introduction · Lectures · Assignments · Conclusion Heading 2 a subsection a lecture · an assignment · Module Overview Heading 3 a page a video · a knowledge check · a problem · Summary Heading 4 a heading inside that page Overview · Learning O"
- },
- {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "problems",
-  "heading": "The eight problem types",
-  "text": "Every problem but a poll opens with a Problem Type: line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the ATP in a cell? Select the best answe"
- },
- {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "sidebar",
-  "heading": "Reading the sidebar",
-  "text": "Sixty checks run locally, every few seconds while the sidebar is open. They cost nothing and never leave the document. Check now Re-runs everything immediately. It also runs on its own while the sidebar is open, so you rarely need this. Highlight Paints the flagged text yellow in the document, so you can find it without clicking each finding. Clear highlights Removes only the highlighting this too"
- },
- {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "deep",
-  "heading": "The deep check",
-  "text": "A second tier that reads your explanations and judges whether they teach. It calls a model, so it costs money and runs only when you press the button. Setting up your key Press Deep check The first time, it asks for an API key. Paste yours and press Save key . The key is yours alone It is stored against your Google account and this script — not in the document, not in the code, and not visible to "
- },
- {
-  "page": "module-template-headings.html",
-  "pageTitle": "Authoring a UL Module",
-  "anchor": "mistakes",
-  "heading": "Common mistakes",
-  "text": "The ones that come up most, and what they look like when they do. A problem at Heading 4 It stops being its own page and becomes a heading inside the page above it. Nothing looks wrong in the document. Use Heading 3 for anything that should be a page. Keeping the guillemets Writing your question inside << >> leaves it marked as filler, so it is reported as unwritten and the rules that judge it stay"
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "start",
-  "heading": "Quick start",
-  "text": "Five minutes from opening your copy to your first check. Nothing here needs setting up — the checker travels with the document. Open your copy of the template You have your own copy. Anything you type stays in it, and nothing you do here touches anyone else's module. Open the checker In the menu bar: Fixatron500 → Check document . A sidebar opens on the right. The first time, Google asks you to au"
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "rows",
-  "heading": "One row, one page",
-  "text": "The whole module is one table. The rows are not layout — they are the structure of the course, and the converter reads them literally. There are only two kinds of row, and the difference is whether anything is written outside the first cell. Lectures Banner row → a section <<Lecture 1 Name>> Banner row → a subsection Overview and Learning Objectives Names the page Overview <<A paragraph saying wha"
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "components",
-  "heading": "A page in several components",
-  "text": "A page can hold more than one component — the instructions for a reading in one text component, and the article itself in the next. Give the page one row for each component, and merge its name cell down beside them. Required Reading Names the page, merged down Read this article from the MIT Climate Portal before you watch the next video. Component 1 [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Component 2 Write the page as usual — its name in the left cell, its first component in the right cell. Add a row for each further component — insert a row below, leave its left cell empty, and write the component in its right-hand cell. Merge the name cell down — select the name cell and the empty cells under it, then merge them. In Google Docs, right-click and choose Merge cells ; in Word, choose Table Layout › Merge Cells . Each right-hand cell becomes its own component, in the order of the rows. Only a new row starts a new component: headings, bullets, and paragraphs in one cell stay one component. A row can hold anything a right-hand cell can — text, a picture, a video, or a problem. A row left empty becomes a component that tells learners its content is still in development, and the conversion report lists the page as still to write. Merge the name cell, not the content cells. Start the merge at the row that holds the name. A merged cell with nothing in it names no page, so its rows are read as more of the page above, and the conversion report says so. A right-hand cell merged down across rows is reported as a table problem to fix."
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "platform-notes",
-  "heading": "Text the platform team adds",
-  "text": "When the platform team puts text in for you — an article from the MIT Climate Portal, for example — do not paste it into the document. Give it a row of its own on the page, and write a note there for the platform team, in square brackets: [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Write the whole note in square brackets , alone in its cell. Include the words “platform team”. That is how the converter tells the note apart from your own text. Name the article and give its link , so the platform team pastes the right one. Use square brackets, not << >> . The checker reports << >> as template text still to replace. Learners never see the note. The component shows “Content for this page is still in development” until the platform team pastes the text in Studio, and the conversion report lists the note under Finish in Studio , with the page it is on. If learners should be able to open the original article, link it in the instructions row as well."
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "template-key",
-  "heading": "The template key",
-  "text": "If your copy of the template opens with a key — a small table whose rows are named Section Title , Subsection Title , and Unit Title — leave it where it is. The converter leaves the key out of the course, with its Template Key heading. Write the module's name on the line just above the module's own table; a module that still has the template's name is reported."
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "problems",
-  "heading": "The eight problem types",
-  "text": "Every problem but a poll opens with a Problem Type: line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the A"
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "sidebar",
-  "heading": "Reading the sidebar",
-  "text": "Sixty checks run locally, every few seconds while the sidebar is open. They cost nothing and never leave the document. Check now Re-runs everything immediately. It also runs on its own while the sidebar is open, so you rarely need this. Highlight Paints the flagged text yellow in the document, so you can find it without clicking each finding. Clear highlights Removes only the highlighting this too"
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "deep",
-  "heading": "The deep check",
-  "text": "A second tier that reads your explanations and judges whether they teach. It calls a model, so it costs money and runs only when you press the button. Setting up your key Press Deep check The first time, it asks for an API key. Paste yours and press Save key . The key is yours alone It is stored against your Google account and this script — not in the document, not in the code, and not visible to "
- },
- {
-  "page": "module-template-tables.html",
-  "pageTitle": "Authoring a UL Module in Tables",
-  "anchor": "mistakes",
-  "heading": "Common mistakes",
-  "text": "The ones that come up most, and what they look like when they do. Typing into a banner row A stray character in the right-hand half of a merged row stops it being a banner. The section it announces vanishes from the structure, and everything under it moves up a level. Content in the left cell The left cell names the page. Put a paragraph there and it becomes part of the name. Everything except the"
- },
- {
   "page": "checker-rules.html",
   "pageTitle": "What the Checker Checks",
   "anchor": "questions",
@@ -1348,7 +1243,7 @@
   "pageTitle": "What the Checker Checks",
   "anchor": "deep-check",
   "heading": "The deep check",
-  "text": "8 1 error These read what you wrote and judge whether it teaches — which no amount of pattern-matching can do. They run only when you press the button, on the part of the module you choose, against your own API key. Not judged: placeholders you have not filled in, and parts not written yet. The sixty checks above already report those for nothing."
+  "text": "8 1 error These read what you wrote and judge whether it teaches — which no amount of pattern-matching can do. They run only when you press the button, on the part of the module you choose, against your own API key. Not judged: placeholders you have not filled in, and parts not written yet. The sixty-two checks above already report those for nothing."
  },
  {
   "page": "checker-rules.html",
@@ -1689,6 +1584,20 @@
  {
   "page": "checker-rules.html",
   "pageTitle": "What the Checker Checks",
+  "anchor": "rule-docs-formula-subscript",
+  "heading": "Formula digits are subscripted",
+  "text": "docs-formula-subscript · warning — The digits in \"CO2\" are not subscripted. Select them and use Format → Text → Subscript (⌘,) — typed at full height they convert as ordinary text. Known formulae only, so Chapter 2 and Type 2 diabetes are left alone, and CO₂ typed with the Unicode subscript character already passes."
+ },
+ {
+  "page": "checker-rules.html",
+  "pageTitle": "What the Checker Checks",
+  "anchor": "rule-docs-formula-superscript",
+  "heading": "Ionic charges are superscripted",
+  "text": "docs-formula-superscript · warning — The charge on \"Ca2+\" is not superscripted. Select it and use Format → Text → Superscript (⌘.) — a charge at full height reads as part of the formula. Sulfate is reported by both rules at once: the 4 of SO 4 2− belongs down and the charge belongs up."
+ },
+ {
+  "page": "checker-rules.html",
+  "pageTitle": "What the Checker Checks",
   "anchor": "rule-writing-avoid-please",
   "heading": "Avoid \"please\"",
   "text": "writing-avoid-please · warning — Avoid \"please\" in instructional text."
@@ -1825,6 +1734,111 @@
   "anchor": "rule-ai-acronym-consistency",
   "heading": "Acronyms expand consistently",
   "text": "ai-acronym-consistency · warning — The same acronym is spelled out differently in different places."
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "start",
+  "heading": "Quick start",
+  "text": "Five minutes from opening your copy to your first check. Nothing here needs setting up — the checker travels with the document. Open your copy of the template You have your own copy. Anything you type stays in it, and nothing you do here touches anyone else's module. Open the checker In the menu bar: Fixatron500 → Check document . A sidebar opens on the right. The first time, Google asks you to au"
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "structure",
+  "heading": "How the document is built",
+  "text": "Heading level is not styling here. It is the structure of the course, and the converter reads it literally. Level Becomes In the template Heading 1 a section Introduction · Lectures · Assignments · Conclusion Heading 2 a subsection a lecture · an assignment · Module Overview Heading 3 a page a video · a knowledge check · a problem · Summary Heading 4 a heading inside that page Overview · Learning O"
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "problems",
+  "heading": "The eight problem types",
+  "text": "Every problem but a poll opens with a Problem Type: line. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the ATP in a cell? Select the best answe"
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "sidebar",
+  "heading": "Reading the sidebar",
+  "text": "Sixty checks run locally, every few seconds while the sidebar is open. They cost nothing and never leave the document. Check now Re-runs everything immediately. It also runs on its own while the sidebar is open, so you rarely need this. Highlight Paints the flagged text yellow in the document, so you can find it without clicking each finding. Clear highlights Removes only the highlighting this too"
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "deep",
+  "heading": "The deep check",
+  "text": "A second tier that reads your explanations and judges whether they teach. It calls a model, so it costs money and runs only when you press the button. Setting up your key Press Deep check The first time, it asks for an API key. Paste yours and press Save key . The key is yours alone It is stored against your Google account and this script — not in the document, not in the code, and not visible to "
+ },
+ {
+  "page": "module-template-headings.html",
+  "pageTitle": "Authoring a UL Module",
+  "anchor": "mistakes",
+  "heading": "Common mistakes",
+  "text": "The ones that come up most, and what they look like when they do. A problem at Heading 4 It stops being its own page and becomes a heading inside the page above it. Nothing looks wrong in the document. Use Heading 3 for anything that should be a page. Keeping the guillemets Writing your question inside << >> leaves it marked as filler, so it is reported as unwritten and the rules that judge it stay"
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "start",
+  "heading": "Quick start",
+  "text": "Five minutes from opening your copy to your first check. Nothing here needs setting up — the checker travels with the document. Open your copy of the template You have your own copy. Anything you type stays in it, and nothing you do here touches anyone else's module. Open the checker In the menu bar: Fixatron500 → Check document . A sidebar opens on the right. The first time, Google asks you to au"
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "rows",
+  "heading": "One row, one page",
+  "text": "The whole module is one table. The rows are not layout — they are the structure of the course, and the converter reads them literally. There are only two kinds of row, and the difference is whether anything is written outside the first cell. Lectures Banner row → a section <<Lecture 1 Name>> Banner row → a subsection Overview and Learning Objectives Names the page Overview <<A paragraph saying wha"
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "components",
+  "heading": "A page in several components",
+  "text": "A page can hold more than one component — the instructions for a reading in one text component, and the article itself in the next. Give the page one row for each component, and merge its name cell down beside them. Required Reading Names the page, merged down Read this article from the MIT Climate Portal before you watch the next video. Component 1 [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Component 2 Write the page as usual — its name in the left cell, its first component in the right cell. Add a row for each further component — insert a row below, leave its left cell empty, and write the component in its right-hand cell. Merge the name cell down — select the name cell and the empty cells under it, then merge them. In Google Docs, right-click and choose Merge cells ; in Word, choose Table Layout › Merge Cells . Each right-hand cell becomes its own component, in the order of the rows. Only a new row starts a new component: headings, bullets, and paragraphs in one cell stay one component. A row can hold anything a right-hand cell can — text, a picture, a video, or a problem. A row left empty becomes a component that tells learners its content is still in development, and the conversion report lists the page as still to write. Merge the name cell, not the content cells. Start the merge at the row that holds the name. A merged cell with nothing in it names no page, so its rows are read as more of the page above, and the conversion report says so. A right-hand cell merged down across rows is reported as a table problem to fix."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "platform-notes",
+  "heading": "Text the platform team adds",
+  "text": "When the platform team puts text in for you — an article from the MIT Climate Portal, for example — do not paste it into the document. Give it a row of its own on the page, and write a note there for the platform team, in square brackets: [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] Write the whole note in square brackets , alone in its cell. Include the words “platform team”. That is how the converter tells the note apart from your own text. Name the article and give its link , so the platform team pastes the right one. Use square brackets, not << >> . The checker reports << >> as template text still to replace. Learners never see the note. The component shows “Content for this page is still in development” until the platform team pastes the text in Studio, and the conversion report lists the note under Finish in Studio , with the page it is on. If learners should be able to open the original article, link it in the instructions row as well."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "template-key",
+  "heading": "The template key",
+  "text": "If your copy of the template opens with a key — a small table whose rows are named Section Title , Subsection Title , and Unit Title — leave it where it is. The converter leaves the key out of the course, with its Template Key heading. Write the module's name on the line just above the module's own table; a module that still has the template's name is reported."
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "problems",
+  "heading": "The eight problem types",
+  "text": "Every problem but a poll opens with a Problem Type: line, in the right-hand cell of its row. It is the line that stops the checker guessing — without it, a multiple choice that forgot its (X) and an open-ended question look identical. Check A Multiple choice One correct answer, chosen from a list. Round boxes, one tick. Problem Type: multiple choice Question: Which organelle produces most of the A"
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "sidebar",
+  "heading": "Reading the sidebar",
+  "text": "Sixty checks run locally, every few seconds while the sidebar is open. They cost nothing and never leave the document. Check now Re-runs everything immediately. It also runs on its own while the sidebar is open, so you rarely need this. Highlight Paints the flagged text yellow in the document, so you can find it without clicking each finding. Clear highlights Removes only the highlighting this too"
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "deep",
+  "heading": "The deep check",
+  "text": "A second tier that reads your explanations and judges whether they teach. It calls a model, so it costs money and runs only when you press the button. Setting up your key Press Deep check The first time, it asks for an API key. Paste yours and press Save key . The key is yours alone It is stored against your Google account and this script — not in the document, not in the code, and not visible to "
+ },
+ {
+  "page": "module-template-tables.html",
+  "pageTitle": "Authoring a UL Module in Tables",
+  "anchor": "mistakes",
+  "heading": "Common mistakes",
+  "text": "The ones that come up most, and what they look like when they do. Typing into a banner row A stray character in the right-hand half of a merged row stops it being a banner. The section it announces vanishes from the structure, and everything under it moves up a level. Content in the left cell The left cell names the page. Put a paragraph there and it becomes part of the name. Everything except the"
  },
  {
   "page": "preview-your-module.html",

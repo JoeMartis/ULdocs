@@ -484,7 +484,9 @@ Submissions allowed:  1
 | Drag and drop | 9+ items | *split* | *split* |
 | Open response, ungraded (ORA) | — | 2 | — |
 
-This is an exact-match check — too few attempts is flagged just like too many.
+Where a count is enforced it is exact — too few attempts is flagged just like
+too many. This table is a quick reference; the full policy, with the reasons
+behind each count, is the [Attempts Policy](attempts-policy.html).
 
 A dropdown problem is counted like a checkbox, by its **number of dropdowns**: one
 dropdown follows the choice-count rule above; 2–4 dropdowns get 2 attempts; a

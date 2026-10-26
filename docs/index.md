@@ -20,7 +20,7 @@ Two different tools, at two different stages. Fixatron500 reads your document
 while you write it; the QA pass runs later, on content already in Studio. They
 have separate rule catalogues.
 
-- **[What the Checker Checks](checker-rules.html)** — All 60 checks the sidebar runs in the document as you write, plus the 8 in the deep check.
+- **[What the Checker Checks](checker-rules.html)** — All 62 checks the sidebar runs in the document as you write, plus the 8 in the deep check.
 - **[Rule Reference](rule-reference.html)** — The full list of automated checks that run on content in Studio, with what each one looks for.
 
 ## Tools
