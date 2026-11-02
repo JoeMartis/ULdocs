@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatting &amp; Markers</title>
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d; --accent-2:#2f6db3;
+  --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe; --accent-2:#8ab4f8;
+          --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+}
+:root[data-theme="light"] { --bg:#ffffff; --ink:#1f2328; --muted:#59636e; --accent:#1f497d;
+  --accent-2:#2f6db3; --border:#d1d9e0; --code-bg:#f6f8fa; --quote:#59636e; --thead:#eef2f6; }
+:root[data-theme="dark"] { --bg:#0d1117; --ink:#e6edf3; --muted:#9198a1; --accent:#6ea8fe;
+  --accent-2:#8ab4f8; --border:#30363d; --code-bg:#161b22; --quote:#9198a1; --thead:#161b22; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+/* Every interactive element needs a visible keyboard focus indicator (WCAG
+   2.4.7); the default outline is easy to lose against these backgrounds. */
+a:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; border-radius:3px; }
+/* Bypass the nav to reach the content (WCAG 2.4.1). Visible only on focus. */
+.skip-link { position:absolute; left:-9999px; top:0; background:var(--bg); color:var(--accent-2);
+  padding:.6rem 1rem; border:1px solid var(--border); border-radius:0 0 6px 0; z-index:10;
+  font-weight:600; }
+.skip-link:focus { left:0; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
+.topbar { max-width:880px; margin:0 auto; padding:1.25rem 1.25rem 0; }
+.topbar a { color:var(--accent-2); text-decoration:none; font-weight:600; font-size:.92rem; }
+.topbar a:hover { text-decoration:underline; }
+.markdown-body { max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+.markdown-body h1 { font-size:2rem; line-height:1.2; margin:1rem 0 1rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h2 { font-size:1.4rem; margin:2rem 0 .8rem; padding-bottom:.3rem;
+  border-bottom:1px solid var(--border); }
+.markdown-body h3 { font-size:1.15rem; margin:1.6rem 0 .6rem; }
+.markdown-body h4 { font-size:1rem; margin:1.3rem 0 .5rem; }
+.markdown-body p, .markdown-body li { font-size:1rem; }
+.markdown-body a { color:var(--accent-2); text-decoration:none; }
+.markdown-body a:hover { text-decoration:underline; }
+.markdown-body ul, .markdown-body ol { padding-left:1.6rem; }
+.markdown-body li { margin:.2rem 0; }
+.markdown-body code { background:var(--code-bg); border-radius:6px; padding:.15em .4em;
+  font-size:.88em; font-family:ui-monospace,SFMono-Regular,"SF Mono",Consolas,monospace; }
+/* Scrollable regions are focusable so keyboard users can scroll them (WCAG
+   2.1.1); tabindex="0" + role/label are added to <pre> and tables at build. */
+.markdown-body pre { background:var(--code-bg); border:1px solid var(--border); border-radius:8px;
+  padding:1rem; overflow-x:auto; }
+.markdown-body .table-scroll { overflow-x:auto; margin:1rem 0; }
+.markdown-body .table-scroll:focus-visible, .markdown-body pre:focus-visible {
+  outline:3px solid var(--accent-2); outline-offset:2px; }
+.markdown-body pre code { background:none; padding:0; font-size:.85rem; line-height:1.5;
+  white-space:pre; }
+.markdown-body blockquote { margin:1rem 0; padding:.3rem 1rem; color:var(--quote);
+  border-left:.25rem solid var(--border); }
+.markdown-body hr { border:none; border-top:1px solid var(--border); margin:2rem 0; }
+/* `display:block` on a <table> strips its semantics from assistive tech —
+   the scrolling now lives on the .table-scroll wrapper instead. */
+.markdown-body table { border-collapse:collapse; margin:0; width:max-content; max-width:100%; }
+.markdown-body th, .markdown-body td { border:1px solid var(--border); padding:.5rem .8rem;
+  text-align:left; }
+.markdown-body thead th { background:var(--thead); }
+.markdown-body tbody tr:nth-child(even) { background:var(--code-bg); }
+.pagefoot { max-width:880px; margin:0 auto; padding:1.25rem; color:var(--muted); font-size:.85rem;
+  border-top:1px solid var(--border); }
+.pagefoot a { color:var(--accent-2); }
+.markdown-body td { vertical-align:top; }
+/* Marks a note that holds for one template only. */
+.tpl { display:inline-block; margin-right:.35rem; padding:.05rem .5rem; border:1px solid var(--accent-2);
+  border-radius:999px; color:var(--accent); background:var(--thead); font-size:.75rem; font-weight:700;
+  letter-spacing:.02em; line-height:1.5; vertical-align:.08em; white-space:nowrap; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="topbar" aria-label="Breadcrumb"><a href="index.html">&larr; All guides</a></nav>
+  <main class="markdown-body" id="main">
+<h1 id="formatting-markers">Formatting &amp; Markers</h1>
+<p>How to format what you write in the module template so it reaches learners the way you meant it, and what each bracketed marker tells the converter to build. It applies to both templates, headings and tables. The few notes that hold for one template only are labeled <span class="tpl">Tables template</span> or <span class="tpl">Headings template</span>.</p>
+<blockquote><p>The template guides: <a href="module-template-headings.html">Headings &amp; paragraphs</a> · <a href="module-template-tables.html">Tables</a> · Problem lines in detail: <a href="problem-authoring-guide.html">Problem Templates</a></p></blockquote>
+
+<p>On this page</p>
+<ul>
+<li><a href="#reads">How the converter reads your document</a></li>
+<li><a href="#text">Text: bold, italics, lists, links</a></li>
+<li><a href="#pictures">Pictures</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#math">Math and science notation</a></li>
+<li><a href="#markers">The markers in square brackets</a></li>
+<li><a href="#placeholders">Placeholders and square brackets of your own</a></li>
+<li><a href="#labels">The labels</a></li>
+<li><a href="#problems">What happens to a problem's lines</a></li>
+<li><a href="#checklist">Before you hand it off</a></li>
+</ul>
+<hr>
+
+<h2 id="reads">How the converter reads your document</h2>
+<p>The converter reads your document's structure, not how it looks. A line is a heading because it has a heading style, a list because it uses the list buttons, a problem because it has a <code>Problem Type:</code> line. Something that only <em>looks</em> right, like a line made big and bold, is ordinary text to the converter.</p>
+<ul>
+<li><b>The outline comes from structure.</b> See the template guide for yours.
+<ul>
+<li><span class="tpl">Headings template</span> Heading 1 is a section, Heading 2 a lecture or assignment, Heading 3 a page, and Heading 4 a heading inside that page.</li>
+<li><span class="tpl">Tables template</span> The shape of a row does that job, and Heading 4 marks a heading inside a cell.</li>
+</ul></li>
+<li><b>Tracked changes count as accepted.</b> A deleted line is gone, and a moved one is where it was moved to. Hidden text is left out.</li>
+<li><b>Some things are not read at all:</b> text boxes, footnotes and endnotes, charts, SmartArt, and embedded objects such as a Visio drawing or a MathType equation. The conversion report lists each one it finds. Type the text as ordinary paragraphs, and paste a chart or diagram as a picture.</li>
+</ul>
+
+<h2 id="text">Text: bold, italics, lists, links</h2>
+<ul>
+<li><b>Bold and italics are kept</b>, in pages, questions, and answer choices alike. Use them for meaning: a key term in bold, a species or gene name in italics. Dropdown options are the exception. They cannot hold any formatting, so an option shows as plain text.</li>
+<li><b>No custom fonts, sizes, or colors.</b> The platform sets the type. Text made bigger or colored to stand out loses that on the way in, and the checker reports it. Use a heading or bold instead.</li>
+<li><b>A heading is a heading style.</b> Inside a page, use Heading 4 for a heading such as Overview or Key Takeaways. A bold line is not a heading to a screen reader.</li>
+<li><b>Use the list buttons.</b> Numbers typed by hand (<code>1.</code>, <code>2.</code>) arrive as literal text, and the checker reports them. Indent a bullet with the list's own indent to nest it.</li>
+<li><b>No empty lines for spacing.</b> The platform spaces paragraphs itself, and an empty paragraph is an extra gap that the checker reports.</li>
+<li><b>A line break counts as a new paragraph.</b> Shift+Enter ends the line just as Enter does. That matters after a label: a line broken off under <code>Video File Name:</code> is page text, not part of the file name.</li>
+<li><b>Paste without formatting.</b> Text copied from a website, a slide, or another document brings its fonts and colors with it, and the checker reports them. Paste with Ctrl+Shift+V (⌘+Shift+V on a Mac) to bring the words only.</li>
+<li><b>Links are real links.</b> Use Insert › Link, and make the linked words say where it goes ("the MIT Climate Portal article on sea level"), not "click here".</li>
+</ul>
+
+<h2 id="pictures">Pictures</h2>
+<p>Paste the picture where it should appear, and name and describe it with two lines just under it:</p>
+<pre tabindex="0"><code>[the picture, pasted here]
+File Name: Membrane_Receptor_Diagram
+Alt Text: A receptor protein spanning the cell membrane, with a signal molecule bound to its outer end.</code></pre>
+<ul>
+<li><b>Alt text is required.</b> A learner using a screen reader gets nothing else. Describe what the picture shows that the text around it does not. A picture with no alt text gets a stand-in (<code>Diagram: NAME</code>), and the report lists it to fix.</li>
+<li><b>The file name has no extension.</b> Leave out <code>: * ? " &lt; &gt; | #</code>, and do not use a folder name. Two pictures may not share a name.</li>
+<li><b>The picture goes where its line puts it.</b> On a page, it follows the line it is pasted on. In an answer choice, paste it on the choice's line, and the choice shows the picture. In a problem's explanation, it shows inside Show Answer.</li>
+<li><b>PNG or JPEG.</b> A diagram pasted from PowerPoint or Visio often arrives as EMF or WMF, which no browser shows. The report flags it; export the diagram as a PNG and paste that instead.</li>
+<li><b>Size is set for you.</b> A wide diagram shows at up to 600 pixels, other pictures at up to 480, and every picture shrinks to fit a phone. You do not need to resize it in the document.</li>
+</ul>
+
+<h2 id="tables">Tables</h2>
+<p>A data table on a page is built as a table, with its header row and merged cells kept.</p>
+<ul>
+<li><b>Bold the first row.</b> A bold first row becomes the table's column headings, which a screen reader announces with each cell.</li>
+<li><b>Name the table with a <code>Caption:</code> line</b> just above it: <code>Caption: Enzyme activity at five temperatures</code>.</li>
+<li><b>Merged cells are kept</b> as Word shows them, so a heading merged across two columns heads both.</li>
+<li><b>Borders are not kept.</b> Tables are built without them, so do not use a border or a color to carry meaning.</li>
+<li><b>Tables are for data, not layout.</b> Do not use a table to place text and a picture side by side.</li>
+<li><b>Dropdowns can sit in a table</b> as a problem; see <a href="problem-authoring-guide.html#3-dropdown">Dropdown</a>.</li>
+</ul>
+<p><span class="tpl">Tables template</span> The whole module is already a table. A data table you insert inside a right-hand cell is read as a table after that cell's words.</p>
+
+<h2 id="math">Math and science notation</h2>
+<p>Type math as MathJax between <code>\(</code> and <code>\)</code>, for example <code>\(2 \times 10^{-5}\)</code> or <code>\(H_2O\)</code>. Screen readers read MathJax correctly. Word's superscript and subscript formatting is not announced, so a screen reader can read 10<sup>-5</sup> as "10 minus 5".</p>
+<p>Avoid Word's own equation editor. An equation built there arrives as a plain line of text (<code>p² + 2pq + q² = 1</code>), and one with a part a line cannot hold, such as a matrix, is reported instead of built. What to write as MathJax and what is fine as plain text is in <a href="math-markup.html">Accessible Math &amp; Science Markup</a>.</p>
+
+<h2 id="markers">The markers in square brackets</h2>
+<p>A word in square brackets followed by a colon or by the closing bracket, such as <code>[TEXT]</code> or <code>[embed: …]</code>, is a marker: an instruction to the converter. Learners never see a marker. Square brackets with a slash inside are a dropdown, so <code>[Text/&amp;Image]</code> is a dropdown, not a marker.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Markers, scrollable"><table>
+<thead><tr><th scope="col">Marker</th><th scope="col">What it makes</th><th scope="col">Where it goes</th></tr></thead>
+<tbody>
+<tr><td><code>[TEXT]</code></td><td>A text component on a page with problems, so a passage or a picture shows on the page instead of in the problem before it</td><td>At the start of the first line of the text, after a problem's explanation</td></tr>
+<tr><td><code>[word cloud]</code></td><td>A word cloud: learners type a few words, then see everyone's</td><td>At the start of the prompt's line, usually the opening question before a lecture's first video</td></tr>
+<tr><td><code>[embed: https://…]</code></td><td>Another site's page, such as a simulation, in a frame on the page</td><td>At the end of the line that names it</td></tr>
+<tr><td><code>(X)</code> and <code>(&nbsp;&nbsp;)</code></td><td>The correct and the other choices of a multiple choice</td><td>At the start of each answer choice</td></tr>
+<tr><td><code>[X]</code> and <code>[&nbsp;&nbsp;]</code></td><td>The correct and the other choices of a checkbox</td><td>At the start of each answer choice</td></tr>
+<tr><td><code>[G1/&amp;S/M]</code></td><td>A dropdown; <code>&amp;</code> marks the correct option</td><td>In the sentence, where the dropdown appears</td></tr>
+</tbody></table></div>
+
+<h3 id="text-marker"><code>[TEXT]</code>: text between problems</h3>
+<p>On a page with problems, every line after a problem is read as part of it, so a passage written there ends up in the explanation, behind Show Answer. Start the passage with <code>[TEXT]</code> and it shows on the page instead. When the passage has a title, give the title a Heading 4 instead of using <code>[TEXT]</code>. Either way, the text runs to the next problem, heading, or marker.</p>
+<pre tabindex="0"><code>Explanation: …the end of the problem before it.
+[TEXT] The council meets again in spring to review the plan.
+Problem Type: multiple choice
+…</code></pre>
+<p><span class="tpl">Tables template</span> You can also give the text a row of its own under the problem, with the page's name cell merged down beside it. See <a href="module-template-tables.html#components">A page in several components</a>.</p>
+<p>A page with no problems needs no <code>[TEXT]</code>: an overview or a summary is text already. Setup for the next question needs none either. Write it just above that question's <code>Problem Type:</code>, and it shows above the question.</p>
+
+<h3 id="word-cloud"><code>[word cloud]</code>: the opening question</h3>
+<p>Write the marker, then the prompt, then the instructions, all on one line:</p>
+<pre tabindex="0"><code>[word cloud] What comes to mind when you hear "climate"? Summarize your thoughts in three words or less. Submit up to three answers. After submission, you will see a word cloud of responses from everyone.</code></pre>
+<ul>
+<li><b>The prompt goes after the brackets, not inside them.</b> <code>[word cloud: What comes to mind?]</code> is not read as a word cloud. It is shown as written, and the conversion report says so.</li>
+<li><b>"Submit up to three answers" sets the number of boxes.</b> Change the number there to change how many answers a learner gives.</li>
+<li><b>Every word is yours.</b> The converter adds nothing, so the template's standard instructions stay as written unless you change them.</li>
+</ul>
+
+<h3 id="embed"><code>[embed: …]</code>: a page from another site</h3>
+<p>Put the address in the marker at the end of the line that names the page:</p>
+<pre tabindex="0"><code>Membrane Transport simulation [embed: https://phet.colorado.edu/sims/html/membrane-transport/latest/membrane-transport_all.html]</code></pre>
+<ul>
+<li><b>The line's words name the frame.</b> They stay on the page above it, and a screen reader announces the frame by them, so make them say what the page is. A marker alone on its line takes the name of the heading above it, and the report says so.</li>
+<li><b>Use the <code>https://</code> address.</b> A browser blocks an <code>http://</code> page inside the course.</li>
+<li><b>YouTube and Vimeo links work as copied</b> from the address bar; they are turned into the site's player. Course lecture videos still use <code>Video File Name:</code>, which gives the player its transcript.</li>
+<li><b>Not in a data table</b>, and not on the module's title. A frame does not fit there, so the marker is reported and not built.</li>
+<li><span class="tpl">Tables template</span> A page's own right-hand cell is fine: that cell is the page, not a data table.</li>
+<li><b>Try it in Studio.</b> The converter cannot tell whether a site allows its page in a frame, or whether that page works with a keyboard and a screen reader. The report lists every embedded page to check in Studio's preview.</li>
+</ul>
+<p>A misspelled marker (<code>[embde: …]</code>), or one without its brackets, is named in the conversion report.</p>
+
+<h3 id="choices">Answer choices and dropdowns</h3>
+<p><code>(X)</code>, <code>[X]</code>, and the dropdown's <code>[…/&amp;…]</code> are covered in full in <a href="problem-authoring-guide.html">Problem Templates</a>. Two reminders:</p>
+<ul>
+<li><b>Round brackets for one answer, square for several.</b> A checkbox needs <code>[X]</code> on every correct option.</li>
+<li><b>Quote a dropdown option that has its own slash or brackets</b>: <code>[&amp;"I/O Port Count"/Bandwidth]</code>. Without the quotes, the slash splits the option in two.</li>
+</ul>
+
+<h3 id="video-file">Video files in brackets</h3>
+<p>The tables template writes a video's cell as <code>[video file]</code>. Either template reads these:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Video file markers, scrollable"><table>
+<thead><tr><th scope="col">You write</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><td><code>[video file: UCE_0023_S1]</code></td><td>The same as <code>Video File Name: UCE_0023_S1</code>. A cell still reading <code>[video file]</code> is a video still waiting for its file.</td></tr>
+<tr><td><code>[transcript file: UCE_0023_S1_transcript]</code></td><td>The same as <code>Transcript File Name:</code></td></tr>
+</tbody></table></div>
+
+<h3 id="platform-team">Notes for the platform team</h3>
+<p>When the platform team adds text for you, such as an article from the MIT Climate Portal, leave a note where it goes instead of pasting it in. The note is written differently in each template:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Platform team notes, scrollable"><table>
+<thead><tr><th scope="col">Template</th><th scope="col">Write the note as</th></tr></thead>
+<tbody>
+<tr><td>Tables</td><td><code>[Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.]</code> alone in a row of its own</td></tr>
+<tr><td>Headings</td><td><code>&lt;&lt;The platform team pastes the article text here: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/…&gt;&gt;</code> alone on its line</td></tr>
+</tbody></table></div>
+<ul>
+<li><b>Include the words "platform team".</b> That is how the note is told apart from template text you forgot to replace.</li>
+<li><b>Learners never see the note.</b> Its place says "Content for this page is still in development" until the platform team pastes the text in Studio, and the conversion report lists it under Finish in Studio.</li>
+<li><span class="tpl">Headings template</span> Do not write the note in square brackets. Square brackets are your own text there, so the note would be shown to learners.</li>
+</ul>
+
+<h2 id="placeholders">Placeholders and square brackets of your own</h2>
+<ul>
+<li><b><code>&lt;&lt; &gt;&gt;</code> is template text to replace.</b> Delete the whole span, brackets and all, and write your own words. A line that is only a placeholder is left off the page and reported, so a forgotten one never reaches learners, but the page it was on is reported as unwritten.</li>
+<li><span class="tpl">Tables template</span> Some placeholders are written in square brackets, such as <code>[Name of Video 1]</code>, and are read as placeholders.</li>
+<li><span class="tpl">Headings template</span> Square brackets are always your own text, never a placeholder.</li>
+<li><b>Square brackets of your own are kept.</b> A reference <code>[1]</code>, an interval <code>[0, 1]</code>, a citation <code>[IPCC, 2021]</code>, or <code>[sic]</code> shows as you wrote it.</li>
+<li><b>A quotation in angle brackets</b> needs guillemets, <code>« »</code>. Typed as <code>&lt;&lt; &gt;&gt;</code>, it is taken for a placeholder.</li>
+</ul>
+
+<h2 id="labels">The labels</h2>
+<p>A label is a word or two and a colon at the start of a line: <code>Question:</code>, <code>Alt Text:</code>. The converter reads the label and uses what follows it. Learners never see the label itself.</p>
+<ul>
+<li><b>Spell it as the template does.</b> A near miss (<code>Alt Txt:</code>, <code>Expanation:</code>) is not read as the label. The conversion report names it, so it can be fixed.</li>
+<li><b>A hint in brackets is fine.</b> <code>Trailing label (if applicable):</code> and <code>Alt Text (required):</code> are read as the label.</li>
+<li><b>Bold on a label does not matter.</b> A label is read whether or not it is bold.</li>
+<li><b>Separate alternatives with semicolons.</b> <code>Also accept: mitotic division; mitosis</code>. A comma is read as part of one answer.</li>
+</ul>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Labels, scrollable"><table>
+<thead><tr><th scope="col">For</th><th scope="col">Labels</th></tr></thead>
+<tbody>
+<tr><td>Every problem</td><td><code>Problem Type:</code> · <code>Title:</code> (optional, names the problem) · <code>Question:</code> · <code>Explanation:</code></td></tr>
+<tr><td>Choice problems</td><td><code>Answer choices:</code></td></tr>
+<tr><td>Typed answers</td><td><code>Correct answer:</code> · <code>Also accept:</code> · <code>Accepted range:</code> · <code>Trailing label:</code></td></tr>
+<tr><td>Open-ended</td><td><code>Grading:</code> · <code>Model answer:</code></td></tr>
+<tr><td>Poll</td><td><code>Poll question:</code> · <code>Poll answers:</code> · <code>Feedback:</code> · <code>Show results to learners:</code> · <code>Submissions allowed:</code></td></tr>
+<tr><td>Drag and drop</td><td><code>Zones:</code> · <code>Items (drag to the correct zone):</code></td></tr>
+<tr><td>Videos</td><td><code>Video File Name:</code> · <code>Transcript File Name:</code></td></tr>
+<tr><td>Pictures and tables</td><td><code>File Name:</code> · <code>Alt Text:</code> · <code>Caption:</code></td></tr>
+</tbody></table></div>
+
+<h2 id="problems">What happens to a problem's lines</h2>
+<p>The full rules for each problem type are in <a href="problem-authoring-guide.html">Problem Templates</a>. These are the parts that surprise people.</p>
+
+<h3 id="show-answer">What ends up behind Show Answer</h3>
+<p>Learners see a problem's question and options before they answer, and its explanation only after. So everything written after the answer goes behind Show Answer:</p>
+<ul>
+<li><b>A line between the answer and the explanation</b>, after the choices or after a typed key. It is shown first inside Show Answer, because on the page it could give the answer away. The same goes for a picture or a table written there.</li>
+<li><b>Everything under the explanation</b>: every paragraph, list, picture, and table, up to the next heading, label, answer choice, or question. An explanation can run to several paragraphs, and all of them stay behind Show Answer.</li>
+</ul>
+<p>To put something on the page after a problem, start it with <code>[TEXT]</code> or give it a Heading 4 (see <a href="#text-marker"><code>[TEXT]</code></a>). To show it before the question, write it just above <code>Problem Type:</code>.</p>
+
+<h3 id="answer-keys">How a typed answer is read</h3>
+<p>For short answer:</p>
+<ul>
+<li><b>A note in brackets after the answer is ignored.</b> <code>Correct answer: mitosis (case-insensitive)</code> accepts "mitosis". Case, surrounding spaces, and a final full stop never matter.</li>
+<li><b>Keep the answer to a word or a short phrase.</b> An answer that is a whole sentence becomes a model answer that learners read. It is not graded, and the report says so.</li>
+<li><b>Leave <code>Also accept:</code> off when there is nothing else to accept.</b> <code>Also accept: N/A</code> adds no answer.</li>
+</ul>
+<p>For numerical input:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Numerical answers, scrollable"><table>
+<thead><tr><th scope="col">You write</th><th scope="col">It is read as</th></tr></thead>
+<tbody>
+<tr><td><code>20 ± 2</code></td><td>20, accepting 18 to 22</td></tr>
+<tr><td><code>86-90</code> or <code>86 to 90</code></td><td>Any number from 86 to 90 (smaller number first)</td></tr>
+<tr><td><code>88%</code></td><td>88, with % shown after the answer box</td></tr>
+<tr><td><code>25 mL</code></td><td>25, with mL shown after the answer box</td></tr>
+<tr><td><code>1,500</code></td><td>1500</td></tr>
+<tr><td><code>6.02 × 10^23</code></td><td>6.02e23</td></tr>
+<tr><td><code>$25</code></td><td>25. Nothing can show before the box, so name the currency in the question.</td></tr>
+</tbody></table></div>
+<p>If you also give a <code>Trailing label:</code>, make it the same unit as the answer. A different unit turns the problem into a short answer, and the report says so.</p>
+
+<h3 id="all-of-the-above">"All of the above" and "None of the above"</h3>
+<p>A multiple choice's options are shuffled for each learner, but an option about the others, "All of the above" or "None of the above", stays where you wrote it, after the rest. Write it last.</p>
+
+<h3 id="title">Naming a problem with <code>Title:</code></h3>
+<p>A problem takes its page's name. To give one problem its own name, write <code>Title:</code> just above its <code>Problem Type:</code>:</p>
+<pre tabindex="0"><code>Title: Knowledge Check: Atmospheric Composition
+Problem Type: multiple choice
+Question: …</code></pre>
+<ul>
+<li><b>It names that one problem only.</b> The next problem, with no <code>Title:</code> of its own, takes the page's name again.</li>
+<li><b>It replaces the heading's name</b> for that problem, in the course and in the Studio outline, and the report says so.</li>
+<li><b>Setup between <code>Title:</code> and <code>Problem Type:</code></b>, such as a passage, a picture, or a table, is shown above the question.</li>
+</ul>
+
+<h2 id="checklist">Before you hand it off</h2>
+<ul>
+<li>No <code>&lt;&lt; &gt;&gt;</code> left, except notes for the platform team.</li>
+<li>Every picture has a <code>File Name:</code> and an <code>Alt Text:</code> line.</li>
+<li>No text boxes, footnotes, or equations from Word's equation editor.</li>
+<li>Numbers and bullets come from the list buttons, not typed by hand.</li>
+<li>Every problem has its <code>Problem Type:</code> line and an explanation, except a poll.</li>
+<li>Text meant for the page after a problem starts with <code>[TEXT]</code> or a Heading 4.</li>
+<li>Every <code>[embed: …]</code> line names what it embeds, with an <code>https://</code> address.</li>
+<li>Tracked changes are accepted or rejected, so what you see is what is converted.</li>
+<li>The checker shows no errors, and you have looked at each warning.</li>
+</ul>
+  </main>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-11-02</span></footer>
+</body>
+</html>

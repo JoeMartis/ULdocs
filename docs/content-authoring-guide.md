@@ -268,6 +268,9 @@ learner the answer — it teaches the concept behind it.
 
 ## 8. Formatting
 
+How to format each thing in the template — text, pictures, tables, and the
+bracketed markers — is in [Formatting & Markers](formatting-and-markers.html).
+
 - **No custom font, size, or color** — let the platform's styling apply.
 - **Bold** with the template's own bold formatting, not a colored/enlarged
   font. **Section headings** in overview/summary pages use Heading 4.

@@ -11,6 +11,7 @@ The template you were given, and the standards that apply to what you put in it.
 - **[Authoring a UL Module in Tables](module-template-tables.html)** — The two-column table template, where each row is a page. Same problem types, different document shape.
 - **[Problem Templates](problem-authoring-guide.html)** — How to author each problem type, with worked examples and what makes a strong explanation. The same guidance is inside the template itself.
 - **[Content Authoring Guide](content-authoring-guide.html)** — General writing, formatting, terminology, and page-structure rules for course content.
+- **[Formatting & Markers](formatting-and-markers.html)** — How to format text, pictures, and tables in either template, and what each bracketed marker like [TEXT] does.
 - **[Accessible Math & Science Markup](math-markup.html)** — How to write math and science notation so screen readers read it correctly.
 - **[Attempts Policy](attempts-policy.html)** — How many attempts each problem type gets in knowledge checks and assignments.
 
