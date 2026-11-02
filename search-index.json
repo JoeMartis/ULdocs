@@ -1902,5 +1902,145 @@
   "anchor": "text-blocks",
   "heading": "Text and pictures after a problem",
   "text": "Everything after a problem in its cell is read as part of that problem. A passage or a figure written there ends up in the problem's explanation, behind Show Answer. Give it a row of its own instead, as in A page in several components: write it in the right-hand cell of a new row under the problem, and merge the page's name cell down beside it. It becomes a text component after the problem, with its pictures where you put them. To keep it in the same cell, give it a Heading 4 when it has a title: the heading ends the problem, is shown above the text, and names the text component in Studio. With no title, start its first line with [TEXT]. Either way, everything up to the next problem is one text component. Explanation: …the end of the problem before it. [TEXT] The council meets again in spring to review the plan. Here is the city map. File Name: City_Map Alt Text: A map of Manabe City showing its three districts. [the picture, pasted here] The map shows three districts, each with its own flood risk. A page with no problems needs neither. Overview, lecture text, and Summary rows are text already. Setup for a question goes just above its Problem Type:, in the same cell. It is shown above that question, as part of the problem. Do not use a text box. The converter cannot read text inside a text box (Insert › Text Box in Word). It only reports that one was left out. Type the text as ordinary paragraphs in the cell."
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "reads",
+  "heading": "How the converter reads your document",
+  "text": "The converter reads your document's structure, not how it looks. A line is a heading because it has a heading style, a list because it uses the list buttons, a problem because it has a Problem Type: line. Something that only looks right, like a line made big and bold, is ordinary text to the converter. The outline comes from structure. See the template guide for yours. Headings template Heading 1 "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "text",
+  "heading": "Text: bold, italics, lists, links",
+  "text": "Bold and italics are kept, in pages, questions, and answer choices alike. Use them for meaning: a key term in bold, a species or gene name in italics. Dropdown options are the exception. They cannot hold any formatting, so an option shows as plain text. No custom fonts, sizes, or colors. The platform sets the type. Text made bigger or colored to stand out loses that on the way in, and the checker "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "pictures",
+  "heading": "Pictures",
+  "text": "Paste the picture where it should appear, and name and describe it with two lines just under it: [the picture, pasted here] File Name: Membrane_Receptor_Diagram Alt Text: A receptor protein spanning the cell membrane, with a signal molecule bound to its outer end. Alt text is required. A learner using a screen reader gets nothing else. Describe what the picture shows that the text around it does n"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "tables",
+  "heading": "Tables",
+  "text": "A data table on a page is built as a table, with its header row and merged cells kept. Bold the first row. A bold first row becomes the table's column headings, which a screen reader announces with each cell. Name the table with a Caption: line just above it: Caption: Enzyme activity at five temperatures. Merged cells are kept as Word shows them, so a heading merged across two columns heads both. "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "math",
+  "heading": "Math and science notation",
+  "text": "Type math as MathJax between \\( and \\), for example \\(2 \\times 10^{-5}\\) or \\(H_2O\\). Screen readers read MathJax correctly. Word's superscript and subscript formatting is not announced, so a screen reader can read 10 -5 as \"10 minus 5\". Avoid Word's own equation editor. An equation built there arrives as a plain line of text ( p² + 2pq + q² = 1), and one with a part a line cannot hold, such as a "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "markers",
+  "heading": "The markers in square brackets",
+  "text": "A word in square brackets followed by a colon or by the closing bracket, such as [TEXT] or [embed: …], is a marker: an instruction to the converter. Learners never see a marker. Square brackets with a slash inside are a dropdown, so [Text/&Image] is a dropdown, not a marker. Marker What it makes Where it goes [TEXT] A text component on a page with problems, so a passage or a picture shows on the p"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "text-marker",
+  "heading": "[TEXT]: text between problems",
+  "text": "On a page with problems, every line after a problem is read as part of it, so a passage written there ends up in the explanation, behind Show Answer. Start the passage with [TEXT] and it shows on the page instead. When the passage has a title, give the title a Heading 4 instead of using [TEXT]. Either way, the text runs to the next problem, heading, or marker. Explanation: …the end of the problem "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "word-cloud",
+  "heading": "[word cloud]: the opening question",
+  "text": "Write the marker, then the prompt, then the instructions, all on one line: [word cloud] What comes to mind when you hear \"climate\"? Summarize your thoughts in three words or less. Submit up to three answers. After submission, you will see a word cloud of responses from everyone. The prompt goes after the brackets, not inside them. [word cloud: What comes to mind?] is not read as a word cloud. It i"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "embed",
+  "heading": "[embed: …]: a page from another site",
+  "text": "Put the address in the marker at the end of the line that names the page: Membrane Transport simulation [embed: https://phet.colorado.edu/sims/html/membrane-transport/latest/membrane-transport_all.html] The line's words name the frame. They stay on the page above it, and a screen reader announces the frame by them, so make them say what the page is. A marker alone on its line takes the name of the"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "choices",
+  "heading": "Answer choices and dropdowns",
+  "text": "(X), [X], and the dropdown's […/&…] are covered in full in Problem Templates. Two reminders: Round brackets for one answer, square for several. A checkbox needs [X] on every correct option. Quote a dropdown option that has its own slash or brackets: [&\"I/O Port Count\"/Bandwidth]. Without the quotes, the slash splits the option in two."
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "video-file",
+  "heading": "Video files in brackets",
+  "text": "The tables template writes a video's cell as [video file]. Either template reads these: You write What it does [video file: UCE_0023_S1] The same as Video File Name: UCE_0023_S1. A cell still reading [video file] is a video still waiting for its file. [transcript file: UCE_0023_S1_transcript] The same as Transcript File Name:"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "platform-team",
+  "heading": "Notes for the platform team",
+  "text": "When the platform team adds text for you, such as an article from the MIT Climate Portal, leave a note where it goes instead of pasting it in. The note is written differently in each template: Template Write the note as Tables [Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.] alone in a row of its own Heading"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "placeholders",
+  "heading": "Placeholders and square brackets of your own",
+  "text": "<< >> is template text to replace. Delete the whole span, brackets and all, and write your own words. A line that is only a placeholder is left off the page and reported, so a forgotten one never reaches learners, but the page it was on is reported as unwritten. Tables template Some placeholders are written in square brackets, such as [Name of Video 1], and are read as placeholders. Headings templ"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "labels",
+  "heading": "The labels",
+  "text": "A label is a word or two and a colon at the start of a line: Question:, Alt Text:. The converter reads the label and uses what follows it. Learners never see the label itself. Spell it as the template does. A near miss ( Alt Txt:, Expanation:) is not read as the label. The conversion report names it, so it can be fixed. A hint in brackets is fine. Trailing label (if applicable): and Alt Text (requ"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "problems",
+  "heading": "What happens to a problem's lines",
+  "text": "The full rules for each problem type are in Problem Templates. These are the parts that surprise people."
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "show-answer",
+  "heading": "What ends up behind Show Answer",
+  "text": "Learners see a problem's question and options before they answer, and its explanation only after. So everything written after the answer goes behind Show Answer: A line between the answer and the explanation, after the choices or after a typed key. It is shown first inside Show Answer, because on the page it could give the answer away. The same goes for a picture or a table written there. Everythi"
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "answer-keys",
+  "heading": "How a typed answer is read",
+  "text": "For short answer: A note in brackets after the answer is ignored. Correct answer: mitosis (case-insensitive) accepts \"mitosis\". Case, surrounding spaces, and a final full stop never matter. Keep the answer to a word or a short phrase. An answer that is a whole sentence becomes a model answer that learners read. It is not graded, and the report says so. Leave Also accept: off when there is nothing "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "all-of-the-above",
+  "heading": "\"All of the above\" and \"None of the above\"",
+  "text": "A multiple choice's options are shuffled for each learner, but an option about the others, \"All of the above\" or \"None of the above\", stays where you wrote it, after the rest. Write it last."
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "title",
+  "heading": "Naming a problem with Title:",
+  "text": "A problem takes its page's name. To give one problem its own name, write Title: just above its Problem Type:: Title: Knowledge Check: Atmospheric Composition Problem Type: multiple choice Question: … It names that one problem only. The next problem, with no Title: of its own, takes the page's name again. It replaces the heading's name for that problem, in the course and in the Studio outline, and "
+ },
+ {
+  "page": "formatting-and-markers.html",
+  "pageTitle": "Formatting & Markers",
+  "anchor": "checklist",
+  "heading": "Before you hand it off",
+  "text": "No << >> left, except notes for the platform team. Every picture has a File Name: and an Alt Text: line. No text boxes, footnotes, or equations from Word's equation editor. Numbers and bullets come from the list buttons, not typed by hand. Every problem has its Problem Type: line and an explanation, except a poll. Text meant for the page after a problem starts with [TEXT] or a Heading 4. Every [em"
  }
 ]
