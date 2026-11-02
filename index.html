@@ -246,7 +246,12 @@
              the tool card would mean making that card a container with two
              links instead of an anchor, leaving one card in the grid that does
              not behave like the others. -->
-        <p class="group-lede">All three open in a new tab. The Module Preview has a <a href="preview-your-module.html">guide to using it</a>, and the Slide Description Writer has a <a href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">full manual<span class="sr-only"> (external site, opens in a new tab)</span></a>.</p>
+        <!-- While the Module Preview card is hidden (below), this sentence
+             counts two tools. Restoring the card, put back:
+             All three open in a new tab. The Module Preview has a
+             <a href="preview-your-module.html">guide to using it</a>, and the
+             Slide Description Writer has a ... -->
+        <p class="group-lede">Both open in a new tab. The Slide Description Writer has a <a href="https://claude.ai/code/artifact/cd59ab2f-215c-41a9-926d-45d878cb7481" target="_blank" rel="noopener">full manual<span class="sr-only"> (external site, opens in a new tab)</span></a>.</p>
         <div class="grid">
 
           <!-- The tool cards open in a new tab so an author does not lose the
@@ -256,12 +261,16 @@
                sites can still see that their traffic came from here. Opening a
                new tab unannounced is what WCAG 3.2.5 is about, so the sr-only
                note says so — the ↗ in the eyebrow is the sighted equivalent. -->
+          <!-- Module Preview card hidden for now. To restore it, delete this
+               line and the "end hidden" line below, and put back the
+               sentence above the grid.
           <a class="card tool" href="https://github.mit.edu/pages/jmartis/wordthang-converter/" target="_blank" rel="noopener">
             <span class="num" aria-hidden="true">TOOL &#8599;</span>
             <h3>Module Preview <span class="sr-only">(external site, opens in a new tab)</span></h3>
             <p>Download your Google Doc as a Word document, drop it in, and see every page as learners will, with what to fix beside it. Your document stays on your computer.</p>
             <span class="go">Open the tool</span>
           </a>
+          end hidden Module Preview card -->
 
           <a class="card tool" href="https://joemartis.github.io/Explain2Me/" target="_blank" rel="noopener">
             <span class="num" aria-hidden="true">TOOL &#8599;</span>
