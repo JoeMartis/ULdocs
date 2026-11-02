@@ -401,6 +401,24 @@ footer p { max-width: 44rem; }
     <p><b>Merge the name cell, not the content cells.</b> Start the merge at the row that holds the name. A merged cell with nothing in it names no page, so its rows are read as more of the page above, and the conversion report says so. A right-hand cell merged down across rows is reported as a table problem to fix.</p>
   </div>
 
+  <h3 id="text-blocks">Text and pictures after a problem</h3>
+  <p>Everything after a problem in its cell is read as part of that problem. A passage or a figure written there ends up in the problem's explanation, behind Show Answer. Give it a row of its own instead, as in <a href="#components">A page in several components</a>: write it in the right-hand cell of a new row under the problem, and merge the page's name cell down beside it. It becomes a text component after the problem, with its pictures where you put them.</p>
+  <p>To keep it in the same cell, start its first line with <code>[TEXT]</code>. Everything from the marker to the next problem is one text component.</p>
+  <pre tabindex="0"><span class="key">Explanation:</span> …the end of the problem before it.
+<span class="key">[TEXT]</span> The council meets again in spring to review the plan.
+Here is the city map.
+<span class="key">File Name:</span> City_Map
+<span class="key">Alt Text:</span> A map of Manabe City showing its three districts.
+[the picture, pasted here]
+The map shows three districts, each with its own flood risk.</pre>
+  <ul class="plain">
+    <li><b>A page with no problems needs neither.</b> Overview, lecture text, and Summary rows are text already.</li>
+    <li><b>Setup for a question goes just above its <code>Problem Type:</code></b>, in the same cell. It is shown above that question, as part of the problem.</li>
+  </ul>
+  <div class="note warn">
+    <p><b>Do not use a text box.</b> The converter cannot read text inside a text box (Insert › Text Box in Word). It only reports that one was left out. Type the text as ordinary paragraphs in the cell.</p>
+  </div>
+
   <h3 id="platform-notes">Text the platform team adds</h3>
   <p>When the platform team puts text in for you — an article from the MIT Climate Portal, for example — do not paste it into the document. Give it a row of its own on the page, and write a note there for the platform team, in square brackets:</p>
   <pre tabindex="0" style="white-space:pre-wrap">[Article: How Do We Know Climate Change Is Happening? https://climate.mit.edu/explainers/… The platform team pastes the article text here.]</pre>
@@ -742,6 +760,10 @@ meiosis halves it to make gametes…</pre>
       <dt>Renaming a video, not its checks</dt>
       <dd>A knowledge check takes its video's name. Nothing reports the mismatch, so it is worth a second look after any rename.</dd>
     </div>
+    <div>
+      <dt>Text after a problem in the same cell</dt>
+      <dd>A passage or a picture written after a problem is read as part of that problem, so it ends up in its explanation, behind Show Answer, and learners never see it on the page. Give it a row of its own, or start its first line with <code>[TEXT]</code> (see <a href="#text-blocks">Text and pictures after a problem</a>).</dd>
+    </div>
   </dl>
 </section>
 
@@ -749,7 +771,7 @@ meiosis halves it to make gametes…</pre>
 
 <footer>
   <p><b>If the checker says something you think is wrong, it may well be.</b> Dismiss it and carry on — then say so, because a rule that misfires on a real module is a rule worth fixing rather than working around.</p>
-  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-15</span></p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-11-02</span></p>
 </footer>
 
 </div>

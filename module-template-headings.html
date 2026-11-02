@@ -406,6 +406,27 @@ footer p { max-width: 44rem; }
   <pre tabindex="0"><span class="key">Video File Name:</span> UB-CellBio_Components_01_Intro_v2
 <span class="key">Transcript File Name:</span> UB-CellBio_Components_01_Intro_v2_transcript</pre>
   <p style="margin-top:.9rem;font-size:.93rem;color:var(--ink-soft)">No file extension on the video name. A picture page uses <code>File Name:</code> and <code>Alt Text:</code> instead — and the alt text is required, because a learner using a screen reader gets nothing else.</p>
+
+  <h3 id="text-blocks">Text and pictures between problems</h3>
+  <p>On a page with problems, every line after a problem is read as part of that problem, up to the next <code>Problem Type:</code>. A passage or a figure written there ends up in the problem's explanation, behind Show Answer. To show it on the page as text, start its first line with <code>[TEXT]</code>.</p>
+  <pre tabindex="0"><span class="key">Explanation:</span> …the end of the problem before it.
+
+<span class="key">[TEXT]</span> The council meets again in spring to review the plan.
+Here is the city map.
+<span class="key">File Name:</span> City_Map
+<span class="key">Alt Text:</span> A map of Manabe City showing its three districts.
+[the picture, pasted here]
+The map shows three districts, each with its own flood risk.
+
+<span class="key">Problem Type:</span> multiple choice</pre>
+  <ul class="plain">
+    <li><b>The text runs to the next <code>Problem Type:</code></b>, heading, or marker. Everything up to there is one text component, with its pictures where you put them.</li>
+    <li><b>A page with no problems needs no marker.</b> Overview, lecture text, and Summary pages are text already.</li>
+    <li><b>Setup for the next question goes just above its <code>Problem Type:</code></b>, with no <code>[TEXT]</code>. It is shown above that question, as part of the problem.</li>
+  </ul>
+  <div class="note warn">
+    <p><b>Do not use a text box.</b> The converter cannot read text inside a text box (Insert › Text Box in Word). It only reports that one was left out. Type the text as ordinary paragraphs.</p>
+  </div>
 </section>
 
 <!-- ══ 03 PROBLEM TYPES ═══════════════════════════════════ -->
@@ -714,6 +735,10 @@ meiosis halves it to make gametes…</pre>
       <dt>Typing your own numbering</dt>
       <dd><code>1.</code> <code>2.</code> <code>3.</code> typed by hand becomes literal text after conversion. Use the document's list buttons.</dd>
     </div>
+    <div>
+      <dt>Text after a problem with no <code>[TEXT]</code></dt>
+      <dd>A passage or a picture written after a problem is read as part of that problem, so it ends up in its explanation, behind Show Answer, and learners never see it on the page. Start its first line with <code>[TEXT]</code> (see <a href="#text-blocks">Text and pictures between problems</a>).</dd>
+    </div>
   </dl>
 </section>
 
@@ -721,7 +746,7 @@ meiosis halves it to make gametes…</pre>
 
 <footer>
   <p><b>If the checker says something you think is wrong, it may well be.</b> Dismiss it and carry on — then say so, because a rule that misfires on a real module is a rule worth fixing rather than working around.</p>
-  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-15</span></p>
+  <p class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-11-02</span></p>
 </footer>
 
 </div>
