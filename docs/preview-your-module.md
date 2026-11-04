@@ -122,3 +122,11 @@ bar at the top says when the document was last read.
 
 In other browsers, the preview does not see your saves. After you save in
 Word, select **Choose it again…** and pick the document again.
+
+## Start over
+
+Select **Start over** at the top of the page to clear everything: the
+document shown (the preview stops following its saves), the video list,
+the document offered again on your next visit, and the page you were on in
+each document. You return to the start page, as on a first visit. Your
+choice of **Simple** or **edX** is kept.

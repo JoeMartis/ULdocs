@@ -1897,6 +1897,13 @@
   "text": "This is for a document you save in Word. For a Google Doc, see Start from your Google Doc. In Chrome or Edge, keep the preview open while you work. Each time you save in Word, the preview reads your document again and shows the change, usually within a few seconds, on the page you were looking at. The bar at the top says when the document was last read. If Word is still saving when the preview reads the document, the preview keeps showing the version before your save and tries again. If it still cannot read the save, it says so above the page. Read it again reads the document straight away. Choose another… opens a different document. The next time you open the preview, Preview your document again opens the same document. Chrome or Edge may ask you to allow the preview to read it. In other browsers, the preview does not see your saves. After you save in Word, select Choose it again… and pick the document again."
  },
  {
+  "page": "preview-your-module.html",
+  "pageTitle": "Preview Your Module",
+  "anchor": "start-over",
+  "heading": "Start over",
+  "text": "Select Start over at the top of the page to clear everything: the document shown (the preview stops following its saves), the video list, the document offered again on your next visit, and the page you were on in each document. You return to the start page, as on a first visit. Your choice of Simple or edX is kept."
+ },
+ {
   "page": "module-template-headings.html",
   "pageTitle": "Authoring a UL Module",
   "anchor": "text-blocks",
