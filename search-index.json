@@ -1866,7 +1866,7 @@
   "pageTitle": "Preview Your Module",
   "anchor": "open-your-document",
   "heading": "Open your document",
-  "text": "Open the Module Preview. The first visit loads about 12 MB, so “Getting the preview ready…” shows for a few seconds. Later visits are faster. Select Choose your document… and pick your module’s Word document, or drag the document onto the page. The first page of your module appears. A large module takes a few seconds to read. The preview reads Word documents (.docx). If your document is a .doc, is saved as a Strict Open XML Document, or is protected by a password, open it in Word and save it as a Word Document (.docx) with no password."
+  "text": "Open the Module Preview. The first visit loads about 12 MB, so “Getting the preview ready…” shows for a few seconds. Later visits are faster. Select Choose your document… and pick your module’s Word document, or drag the document onto the page. The preview reads it and shows its name and number of pages. If you have the course’s video list, add it now; you can also drop the document and the list together. Select Preview your module. The first page of your module appears. The preview reads Word documents (.docx). If your document is a .doc, is saved as a Strict Open XML Document, or is protected by a password, open it in Word and save it as a Word Document (.docx) with no password."
  },
  {
   "page": "preview-your-module.html",
@@ -1880,7 +1880,7 @@
   "pageTitle": "Preview Your Module",
   "anchor": "play-your-videos",
   "heading": "Play your videos",
-  "text": "Add the video platform’s list of the course’s videos, the same CSV used to build the course (with the columns Name, Video ID, Status, hls URL and desktop_mp4 URL), and each video plays in its place on the page. Select Add your video list (CSV)… under Choose your document…, or Add video list… at the top of the page once a document is open. You can also drop the CSV onto the page. Each video your document names is matched to the list by its file name, the same way the course build matches it. The top of the page shows how many were found. Each video not found is listed under Videos to set up, with the reason. The preview keeps the list for your next visit; select Remove to stop using it. Transcripts still do not show. If a video does not play, open its desktop_mp4 address in a browser tab; it has to open without signing in to edX."
+  "text": "Add the video platform’s list of the course’s videos, the same CSV used to build the course (with the columns Name, Video ID, Status, hls URL and desktop_mp4 URL), and each video plays in its place on the page. Select Add your video list (CSV)… on the start page, before or after choosing your document, or Add video list… at the top of the page once your module is shown. You can also drop the CSV onto the page. Each video your document names is matched to the list by its file name, the same way the course build matches it. The top of the page shows how many were found. Each video not found is listed under Videos to set up, with the reason. The preview keeps the list for your next visit; select Remove to stop using it. Transcripts still do not show. If a video does not play, open its desktop_mp4 address in a browser tab; it has to open without signing in to edX."
  },
  {
   "page": "preview-your-module.html",

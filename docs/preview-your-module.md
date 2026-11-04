@@ -35,9 +35,12 @@ other than Chrome and Edge, **Choose it again…**) and pick the new download.
 1. Open the Module Preview. The first visit loads about 12 MB, so "Getting
    the preview ready…" shows for a few seconds. Later visits are faster.
 2. Select **Choose your document…** and pick your module's Word document, or
-   drag the document onto the page.
-3. The first page of your module appears. A large module takes a few seconds
-   to read.
+   drag the document onto the page. The preview reads it, which takes a few
+   seconds for a large module, and shows its name and number of pages.
+3. If you have the course's video list, add it now (see
+   [Play your videos](#play-your-videos)). You can also drop the document
+   and the list onto the page together.
+4. Select **Preview your module**. The first page of your module appears.
 
 The preview reads Word documents (.docx). If your document is a .doc, is
 saved as a Strict Open XML Document, or is protected by a password, open it
@@ -72,8 +75,9 @@ Add the video platform's list of the course's videos, the same CSV used to
 build the course (with the columns Name, Video ID, Status, hls URL and
 desktop_mp4 URL), and each video plays in its place on the page.
 
-1. Select **Add your video list (CSV)…** under **Choose your document…**, or
-   **Add video list…** at the top of the page once a document is open. You
+1. Select **Add your video list (CSV)…** on the start page, before or after
+   choosing your document, or **Add video list…** at the top of the page
+   once your module is shown. You
    can also drop the CSV onto the page, with the document or on its own.
 2. Each video your document names is matched to the list by its file name,
    the same way the course build matches it. A video found plays with the
