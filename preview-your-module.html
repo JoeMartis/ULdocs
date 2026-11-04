@@ -88,7 +88,9 @@ you do not need Studio.</p>
 <p><strong><a href="https://github.mit.edu/pages/jmartis/wordthang-converter/" target="_blank" rel="noopener">Open the Module Preview</a></strong> (opens in a new tab)</p>
 <h2 id="your-document-stays-on-your-computer">Your document stays on your computer</h2>
 <p>The preview reads your document in your own browser. It is not uploaded
-anywhere, and nobody else can see it.</p>
+anywhere, and nobody else can see it. If you add a video list, the videos
+play from the video platform, as any web video does; your document and the
+list stay in your browser.</p>
 <h2 id="start-from-your-google-doc">Start from your Google Doc</h2>
 <p>Your module is a Google Doc, and the preview reads Word documents. To preview
 it, download a copy as a Word document:</p>
@@ -132,7 +134,31 @@ the next time you open the same document.</p>
 learners see them, but you cannot answer them in the preview. Select
 <strong>Preview the answer</strong> under a problem to see the answer and explanation
 that learners see once they finish it. Videos show where they will play,
-and say when a video still needs its ID set in Studio.</p>
+and say when a video still needs its ID set in Studio. To watch them in
+place, add your video list: see <a href="#play-your-videos">Play your videos</a>.</p>
+<h2 id="play-your-videos">Play your videos</h2>
+<p>Add the video platform&rsquo;s list of the course&rsquo;s videos, the same CSV used to
+build the course (with the columns Name, Video ID, Status, hls URL and
+desktop_mp4 URL), and each video plays in its place on the page.</p>
+<ol>
+<li>Select <strong>Add your video list (CSV)&hellip;</strong> under <strong>Choose your document&hellip;</strong>, or
+<strong>Add video list&hellip;</strong> at the top of the page once a document is open. You
+can also drop the CSV onto the page, with the document or on its own.</li>
+<li>Each video your document names is matched to the list by its file name,
+the same way the course build matches it. A video found plays with the
+usual controls.</li>
+<li>The top of the page shows how many of your document&rsquo;s videos were found,
+for example &ldquo;2 of 4 found&rdquo;. Each video that was not found is listed under
+<strong>Videos to set up</strong> for its page, with the reason: no video in the list
+has that name, its upload has not finished, or the list has only an
+earlier version of it.</li>
+</ol>
+<p>The preview keeps the list for your next visit. Select <strong>Remove</strong> to stop
+using it. If the platform&rsquo;s list changes, add the new one. In Chrome or
+Edge, a new export saved over the same file is read again by itself.</p>
+<p>Transcripts still do not show: they are uploaded in Studio. If a video does
+not play, open its desktop_mp4 address from the list in a browser tab; the
+address has to open without signing in to edX.</p>
 <h2 id="fix-what-it-finds">Fix what it finds</h2>
 <p><strong>To fix in the document</strong> lists what to change in your Word document for
 the page shown, such as a picture with no alt text or a problem missing its
@@ -160,6 +186,6 @@ read it.</li>
 <p>In other browsers, the preview does not see your saves. After you save in
 Word, select <strong>Choose it again&hellip;</strong> and pick the document again.</p>
   </main>
-  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-10-26</span></footer>
+  <footer class="pagefoot">Author guides · <a href="index.html">back to index</a> · <span id="last-updated">Last updated: 2026-11-04</span></footer>
 </body>
 </html>

@@ -1852,7 +1852,7 @@
   "pageTitle": "Preview Your Module",
   "anchor": "your-document-stays-on-your-computer",
   "heading": "Your document stays on your computer",
-  "text": "The preview reads your document in your own browser. It is not uploaded anywhere, and nobody else can see it."
+  "text": "The preview reads your document in your own browser. It is not uploaded anywhere, and nobody else can see it. If you add a video list, the videos play from the video platform, as any web video does; your document and the list stay in your browser."
  },
  {
   "page": "preview-your-module.html",
@@ -1873,7 +1873,14 @@
   "pageTitle": "Preview Your Module",
   "anchor": "see-it-as-learners-do",
   "heading": "See it as learners do",
-  "text": "Switch between two looks with Simple and edX at the top of the page. Simple shows the course outline on the left, the page in the middle, and To fix in the document on the right. edX is laid out like the course’s own learning page: the breadcrumb at the top (select a section or subsection name to jump to another), the row of pages in the subsection, and Previous and Next. Select Course in the breadcrumb to see the course outline, and Resume to return to the page you were on. Move between pages with Previous and Next, or select a page in the outline. The preview remembers which page you were on, and returns you there the next time you open the same document. Problems show their questions, choices, Submit button, and attempts as learners see them, but you cannot answer them in the preview. Select Preview the answer under a problem to see the answer and explanation that learners see once they finish it. Videos show where they will play, and say when a video still needs its ID set in Studio."
+  "text": "Switch between two looks with Simple and edX at the top of the page. Simple shows the course outline on the left, the page in the middle, and To fix in the document on the right. edX is laid out like the course’s own learning page: the breadcrumb at the top (select a section or subsection name to jump to another), the row of pages in the subsection, and Previous and Next. Select Course in the breadcrumb to see the course outline, and Resume to return to the page you were on. Move between pages with Previous and Next, or select a page in the outline. The preview remembers which page you were on, and returns you there the next time you open the same document. Problems show their questions, choices, Submit button, and attempts as learners see them, but you cannot answer them in the preview. Select Preview the answer under a problem to see the answer and explanation that learners see once they finish it. Videos show where they will play, and say when a video still needs its ID set in Studio. To watch them in place, add your video list: see Play your videos."
+ },
+ {
+  "page": "preview-your-module.html",
+  "pageTitle": "Preview Your Module",
+  "anchor": "play-your-videos",
+  "heading": "Play your videos",
+  "text": "Add the video platform’s list of the course’s videos, the same CSV used to build the course (with the columns Name, Video ID, Status, hls URL and desktop_mp4 URL), and each video plays in its place on the page. Select Add your video list (CSV)… under Choose your document…, or Add video list… at the top of the page once a document is open. You can also drop the CSV onto the page. Each video your document names is matched to the list by its file name, the same way the course build matches it. The top of the page shows how many were found. Each video not found is listed under Videos to set up, with the reason. The preview keeps the list for your next visit; select Remove to stop using it. Transcripts still do not show. If a video does not play, open its desktop_mp4 address in a browser tab; it has to open without signing in to edX."
  },
  {
   "page": "preview-your-module.html",

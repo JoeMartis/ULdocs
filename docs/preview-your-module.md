@@ -10,7 +10,9 @@ you do not need Studio.
 ## Your document stays on your computer
 
 The preview reads your document in your own browser. It is not uploaded
-anywhere, and nobody else can see it.
+anywhere, and nobody else can see it. If you add a video list, the videos
+play from the video platform, as any web video does; your document and the
+list stay in your browser.
 
 ## Start from your Google Doc
 
@@ -61,7 +63,34 @@ Problems show their questions, choices, Submit button, and attempts as
 learners see them, but you cannot answer them in the preview. Select
 **Preview the answer** under a problem to see the answer and explanation
 that learners see once they finish it. Videos show where they will play,
-and say when a video still needs its ID set in Studio.
+and say when a video still needs its ID set in Studio. To watch them in
+place, add your video list: see [Play your videos](#play-your-videos).
+
+## Play your videos
+
+Add the video platform's list of the course's videos, the same CSV used to
+build the course (with the columns Name, Video ID, Status, hls URL and
+desktop_mp4 URL), and each video plays in its place on the page.
+
+1. Select **Add your video list (CSV)…** under **Choose your document…**, or
+   **Add video list…** at the top of the page once a document is open. You
+   can also drop the CSV onto the page, with the document or on its own.
+2. Each video your document names is matched to the list by its file name,
+   the same way the course build matches it. A video found plays with the
+   usual controls.
+3. The top of the page shows how many of your document's videos were found,
+   for example "2 of 4 found". Each video that was not found is listed under
+   **Videos to set up** for its page, with the reason: no video in the list
+   has that name, its upload has not finished, or the list has only an
+   earlier version of it.
+
+The preview keeps the list for your next visit. Select **Remove** to stop
+using it. If the platform's list changes, add the new one. In Chrome or
+Edge, a new export saved over the same file is read again by itself.
+
+Transcripts still do not show: they are uploaded in Studio. If a video does
+not play, open its desktop_mp4 address from the list in a browser tab; the
+address has to open without signing in to edX.
 
 ## Fix what it finds
 
