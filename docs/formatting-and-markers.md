@@ -42,7 +42,7 @@ The converter reads your document's structure, not how it looks. A line is a hea
 
 ## Pictures
 
-Paste the picture where it should appear, and name and describe it with two lines just under it:
+Paste the picture where it should appear, and name and describe it with two lines just under it, and a caption if you want one:
 
 ```
 [the picture, pasted here]
@@ -52,6 +52,7 @@ Alt Text: A receptor protein spanning the cell membrane, with a signal molecule 
 
 - **Alt text is required.** A learner using a screen reader gets nothing else. Describe what the picture shows that the text around it does not. A picture with no alt text gets a stand-in (`Diagram: NAME`), and the report lists it to fix.
 - **The file name has no extension.** Leave out `: * ? " < > | #`, and do not use a folder name. Two pictures may not share a name.
+- **A caption is optional.** Add a `Caption:` line under the other two: `Caption: Figure 1: A receptor with its signal molecule bound.` The caption shows beneath the picture in smaller text. It is plain text, so bold and links in it are not kept. If a table comes straight after the line, the table takes the caption instead, so put a line of text between them.
 - **The picture goes where its line puts it.** On a page, it follows the line it is pasted on. In an answer choice, paste it on the choice's line, and the choice shows the picture. In a problem's explanation, it shows inside Show Answer.
 - **PNG or JPEG.** A diagram pasted from PowerPoint or Visio often arrives as EMF or WMF, which no browser shows. The report flags it; export the diagram as a PNG and paste that instead.
 - **Size is set for you.** A wide diagram shows at up to 600 pixels, other pictures at up to 480, and every picture shrinks to fit a phone. You do not need to resize it in the document.
