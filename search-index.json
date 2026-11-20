@@ -1922,7 +1922,7 @@
   "pageTitle": "Formatting & Markers",
   "anchor": "pictures",
   "heading": "Pictures",
-  "text": "Paste the picture where it should appear, and name and describe it with two lines just under it: [the picture, pasted here] File Name: Membrane_Receptor_Diagram Alt Text: A receptor protein spanning the cell membrane, with a signal molecule bound to its outer end. Alt text is required. A learner using a screen reader gets nothing else. Describe what the picture shows that the text around it does n"
+  "text": "Paste the picture where it should appear, and name and describe it with two lines just under it, and a Caption: line if you want a caption: [the picture, pasted here] File Name: Membrane_Receptor_Diagram Alt Text: A receptor protein spanning the cell membrane, with a signal molecule bound to its outer end. Alt text is required. A learner using a screen reader gets nothing else. Describe what the picture shows that the text around it does n"
  },
  {
   "page": "formatting-and-markers.html",
